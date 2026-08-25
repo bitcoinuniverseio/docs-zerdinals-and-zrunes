@@ -22,6 +22,10 @@ The indexer journals every event with its block height and hash. When the chain 
 
 Zcash fees under ZIP 317: 5,000 zatoshis per logical action, computed from the actual shape of each transaction. A simple send is 2 actions (10,000 zatoshis). A full 4-piece inscription reveal is about 8 actions. A typical ZRune mint is about 4 to 5 actions. The network relays nothing below this conventional fee, so it is a floor, not an estimate. The product always shows the complete fee breakdown (network fee, any service fee, totals in ZEC and zatoshis, and a labeled fiat estimate) before you sign anything.
 
+## Is the product usable with a keyboard or a screen reader?
+
+Yes. The interface works with keyboard navigation (including a skip-to-content link), announces status and progress changes to screen readers, and disables animation when your system asks for reduced motion.
+
 ## Which wallets work?
 
 Wallet integration is currently in progress. Today you can inspect any transparent address read-only: its inscriptions, its ZRune balances, and its activity, through ZordiScan and the portfolio surfaces. Creating and transferring through the product flow requires the wallet integration, and the inscribe wizard says plainly where it stops today. The wallet design is fixed: private keys never leave the wallet, the backend prepares effects-only transaction intents, and the wallet independently verifies every input, output, and commitment before signing.
