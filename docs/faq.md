@@ -14,6 +14,12 @@ Shielding does not make an asset private; it destroys its tracking. If an inscri
 
 If you need financial privacy on Zcash, use shielded ZEC in a shielded wallet, and keep that activity separate from your artifact activity.
 
+## Why does the site say the chain is still being read?
+
+Everything the product shows comes from Universe-operated Zcash nodes reading the chain from the beginning; no third-party chain service is used anywhere. Until a node has read the whole chain, we cannot tell the difference between "this does not exist" and "we have not reached the block it is in", so we say which situation you are in and show the blocks read against the chain length.
+
+While that is the case, no page reports a count of Zerdinals, ZRunes, collections, or activity, because any such number would be wrong. Creating and transferring are gated on the same evidence.
+
 ## What happens in a chain reorganization?
 
 The indexer journals every event with its block height and hash. When the chain reorganizes, everything recomputes deterministically from the surviving chain: inscriptions in orphaned blocks revert to pending or disappear exactly as chain state dictates, and sequence numbers and ownership are recalculated. Sequence numbers are stable only after confirmation depth, which is why fresh inscriptions display their provisional nature honestly. A reorg deeper than the supported automatic bound stops the indexer for operator repair rather than serving wrong data.

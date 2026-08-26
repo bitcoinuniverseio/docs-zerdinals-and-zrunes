@@ -38,3 +38,16 @@ A Zerdinal detail page can export a share card: a 1200 by 630 PNG drawn entirely
 ## Honesty rules
 
 Status information (node height, indexer height, lag, mempool state) is always shown honestly; stale data is labeled STALE with the checkpoint time. Chain literals (txids, addresses, heights, hashes) render in full or with an explicit middle ellipsis plus a copy control, never truncated silently.
+
+## What an empty result means
+
+A Zcash node has to read the chain from the beginning before anything on it can be indexed, and that takes time. While it is doing so, a section with nothing in it is not a statement that nothing exists: the artifacts may sit in blocks the node has not reached.
+
+The product distinguishes these cases and never blurs them:
+
+1. The chain is still being read. The status bar shows SCANNING with the blocks read, the chain length, and the percentage verified, and every empty section repeats those figures instead of reporting a count. Absence here means nothing at all.
+2. No records yet. Shown only once the whole chain has been read. This is a real, checkable statement that nothing of that kind exists.
+3. Indexer unreachable. The service could not be reached, so nothing can be said either way. Nothing is hidden or lost.
+4. Data is stale. The last known values are still shown, labeled, with the time they were last confirmed.
+
+The same rule governs asset safety. Universe Wallet asks the indexer whether an output carries a Zerdinal or a ZRune before it will let you spend it. Until the chain has been read in full, an output with nothing recorded against it is reported as unverified rather than clear, so a wallet refuses to spend it instead of risking an artifact it cannot yet see.
