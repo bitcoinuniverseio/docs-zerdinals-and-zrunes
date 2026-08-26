@@ -21,6 +21,14 @@ Before spending from an address, you can check what it holds on its ZordiScan pa
 
 The chain read that backs this product publishes a per-output verdict on whether an output carries an asset, and that verdict fails closed: while the chain has not been read in full, an output with no recorded asset is reported as unchecked rather than as clear, because an output created in a block nobody has read yet is indistinguishable from one that never carried anything. A wallet that consults it therefore cannot be told an unknown output is safe to spend.
 
+## Can one output hold more than one inscription?
+
+Yes, and on this chain it is common. Gathering many inscriptions onto a single output is ordinary practice, and today 1,581 mainnet outputs hold 26,826 inscriptions between them. One of them carries several hundred.
+
+This matters when you spend. An output is spent whole: you cannot send part of one. If an output carries three hundred inscriptions and you spend it, all three hundred move to whoever receives it, in one transaction, whether or not you meant to move more than one. There is no way to split them apart in the same step, and nothing about the amount of ZEC on the output hints at how much is riding on it.
+
+So before you spend, check what the output actually carries rather than what you remember putting there. The ZordiScan page for an address lists every inscription against the output holding it, and the per-output verdict this product publishes names every asset on an output rather than the first one it finds.
+
 ## Why do two explorers give different numbers for the same token?
 
 Because they read the same blocks under different rules, and both are being honest about what they computed.
