@@ -6,6 +6,29 @@ Yes. The content bytes live in the reveal transaction scripts on the Zcash chain
 
 Universe Zerdinals v1 adds a commitment: the commit transaction's address is derived from a hash of your exact content and content type. This means the chain committed to your content before any content byte was broadcast, and anything that does not match that commitment is not your inscription. You can verify the commitment yourself with a node and the specification.
 
+## How do people accidentally destroy an inscription?
+
+By spending it as ordinary money.
+
+An inscription is not a separate object sitting beside your coins. It is attached to one specific transparent output, and that output holds a small amount of ZEC like any other. A wallet that does not know about inscriptions sees only that small amount. If it selects that output to pay a fee or to make up change, the inscription goes to whoever receives that output, or is destroyed. Nothing warns you, and nothing undoes it.
+
+Two habits avoid it:
+
+1. Keep the addresses that hold artifacts separate from the addresses you spend from.
+2. Do not send ordinary payments from a wallet that is not inscription aware, including a general purpose mobile wallet that happens to hold the same keys.
+
+Before spending from an address, you can check what it holds on its ZordiScan page: inscriptions, ZRune balances, and ZRC-20 balances are all listed there.
+
+The chain read that backs this product publishes a per-output verdict on whether an output carries an asset, and that verdict fails closed: while the chain has not been read in full, an output with no recorded asset is reported as unchecked rather than as clear, because an output created in a block nobody has read yet is indistinguishable from one that never carried anything. A wallet that consults it therefore cannot be told an unknown output is safe to spend.
+
+## Why do two explorers give different numbers for the same token?
+
+Because they read the same blocks under different rules, and both are being honest about what they computed.
+
+ZRC-20 was defined by its implementations rather than by a specification, and those implementations differ. One requires a ticker to be four or five bytes; the other accepts any length, so a longer ticker exists for one and does not exist at all for the other. One accepts a mint for any amount up to the per-mint limit; the other accepts only a mint for exactly the limit, so a partial mint counts once and not twice. Different operations counting means different supply, different holders, different mint progress.
+
+Most explorers pick one set of rules and print the result without saying which. This product computes both and shows them side by side, marks the figures where they part, and names the reading every number came from. Differences that cannot be settled without inventing a fact, such as a rule whose activation height nobody recorded, are listed as undecided rather than guessed. See [ZRC-20 tokens](tokens.md).
+
 ## Can my inscription or ZRune be private?
 
 No. Zerdinals and ZRunes use transparent Zcash transactions. Content, addresses, balances, and activity are publicly visible, forever.
