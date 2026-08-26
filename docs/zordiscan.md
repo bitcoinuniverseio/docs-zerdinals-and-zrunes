@@ -13,8 +13,17 @@ One search field classifies what you typed and routes you to the right page:
 5. Zerdinal inscription id: a transaction id followed by an i and a number.
 6. ZRune name: uppercase letters, with or without bullet spacers (Z•RUNE finds ZRUNE), or a ZRune id in block:tx form.
 7. Collection slug: lowercase kebab-case.
+8. Token ticker: short uppercase letters. A ticker and a ZRune name share the same alphabet, so ZERO could be either. ZordiScan says so and offers both routes rather than guessing; pressing Open takes you to the token, where nearly all of this chain's token activity lives.
 
 Classification never fabricates a result; an input that matches nothing says so.
+
+## Finding artifacts among the bookkeeping
+
+Most of what is written to this chain is token bookkeeping: ZRC-20 deploys, mints, and transfers, all of them small JSON documents. In an unfiltered feed they bury the images and the writing.
+
+Discover therefore shows **artifacts** by default and lets you switch to token operations or to everything. The split is taken from what the protocol parsers actually found in each inscription, not from its media type, because a token operation and a piece of writing are both plain text on the wire. A second filter narrows by media: image, text, HTML, JSON, video, audio, or 3D.
+
+Discover lists the newest inscriptions first. When a filter returns nothing, it says the filter is why rather than implying the chain holds nothing.
 
 ## Three views on every detail page
 
