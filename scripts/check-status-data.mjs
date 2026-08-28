@@ -2,14 +2,13 @@
 // Fails the build when src/data/status.json is missing a field the status
 // page publishes, holds an undefined value, or has gone stale. A docs deploy
 // must never publish an undefined product status.
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 const here = dirname(fileURLToPath(import.meta.url));
-const status = JSON.parse(
-  readFileSync(join(here, '..', 'src', 'data', 'status.json'), 'utf8')
-);
+const root = join(here, '..');
+const status = JSON.parse(readFileSync(join(root, 'src', 'data', 'status.json'), 'utf8'));
 
 const failures = [];
 function require_(condition, message) {
