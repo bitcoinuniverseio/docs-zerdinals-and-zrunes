@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Open the live product
+    url: https://zrunes.io
+    about: The product this repository documents.
+  - name: Read the documentation site
+    url: https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/
+    about: The rendered, searchable version of this repository.
+  - name: Report a security problem
+    url: https://github.com/bitcoinuniverseio/docs-zerdinals-and-zrunes/security/policy
+    about: Vulnerabilities are handled privately, never in public issues.
