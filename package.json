@@ -20,14 +20,14 @@
     "test": "npm run check:copy && npm run check:public-safety && npm run check:status && npm run check:markdown"
   },
   "dependencies": {
-    "@astrojs/starlight": "^0.36.2",
+    "@astrojs/starlight": "^0.41.10",
     "@fontsource-variable/geist": "^5.2.8",
     "@fontsource-variable/geist-mono": "^5.2.8",
-    "astro": "^5.13.4",
-    "sharp": "^0.34.3",
-    "starlight-links-validator": "^0.17.1"
+    "astro": "^7.2.9",
+    "sharp": "^0.35.4",
+    "starlight-links-validator": "^0.25.3"
   },
   "devDependencies": {
-    "markdownlint-cli2": "^0.18.1"
+    "markdownlint-cli2": "^0.23.2"
   }
 }
