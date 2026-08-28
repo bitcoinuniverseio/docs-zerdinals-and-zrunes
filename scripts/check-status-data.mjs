@@ -34,6 +34,30 @@ for (const key of ['zerdinals', 'zrunes', 'collections']) {
 const ageDays = (Date.now() - Date.parse(status.verifiedAt)) / 86_400_000;
 require_(ageDays < 45, `status was verified ${Math.floor(ageDays)} days ago; refresh it (npm run status:refresh)`);
 
+// Screenshots show the product's navigation, so one taken from a different
+// commit than the deployed one is wrong rather than merely dated. Every row
+// of the manifest must name the deployed commit and an image that exists.
+const manifestPath = join(root, 'public', 'screenshots', 'MANIFEST.md');
+const manifest = readFileSync(manifestPath, 'utf8');
+const rows = manifest
+  .split('\n')
+  .filter((line) => line.startsWith('| ') && line.includes('.png'))
+  .map((line) => line.split('|').map((cell) => cell.trim()));
+
+require_(rows.length > 0, 'the screenshot manifest lists no captures');
+for (const row of rows) {
+  const [, file, commit] = row;
+  require_(
+    existsSync(join(root, 'public', 'screenshots', file)),
+    `the manifest lists ${file}, which does not exist`
+  );
+  require_(
+    commit === status.product.deployedCommit,
+    `${file} was captured at ${commit.slice(0, 12)} but the deployed product is ` +
+      `${status.product.deployedCommit.slice(0, 12)}; recapture it and update the manifest`
+  );
+}
+
 if (failures.length > 0) {
   console.error('status.json is not publishable:');
   for (const failure of failures) console.error('  - ' + failure);
