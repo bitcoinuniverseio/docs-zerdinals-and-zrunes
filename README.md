@@ -27,3 +27,7 @@ the same thing at the top of its own Learn page.
 Where two independent readers of ZRC-20 disagree, it prints both and names each, rather than
 choosing one silently. Where the chain has not been read in full, it says so instead of showing an
 empty catalogue.
+
+Four destinations carry the whole product: Discover, Tokens, Create and Scan. Search is on every
+page, on the slash key, and it tells you what a pasted value is before it opens anything.
+[Getting around](docs/zordiscan.md) covers both.
