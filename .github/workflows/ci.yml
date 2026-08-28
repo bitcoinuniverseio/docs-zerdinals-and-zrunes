@@ -1,0 +1,51 @@
+name: ci
+
+on:
+  push:
+    branches: [develop, main]
+  pull_request:
+
+# This repository is public, so jobs run on GitHub-hosted runners: fork pull
+# requests must never reach self-hosted infrastructure.
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.19.0
+          cache: npm
+      - name: Deterministic install
+        run: npm ci
+      - name: Copy guard (long dash, banned word, marketing phrases)
+        run: npm run check:copy
+      - name: Public-safety scan (private hostnames, IPs, secret shapes)
+        run: npm run check:public-safety
+      - name: Status data is complete and fresh
+        run: npm run check:status
+      - name: Markdown lint
+        run: npm run check:markdown
+      - name: Build (validates every internal link and anchor)
+        run: npm run build
+      - name: External links
+        run: npm run check:external-links
+      - name: Search index exists
+        run: test -f dist/pagefind/pagefind.js
+      - name: Sitemap exists
+        run: test -f dist/sitemap-index.xml
+      - name: Secret scan (full history)
+        uses: trufflesecurity/trufflehog@v3.90.5
+        with:
+          base: ''
+          head: ''
+          extra_args: --only-verified

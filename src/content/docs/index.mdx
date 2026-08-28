@@ -1,0 +1,77 @@
+---
+title: Documentation
+description: The record of what has been written into Zcash, read from a node the operators run. Documentation for collectors, creators, and developers.
+template: splash
+hero:
+  title: The record of what has been written into Zcash
+  tagline: Zerdinals inscriptions, ZRunes, ZRC-20 tokens, and collections, read from the chain by first-party infrastructure and shown with their proof. This is the documentation for the product at zrunes.io.
+  image:
+    alt: 'The product mark: a square split by a diagonal, the transparent half filled, the shielded half outlined'
+    file: ../../../public/mark.svg
+  actions:
+    - text: Open the product
+      link: https://zrunes.io
+      icon: external
+      variant: primary
+    - text: What this is
+      link: /docs-zerdinals-and-zrunes/start/what-this-is/
+      icon: right-arrow
+      variant: secondary
+---
+
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+## Choose your path
+
+<CardGrid>
+  <LinkCard
+    title="I collect"
+    href="/docs-zerdinals-and-zrunes/start/safety/"
+    description="Start with the one way people lose these assets, then learn what your addresses hold and how to watch them."
+  />
+  <LinkCard
+    title="I create"
+    href="/docs-zerdinals-and-zrunes/create/inscribe/"
+    description="Inscribe a Zerdinal or etch a ZRune. The flows, the fees, and exactly what is available today."
+  />
+  <LinkCard
+    title="I build"
+    href="/docs-zerdinals-and-zrunes/developers/api/"
+    description="Read the public HTTP API, the architecture, and the normative protocol specifications."
+  />
+</CardGrid>
+
+## What you are looking at
+
+<CardGrid>
+  <Card title="Read from the chain, by us" icon="approve-check">
+    Every figure on zrunes.io comes from a Zcash node and an indexer the same
+    team operates. Nothing is quoted from a third party and nothing is
+    estimated. Where the chain has not been read in full, the product says so
+    instead of showing an empty catalogue.
+  </Card>
+  <Card title="The shielded pool is a state, not a gap" icon="seti:lock">
+    An artifact spent into a shielded pool provably exists and cannot be
+    observed. The product records that as a terminal state and never guesses a
+    shielded owner. [How that works](/docs-zerdinals-and-zrunes/understand/transparent-and-shielded/).
+  </Card>
+  <Card title="Two ZRC-20 readings, both named" icon="seti:json">
+    Two independent rule sets read the same blocks and disagree about some
+    tokens. The product computes both, shows both, and marks every figure with
+    the reading it came from. [Why](/docs-zerdinals-and-zrunes/understand/zrc-20/).
+  </Card>
+  <Card title="Honest availability" icon="information">
+    Creating and transferring require wallet signing that is still gated;
+    the product and these docs say so plainly rather than showing controls
+    that cannot finish. [Current status](/docs-zerdinals-and-zrunes/start/status/).
+  </Card>
+</CardGrid>
+
+## Safety in one paragraph
+
+An inscription or a ZRune balance lives on one specific transparent output,
+and that output also holds a small amount of ZEC. A wallet that does not know
+about inscriptions can spend it as a fee or as change, and the asset goes with
+it. Keep artifact addresses separate from spending addresses, and check what
+an output carries before you spend it.
+[The sixty-second version](/docs-zerdinals-and-zrunes/start/safety/).
