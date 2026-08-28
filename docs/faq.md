@@ -51,6 +51,18 @@ Everything the product shows comes from Universe-operated Zcash nodes reading th
 
 While that is the case, no page reports a count of Zerdinals, ZRunes, collections, or activity, because any such number would be wrong. Creating and transferring are gated on the same evidence.
 
+## What happens if the site cannot reach the indexer?
+
+The page tells you once, keeps what it can still show you, and fixes itself when the service comes back.
+
+Reading this archive means asking our own indexer, and a service can be briefly unavailable: a restart, a maintenance window, a network hiccup between the site and the machine that holds the index. When that happens you get a single notice at the top of the page saying what is unavailable and what is not, and each affected section is marked with one line rather than repeating the same explanation. Anything already on screen stays on screen and is labelled as last known, because a page that cannot fetch a fresh copy has not lost the old one.
+
+Nothing recorded on the chain is affected by any of this. Your artifacts, balances and transactions live in Zcash blocks; the indexer only reads them. An outage delays what we can show you and changes nothing about what you own.
+
+The page keeps retrying on its own, less often the longer an outage lasts so it does not add load to a service already struggling, and it fills itself back in as soon as the indexer answers. You do not have to reload. If you would rather not wait, the notice carries a **Retry now** button.
+
+While the site cannot confirm current chain data, creating, etching, minting and transferring stay unavailable rather than proceeding on stale information.
+
 ## What happens in a chain reorganization?
 
 The indexer journals every event with its block height and hash. When the chain reorganizes, everything recomputes deterministically from the surviving chain: inscriptions in orphaned blocks revert to pending or disappear exactly as chain state dictates, and sequence numbers and ownership are recalculated. Sequence numbers are stable only after confirmation depth, which is why fresh inscriptions display their provisional nature honestly. A reorg deeper than the supported automatic bound stops the indexer for operator repair rather than serving wrong data.
