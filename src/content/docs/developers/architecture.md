@@ -43,7 +43,9 @@ product can put "read from a node we run" behind every figure.
 - **The gateway** exposes exactly the audited read surface documented in
   [Public HTTP API](/docs-zerdinals-and-zrunes/developers/api/): GET-only
   through the public prefix, every path segment validated against strict
-  shapes before anything is proxied.
+  shapes before anything is proxied. Its private transport keeps retrying
+  after a transient connection outage, while health stays degraded until the
+  first-party indexer can be reached again.
 - **The product backend** plans orders (inscriptions, etches, mints) as
   effects-only intents, computes ZIP 317 fees from real transaction shapes,
   and reports health honestly at `https://zrunes.io/api/ready`.
