@@ -4,7 +4,9 @@ ZordiScan is the first-party explorer for Zcash digital artifacts. It reads only
 
 ## Search
 
-One search field classifies what you typed and routes you to the right page:
+Search is available from every page. Press the slash key, or use the search field in the header,
+or open the menu on a phone. One field classifies what you typed and routes you to the right
+page:
 
 1. Block height: any plain number.
 2. Block hash or transaction id: any 64-character hex value. These two look identical, so ZordiScan offers both routes instead of guessing.
@@ -15,7 +17,13 @@ One search field classifies what you typed and routes you to the right page:
 7. Collection slug: lowercase kebab-case.
 8. Token ticker: short uppercase letters. A ticker and a ZRune name share the same alphabet, so ZERO could be either. ZordiScan says so and offers both routes rather than guessing; pressing Open takes you to the token, where nearly all of this chain's token activity lives.
 
-Classification never fabricates a result; an input that matches nothing says so.
+Classification never fabricates a result; an input that matches nothing says so, and it says what
+it checked for so you can spot a missing or extra character.
+
+The classification is shown while you type, before anything opens. That matters most for the two
+ambiguous shapes above: paste a 64-character hex value and the box tells you it is the shape of
+both a transaction id and a block hash, and offers both, rather than picking one and taking you
+somewhere you did not ask for.
 
 ## Finding artifacts among the bookkeeping
 
@@ -30,6 +38,35 @@ Discover lists the newest inscriptions first. When a filter returns nothing, it 
 1. Friendly: the human reading. What this artifact is, who owns it, what happened and when.
 2. Protocol: the protocol-level facts. Envelope fields, commitments, edicts, families, states, and events, decoded and labeled.
 3. Raw: the underlying data, unedited. Raw data stays available everywhere.
+
+## Getting around
+
+The header carries four destinations, named for what you came to do:
+
+| Destination | What is there |
+| --- | --- |
+| Discover | The archive: the newest artwork, the full record, and the way into collections and activity |
+| Tokens | ZRC-20 supply, mint progress, holders and activity, under both readings |
+| Create | Inscribe a Zerdinal, etch a ZRune, mint a ZRune |
+| Scan | ZordiScan: blocks, transactions and addresses straight from the node |
+
+Portfolio and the wallet control sit on the right. Collections, Activity, ZRunes and the
+explanation page are in the footer of every page and on Discover itself. On a phone the menu
+control opens all of them on one screen; nothing is reachable on a desktop that is not reachable
+on a phone.
+
+## What changed since you were last here
+
+Discover reports the number of numbered inscriptions that arrived since your previous visit, and a
+list of the artifacts you opened most recently.
+
+Both are stored in your browser on this device, like watchlists, with no server component and no
+account. The visit mark holds one number, the highest inscription sequence this device has seen.
+The recent list holds up to twelve public inscription ids.
+
+The count only appears when there are two real readings to subtract. A first visit is told nothing
+rather than being told that nothing happened, and a sequence that moved backwards, which means a
+reindex rather than news, is reported as nothing at all.
 
 ## Watchlists
 
@@ -54,7 +91,7 @@ A Zcash node has to read the chain from the beginning before anything on it can 
 
 The product distinguishes these cases and never blurs them:
 
-1. The chain is still being read. The status bar shows SCANNING with the blocks read, the chain length, and the percentage verified, and every empty section repeats those figures instead of reporting a count. Absence here means nothing at all.
+1. The chain is still being read. The status tape shows READING THE CHAIN with the blocks read, the chain length, and how much of it the scan covers, and every empty section repeats those figures instead of reporting a count. Absence here means nothing at all.
 2. No records yet. Shown only once the whole chain has been read. This is a real, checkable statement that nothing of that kind exists.
 3. Indexer unreachable. The service could not be reached, so nothing can be said either way. Nothing is hidden or lost.
 4. Data is stale. The last known values are still shown, labeled, with the time they were last confirmed.
