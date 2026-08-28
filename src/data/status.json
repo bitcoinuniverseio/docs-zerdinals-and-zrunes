@@ -1,16 +1,16 @@
 {
-  "verifiedAt": "2026-08-28T15:05:00Z",
+  "verifiedAt": "2026-08-28T18:27:21Z",
   "product": {
     "url": "https://zrunes.io",
-    "deployedCommit": "bd3bede4a2384f5b0780c41420e23eb07d09a61b",
-    "bundleFingerprint": "index-8iE9Irye.js"
+    "deployedCommit": "946d69c93fb8bcf7165e4d3413dbe0073e067c56",
+    "bundleFingerprint": "index-BbLNcyli.js"
   },
   "reads": {
     "available": true
   },
   "coverage": {
-    "scannedHeight": 3463723,
-    "networkHeight": 3463723,
+    "scannedHeight": 3463890,
+    "networkHeight": 3463889,
     "chainComplete": true
   },
   "writes": {
