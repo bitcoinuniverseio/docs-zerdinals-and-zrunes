@@ -1,0 +1,26 @@
+name: Documentation bug
+description: A page is wrong, misleading, broken, or contradicts the deployed product.
+labels: ['docs-bug']
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Which page
+      description: The page's URL on the documentation site, or its path in this repository.
+      placeholder: src/content/docs/create/inscribe.md
+    validations:
+      required: true
+  - type: textarea
+    id: wrong
+    attributes:
+      label: What it says, and what is actually true
+      description: Quote the wrong or misleading text, then state what you observed instead. If the product behaves differently from the docs, say where (URL, screen).
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: A transaction id, a screenshot, an API response, or steps that show the difference. Chain facts settle documentation arguments here.
+    validations:
+      required: false

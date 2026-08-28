@@ -1,0 +1,33 @@
+{
+  "name": "docs-zerdinals-and-zrunes",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Public documentation for Zerdinals and ZRunes, the Zcash digital-artifact record at zrunes.io",
+  "type": "module",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check:copy": "node scripts/check-copy-rules.mjs",
+    "check:public-safety": "node scripts/check-public-safety.mjs",
+    "check:status": "node scripts/check-status-data.mjs",
+    "check:markdown": "markdownlint-cli2 \"src/content/**/*.{md,mdx}\" \"*.md\"",
+    "check:external-links": "node scripts/check-external-links.mjs",
+    "status:refresh": "node scripts/refresh-status.mjs",
+    "test": "npm run check:copy && npm run check:public-safety && npm run check:status && npm run check:markdown"
+  },
+  "dependencies": {
+    "@astrojs/starlight": "^0.36.2",
+    "@fontsource-variable/geist": "^5.2.8",
+    "@fontsource-variable/geist-mono": "^5.2.8",
+    "astro": "^5.13.4",
+    "sharp": "^0.34.3",
+    "starlight-links-validator": "^0.17.1"
+  },
+  "devDependencies": {
+    "markdownlint-cli2": "^0.18.1"
+  }
+}
