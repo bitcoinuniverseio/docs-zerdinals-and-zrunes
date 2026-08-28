@@ -1,0 +1,75 @@
+---
+title: Current status
+description: What is live, what is gated, and when each fact was last verified against the product and the chain.
+---
+
+import status from '../../../data/status.json';
+
+**You will get from this page:** the authoritative answer to what works today.
+Every other page that mentions availability defers to this one. Values come
+from the product's public endpoints and were last verified at
+**{status.verifiedAt}**.
+
+## The product today
+
+| Fact | State |
+| --- | --- |
+| Product | <a href={status.product.url}>{status.product.url}</a>, deployed commit <code>{status.product.deployedCommit.slice(0, 12)}</code> |
+| Reading the record | {status.reads.available ? 'Available' : 'Unavailable'} |
+| Chain coverage | {status.coverage.chainComplete ? `Complete: ${status.coverage.scannedHeight.toLocaleString('en-US')} of ${status.coverage.networkHeight.toLocaleString('en-US')} blocks read` : `Partial: ${status.coverage.scannedHeight.toLocaleString('en-US')} of ${status.coverage.networkHeight.toLocaleString('en-US')} blocks read`} |
+| Creating and transferring | {status.writes.enabled ? 'Enabled' : 'Disabled, pending wallet signing qualification'} |
+| Wallet signing | {status.walletSigning.available ? 'Available' : 'Not yet available in any wallet'} |
+| ZRunes on mainnet | {status.zrunes.active ? 'Active' : `Not yet active; activation is at block ${status.zrunes.activationHeight.toLocaleString('en-US')}`} |
+
+You can check the volatile rows yourself, right now, against the same public
+endpoints this page is generated from:
+
+```text
+https://zrunes.io/api/ready
+https://zrunes.io/idx/zcash-metaprotocols/status
+```
+
+## What each row means
+
+### Reading the record
+
+Browsing, searching, and inspecting artifacts, tokens, collections,
+addresses, blocks, and transactions. This is the product's core and it is
+read-only: nothing about reading requires a wallet.
+
+### Creating and transferring
+
+The inscribe, etch, mint, and transfer flows plan real transactions and show
+real fees, and they stop at the signing step, because no wallet can sign
+these transactions yet and production writes stay disabled until wallet
+signing is qualified. The flows say this at the point where it applies; no
+control pretends an action can finish when it cannot.
+[Details](/docs-zerdinals-and-zrunes/create/signing-availability/).
+
+### ZRunes activation
+
+The ZRunes protocol ignores mainnet data outputs below its activation height
+by rule, so before that height nothing can be etched or minted and no ZRune
+exists. This is a protocol fact that any independent node reading the chain
+reproduces, not a setting on the product's side.
+[The specification](/docs-zerdinals-and-zrunes/protocols/zrunes-v1/).
+
+## Protocol versions
+
+| Protocol | Version | State |
+| --- | --- | --- |
+| Zerdinals | {status.protocolVersions.zerdinals} | Active on mainnet; also reads the pre-existing legacy envelope |
+| ZRunes | {status.protocolVersions.zrunes} | Specified; mainnet activation at block {status.zrunes.activationHeight.toLocaleString('en-US')} |
+| Collections | {status.protocolVersions.collections} | Active: parent-by-spend verification live in the product |
+
+## Known limitations
+
+The honest list of what does not work yet is kept on one page:
+[Known limitations](/docs-zerdinals-and-zrunes/help/known-limitations/).
+
+## How this page stays true
+
+The values above live in one data file in this repository. A build fails if
+any field is missing, undefined, or stale, so an outdated status cannot ship
+silently. When the product changes, one reviewed change to that file updates
+every page that references it.

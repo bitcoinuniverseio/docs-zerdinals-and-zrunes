@@ -1,0 +1,25 @@
+name: Documentation improvement
+description: Something is missing, unclear, or harder to find than it should be.
+labels: ['docs-improvement']
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: What were you trying to learn or do
+      description: The question you brought to the documentation, in your own words.
+    validations:
+      required: true
+  - type: textarea
+    id: gap
+    attributes:
+      label: Where the documentation fell short
+      description: Which pages you tried, what you searched for, and where you got stuck or gave up.
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggestion
+      description: Optional. If you know what the fix looks like (a new section, a clearer example, a link), describe it, or open a pull request directly.
+    validations:
+      required: false
