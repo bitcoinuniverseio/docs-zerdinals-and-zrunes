@@ -43,6 +43,13 @@ https://zrunes.io/idx/zcash-metaprotocols
 3. **Cursor pagination.** List responses include `next_cursor` (opaque
    string, or absent at the end). Pass it back as `?cursor=` with the same
    `limit` to continue. Cursors are stable across the reorg-safe depth.
+   `limit` is capped at 200: a larger value is clamped rather than
+   rejected, so always read the length of `items` instead of assuming you
+   received what you asked for.
+4. **Errors carry the same envelope.** A failing response is the standard
+   object with an added `error` string, so `schemaVersion`, `checkpoint`,
+   and `coverage` are available even when the request failed. There is no
+   separate error format to parse.
 
 ## Routes
 
@@ -123,11 +130,21 @@ for (const inscription of page.items) {
 
 | Status | Meaning |
 | --- | --- |
-| 400 | The path or query failed validation (a malformed id, address, or cursor) |
-| 404 | The route exists but the record does not, within read coverage |
+| 400 | A query parameter failed validation, for example `error: "invalid cursor"` |
+| 404 | The record does not exist within read coverage, and also the answer for a malformed path segment: an unreadable id is reported as not found rather than as a distinct validation failure |
 | 405 | Method other than GET or HEAD |
 | 429 | Per-client rate limit; back off and retry with delay |
 | 503 | The indexer is unavailable; retry with backoff |
+
+Two behaviors worth coding against rather than discovering:
+
+1. **A 404 does not mean the identifier was wrong.** `GET /inscriptions/NOT-AN-ID`
+   and a well-formed id that has never existed both answer 404 with an
+   `error` string. Validate identifiers on your side if you need to tell a
+   typo from an absence.
+2. **An address with nothing recorded answers 200, not 404.** The address
+   routes return the envelope with `items: []`, so an empty list is the
+   normal answer for an address this chain has never seen.
 
 Always read `coverage` before treating a 404 or an empty list as proof of
 absence.
