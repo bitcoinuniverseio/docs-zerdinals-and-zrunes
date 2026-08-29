@@ -39,6 +39,12 @@ jobs:
         run: npm run build
       - name: External links
         run: npm run check:external-links
+      - name: Install a browser for the accessibility audit
+        run: npx playwright install --with-deps chromium
+      - name: Serve the built site
+        run: npx astro preview --port 4323 &
+      - name: Accessibility and horizontal overflow, every page, both themes
+        run: npx wait-on http://localhost:4323/docs-zerdinals-and-zrunes/ && npm run check:a11y
       - name: Search index exists
         run: test -f dist/pagefind/pagefind.js
       - name: Sitemap exists
