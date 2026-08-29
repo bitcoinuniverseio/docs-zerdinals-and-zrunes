@@ -60,6 +60,29 @@ balance is burned by protocol rule; spending it entirely into a shielded pool
 is exactly that case. ZRunes are not shielded assets and are never presented
 as private.
 
+## Reading one
+
+Every ZRune has its own page, reached from the ZRunes list or by searching
+its name or its id. It states, all from the chain and none of it rounded:
+
+- how much exists, how much is still held after burns, and the most there
+  can ever be
+- the premine written into the etching
+- the mint terms: what each mint gives, how many mints are allowed, how many
+  are left, and the exact block range the window covers
+- whether a mint would count right now, and the reminder that the chain
+  decides at the block your mint lands in rather than at the moment you read
+  the page
+- the transaction that etched it, the block it landed in, and its protocol
+  sequence number
+- who holds it, by address and by how many outputs each holder's balance
+  sits on
+- everything that has happened to it, with the transaction behind each event
+
+Amounts are shown in base units with the ZRune's own decimal places applied.
+Nothing is converted through a floating point number anywhere between the
+chain and the page.
+
 ## Technical detail
 
 The protocol has three operations (etch, mint, transfer) carried in a single

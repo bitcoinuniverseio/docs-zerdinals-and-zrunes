@@ -47,6 +47,16 @@ read the name from it), then, after the commitment has at least 6
 confirmations, the etch transaction publishes the name and terms. A pending
 etch cannot be sniped from the mempool.
 
+This is the one flow that asks you to approve twice, and the wait is why.
+The transaction that etches spends an output that does not exist yet when
+you approve the commitment, and it commits to a block height chosen from the
+chain as it is at the time it is built. Signing both at once would mean
+signing a deadline picked before a wait that has not happened.
+
+The commitment carries the whole cost of the etch, so nothing your address
+does during those six blocks can invalidate the second step. Come back when
+the blocks have passed and the etch is ready to approve.
+
 Once etched, the terms are permanent. Nobody, including the etcher, can
 change the amount, cap, or window.
 
@@ -65,7 +75,12 @@ mint:
 
 ## Transfer
 
-ZRune balances attach to transparent outputs and move by output allocation:
+You say which ZRune, how much, and to whom. The product works out which of
+your outputs carry that balance and builds the exact transaction that moves
+it, and the review shows you those outputs by name before you sign.
+
+Underneath, ZRune balances attach to transparent outputs and move by output
+allocation:
 
 1. Spending ZRune-bearing outputs pools all their balances in the
    transaction.
@@ -79,6 +94,25 @@ ZRune balances attach to transparent outputs and move by output allocation:
    shielded pool burns the balance; ZRunes are never attributed to shielded
    addresses.
 
+Three consequences of that, which the product handles for you and which are
+worth knowing anyway:
+
+- **Anything you do not send comes back to you.** Every transfer the product
+  builds puts an output paying your own address first and points the
+  remainder at it, so leftovers return rather than landing on whoever you
+  were sending to. That includes balances of other ZRunes that happened to
+  share an output you spent.
+- **One ZRune per transfer, per send.** Edict ids must strictly ascend, so a
+  transaction allocates each ZRune once. Sending the same ZRune to two
+  people takes two transfers.
+- **An output carrying more than ZRunes is left alone.** If one of your
+  outputs also holds an inscription, the product refuses to spend it rather
+  than moving the inscription by accident, and tells you which output and
+  what else is on it.
+
+Only the outputs actually needed are spent. If your balance sits on several
+outputs and one covers the amount, the others are not touched.
+
 ## What can go wrong, and how to recover
 
 | Situation | What happens | What to do |
@@ -87,6 +121,8 @@ ZRune balances attach to transparent outputs and move by output allocation:
 | You broadcast the etch before the commitment is 6 blocks old | The etch is not valid | Wait for confirmations; the product will not build this early |
 | The mint cap is reached before your mint confirms | Your mint contributes nothing | Check remaining mints before minting; the count is a real chain figure |
 | A transaction's payload breaks a rule | It is a Malformed ZRunestone: input balances burn, no edict allocates | Use the product's builder, which refuses to construct anything malformed |
+| You try to etch or mint before block 3,470,000 | Nothing reads the data output, so the fee buys nothing | The product refuses to build it and names the block, so no fee is spent |
+| An output you would spend also carries an inscription | Spending it would move the inscription too | The product refuses and names the output; move the ZRune balance to an output of its own first |
 
 The malformed state is deliberately strict so that two independent
 implementations agree byte for byte. It is a hazard for hand-rolled

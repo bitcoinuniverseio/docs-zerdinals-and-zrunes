@@ -51,6 +51,20 @@ created in an unread block is indistinguishable from one that never carried
 anything. A wallet that consults the verdict cannot be told an unknown output
 is safe.
 
+## Looking at something somebody else wrote
+
+An inscription is written by whoever paid the fee. Most of it is an image or
+a record, but some of it is HTML, which is a program.
+
+The product never runs one by itself. A gallery shows a typed card and
+nothing more; a document only runs when you ask for it on its own page, and
+then it runs inside a frame that has an origin of its own. It cannot read
+the page around it, cannot reach your wallet, cannot reach the network, and
+cannot open a window, submit a form, or start a download. What you see is
+the bytes exactly as they were inscribed: they are not rewritten or cleaned
+up, because they are the artifact. What is contained is what they are
+allowed to reach.
+
 ## Everything here is public
 
 Zerdinals and ZRunes use transparent Zcash transactions. Content, addresses,
