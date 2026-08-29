@@ -39,7 +39,7 @@ ZRC-20 was defined by its implementations rather than by a specification,
 and the implementations differ in two places that can be settled from a
 transaction:
 
-| | Ticker rule | Mint amount rule |
+| Reading | Ticker rule | Mint amount rule |
 | --- | --- | --- |
 | **zord** | lowercased, 4 to 5 bytes | a mint may claim up to the per-mint limit |
 | **zecscriptions** | lowercased, any length | a mint must claim exactly the limit |

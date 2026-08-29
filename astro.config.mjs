@@ -5,6 +5,7 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightLinksValidator from 'starlight-links-validator';
 import rehypeTableScroll from './scripts/rehype-table-scroll.mjs';
+import { codeBlockAccessibility } from './scripts/ec-code-block-a11y.mjs';
 
 export default defineConfig({
   markdown: {
@@ -15,6 +16,7 @@ export default defineConfig({
   trailingSlash: 'ignore',
   integrations: [
     starlight({
+      expressiveCode: { plugins: [codeBlockAccessibility()] },
       title: 'Zerdinals and ZRunes',
       description:
         'The record of what has been written into Zcash: Zerdinals inscriptions, ZRunes, ZRC-20 tokens, collections, and the ZordiScan explorer.',
