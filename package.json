@@ -17,7 +17,8 @@
     "check:markdown": "markdownlint-cli2 \"src/content/**/*.{md,mdx}\" \"*.md\"",
     "check:external-links": "node scripts/check-external-links.mjs",
     "status:refresh": "node scripts/refresh-status.mjs",
-    "test": "npm run check:copy && npm run check:public-safety && npm run check:status && npm run check:markdown"
+    "test": "npm run check:copy && npm run check:public-safety && npm run check:status && npm run check:markdown",
+    "check:a11y": "node scripts/check-accessibility.mjs"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.41.10",
@@ -28,6 +29,9 @@
     "starlight-links-validator": "^0.25.3"
   },
   "devDependencies": {
-    "markdownlint-cli2": "^0.23.2"
+    "axe-core": "^4.13.0",
+    "markdownlint-cli2": "^0.23.2",
+    "playwright": "^1.62.1",
+    "wait-on": "^9.1.0"
   }
 }
