@@ -60,6 +60,24 @@ Markdown lint. `npm run build` additionally validates every internal link
 and anchor, and `npm run check:external-links` checks outbound links against
 the built site.
 
+The accessibility gate needs the built site, so it is separate:
+
+```bash
+npm run build
+npx astro preview --port 4323 &
+npm run check:a11y
+```
+
+It runs axe with every rule enabled over every page, in both colour schemes,
+at 375 and 1440, and fails on any violation. It also fails a page that
+scrolls sideways, because a page a reader has to pan on a phone is broken
+whether or not axe has a rule for it, and wide tables and long code samples
+are what a documentation site is full of.
+
+**A new page has to be added to the route list in
+`scripts/check-accessibility.mjs`.** That is deliberate: a page nobody audits
+should be a decision rather than an oversight.
+
 ## Pull requests
 
 - One focused change per pull request, with the reasoning in the
