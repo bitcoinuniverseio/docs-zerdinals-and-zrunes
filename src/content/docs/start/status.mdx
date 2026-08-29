@@ -15,17 +15,33 @@ from the product's public endpoints and were last verified at
 | Fact | State |
 | --- | --- |
 | Product | <a href={status.product.url}>{status.product.url}</a>, deployed commit <code>{status.product.deployedCommit.slice(0, 12)}</code> |
-| Reading the record | {status.reads.available ? 'Available' : 'Unavailable'} |
+| Reading the record | {status.reads.available ? 'Was available' : 'Was unavailable'} when checked at {status.verifiedAt} |
 | Chain coverage | {status.coverage.chainComplete ? `Complete: ${status.coverage.scannedHeight.toLocaleString('en-US')} of ${status.coverage.networkHeight.toLocaleString('en-US')} blocks read` : `Partial: ${status.coverage.scannedHeight.toLocaleString('en-US')} of ${status.coverage.networkHeight.toLocaleString('en-US')} blocks read`} |
 | Creating and transferring | {status.writes.enabled ? 'Enabled' : 'Disabled, pending wallet signing qualification'} |
 | Wallet signing | {status.walletSigning.available ? 'Available' : 'Not yet available in any wallet'} |
 | ZRunes on mainnet | {status.zrunes.active ? 'Active' : `Not yet active; activation is at block ${status.zrunes.activationHeight.toLocaleString('en-US')}`} |
 
-You can check the volatile rows yourself, right now, against the same public
-endpoints this page is generated from:
+### Which of these rows can go out of date
+
+Most rows above change only when someone ships a change, so a dated reading of
+them stays true until the next one. **Reading the record is not one of those.**
+It is a live condition: the product depends on infrastructure that can be down
+for maintenance or under load, and when that happens the site says so on the
+page itself rather than pretending. So treat that row as an observation with a
+timestamp, not as a promise about this minute.
+
+Checking it yourself takes one request, against the same public endpoint this
+page is generated from:
+
+```bash
+curl -s https://zrunes.io/api/ready
+```
+
+`"ok": true` means the record is readable right now. Anything else means it is
+not, and the product will tell you the same thing in plain words when you open
+it. The indexer's own view is at the second endpoint:
 
 ```text
-https://zrunes.io/api/ready
 https://zrunes.io/idx/zcash-metaprotocols/status
 ```
 
