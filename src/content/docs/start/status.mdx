@@ -55,11 +55,15 @@ read-only: nothing about reading requires a wallet.
 
 ### Creating and transferring
 
-The inscribe, etch, mint, and transfer flows plan real transactions and show
-real fees, and they stop at the signing step, because no wallet can sign
-these transactions yet and production writes stay disabled until wallet
-signing is qualified. The flows say this at the point where it applies; no
-control pretends an action can finish when it cannot.
+Each create page states, in one place before its first control, whether that
+operation is open and what is holding it if not. The form appears only when
+the deployment will accept the order it produces, so no control pretends an
+action can finish when it cannot, and nothing is created, signed or broadcast
+while a flow is closed.
+
+The product publishes the same answer the pages read, one state per
+operation, at `https://zrunes.io/api/readiness`. The create routes enforce
+that exact state, so the page and the route cannot disagree.
 [Details](/docs-zerdinals-and-zrunes/create/signing-availability/).
 
 ### ZRunes activation
@@ -68,6 +72,11 @@ The ZRunes protocol ignores mainnet data outputs below its activation height
 by rule, so before that height nothing can be etched or minted and no ZRune
 exists. This is a protocol fact that any independent node reading the chain
 reproduces, not a setting on the product's side.
+
+The product reads the height from its own indexer rather than holding it as a
+constant, and the ZRune pages state the exact block and how many remain. When
+the height arrives those pages open on their own: there is nothing to install
+and nothing to redeploy.
 [The specification](/docs-zerdinals-and-zrunes/protocols/zrunes-v1/).
 
 ## Protocol versions

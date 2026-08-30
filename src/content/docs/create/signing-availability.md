@@ -9,14 +9,39 @@ to slow you down.
 
 ## The state today
 
-No wallet can currently sign Zerdinals or ZRunes transactions, and
-production writes stay disabled until wallet signing is qualified. Every
-create flow says this at the point where it applies: the wizard builds real
-transactions and shows real fees, and it stops at the signing step rather
-than presenting a control that cannot finish.
+Production writes stay closed until a qualified wallet build is released and
+installed. Every create page states that before its first control, in one
+place, naming the exact reason and what it means: whether anything was
+created, whether anything was signed, whether anything was broadcast, and
+whether any money is at risk. Nothing is created, signed or broadcast while a
+create flow is closed.
+
+The form itself appears only when the deployment will actually accept the
+order it produces. That is deliberate. A form you can fill in and submit,
+which then refuses, reads as a failure you caused; a page that says plainly
+what it is waiting for does not.
 
 [The status page](/docs-zerdinals-and-zrunes/start/status/) is the
 authority for this fact and is verified against the live product.
+
+### What has to be true before a create flow opens
+
+Every one of these, checked on every request against the live system rather
+than assumed:
+
+1. The operator has opened admissions on this deployment.
+2. A protocol release authorization exists, produced by a qualification
+   campaign against an exact wallet commit.
+3. The wallet build that authorization covers is the one this deployment
+   requires.
+4. That authorization covers the specific operation being asked for, not
+   merely the protocol.
+5. The database, the Zcash node and the indexer are all answering.
+6. The indexer has read the whole chain and is level with the node.
+7. The protocol itself has activated on this network.
+
+Anything unknown counts as closed. A deployment that cannot establish one of
+these does not guess.
 
 ## Why the gate exists
 
@@ -67,15 +92,25 @@ page is the record of that.
 
 ## How you will know
 
-When signing opens, the create flows complete end to end,
-[the status page](/docs-zerdinals-and-zrunes/start/status/) row changes,
-and the product's own status surfaces say the same thing. Nothing about
-availability is announced anywhere these three places do not confirm.
+When signing opens, the create pages show their forms, the flows complete
+end to end, [the status page](/docs-zerdinals-and-zrunes/start/status/) row
+changes, and the product's own status surfaces say the same thing. Nothing
+about availability is announced anywhere these three places do not confirm.
+
+You can read the same answer the pages read:
+
+```bash
+curl -s https://zrunes.io/api/readiness
+```
+
+It names one state per operation, the reasons in the order they matter, what
+each reason means, and what is at risk. The create routes enforce that exact
+state, so the page and the route can never disagree.
 
 ## What you can do today
 
-- Plan an inscription end to end, including exact fees, up to the signing
-  step.
+- Read what each create flow will do, including the exact protocol rules and
+  fee model, on the pages that describe them.
 - Inspect any address, artifact, token, or collection read-only.
 - Watch addresses and artifacts, and export share cards.
 - Verify the chain facts behind all of it in
