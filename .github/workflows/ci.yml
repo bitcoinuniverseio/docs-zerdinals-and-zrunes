@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   checks:
-    runs-on: [self-hosted, ultra]
+    runs-on: runs-on=${{ github.run_id }}-checks/runner=universe-hosted/cpu=2+8/env=production
     steps:
       - uses: actions/checkout@v4
         with:
