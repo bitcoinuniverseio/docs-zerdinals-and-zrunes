@@ -62,6 +62,29 @@ exists, not that the claim is false. Treat membership claims made outside
 the product (in chat, in listings) with the same question this product
 asks: what transaction proves it?
 
+## Reading one
+
+Every collection has its own page, reached from the Collections list. It
+leads with the thing that defines the collection, which is the parent
+inscription, and then states what is proven:
+
+- the parent, the transaction that created it, and who holds it now, with
+  the reminder that holding the parent is not authorship and can change
+- how many members there are, and how many of those are complete against how
+  many are still missing content the chain never carried
+- the block range the members joined across
+- the members themselves, shown as artifacts rather than as rows
+- a membership table pairing each member with the exact transaction that
+  proves it belongs
+
+An incomplete member is shown as a member, because it is one: the chain
+simply never carried all of its content. Nothing is hidden to make the
+collection look tidier than it is.
+
+The page also exports a manifest: the parent, the counts, and every member
+with the height it joined at and the transaction that proves it. It is a
+file you can check against a node yourself.
+
 ## Technical detail
 
 The parent-by-spend mechanism, manifest format, signature requirements, and
