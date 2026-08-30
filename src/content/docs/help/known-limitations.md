@@ -42,6 +42,30 @@ protocol facts, not product gaps, but they are listed here because people
 look for a recovery path that does not exist.
 [Transparent and shielded](/docs-zerdinals-and-zrunes/understand/transparent-and-shielded/).
 
+## Some artifacts point at content that is not on Zcash
+
+12,881 indexed inscriptions, better than one in ten, are records naming
+content stored somewhere else rather than content written into the chain.
+The record is permanent; what it points at is not, and no transaction proves
+what that content currently is.
+
+The product marks these and shows the reference rather than rendering it as
+the artifact, but it cannot make the referenced content permanent and does
+not fetch, cache, or mirror it. If that content disappears, the chain still
+carries the record and nothing more.
+[Collections and pointer records](/docs-zerdinals-and-zrunes/understand/collections/).
+
+## Most ZGODS mints hold nothing
+
+ZGODS is the only ZRC-721 collection on this chain. 8,503 mint inscriptions
+were made against it and 7,171 counted: 1,319 claimed an id an earlier mint
+had already taken, and 13 were inscribed before the collection was deployed.
+
+Those 1,332 inscriptions cost a fee and hold no item. This is the chain as it
+happened rather than a product gap, and it is listed here because somebody
+holding one will go looking for the item. The collection page lists the
+rejections by reason so that search ends with an answer.
+
 ## Device-local features do not roam
 
 Watchlists, the visit mark, recent searches, and prepared orders live in
