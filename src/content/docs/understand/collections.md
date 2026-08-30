@@ -111,9 +111,9 @@ holds nothing.
 ZGODS is the only ZRC-721 collection deployed on Zcash mainnet. It declares a
 supply of 10,000, and 8,503 mint inscriptions were made against it:
 
-| | |
+| Outcome | Inscriptions |
 | --- | --- |
-| Mints that counted | 7,171 |
+| Counted, and holds an item | 7,171 |
 | Rejected: the id was already taken | 1,319 |
 | Rejected: inscribed before the collection was deployed | 13 |
 
