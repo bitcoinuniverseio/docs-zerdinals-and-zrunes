@@ -7,9 +7,11 @@ description: The six-station inscribe wizard, the single approval that covers th
 and how batches behave, so that when you run it nothing surprises you.
 
 :::caution[Availability today]
-Wallet signing is not yet available, so the wizard currently takes you
-through file selection, preview, and planning, and states plainly where it
-stops. Nothing below is speculative; it describes the flow as built, and
+The page states, before anything else on it, whether inscribing is open on
+this deployment and what is holding it if not. The wizard appears only when
+an order can actually be accepted, so nothing here asks you to choose a file
+for an operation that was never going to complete. Nothing below is
+speculative; it describes the flow as built, and
 [the status page](/docs-zerdinals-and-zrunes/start/status/) is the authority
 on what can complete today.
 :::
