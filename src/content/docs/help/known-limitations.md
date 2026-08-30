@@ -13,6 +13,10 @@ expected to do it; report the gap.
 Creating, etching, minting, and transferring stop at the signing step.
 Production writes stay disabled until wallet signing is qualified, and
 every create flow says so at the point where it applies.
+
+The transactions themselves are built and reviewable today; what is missing
+is the published evidence that the wallet release performs its checks
+against a real chain.
 [Why the gate exists](/docs-zerdinals-and-zrunes/create/signing-availability/).
 
 ## ZRunes are not active on mainnet yet
