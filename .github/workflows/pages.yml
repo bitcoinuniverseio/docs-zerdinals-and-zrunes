@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: runs-on=${{ github.run_id }}-build/runner=universe-hosted/cpu=2+8/env=production
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -34,7 +34,7 @@ jobs:
           path: dist
   deploy:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: runs-on=${{ github.run_id }}-deploy/runner=universe-hosted/cpu=2+8/env=production
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

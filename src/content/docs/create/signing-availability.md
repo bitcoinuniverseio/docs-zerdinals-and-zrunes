@@ -1,20 +1,30 @@
 ---
 title: Signing availability
-description: Why creating and transferring stop at the signing step today, what the wallet design guarantees, and how you will know when it opens.
+description: What gates each way of creating, why the connected-wallet path waits on a qualified wallet release, and how you will know when each opens.
 ---
 
 **Outcome:** you will know exactly why write flows are gated, what has to be
-true before they open, and why this gate exists to protect you rather than
-to slow you down.
+true before each path opens, and why the gates exist to protect you rather
+than to slow you down.
 
-## The state today
+## Two paths, two gates
 
-Production writes stay closed until a qualified wallet build is released and
-installed. Every create page states that before its first control, in one
-place, naming the exact reason and what it means: whether anything was
-created, whether anything was signed, whether anything was broadcast, and
-whether any money is at risk. Nothing is created, signed or broadcast while a
-create flow is closed.
+Creating has two paths, and each is gated on its own facts:
+
+- **Pay with any wallet** needs no wallet release at all. It opens when the
+  service's own execution machinery is qualified: its isolated signer, its
+  key encryption, its payment watcher, and a service execution authorization
+  binding the exact deployed build. An unavailable browser wallet never
+  closes it. [How that path works](/docs-zerdinals-and-zrunes/create/pay-with-any-wallet/).
+- **The connected wallet** waits on a qualified wallet build, exactly as
+  described below. A ZRune transfer is connected-wallet only, honestly,
+  because it spends outputs only your own key can sign.
+
+Every create page states its state before its first control, in one place,
+naming the exact reason and what it means: whether anything was created,
+whether anything was signed or paid, whether anything was broadcast, and
+whether any money is at risk. Nothing is created, signed, paid or broadcast
+while a path is closed.
 
 The form itself appears only when the deployment will actually accept the
 order it produces. That is deliberate. A form you can fill in and submit,
@@ -103,9 +113,9 @@ You can read the same answer the pages read:
 curl -s https://zrunes.io/api/readiness
 ```
 
-It names one state per operation, the reasons in the order they matter, what
-each reason means, and what is at risk. The create routes enforce that exact
-state, so the page and the route can never disagree.
+It names one state per operation and per path, the reasons in the order they
+matter, what each reason means, and what is at risk. The create routes
+enforce that exact state, so the page and the route can never disagree.
 
 ## What you can do today
 

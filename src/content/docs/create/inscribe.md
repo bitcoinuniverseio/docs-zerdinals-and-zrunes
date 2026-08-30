@@ -1,10 +1,11 @@
 ---
 title: Inscribe a Zerdinal
-description: The six-station inscribe wizard, the single approval that covers the whole inscription, batch mode, and exactly where the flow stops today.
+description: The inscribe wizard, the payment that funds the whole inscription from any Zcash wallet, batch mode, and the advanced connected-wallet path.
 ---
 
-**Outcome:** you will know the whole inscribe flow, what each approval means,
-and how batches behave, so that when you run it nothing surprises you.
+**Outcome:** you will know the whole inscribe flow, what the payment or the
+approval means, and how batches behave, so that when you run it nothing
+surprises you.
 
 :::caution[Availability today]
 The page states, before anything else on it, whether inscribing is open on
@@ -24,10 +25,11 @@ on what can complete today.
   contains a transparent receiver. Shielded-only recipients are rejected
   before any transaction is built, because a Zerdinal cannot be tracked into
   a shielded pool.
-- Enough ZEC for the fees, which are shown in full before anything is
-  signed. [How fees work](/docs-zerdinals-and-zrunes/create/fees/).
+- Enough ZEC for the exact quoted amount, in any wallet or exchange that
+  can send transparent ZEC. Nothing needs to be connected to this site.
+  [How fees work](/docs-zerdinals-and-zrunes/create/fees/).
 
-## The six stations
+## The default path: pay with any wallet
 
 1. **Choose file.** The app reads the bytes, computes the SHA-256 hash, and
    detects the content type from the first bytes of the file, never from the
@@ -38,15 +40,22 @@ on what can complete today.
 3. **Details.** Confirm the content type that decoders will serve. This
    exact ASCII string becomes part of the on-chain envelope and part of the
    content commitment.
-4. **Destination.** Enter the address that will own the inscription.
-5. **Review.** One screen with the full picture before anything is signed:
-   the commit transaction, the reveal transaction chain, and the complete
-   fee display (network fee, any service fee, total ZEC, total zatoshis, and
-   a labeled fiat estimate).
-6. **Sign and follow.** Approve the whole inscription once in your wallet,
-   then watch the order progress through real chain states.
+4. **Recipient and pay.** Enter the address that will own the inscription,
+   then create the payment request. The order page shows the exact
+   operation, the exact price, and one unique payment address; paying it
+   from any Zcash wallet or exchange is the whole authorization, and the
+   server finishes the inscription on its own.
+   [Pay with any wallet](/docs-zerdinals-and-zrunes/create/pay-with-any-wallet/)
+   is the full story of that page.
 
-## What you are approving
+## The advanced path: connected wallet
+
+Where the qualified Universe Wallet release is available, the page also
+offers the connected-wallet path: your own wallet funds the commit and signs
+every transaction itself. Its stations continue as Destination, Review, and
+Sign and follow, and everything below describes that signing.
+
+## What you are approving on the connected-wallet path
 
 An inscription is more than one transaction, and you approve all of them at
 once.
@@ -90,19 +99,22 @@ sitting. The rules are the same as single inscribing; the batch only groups
 them.
 
 1. A batch holds up to 24 items, each under the same protocol limits.
-2. **Every item is its own order.** On prepare, each valid item becomes a
-   fully independent commit and reveal order. One failed, rejected, or
-   cancelled item never affects the others.
-3. **Failure isolation at prepare.** An invalid item gets a typed error in
-   its place in the list and no order is created for it; the valid items
-   proceed, and item order is preserved.
-4. One shared destination covers the batch; any item can carry its own
+2. **Every item is its own order.** Each valid item becomes a fully
+   independent commit and reveal order. One failed item never affects the
+   others.
+3. One shared destination covers the batch; any item can carry its own
    override.
-5. **One approval per item, in order.** Each item's whole inscription is
-   approved at once, and no two items are ever funded from the same output.
+4. **On the payment path, one payment funds the whole batch.** The invoice
+   quotes one exact total covering every item and the fan-out that funds
+   them; the server then writes each item independently and no two items
+   ever draw on the same output. An invalid item is named exactly and no
+   invoice is created until the batch is clean, because one payment must
+   never quote for items you did not review.
+5. **On the connected-wallet path, one approval per item, in order.**
    Declining an item cancels only that item and the rest are unaffected.
-6. **Totals up front.** Prepare shows the item counts, total network fees,
-   and the total you spend, before anything is signed.
+6. **Totals up front.** The invoice, or prepare, shows the item counts,
+   total network fees, and the total you spend, before anything is paid or
+   signed.
 7. **Manifest download.** At any point you can download a JSON manifest of
    the batch: per-item content hash, commitment, content type, byte size,
    order id, state, commit and reveal txids, inscription id, and recipient.
@@ -114,9 +126,10 @@ them.
 
 | Situation | What happens | What to do |
 | --- | --- | --- |
+| You never pay the request | Nothing happens; the request expires on its own | Create a new one whenever you like |
 | You decline the signature | Nothing was signed or broadcast; the order is cancelled | Start again whenever you like |
-| The tab closes after you approve | The inscription finishes without you | Reopen Inscribe later to see where it got to |
-| The tab closes before you approve | Orders and batches persist in this browser | Reopen Inscribe and resume; the transactions come back from the backend rather than being rebuilt |
+| The tab closes after you pay or approve | The inscription finishes without you | Open your recovery link, or reopen Inscribe, to see where it got to |
+| The tab closes before you pay or approve | Orders and batches persist in this browser | Reopen Inscribe and resume; nothing is rebuilt in the page |
 | What is broadcast is not what you approved | The order stops rather than continuing | Nothing further is submitted; the page says what landed on chain |
 | The indexer is briefly unreachable | The flow pauses on live evidence rather than proceeding blind | Wait for the notice to clear, or use Retry now |
 
@@ -132,6 +145,7 @@ checkable against a Zcash node.
 
 ## Related
 
+- [Pay with any wallet](/docs-zerdinals-and-zrunes/create/pay-with-any-wallet/)
 - [Fees and confirmation](/docs-zerdinals-and-zrunes/create/fees/)
 - [Signing availability](/docs-zerdinals-and-zrunes/create/signing-availability/)
 - [Zerdinals v1 specification](/docs-zerdinals-and-zrunes/protocols/zerdinals-v1/)
