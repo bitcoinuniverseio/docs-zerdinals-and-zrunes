@@ -25,12 +25,18 @@ Typical shapes:
 The large reveal input raises the reveal cost; a ZRune data output adds
 about 3 logical actions for a full 79-byte payload.
 
-## What the product shows before you sign
+## What the product shows before you pay or sign
 
-Every flow shows the complete fee display before anything is signed: the
-network fee, any service fee, the total in ZEC, the total in zatoshis, and
-a clearly labeled fiat estimate. There are no fee surprises after approval,
-because the transactions are fully planned before the first signature.
+Every flow shows the complete fee display before anything is paid or
+signed: the network fee, the value that carries the asset, the total in ZEC
+and in zatoshis. There are no fee surprises after approval, because the
+transactions are fully planned before the first payment or signature.
+
+On the payment path, the invoice amount is exactly these figures added up:
+the carrying value, the commit fee, the reveal fees, and for a batch the
+fan-out fee that splits one payment per item. There is no service fee. Any
+ZEC the operation does not use is returned to your recipient address, so
+overpaying an invoice costs nothing but the wait for its return.
 
 ## Confirmation
 

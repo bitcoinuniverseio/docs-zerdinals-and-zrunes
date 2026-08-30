@@ -44,21 +44,29 @@ Etching creates a ZRune. You choose:
    closing block height window. Without terms, nobody can ever mint; supply
    is the premine alone.
 
-Etching is a two-step flow because of front-running protection: first a
-commitment transaction locks a hash of your chosen name (observers cannot
-read the name from it), then, after the commitment has at least 6
+Etching is a two-step flow on chain because of front-running protection:
+first a commitment transaction locks a hash of your chosen name (observers
+cannot read the name from it), then, after the commitment has at least 6
 confirmations, the etch transaction publishes the name and terms. A pending
 etch cannot be sniped from the mempool.
 
-This is the one flow that asks you to approve twice, and the wait is why.
-The transaction that etches spends an output that does not exist yet when
-you approve the commitment, and it commits to a block height chosen from the
-chain as it is at the time it is built. Signing both at once would mean
-signing a deadline picked before a wait that has not happened.
+On the default payment path, one payment covers both steps and the server
+carries the wait: it broadcasts the commitment when your payment confirms,
+waits out the six blocks, builds the etch against the chain as it stands
+then, and publishes it, whether or not your browser is open. Your name never
+appears in the payment request, so nothing leaks before the etch reveals it.
+[Pay with any wallet](/docs-zerdinals-and-zrunes/create/pay-with-any-wallet/)
+is the full story of that page.
 
-The commitment carries the whole cost of the etch, so nothing your address
-does during those six blocks can invalidate the second step. Come back when
-the blocks have passed and the etch is ready to approve.
+On the connected-wallet path this is the one flow that asks you to approve
+twice, and the wait is why. The transaction that etches spends an output
+that does not exist yet when you approve the commitment, and it commits to
+a block height chosen from the chain as it is at the time it is built.
+Signing both at once would mean signing a deadline picked before a wait that
+has not happened.
+
+The commitment carries the whole cost of the etch, so nothing that happens
+during those six blocks can invalidate the second step.
 
 Once etched, the terms are permanent. Nobody, including the etcher, can
 change the amount, cap, or window.
@@ -75,8 +83,17 @@ mint:
 3. The product shows real mint state from its own node and indexer: mints
    completed, remaining mints, percent minted, and whether the window is
    open right now.
+4. On the payment path, the mint window is re-proved after your payment
+   confirms. If the cap was reached or the window closed in between, no
+   transaction is broadcast, because it would pay a fee and count for
+   nothing, and your ZEC is refunded to your recipient address instead.
 
 ## Transfer
+
+A transfer spends outputs that only your own wallet key can sign, so it is
+the one ZRune operation that genuinely needs the connected wallet: a payment
+alone can never authorize spending what you already own, and this product
+does not pretend otherwise.
 
 You say which ZRune, how much, and to whom. The product works out which of
 your outputs carry that balance and builds the exact transaction that moves
@@ -139,6 +156,7 @@ balance appears against your address and the specific outputs carrying it.
 
 ## Related
 
+- [Pay with any wallet](/docs-zerdinals-and-zrunes/create/pay-with-any-wallet/)
 - [ZRunes](/docs-zerdinals-and-zrunes/understand/zrunes/)
 - [Fees and confirmation](/docs-zerdinals-and-zrunes/create/fees/)
 - [ZRunes v1 specification](/docs-zerdinals-and-zrunes/protocols/zrunes-v1/)
