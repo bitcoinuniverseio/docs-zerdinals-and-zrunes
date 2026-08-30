@@ -25,7 +25,9 @@ collection appears:
    creator control at inscription time, permanent, and recorded with the
    proving transaction.
 2. **Verified, legacy.** ZRC-721 collections, on-chain by construction under
-   the legacy family rules, shown with the legacy family badge.
+   the legacy family rules, shown with the legacy family badge. These have
+   their own section on the Collections page and their own rules, described
+   below.
 3. **Curated.** For legacy inscriptions with no on-chain parent mechanism, a
    creator may publish a signed manifest. It is accepted only after
    signature verification and creator evidence checks; manifests are
@@ -84,6 +86,74 @@ collection look tidier than it is.
 The page also exports a manifest: the parent, the counts, and every member
 with the height it joined at and the transaction that proves it. It is a
 file you can check against a node yourself.
+
+## ZRC-721 collections
+
+The other family with real collections on this chain works differently, and
+the difference matters enough to state plainly.
+
+A ZRC-721 collection begins with a **deploy** operation that names a
+collection key and a supply. Every **mint** afterwards references that key
+and claims an id. There is no parent to spend, so membership is the
+reference rather than a spend, and the rules that decide whether a mint
+counted are strict:
+
+- the collection has to have been deployed already when the mint was applied
+- the id has to be below the declared supply
+- the id must not already be taken by an earlier mint
+- the reveal has to have a transparent output, so there is somebody to credit
+
+A mint that fails any of those is inscribed on the chain, cost a fee, and
+holds nothing.
+
+### Most ZGODS mints did not count
+
+ZGODS is the only ZRC-721 collection deployed on Zcash mainnet. It declares a
+supply of 10,000, and 8,503 mint inscriptions were made against it:
+
+| | |
+| --- | --- |
+| Mints that counted | 7,171 |
+| Rejected: the id was already taken | 1,319 |
+| Rejected: inscribed before the collection was deployed | 13 |
+
+Those 1,332 inscriptions exist and always will. The collection page lists
+them by reason, so somebody holding one can find out why it holds no item
+instead of finding nothing at all. No other reader of this chain publishes
+that.
+
+### Who holds an item
+
+An item is carried by the inscription that minted it, so it moves when that
+inscription moves and the ordinary ownership rules apply to it unchanged.
+The collection page reads the holder from the inscription rather than
+tracking it separately, which means an item spent into a shielded pool
+reports that it is no longer observable rather than naming whoever held it
+last. The minter is kept in its own column, because once tracking ends the
+minter is the only attribution left.
+
+### The artwork is not on the chain
+
+A ZRC-721 deploy names its metadata by reference. For ZGODS that reference is
+an IPFS address, and the images and traits it points at were never written to
+Zcash. They can change, move, or stop being served without any transaction,
+and no transaction proves what they currently are.
+
+The collection page says so above everything else, shows the reference so you
+can follow it yourself, and never renders it as though the chain carried it.
+We do not fetch, cache, or mirror that content.
+
+## Records that point somewhere else
+
+The same warning applies more widely than collections. **12,881 indexed
+inscriptions, better than one in ten, are records naming content held
+somewhere other than Zcash** rather than content written into it.
+
+What the chain carries in those cases is the reference. The artifact page
+marks them and says what the reference is, so a JSON record naming an IPFS
+address is never presented as the picture it names. If you are looking at one
+of these, the permanence you get is the permanence of the record, not of the
+thing it points at.
 
 ## Technical detail
 
