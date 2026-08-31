@@ -50,6 +50,7 @@ const ALL_ROUTES = [
   '/understand/ownership-and-outputs/',
   '/understand/transparent-and-shielded/',
   '/create/inscribe/',
+  '/create/tokens-and-collections/',
   '/create/etch-mint-transfer/',
   '/create/fees/',
   '/create/signing-availability/',

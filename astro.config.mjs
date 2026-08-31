@@ -76,9 +76,16 @@ export default defineConfig({
           items: [
             { label: 'Pay with any wallet', slug: 'create/pay-with-any-wallet' },
             { label: 'Inscribe a Zerdinal', slug: 'create/inscribe' },
+            { label: 'Create tokens and collections', slug: 'create/tokens-and-collections' },
             { label: 'Etch, mint, transfer ZRunes', slug: 'create/etch-mint-transfer' },
             { label: 'Fees and confirmation', slug: 'create/fees' },
             { label: 'Signing availability', slug: 'create/signing-availability' },
+          ],
+        },
+        {
+          label: 'Market',
+          items: [
+            { label: 'Buying and selling', slug: 'market/buying-and-selling' },
           ],
         },
         {
@@ -95,6 +102,7 @@ export default defineConfig({
             { label: 'Search', slug: 'verify/search' },
             { label: 'ZordiScan', slug: 'verify/zordiscan' },
             { label: 'What an empty result means', slug: 'verify/coverage' },
+            { label: 'Proof bundles', slug: 'verify/proof-bundles' },
           ],
         },
         {
@@ -104,6 +112,7 @@ export default defineConfig({
             { label: 'ZRunes v1 specification', slug: 'protocols/zrunes-v1' },
             { label: 'Collections v1 specification', slug: 'protocols/collections-v1' },
             { label: 'The ordinality decision', slug: 'protocols/ordinality' },
+            { label: 'ZMarket Orders v1 specification', slug: 'protocols/zmarket-orders-v1' },
           ],
         },
         {
@@ -111,6 +120,7 @@ export default defineConfig({
           items: [
             { label: 'Architecture', slug: 'developers/architecture' },
             { label: 'Public HTTP API', slug: 'developers/api' },
+            { label: 'Order notifications', slug: 'developers/order-notifications' },
           ],
         },
         {
