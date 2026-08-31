@@ -19,11 +19,7 @@ jobs:
     runs-on: runs-on=${{ github.run_id }}-build/runner=universe-hosted/cpu=2+8/env=production
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24.19.0
-          cache: npm
-      - run: npm ci
+      - uses: bitcoinuniverseio/universe-ci-actions/universe-node-env@main
       - name: Gates that must hold on the deployed commit
         run: npm test
       - name: Build
