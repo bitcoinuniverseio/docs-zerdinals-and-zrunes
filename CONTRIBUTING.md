@@ -85,3 +85,10 @@ should be a decision rather than an oversight.
 - Fill in the template, including which pages you verified in the local
   preview.
 - CI must pass; a screenshot change must explain how it was regenerated.
+
+Product screenshot baselines are generated only by the product repository's
+`visual-baselines` workflow on its pinned Linux renderer. A maintainer can
+limit a refresh with the Playwright title-pattern input. The resulting commit
+still has to pass the complete product CI suite before it can merge; a targeted
+refresh changes how the approved images are produced, not what the release
+gate checks.
