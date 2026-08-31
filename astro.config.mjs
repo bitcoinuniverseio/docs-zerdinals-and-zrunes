@@ -82,6 +82,12 @@ export default defineConfig({
           ],
         },
         {
+          label: 'Market',
+          items: [
+            { label: 'Buying and selling', slug: 'market/buying-and-selling' },
+          ],
+        },
+        {
           label: 'Own and protect',
           items: [
             { label: 'Portfolio and watchlists', slug: 'own/portfolio' },
@@ -104,6 +110,7 @@ export default defineConfig({
             { label: 'ZRunes v1 specification', slug: 'protocols/zrunes-v1' },
             { label: 'Collections v1 specification', slug: 'protocols/collections-v1' },
             { label: 'The ordinality decision', slug: 'protocols/ordinality' },
+            { label: 'ZMarket Orders v1 specification', slug: 'protocols/zmarket-orders-v1' },
           ],
         },
         {
