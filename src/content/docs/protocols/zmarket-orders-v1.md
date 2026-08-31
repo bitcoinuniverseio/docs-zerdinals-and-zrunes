@@ -80,7 +80,7 @@ A listing authorization is this JSON object, serialized with the exact key
 order below. Its SHA-256 over the serialized bytes is the authorization hash.
 Every hex field is lowercase. Every amount is a decimal string of zatoshis.
 
-```
+```text
 domain               "universe-zmarket-listing-v1"
 version              "1"
 network              zcash:mainnet | zcash:testnet | zcash:regtest
@@ -149,7 +149,7 @@ spending the asset outpoint marks the listing UNSAFE while it is unconfirmed.
 
 ## 5. States
 
-```
+```text
 OPEN         served, biddable, buyable
 UNSAFE       a conflicting spend is in the mempool; not buyable
 CANCELLED    seller withdrew it; advisory, see section 1
