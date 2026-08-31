@@ -76,6 +76,7 @@ export default defineConfig({
           items: [
             { label: 'Pay with any wallet', slug: 'create/pay-with-any-wallet' },
             { label: 'Inscribe a Zerdinal', slug: 'create/inscribe' },
+            { label: 'Create tokens and collections', slug: 'create/tokens-and-collections' },
             { label: 'Etch, mint, transfer ZRunes', slug: 'create/etch-mint-transfer' },
             { label: 'Fees and confirmation', slug: 'create/fees' },
             { label: 'Signing availability', slug: 'create/signing-availability' },

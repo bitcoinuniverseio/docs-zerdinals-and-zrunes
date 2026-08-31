@@ -56,20 +56,30 @@ service's open listings and confirmed settlements only, and every market
 page says so. They are not chain facts and are never presented as such.
 An empty market shows as empty; nothing is fabricated to look busy.
 
+## One market, five destinations
+
+The Market navigation keeps five stable destinations: Overview, Zerdinals,
+Collections, Tokens, and ZRunes. Zerdinals have the live listing and
+settlement protocol described on this page. Collections, ZRC-20 tokens, and
+ZRunes remain archive views until each family has its own reviewed order
+type. Those pages state that limit and link back to the chain record. They do
+not copy Zerdinal orders onto assets whose transfer rules are different.
+
 ## What is live today
 
-Reading the market is always available. Creating a listing and buying are
-connected-wallet operations, and they open only when a Universe Wallet
-release that has been qualified for exactly these operations is publicly
-installable. Until then the product shows the precise blocker on the
-listing and purchase controls instead of offering a path that cannot
-finish. The [current status](/docs-zerdinals-and-zrunes/start/status/)
-page reflects what is open right now.
+Reading the market is always available. Creating a listing is a
+connected-wallet operation and opens only when a Universe Wallet release
+qualified for that operation is publicly installable.
 
-Walletless purchases (paying from any Zcash wallet, the way
-[walletless creation](/docs-zerdinals-and-zrunes/create/pay-with-any-wallet/)
-works) are not offered yet; the product says so where the option would
-appear.
+A fixed-price Zerdinal purchase has two independent paths. A connected
+wallet can review and sign its funding input. The pay-from-any-wallet path
+creates an exact ZEC invoice and, after confirmation, combines those funds
+with the seller's already sealed authorization. The service never signs the
+seller's asset input. Each path opens only when its own release authorization
+and dependencies are healthy. Until then the product shows the precise
+blocker instead of offering a path that cannot finish. See
+[Pay with any wallet](/docs-zerdinals-and-zrunes/create/pay-with-any-wallet/)
+and [current status](/docs-zerdinals-and-zrunes/start/status/).
 
 ## What is public
 

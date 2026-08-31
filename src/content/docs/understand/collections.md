@@ -165,3 +165,4 @@ display rules are specified in
 
 - [Zerdinals](/docs-zerdinals-and-zrunes/understand/zerdinals/)
 - [Inscribe a Zerdinal](/docs-zerdinals-and-zrunes/create/inscribe/)
+- [Create a ZRC-721 collection or item](/docs-zerdinals-and-zrunes/create/tokens-and-collections/)
