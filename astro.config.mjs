@@ -101,6 +101,7 @@ export default defineConfig({
             { label: 'Search', slug: 'verify/search' },
             { label: 'ZordiScan', slug: 'verify/zordiscan' },
             { label: 'What an empty result means', slug: 'verify/coverage' },
+            { label: 'Proof bundles', slug: 'verify/proof-bundles' },
           ],
         },
         {
