@@ -119,6 +119,7 @@ export default defineConfig({
           items: [
             { label: 'Architecture', slug: 'developers/architecture' },
             { label: 'Public HTTP API', slug: 'developers/api' },
+            { label: 'Order notifications', slug: 'developers/order-notifications' },
           ],
         },
         {
