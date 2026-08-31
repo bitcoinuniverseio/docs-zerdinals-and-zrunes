@@ -21,12 +21,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24.19.0
-          cache: npm
-      - name: Deterministic install
-        run: npm ci
+      - uses: bitcoinuniverseio/universe-ci-actions/universe-node-env@main
       - name: Copy guard (long dash, banned word, marketing phrases)
         run: npm run check:copy
       - name: Public-safety scan (private hostnames, IPs, secret shapes)
