@@ -1,6 +1,6 @@
 ---
 title: Interruptions and recovery
-description: The one coherent model for outages, stale data, reorganizations, and resuming interrupted orders.
+description: "One coherent model for outages, stale data, chain reorganizations, and resuming interrupted orders, plus how to verify the record for yourself after any interruption."
 ---
 
 **Outcome:** you will know what every interruption means, what is at risk in

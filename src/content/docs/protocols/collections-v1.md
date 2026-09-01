@@ -1,6 +1,6 @@
 ---
 title: "Collections v1 specification"
-description: "The normative specification of collection verification levels and the parent-by-spend membership proof."
+description: "The normative specification of the four collection verification levels, the parent-by-spend membership proof, the display rules, and what may never be inferred."
 ---
 
 :::note[Normative source]

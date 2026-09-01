@@ -1,6 +1,6 @@
 ---
 title: Search
-description: One field on every page classifies what you typed and routes you to the right record, without guessing.
+description: "One field on every page classifies what you typed and routes you to the right record without guessing, names any ambiguity it finds, and says when it cannot decide."
 ---
 
 **Outcome:** you will be able to get from any identifier (an address, a
