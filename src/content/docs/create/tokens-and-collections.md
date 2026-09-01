@@ -1,6 +1,6 @@
 ---
 title: Create tokens and collections
-description: Assemble exact ZRC-20 and ZRC-721 inscription bytes, check them against the live reader, then hand them to the ordinary inscription flow.
+description: "Assemble exact ZRC-20 and ZRC-721 inscription bytes, check them against the live reader, then hand them to the ordinary inscription flow that any Zcash wallet can fund."
 ---
 
 **Outcome:** you will know what the two guided creation pages build, what

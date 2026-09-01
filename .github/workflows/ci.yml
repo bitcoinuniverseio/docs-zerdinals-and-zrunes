@@ -28,6 +28,8 @@ jobs:
         run: npm run check:public-safety
       - name: Status data is complete and fresh
         run: npm run check:status
+      - name: llms.txt lists every published page
+        run: npm run check:llms
       - name: Markdown lint
         run: npm run check:markdown
       - name: Build (validates every internal link and anchor)

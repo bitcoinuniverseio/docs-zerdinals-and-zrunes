@@ -1,6 +1,6 @@
 ---
 title: Collections
-description: Four verification levels, one on-chain membership proof, and what the product refuses to invent about collections.
+description: "Four verification levels, one on-chain membership proof carried by a spend, and what the product refuses to invent when a collection cannot prove its own membership."
 ---
 
 **You will get from this page:** how collections work here, what "verified"
