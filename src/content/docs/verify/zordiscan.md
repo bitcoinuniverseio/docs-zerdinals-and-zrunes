@@ -1,17 +1,20 @@
 ---
-title: ZordiScan
+title: Scan
 description: The first-party explorer, its three views on every record, and the honesty rules it never breaks.
 ---
 
 **Outcome:** you will know how to inspect any block, transaction, address,
 or protocol object, and how to read the same record at three depths.
 
-## What ZordiScan is
+## What Scan is
 
-ZordiScan is the explorer inside the product. It reads only from
-Universe-operated Zcash infrastructure: a Zcash node and an indexer run by
-the same team, with no third-party chain service anywhere, not even as a
-fallback. That is not a convenience claim; it is what makes every figure
+Scan is the explorer inside the product, at `/scan`. It was called ZordiScan
+until the Clear Signal release; the address `/zordiscan` still resolves, and so
+does every block, transaction and address link under it.
+
+It reads only from Universe-operated Zcash infrastructure: a Zcash node and an
+indexer run by the same team, with no third-party chain service anywhere, not
+even as a fallback. That is not a convenience claim; it is what makes every figure
 on the site checkable against the chain itself.
 
 ## Three views on every detail page
@@ -44,7 +47,7 @@ Most of what is written to this chain is token bookkeeping: ZRC-20
 deploys, mints, and transfers, all small JSON documents. In an unfiltered
 feed they bury the images and the writing.
 
-Discover therefore shows **artifacts** by default and lets you switch to
+Explore therefore shows **artifacts** by default and lets you switch to
 token operations or to everything. The split is taken from what the
 protocol parsers actually found in each inscription, not from its media
 type, because a token operation and a piece of writing are both plain text

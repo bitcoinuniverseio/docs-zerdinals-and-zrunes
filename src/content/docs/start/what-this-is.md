@@ -1,6 +1,6 @@
 ---
 title: What this is
-description: A one-minute explanation of Zerdinals, ZRunes, ZRC-20, collections, and ZordiScan, and who this documentation is for.
+description: A one-minute explanation of Zerdinals, ZRunes, ZRC-20, collections, and Scan, and who this documentation is for.
 ---
 
 **You will get from this page:** the whole product in one minute, and where to
@@ -30,10 +30,10 @@ Four kinds of things live in the record:
    one exists and an honest label where one does not.
    [About collections](/docs-zerdinals-and-zrunes/understand/collections/).
 
-**ZordiScan** is the explorer inside the product: blocks, transactions,
+**Scan** is the explorer inside the product: blocks, transactions,
 addresses, and every protocol object, each with a friendly reading, a
 protocol reading, and the raw data.
-[About ZordiScan](/docs-zerdinals-and-zrunes/verify/zordiscan/).
+[About Scan](/docs-zerdinals-and-zrunes/verify/zordiscan/).
 
 ## What makes this product different
 

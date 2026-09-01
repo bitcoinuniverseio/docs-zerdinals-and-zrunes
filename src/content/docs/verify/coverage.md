@@ -56,5 +56,5 @@ last verified values.
 
 ## Related
 
-- [ZordiScan](/docs-zerdinals-and-zrunes/verify/zordiscan/)
+- [Scan](/docs-zerdinals-and-zrunes/verify/zordiscan/)
 - [Interruptions and recovery](/docs-zerdinals-and-zrunes/own/recovery/)

@@ -15,7 +15,7 @@ Zcash transactions. Nothing about it is a separate chain, a bridge, or a
 wrapper: every balance is reconstructable from Zcash blocks alone.
 
 Open **Tokens** in the product's navigation to browse every deployed ticker,
-or search a ticker in ZordiScan.
+or search a ticker in Scan.
 
 ## What a token page shows you
 
@@ -102,5 +102,5 @@ never presented as proof that something does not exist.
 ## Related
 
 - [Zerdinals](/docs-zerdinals-and-zrunes/understand/zerdinals/)
-- [ZordiScan](/docs-zerdinals-and-zrunes/verify/zordiscan/)
+- [Scan](/docs-zerdinals-and-zrunes/verify/zordiscan/)
 - [Transparent and shielded](/docs-zerdinals-and-zrunes/understand/transparent-and-shielded/)

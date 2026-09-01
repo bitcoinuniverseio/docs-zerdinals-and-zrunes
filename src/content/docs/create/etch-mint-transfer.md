@@ -150,7 +150,7 @@ transactions, not for product users.
 
 ## How to verify success
 
-Search the ZRune name in ZordiScan. Its page shows the etch transaction,
+Search the ZRune name in Scan. Its page shows the etch transaction,
 the terms, mint progress, holders, and activity, all from the chain. Your
 balance appears against your address and the specific outputs carrying it.
 

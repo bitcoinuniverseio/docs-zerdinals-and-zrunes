@@ -94,7 +94,7 @@ number, and an owner: the destination output you chose.
 
 ## Batch mode
 
-The Inscribe page has a batch mode for inscribing several files in one
+The studio has a batch mode for inscribing several files in one
 sitting. The rules are the same as single inscribing; the batch only groups
 them.
 
@@ -138,7 +138,7 @@ covers the outage model in full.
 
 ## How to verify success
 
-Search your new inscription id, or the destination address, in ZordiScan.
+Search your new inscription id, or the destination address, in Scan.
 The artifact page shows the genesis transaction, the sequence number, the
 content served from chain data, and the owner output. Every fact on it is
 checkable against a Zcash node.
