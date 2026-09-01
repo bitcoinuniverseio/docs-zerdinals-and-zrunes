@@ -99,10 +99,10 @@ recipient, the amount transferred, and its memo. It does not hide the fee it
 paid, because the fee is the value left over in the transparent transaction
 value pool, and every term of that sum is public.
 
-Shielded memo protocols do exist on Zcash. They are not read here and never
-will be, because indexing them would require holding other people's viewing
-keys. Their reserved markers are recorded only so this protocol never
-reuses them.
+Shielded memo protocols do exist on Zcash. ZINC is one. They are not read
+here, because reading them would require holding other people's viewing
+keys. They are accounted for in one way only: the ZRunes marker was chosen
+so that it cannot collide with them.
 
 ## Which operations need a transparent address
 
@@ -137,9 +137,10 @@ rather than accepted and then failing on the chain. The check is not a
 pattern match on the text: a transparent address is decoded with
 Base58Check, verified against the network's own P2PKH and P2SH version
 bytes, and required to carry a payload of exactly twenty-two bytes. A
-unified address is parsed for its transparent receiver, and the signing
-wallet must verify that receiver itself rather than take the service's word
-for it.
+unified address is decoded in full, through Bech32m, F4Jumble, and the
+receiver list, because a receiver set is jumbled precisely so that a
+partially checked string cannot be altered quietly. Anything that fails a
+rule is rejected rather than repaired.
 
 ## What happens when an asset-bearing output is spent
 
