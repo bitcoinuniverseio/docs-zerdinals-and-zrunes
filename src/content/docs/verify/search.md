@@ -53,5 +53,5 @@ watchlists, with no server component. Clearing browser data clears them.
 
 ## Related
 
-- [ZordiScan](/docs-zerdinals-and-zrunes/verify/zordiscan/)
+- [Scan](/docs-zerdinals-and-zrunes/verify/zordiscan/)
 - [What an empty result means](/docs-zerdinals-and-zrunes/verify/coverage/)

@@ -124,4 +124,4 @@ enforce that exact state, so the page and the route can never disagree.
 - Inspect any address, artifact, token, or collection read-only.
 - Watch addresses and artifacts, and export share cards.
 - Verify the chain facts behind all of it in
-  [ZordiScan](/docs-zerdinals-and-zrunes/verify/zordiscan/).
+  [Scan](/docs-zerdinals-and-zrunes/verify/zordiscan/).
