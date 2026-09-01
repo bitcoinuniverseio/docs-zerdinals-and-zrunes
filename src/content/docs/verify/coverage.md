@@ -1,6 +1,6 @@
 ---
 title: What an empty result means
-description: The four situations behind an empty page, why the product never blurs them, and how the same rule protects wallets.
+description: "The four situations behind an empty page, why the product never blurs them together, how every response carries the height it was read at, and how that protects wallets."
 ---
 
 **Outcome:** you will be able to read any empty page or missing record

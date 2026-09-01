@@ -1,6 +1,6 @@
 ---
 title: Portfolio and watchlists
-description: Inspect what any address holds, watch what matters to you, and see what changed since your last visit, all without an account.
+description: "Inspect what any address holds, watch what matters to you, and see what changed since your last visit, all without an account, a connection, or a signature of any kind."
 ---
 
 **Outcome:** you will be able to see everything an address holds, follow the

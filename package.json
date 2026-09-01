@@ -9,15 +9,17 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "node scripts/sync-manifest.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "check:copy": "node scripts/check-copy-rules.mjs",
     "check:public-safety": "node scripts/check-public-safety.mjs",
     "check:status": "node scripts/check-status-data.mjs",
+    "check:llms": "node scripts/check-llms.mjs",
     "check:markdown": "markdownlint-cli2 \"src/content/**/*.{md,mdx}\" \"*.md\"",
     "check:external-links": "node scripts/check-external-links.mjs",
     "status:refresh": "node scripts/refresh-status.mjs",
-    "test": "npm run check:copy && npm run check:public-safety && npm run check:status && npm run check:markdown",
+    "test": "npm run check:copy && npm run check:public-safety && npm run check:status && npm run check:llms && npm run check:markdown",
     "check:a11y": "node scripts/check-accessibility.mjs"
   },
   "dependencies": {

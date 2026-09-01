@@ -24,6 +24,7 @@
 //   --routes a comma separated subset, for a quick loop while fixing one page
 
 import { createRequire } from 'node:module'
+import { readdirSync } from 'node:fs'
 import { chromium } from 'playwright'
 
 const require = createRequire(import.meta.url)
@@ -49,6 +50,7 @@ const ALL_ROUTES = [
   '/understand/collections/',
   '/understand/ownership-and-outputs/',
   '/understand/transparent-and-shielded/',
+  '/create/pay-with-any-wallet/',
   '/create/inscribe/',
   '/create/tokens-and-collections/',
   '/create/etch-mint-transfer/',
@@ -57,15 +59,19 @@ const ALL_ROUTES = [
   '/own/portfolio/',
   '/own/protect/',
   '/own/recovery/',
+  '/market/buying-and-selling/',
   '/verify/zordiscan/',
   '/verify/search/',
   '/verify/coverage/',
+  '/verify/proof-bundles/',
   '/developers/api/',
   '/developers/architecture/',
+  '/developers/order-notifications/',
   '/protocols/zerdinals-v1/',
   '/protocols/zrunes-v1/',
   '/protocols/collections-v1/',
   '/protocols/ordinality/',
+  '/protocols/zmarket-orders-v1/',
   '/help/faq/',
   '/help/known-limitations/',
 ]
@@ -74,6 +80,30 @@ const routes =
   args.get('routes') === undefined
     ? ALL_ROUTES
     : args.get('routes').split(',').map((route) => route.trim())
+
+// The list above is written by hand on purpose, so an unaudited page is a
+// decision. It stopped being a decision once five published pages had been
+// missed, so the list is now checked against what the build actually
+// produced. Adding a page to the sidebar without adding it here fails.
+if (args.get('routes') === undefined) {
+  const built = []
+  const walk = (directory, route) => {
+    for (const entry of readdirSync(directory, { withFileTypes: true })) {
+      if (entry.isDirectory()) walk(`${directory}/${entry.name}`, `${route}/${entry.name}`)
+      else if (entry.name === 'index.html') built.push(`${route}/`)
+    }
+  }
+  walk('dist', '')
+  const listed = new Set(ALL_ROUTES)
+  const unaudited = built.filter((route) => !listed.has(route)).sort()
+  if (unaudited.length > 0) {
+    console.error(
+      `accessibility: ${unaudited.length} built page(s) are not in ALL_ROUTES and would go unaudited\n`,
+    )
+    for (const route of unaudited) console.error(`  ${route}`)
+    process.exit(1)
+  }
+}
 
 // 375 is the narrowest phone worth supporting; 1440 is where the sidebar,
 // the table of contents and the content column all appear at once.

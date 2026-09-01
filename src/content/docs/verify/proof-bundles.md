@@ -1,6 +1,6 @@
 ---
 title: Proof bundles
-description: Download one file per artifact and verify it against your own node, without trusting this site for any step of the check.
+description: "Download one file per artifact and verify it against your own Zcash node, without trusting this site for any step: raw transaction bytes, anchored to a named checkpoint."
 ---
 
 **Outcome:** you will be able to take one file from an artifact's page and
