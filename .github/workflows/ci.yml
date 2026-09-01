@@ -46,9 +46,18 @@ jobs:
         run: test -f dist/pagefind/pagefind.js
       - name: Sitemap exists
         run: test -f dist/sitemap-index.xml
+      - name: Install the pinned secret scanner
+        shell: bash
+        run: |
+          archive="${RUNNER_TEMP}/trufflehog_3.90.5_linux_amd64.tar.gz"
+          curl --fail --location --silent --show-error \
+            https://github.com/trufflesecurity/trufflehog/releases/download/v3.90.5/trufflehog_3.90.5_linux_amd64.tar.gz \
+            --output "${archive}"
+          echo "dfbba5f4385f3dcafa095b08454e043a3abeb0913d4e0ef005ec61be61af99e0  ${archive}" \
+            | sha256sum --check --strict
+          tar --extract --gzip --file "${archive}" --directory "${RUNNER_TEMP}" trufflehog
       - name: Secret scan (full history)
-        uses: trufflesecurity/trufflehog@v3.90.5
-        with:
-          base: ''
-          head: ''
-          extra_args: --only-verified
+        shell: bash
+        run: >-
+          "${RUNNER_TEMP}/trufflehog" git "file://${GITHUB_WORKSPACE}"
+          --fail --github-actions --no-update --only-verified
