@@ -1,6 +1,6 @@
 ---
 title: Etch, mint, transfer ZRunes
-description: The three ZRune operations, the limits that shape them, and the strict handling of malformed transactions.
+description: "The three ZRune operations, the limits that shape them, the strict handling of malformed transactions, and what a spend with no transparent successor does to a balance."
 ---
 
 **Outcome:** you will know how a ZRune is created, how minting actually

@@ -1,6 +1,6 @@
 ---
 title: "The ordinality decision"
-description: "Why Zerdinals track transparent outputs rather than numbering individual zatoshis, in the decision record's own words."
+description: "Why Zerdinals track transparent outputs rather than numbering individual zatoshis, in the decision record's own words, and what shielded pools do to any serial-number theory."
 ---
 
 :::note[Normative source]

@@ -1,6 +1,6 @@
 ---
 title: Frequently asked questions
-description: Direct answers on permanence, loss, privacy, disagreeing explorers, fees, and wallets.
+description: "Direct answers on permanence, accidental loss, privacy, why two explorers disagree about the same token, fees, reorganizations, keyboard access, and which wallets work."
 ---
 
 **You will get from this page:** the short answers, each linking to the page
