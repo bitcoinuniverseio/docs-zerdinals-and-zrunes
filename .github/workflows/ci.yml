@@ -5,8 +5,6 @@ on:
     branches: [develop, main]
   pull_request:
 
-# This repository is public, so jobs run on GitHub-hosted runners: fork pull
-# requests must never reach self-hosted infrastructure.
 permissions:
   contents: read
 
@@ -16,7 +14,7 @@ concurrency:
 
 jobs:
   checks:
-    runs-on: runs-on=${{ github.run_id }}-checks/runner=universe-hosted/cpu=2+8/env=production
+    runs-on: [self-hosted, Linux, X64, universe-ci, browser-heavy]
     steps:
       - uses: actions/checkout@v4
         with:
@@ -28,6 +26,8 @@ jobs:
         run: npm run check:public-safety
       - name: Status data is complete and fresh
         run: npm run check:status
+      - name: llms.txt lists every published page
+        run: npm run check:llms
       - name: Markdown lint
         run: npm run check:markdown
       - name: Build (validates every internal link and anchor)
@@ -35,7 +35,9 @@ jobs:
       - name: External links
         run: npm run check:external-links
       - name: Install a browser for the accessibility audit
-        run: npx playwright install --with-deps chromium
+        # The self-hosted runner already owns its system browser dependencies.
+        # Keep the install scoped to the pinned browser and service account.
+        run: npx playwright install chromium
       - name: Serve the built site
         run: npx astro preview --port 4323 &
       - name: Accessibility and horizontal overflow, every page, both themes
@@ -44,9 +46,18 @@ jobs:
         run: test -f dist/pagefind/pagefind.js
       - name: Sitemap exists
         run: test -f dist/sitemap-index.xml
+      - name: Install the pinned secret scanner
+        shell: bash
+        run: |
+          archive="${RUNNER_TEMP}/trufflehog_3.90.5_linux_amd64.tar.gz"
+          curl --fail --location --silent --show-error \
+            https://github.com/trufflesecurity/trufflehog/releases/download/v3.90.5/trufflehog_3.90.5_linux_amd64.tar.gz \
+            --output "${archive}"
+          echo "dfbba5f4385f3dcafa095b08454e043a3abeb0913d4e0ef005ec61be61af99e0  ${archive}" \
+            | sha256sum --check --strict
+          tar --extract --gzip --file "${archive}" --directory "${RUNNER_TEMP}" trufflehog
       - name: Secret scan (full history)
-        uses: trufflesecurity/trufflehog@v3.90.5
-        with:
-          base: ''
-          head: ''
-          extra_args: --only-verified
+        shell: bash
+        run: >-
+          "${RUNNER_TEMP}/trufflehog" git "file://${GITHUB_WORKSPACE}"
+          --fail --github-actions --no-update --only-verified

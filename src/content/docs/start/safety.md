@@ -1,6 +1,6 @@
 ---
 title: Safety in sixty seconds
-description: The one way people lose inscriptions and ZRunes, and the two habits that prevent it.
+description: "The one way people actually lose inscriptions and ZRunes, the two habits that prevent it, the safety net that fails closed, and why everything here is permanently public."
 ---
 
 **You will get from this page:** the single most common way these assets are

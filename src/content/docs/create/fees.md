@@ -1,6 +1,6 @@
 ---
 title: Fees and confirmation
-description: ZIP 317 conventional fees, what each operation costs in logical actions, and what confirmation means for each flow.
+description: "ZIP 317 conventional fees, what each operation costs in logical actions, what confirmation means for each flow, and why a fee stays public even on a shielded transaction."
 ---
 
 **Outcome:** you will be able to predict the fee for any operation before

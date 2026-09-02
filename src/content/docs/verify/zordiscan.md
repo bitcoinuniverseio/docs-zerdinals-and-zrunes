@@ -1,6 +1,6 @@
 ---
 title: Scan
-description: The first-party explorer, its three views on every record, and the honesty rules it never breaks.
+description: "The first-party explorer, its three views on every record, what you can inspect on each of them, and the honesty rules it never breaks when a record is incomplete."
 ---
 
 **Outcome:** you will know how to inspect any block, transaction, address,

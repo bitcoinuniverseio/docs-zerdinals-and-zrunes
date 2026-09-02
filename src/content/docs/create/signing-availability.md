@@ -1,6 +1,6 @@
 ---
 title: Signing availability
-description: What gates each way of creating, why the connected-wallet path waits on a qualified wallet release, and how you will know when each opens.
+description: "What gates each way of creating, why the connected-wallet path waits on a qualified wallet release, and how you will know the moment each one of them opens."
 ---
 
 **Outcome:** you will know exactly why write flows are gated, what has to be

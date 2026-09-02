@@ -1,6 +1,6 @@
 ---
 title: Ownership lives on outputs
-description: Why owning a Zerdinal or a ZRune balance means controlling one transparent output, and everything that follows from that.
+description: "Why owning a Zerdinal or a ZRune balance means controlling one transparent output, why a single output can carry hundreds of assets, and everything that follows from it."
 ---
 
 **You will get from this page:** the single mental model that explains how
