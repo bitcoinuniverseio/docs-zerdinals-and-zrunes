@@ -1,6 +1,6 @@
 ---
 title: Protect asset-bearing outputs
-description: The pre-spend checklist, the per-output verdict that fails closed, and committed balances explained.
+description: "The pre-spend routine, the per-output verdict that fails closed while any block is unread, committed balances explained, and the recovery path when a spend goes wrong."
 ---
 
 **Outcome:** you will have a short, reliable routine that makes accidental

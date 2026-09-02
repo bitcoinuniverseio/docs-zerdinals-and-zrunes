@@ -1,6 +1,6 @@
 ---
 title: ZRC-20, and its two readings
-description: The token standard carried inside legacy inscriptions, and why this product computes every figure under two named rule sets.
+description: "The token standard carried inside legacy inscriptions, why this product computes every figure under two named rule sets, and why it never quietly picks one of them for you."
 ---
 
 **You will get from this page:** what ZRC-20 is, why two honest explorers can

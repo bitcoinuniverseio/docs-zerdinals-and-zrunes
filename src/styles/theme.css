@@ -59,6 +59,17 @@
   --sl-color-text: #a7b0be;
   --sl-color-text-accent: #d8f252;
   --sl-color-text-invert: #0b0d10;
+
+  /* Diagram palette. Figures paint from these rather than from literal
+     colours, so one SVG holds its meaning in both themes. The three state
+     hues are the product's move, shielded and burn colours. */
+  --zz-diagram-ink: #f4f6f9;
+  --zz-diagram-muted: #a7b0be;
+  --zz-diagram-rule: #444c59;
+  --zz-diagram-panel: #12151a;
+  --zz-diagram-move: #d8f252;
+  --zz-diagram-shielded: #7cc4ff;
+  --zz-diagram-burn: #ff7a72;
 }
 
 /* Light: cold daylight. Citron survives only as a fill; text and rules use
@@ -88,6 +99,16 @@
   --sl-color-text: #474e59;
   --sl-color-text-accent: #4a5c00;
   --sl-color-text-invert: #f1f3f6;
+
+  /* The same three states, darkened until each one clears the contrast
+     floor on the light ground. Light is a sibling, not an inversion. */
+  --zz-diagram-ink: #0b0d10;
+  --zz-diagram-muted: #474e59;
+  --zz-diagram-rule: #818a99;
+  --zz-diagram-panel: #ffffff;
+  --zz-diagram-move: #3f4f00;
+  --zz-diagram-shielded: #14548f;
+  --zz-diagram-burn: #96201a;
 }
 
 /* Square geometry: the product has no rounded panels and no shadows. */
@@ -164,6 +185,27 @@ h1[data-page-title],
 }
 .sl-markdown-content tr:nth-child(2n) {
   background: transparent;
+}
+
+/* Figures: diagrams are inline SVG so they inherit the page palette and the
+   reader's own font. They scale with the column rather than scrolling
+   sideways, and the cap keeps the type from ballooning on a wide screen. */
+.sl-markdown-content .zz-figure {
+  margin: 1.75rem 0;
+  max-width: 34rem;
+}
+.sl-markdown-content .zz-figure svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-family: var(--sl-font);
+}
+.sl-markdown-content .zz-figure figcaption {
+  margin-top: 0.7rem;
+  max-width: 72ch;
+  font-size: var(--sl-text-sm);
+  line-height: 1.5;
+  color: var(--sl-color-gray-2);
 }
 
 /* Asides: square, hairline, label in tracking caps like product section

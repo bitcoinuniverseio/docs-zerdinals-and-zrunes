@@ -1,6 +1,6 @@
 ---
 title: Known limitations
-description: The honest list of what does not work yet, why, and where each limitation is tracked.
+description: "The honest list of what does not work yet and why: wallet signing, ZRunes activation, deliberately unanswered ZRC-20 questions, and permanent shielded terminal states."
 ---
 
 **You will get from this page:** everything the product cannot do today,

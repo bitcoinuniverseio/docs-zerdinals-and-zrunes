@@ -1,6 +1,6 @@
 ---
 title: Zerdinals
-description: What a Zerdinal inscription is, what its number means, what you can rely on, and what to know before inscribing.
+description: "What a Zerdinal inscription is, what its number means, which facts about it you can rely on, and what to know before you inscribe anything that will be public forever."
 ---
 
 **You will get from this page:** what a Zerdinal is, what is actually

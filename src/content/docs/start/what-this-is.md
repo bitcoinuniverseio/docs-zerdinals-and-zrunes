@@ -1,6 +1,6 @@
 ---
 title: What this is
-description: A one-minute explanation of Zerdinals, ZRunes, ZRC-20, collections, and Scan, and who this documentation is for.
+description: "A one-minute explanation of Zerdinals, ZRunes, ZRC-20, collections, and Scan, who this documentation is for, and what this product deliberately refuses to do."
 ---
 
 **You will get from this page:** the whole product in one minute, and where to

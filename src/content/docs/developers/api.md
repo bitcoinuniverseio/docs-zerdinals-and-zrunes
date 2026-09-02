@@ -1,6 +1,6 @@
 ---
 title: Public HTTP API
-description: The read-only HTTP surface behind the product, with routes, pagination, integer encoding, and tested examples.
+description: "The read-only HTTP surface behind the product, with routes, pagination, integer encoding, tested examples, and the checkpoint and coverage that ride on every response."
 ---
 
 **You will get from this page:** every publicly reachable route, the

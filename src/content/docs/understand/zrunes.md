@@ -1,6 +1,6 @@
 ---
 title: ZRunes
-description: What ZRunes are, when they activate on mainnet, and which facts about them are real chain facts.
+description: "What ZRunes are, the block height at which they activate on mainnet, which facts about them are real chain facts today, and how a balance is burned by protocol rule."
 ---
 
 **You will get from this page:** what a ZRune is, why none exist on mainnet
