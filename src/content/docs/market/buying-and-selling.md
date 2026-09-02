@@ -1,6 +1,6 @@
 ---
 title: Buying and selling
-description: How the market works, what a listing really is, what settles a sale, and exactly what is and is not live today.
+description: "How the market works, what a listing really is, what settles a sale in one transaction, what cancelling does and does not do, and exactly what is and is not live today."
 ---
 
 **Outcome:** you will know what a listing on this market actually is, why a
@@ -55,6 +55,15 @@ Floor, volume, and sale counts on the market pages are derived from this
 service's open listings and confirmed settlements only, and every market
 page says so. They are not chain facts and are never presented as such.
 An empty market shows as empty; nothing is fabricated to look busy.
+
+## Where this market is
+
+This market is part of the application at [zrunes.io](https://zrunes.io) and
+nowhere else. Zerdinals and ZRunes are Zcash protocols, and the wider Bitcoin
+Universe surfaces treat them as read and explore only: they display and
+search the chain record, and no marketplace outside this application trades
+them. If you are looking for somewhere else to buy or sell one, there is not
+one to point you at.
 
 ## One market, five destinations
 

@@ -19,7 +19,7 @@ export default defineConfig({
       expressiveCode: { plugins: [codeBlockAccessibility()] },
       title: 'Zerdinals and ZRunes',
       description:
-        'The record of what has been written into Zcash: Zerdinals inscriptions, ZRunes, ZRC-20 tokens, collections, and the ZordiScan explorer.',
+        'The record of what has been written into Zcash: Zerdinals inscriptions, ZRunes, ZRC-20 tokens, collections, and the Scan explorer.',
       logo: { src: './public/mark.svg', alt: '' },
       favicon: '/mark.svg',
       social: [
@@ -56,6 +56,7 @@ export default defineConfig({
           label: 'Start here',
           items: [
             { label: 'What this is', slug: 'start/what-this-is' },
+            { label: 'Finding your way around', slug: 'start/finding-your-way-around' },
             { label: 'Safety in sixty seconds', slug: 'start/safety' },
             { label: 'Current status', slug: 'start/status' },
           ],
@@ -100,7 +101,7 @@ export default defineConfig({
           label: 'Verify',
           items: [
             { label: 'Search', slug: 'verify/search' },
-            { label: 'ZordiScan', slug: 'verify/zordiscan' },
+            { label: 'Scan, the explorer', slug: 'verify/zordiscan' },
             { label: 'What an empty result means', slug: 'verify/coverage' },
             { label: 'Proof bundles', slug: 'verify/proof-bundles' },
           ],

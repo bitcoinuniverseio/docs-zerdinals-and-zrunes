@@ -1,6 +1,6 @@
 ---
 title: Interruptions and recovery
-description: The one coherent model for outages, stale data, reorganizations, and resuming interrupted orders.
+description: "One coherent model for outages, stale data, chain reorganizations, and resuming interrupted orders, plus how to verify the record for yourself after any interruption."
 ---
 
 **Outcome:** you will know what every interruption means, what is at risk in
@@ -67,7 +67,7 @@ where it stopped and what the next approval is.
 
 1. Check [the status page](/docs-zerdinals-and-zrunes/start/status/) or the
    product's own status tape for coverage and freshness.
-2. Search the relevant txid or address in ZordiScan; the chain record is
+2. Search the relevant txid or address in Scan; the chain record is
    the authority, and it was never at risk.
 
 ## Related

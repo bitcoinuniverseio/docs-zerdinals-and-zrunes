@@ -1,6 +1,6 @@
 ---
 title: Etch, mint, transfer ZRunes
-description: The three ZRune operations, the limits that shape them, and the strict handling of malformed transactions.
+description: "The three ZRune operations, the limits that shape them, the strict handling of malformed transactions, and what a spend with no transparent successor does to a balance."
 ---
 
 **Outcome:** you will know how a ZRune is created, how minting actually
@@ -150,7 +150,7 @@ transactions, not for product users.
 
 ## How to verify success
 
-Search the ZRune name in ZordiScan. Its page shows the etch transaction,
+Search the ZRune name in Scan. Its page shows the etch transaction,
 the terms, mint progress, holders, and activity, all from the chain. Your
 balance appears against your address and the specific outputs carrying it.
 

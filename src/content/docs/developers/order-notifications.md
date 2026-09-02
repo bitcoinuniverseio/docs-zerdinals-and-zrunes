@@ -1,6 +1,6 @@
 ---
 title: Order notifications
-description: Signed webhooks and server-sent event streams for order progress, with verification examples you can run as they stand.
+description: "Signed webhooks and server-sent event streams for order progress, with signature verification examples you can run exactly as they stand, and the delivery guarantees."
 ---
 
 **You will get from this page:** how to hear about an order's progress

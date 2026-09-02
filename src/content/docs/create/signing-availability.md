@@ -1,6 +1,6 @@
 ---
 title: Signing availability
-description: What gates each way of creating, why the connected-wallet path waits on a qualified wallet release, and how you will know when each opens.
+description: "What gates each way of creating, why the connected-wallet path waits on a qualified wallet release, and how you will know the moment each one of them opens."
 ---
 
 **Outcome:** you will know exactly why write flows are gated, what has to be
@@ -124,4 +124,4 @@ enforce that exact state, so the page and the route can never disagree.
 - Inspect any address, artifact, token, or collection read-only.
 - Watch addresses and artifacts, and export share cards.
 - Verify the chain facts behind all of it in
-  [ZordiScan](/docs-zerdinals-and-zrunes/verify/zordiscan/).
+  [Scan](/docs-zerdinals-and-zrunes/verify/zordiscan/).
