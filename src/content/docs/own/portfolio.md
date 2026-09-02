@@ -39,7 +39,7 @@ Zerdinal from its page. What that means, exactly:
 
 ## What changed since you were last here
 
-Discover reports the number of numbered inscriptions that arrived since
+Home reports the number of numbered inscriptions that arrived since
 your previous visit, and a list of the artifacts you opened most recently.
 
 Both are stored in your browser on this device. The visit mark holds one
@@ -57,7 +57,7 @@ A Zerdinal detail page can export a share card: a 1200 by 630 PNG drawn
 entirely in your browser, with no external calls. The card contains only
 public chain facts: the content preview, the name or short id, the serial
 number, the collection if any, the genesis block height, the content type,
-and the ZordiScan link. Never wallet balances and never anything private,
+and the Scan link. Never wallet balances and never anything private,
 because the card is built from the same public indexer data anyone can
 read.
 

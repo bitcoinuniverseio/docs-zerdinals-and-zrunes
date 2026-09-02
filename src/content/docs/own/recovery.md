@@ -67,7 +67,7 @@ where it stopped and what the next approval is.
 
 1. Check [the status page](/docs-zerdinals-and-zrunes/start/status/) or the
    product's own status tape for coverage and freshness.
-2. Search the relevant txid or address in ZordiScan; the chain record is
+2. Search the relevant txid or address in Scan; the chain record is
    the authority, and it was never at risk.
 
 ## Related
