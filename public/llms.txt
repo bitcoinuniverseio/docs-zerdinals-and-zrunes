@@ -13,6 +13,7 @@ src/content/docs/.
 ## Start here
 
 - [What this is](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/start/what-this-is/)
+- [Finding your way around](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/start/finding-your-way-around/)
 - [Safety in sixty seconds](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/start/safety/)
 - [Current status](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/start/status/)
 
