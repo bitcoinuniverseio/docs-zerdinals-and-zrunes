@@ -42,6 +42,7 @@ const PREFIX = '/docs-zerdinals-and-zrunes'
 const ALL_ROUTES = [
   '/',
   '/start/what-this-is/',
+  '/start/finding-your-way-around/',
   '/start/safety/',
   '/start/status/',
   '/understand/zerdinals/',
