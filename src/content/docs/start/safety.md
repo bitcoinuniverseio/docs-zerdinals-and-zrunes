@@ -1,6 +1,6 @@
 ---
 title: Safety in sixty seconds
-description: The one way people lose inscriptions and ZRunes, and the two habits that prevent it.
+description: "The one way people actually lose inscriptions and ZRunes, the two habits that prevent it, the safety net that fails closed, and why everything here is permanently public."
 ---
 
 **You will get from this page:** the single most common way these assets are
@@ -26,7 +26,7 @@ Nothing warns you, and nothing undoes it.
 
 ## Before you spend, check the output
 
-The ZordiScan page for an address lists every inscription, ZRune balance, and
+The Scan page for an address lists every inscription, ZRune balance, and
 ZRC-20 balance it holds, against the specific output that carries each one.
 Search the address at [zrunes.io](https://zrunes.io) before moving anything.
 

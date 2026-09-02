@@ -1,6 +1,6 @@
 ---
 title: Architecture
-description: How a figure gets from a Zcash block to your screen, and which component is responsible for each guarantee.
+description: "How a figure gets from a Zcash block to your screen, which component is responsible for each guarantee, and where the boundary between the indexer and the product sits."
 ---
 
 **You will get from this page:** the pipeline behind the product, what each

@@ -13,6 +13,7 @@ src/content/docs/.
 ## Start here
 
 - [What this is](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/start/what-this-is/)
+- [Finding your way around](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/start/finding-your-way-around/)
 - [Safety in sixty seconds](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/start/safety/)
 - [Current status](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/start/status/)
 
@@ -27,10 +28,16 @@ src/content/docs/.
 
 ## Create
 
+- [Pay with any wallet](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/create/pay-with-any-wallet/)
 - [Inscribe a Zerdinal](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/create/inscribe/)
+- [Create tokens and collections](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/create/tokens-and-collections/)
 - [Etch, mint, transfer ZRunes](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/create/etch-mint-transfer/)
 - [Fees and confirmation](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/create/fees/)
 - [Signing availability](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/create/signing-availability/)
+
+## Market
+
+- [Buying and selling](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/market/buying-and-selling/)
 
 ## Own and protect
 
@@ -43,6 +50,7 @@ src/content/docs/.
 - [Search](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/verify/search/)
 - [ZordiScan](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/verify/zordiscan/)
 - [What an empty result means](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/verify/coverage/)
+- [Proof bundles](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/verify/proof-bundles/)
 
 ## Protocols
 
@@ -50,11 +58,13 @@ src/content/docs/.
 - [ZRunes v1 specification](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/protocols/zrunes-v1/)
 - [Collections v1 specification](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/protocols/collections-v1/)
 - [The ordinality decision](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/protocols/ordinality/)
+- [ZMarket Orders v1 specification](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/protocols/zmarket-orders-v1/)
 
 ## Developers
 
 - [Architecture](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/developers/architecture/)
 - [Public HTTP API](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/developers/api/)
+- [Order notifications](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/developers/order-notifications/)
 
 ## Help
 

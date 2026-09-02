@@ -1,6 +1,6 @@
 ---
 title: Search
-description: One field on every page classifies what you typed and routes you to the right record, without guessing.
+description: "One field on every page classifies what you typed and routes you to the right record without guessing, names any ambiguity it finds, and says when it cannot decide."
 ---
 
 **Outcome:** you will be able to get from any identifier (an address, a
@@ -53,5 +53,5 @@ watchlists, with no server component. Clearing browser data clears them.
 
 ## Related
 
-- [ZordiScan](/docs-zerdinals-and-zrunes/verify/zordiscan/)
+- [Scan](/docs-zerdinals-and-zrunes/verify/zordiscan/)
 - [What an empty result means](/docs-zerdinals-and-zrunes/verify/coverage/)
