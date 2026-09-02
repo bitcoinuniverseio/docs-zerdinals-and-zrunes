@@ -45,7 +45,7 @@ or not you meant to move more than one. Nothing about the ZEC amount on the
 output hints at how much is riding on it.
 
 So before you spend, check what the output actually carries rather than
-what you remember putting there. The ZordiScan page for an address lists
+what you remember putting there. The Scan page for an address lists
 every inscription against the output holding it, and the per-output verdict
 the product publishes names every asset on an output rather than the first
 one it finds.
@@ -62,7 +62,7 @@ ordinary while it happened.
 ## Safety boundary
 
 - Keep artifact addresses separate from spending addresses.
-- Check an address on ZordiScan before spending from it.
+- Check an address on Scan before spending from it.
 - Prefer a wallet that consults the per-output asset verdict, which fails
   closed: while any block is unread, unknown outputs are reported as
   unchecked rather than clear.

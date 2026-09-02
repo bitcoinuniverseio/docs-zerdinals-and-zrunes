@@ -10,7 +10,7 @@ spending of an artifact effectively impossible.
 
 Before spending from any address that might hold assets:
 
-1. **Open the address in ZordiScan.** Every inscription, ZRune balance, and
+1. **Open the address in Scan.** Every inscription, ZRune balance, and
    ZRC-20 balance is listed against the specific output carrying it.
 2. **Check the outputs you are about to spend.** An output is spent whole;
    everything riding on it moves together.
