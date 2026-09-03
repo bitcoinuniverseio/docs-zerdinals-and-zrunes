@@ -73,6 +73,10 @@ const ALL_ROUTES = [
   '/protocols/collections-v1/',
   '/protocols/ordinality/',
   '/protocols/zmarket-orders-v1/',
+  '/protocols/zmarket-orders-v2/',
+  '/protocols/creator-launches/',
+  '/protocols/shielded-metaprotocols/',
+  '/protocols/names-and-registries/',
   '/help/faq/',
   '/help/known-limitations/',
 ]
