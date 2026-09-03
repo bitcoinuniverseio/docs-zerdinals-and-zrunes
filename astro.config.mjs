@@ -114,6 +114,10 @@ export default defineConfig({
             { label: 'Collections v1 specification', slug: 'protocols/collections-v1' },
             { label: 'The ordinality decision', slug: 'protocols/ordinality' },
             { label: 'ZMarket Orders v1 specification', slug: 'protocols/zmarket-orders-v1' },
+            { label: 'ZMarket Orders v2 specification', slug: 'protocols/zmarket-orders-v2' },
+            { label: 'Creator Launches and Public Launchpad', slug: 'protocols/creator-launches' },
+            { label: 'Shielded Metaprotocols', slug: 'protocols/shielded-metaprotocols' },
+            { label: 'Names and Dual-Registry Architecture', slug: 'protocols/names-and-registries' },
           ],
         },
         {
