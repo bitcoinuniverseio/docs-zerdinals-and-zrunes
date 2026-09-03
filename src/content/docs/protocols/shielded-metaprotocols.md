@@ -6,12 +6,24 @@ description: "Zcash private metaprotocols: ZINC-1 memos, NFPT privacy tokens, an
 ## Protocols
 
 ### ZINC-1 Memos
+<<<<<<< Updated upstream
 Standardized encrypted memo payloads riding within Sapling and Orchard note ciphertexts.
 
 ### Non-Fungible Privacy Tokens (NFPT)
 Privacy-preserving asset representations referencing immutable content hashes with zero-knowledge ownership proofs.
 
 ### Sovereign Zones
+=======
+
+Standardized encrypted memo payloads riding within Sapling and Orchard note ciphertexts.
+
+### Non-Fungible Privacy Tokens (NFPT)
+
+Privacy-preserving asset representations referencing immutable content hashes with zero-knowledge ownership proofs.
+
+### Sovereign Zones
+
+>>>>>>> Stashed changes
 Decentralized naming and routing zones on Zcash with sovereign key authority.
 
 ## Client-Local Security Model
