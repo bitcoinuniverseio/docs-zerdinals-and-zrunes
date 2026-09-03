@@ -59,6 +59,10 @@ src/content/docs/.
 - [Collections v1 specification](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/protocols/collections-v1/)
 - [The ordinality decision](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/protocols/ordinality/)
 - [ZMarket Orders v1 specification](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/protocols/zmarket-orders-v1/)
+- [ZMarket Orders v2 specification](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/protocols/zmarket-orders-v2/)
+- [Creator Launches and Public Launchpad](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/protocols/creator-launches/)
+- [Shielded Metaprotocols](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/protocols/shielded-metaprotocols/)
+- [Names and Dual-Registry Architecture](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/protocols/names-and-registries/)
 
 ## Developers
 
