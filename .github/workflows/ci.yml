@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   checks:
-    runs-on: [self-hosted, linux, x64, universe, gcp, universe-gcp-large]
+    runs-on: [self-hosted, linux, x64, universe-linux]
     steps:
       - uses: actions/checkout@v4
         with:
