@@ -6,10 +6,7 @@ description: "Universal name resolution across ZcashMe and ZcashNames registries
 ## Dual Registries
 
 The Names Hub resolves labels across both major Zcash naming systems:
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 - `zcashme-zns`: ZcashMe Name Service
 - `zcashnames-zns1`: ZcashNames Registry
 

@@ -8,10 +8,7 @@ The signed-order protocol for Zcash metaprotocols version 2.
 ## 1. Scope and Frozen Order Kinds
 
 ZMarket Orders v2 defines exactly 17 frozen order kinds:
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 - Single-item asks and offers (`item-ask`, `item-offer`, `counteroffer`)
 - Criteria-based offers (`collection-offer`, `trait-offer`)
 - Lot trading (`lot-ask`, `lot-bid`)
