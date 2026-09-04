@@ -118,6 +118,11 @@ export default defineConfig({
             { label: 'Creator Launches and Public Launchpad', slug: 'protocols/creator-launches' },
             { label: 'Shielded Metaprotocols', slug: 'protocols/shielded-metaprotocols' },
             { label: 'Names and Dual-Registry Architecture', slug: 'protocols/names-and-registries' },
+            { label: 'Provenance Studio (C2PA 2.4)', slug: 'protocols/provenance-studio' },
+            { label: 'Rights and Remix Studio', slug: 'protocols/rights-and-remix' },
+            { label: 'Passes and Events', slug: 'protocols/passes-and-events' },
+            { label: 'Private Releases', slug: 'protocols/private-releases' },
+            { label: 'Creator Collectives', slug: 'protocols/creator-collectives' },
           ],
         },
         {
