@@ -45,3 +45,9 @@ Additional local browser checks covered the ZSA unavailable state and draft relo
 Complete creator minting, shielded payments and creation, marketplace execution and history, registry proofs, and the experimental asset lab still require their actual authorization, transaction and persistence evidence. Complete user journeys, responsive layouts, supported themes, wallet rejection and reload/recovery states have not been established. No real transaction, authoritative spend checkpoint or delivered-asset evidence is claimed by this candidate.
 
 No release-ready or end-to-end completion claim is made. Dated information on [Current status](../status) remains historical evidence until independently refreshed; it is not qualification for this candidate.
+
+## Shielded UI follow-up
+
+Local browser verification exposed and corrected a protocol manifest wire mismatch: the frontend now reads the backend record keyed by protocol ID and displays its existing wire fields. Protocol bytes and the manifest hash remain unchanged. Navigation controls use single links.
+
+Private Portfolio also displayed a fixed balance and invented assets after arbitrary nonempty input. Those simulated results and the hub's false active-session claim have been removed. Both pages report private balance and holdings as unknown because qualified local viewing-key decoding, authenticated note retrieval and trial decryption are absent. Local reload checks and nine focused frontend tests passed. Real private viewing and shielded execution remain BLOCKED; no deployment or GO claim follows from these corrections.
