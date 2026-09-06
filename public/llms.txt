@@ -64,6 +64,12 @@ src/content/docs/.
 - [Shielded Metaprotocols](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/protocols/shielded-metaprotocols/)
 - [Names and Dual-Registry Architecture](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/protocols/names-and-registries/)
 
+- [Provenance Studio (C2PA 2.4)](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/protocols/provenance-studio/)
+- [Rights and Remix Studio](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/protocols/rights-and-remix/)
+- [Passes and Events](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/protocols/passes-and-events/)
+- [Private Releases](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/protocols/private-releases/)
+- [Creator Collectives](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/protocols/creator-collectives/)
+
 ## Developers
 
 - [Architecture](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/developers/architecture/)
