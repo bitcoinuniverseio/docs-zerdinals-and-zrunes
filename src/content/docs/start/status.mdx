@@ -3,34 +3,32 @@ title: Current status
 description: "What is live, what is gated, and when each fact was last verified against the product and the chain, with the scanned height and the deployed commit behind every claim."
 ---
 
-The September 5 local repair candidate is **not ready for release**. See [Repair candidate status](../repair-candidate). The dated observations below do not qualify that candidate or establish a new production verification.
+The September 2026 repair candidate has **not completed production qualification**. See [Repair candidate status](../repair-candidate). The dated observations below do not qualify that candidate or establish a new production verification.
 
 import status from '../../../data/status.json';
 
-**You will get from this page:** the authoritative answer to what works today.
-Every other page that mentions availability defers to this one. Values come
-from the product's public endpoints and were last verified at
-**{status.verifiedAt}**.
+**You will get from this page:** the last recorded observations and the
+endpoints to check current availability. These values came from the product's
+public endpoints and were last verified at **{status.verifiedAt}**. They do
+not establish the current deployment, chain coverage or operation readiness.
 
-## The product today
+## Last recorded observations
 
 | Fact | State |
 | --- | --- |
-| Product | <a href={status.product.url}>{status.product.url}</a>, deployed commit <code>{status.product.deployedCommit.slice(0, 12)}</code> |
+| Product | <a href={status.product.url}>{status.product.url}</a>, observed deployed commit <code>{status.product.deployedCommit.slice(0, 12)}</code> |
 | Reading the record | {status.reads.available ? 'Was available' : 'Was unavailable'} when checked at {status.verifiedAt} |
-| Chain coverage | {status.coverage.chainComplete ? `Complete: ${status.coverage.scannedHeight.toLocaleString('en-US')} of ${status.coverage.networkHeight.toLocaleString('en-US')} blocks read` : `Partial: ${status.coverage.scannedHeight.toLocaleString('en-US')} of ${status.coverage.networkHeight.toLocaleString('en-US')} blocks read`} |
-| Creating and transferring | {status.writes.enabled ? 'Enabled' : 'Disabled, pending wallet signing qualification'} |
-| Wallet signing | {status.walletSigning.available ? 'Available' : 'Not yet available in any wallet'} |
-| ZRunes on mainnet | {status.zrunes.active ? 'Active' : `Not yet active; activation is at block ${status.zrunes.activationHeight.toLocaleString('en-US')}`} |
+| Chain coverage | {status.coverage.chainComplete ? `Reported complete: ${status.coverage.scannedHeight.toLocaleString('en-US')} of ${status.coverage.networkHeight.toLocaleString('en-US')} blocks read` : `Reported partial: ${status.coverage.scannedHeight.toLocaleString('en-US')} of ${status.coverage.networkHeight.toLocaleString('en-US')} blocks read`} |
+| Creating and transferring | {status.writes.enabled ? 'Reported enabled' : 'Reported disabled'} |
+| Wallet signing | {status.walletSigning.available ? 'Reported available' : 'Reported unavailable'} |
+| ZRunes on mainnet | {status.zrunes.active ? 'Reported active' : `Reported inactive; activation is at block ${status.zrunes.activationHeight.toLocaleString('en-US')}`} |
 
 ### Which of these rows can go out of date
 
-Most rows above change only when someone ships a change, so a dated reading of
-them stays true until the next one. **Reading the record is not one of those.**
-It is a live condition: the product depends on infrastructure that can be down
-for maintenance or under load, and when that happens the site says so on the
-page itself rather than pretending. So treat that row as an observation with a
-timestamp, not as a promise about this minute.
+Every row is tied to the recorded verification time. Deployments, chain
+progress, indexing, wallet qualification and infrastructure availability can
+change these results. Check the product's current operation state before
+creating, signing or paying for an order.
 
 Checking it yourself takes one request, against the same public endpoint this
 page is generated from:
@@ -75,10 +73,10 @@ by rule, so before that height nothing can be etched or minted and no ZRune
 exists. This is a protocol fact that any independent node reading the chain
 reproduces, not a setting on the product's side.
 
-The product reads the height from its own indexer rather than holding it as a
-constant, and the ZRune pages state the exact block and how many remain. When
-the height arrives those pages open on their own: there is nothing to install
-and nothing to redeploy.
+The product reads chain progress from its own indexer. Reaching activation
+height is one prerequisite: creating or minting also requires current indexed
+coverage, wallet signing qualification and operation readiness. Activation
+alone does not establish that an operation can complete.
 [The specification](/docs-zerdinals-and-zrunes/protocols/zrunes-v1/).
 
 ## Protocol versions
@@ -94,9 +92,9 @@ and nothing to redeploy.
 The honest list of what does not work yet is kept on one page:
 [Known limitations](/docs-zerdinals-and-zrunes/help/known-limitations/).
 
-## How this page stays true
+## How this snapshot is checked
 
-The values above live in one data file in this repository. A build fails if
-any field is missing, undefined, or stale, so an outdated status cannot ship
-silently. When the product changes, one reviewed change to that file updates
-every page that references it.
+The values above live in one data file in this repository. Build checks reject
+missing fields and snapshots older than the permitted age. Passing those
+checks does not query the current product or qualify a release. Updating the
+snapshot requires fresh observations and matching screenshot provenance.
