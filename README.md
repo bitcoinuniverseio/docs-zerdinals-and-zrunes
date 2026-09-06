@@ -44,11 +44,7 @@ the most important page in this documentation.
 
 ## What works today
 
-Reading is fully live over a completely read chain. Creating and
-transferring stop at the signing step: no wallet can sign these transactions
-yet, and production writes stay disabled until signing is qualified. ZRunes
-activate on mainnet at block 3,470,000. The authoritative, dated detail is
-on [Current status](src/content/docs/start/status.mdx).
+The September 5 repair candidate remains **NO-GO** pending complete authority and user-journey validation. See [Repair candidate status](src/content/docs/start/repair-candidate.md). Dated observations on [Current status](src/content/docs/start/status.mdx) describe their recorded snapshot; they do not establish present deployment behavior or qualify this candidate.
 
 ## Documentation map
 
