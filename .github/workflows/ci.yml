@@ -38,10 +38,10 @@ jobs:
         # The self-hosted runner already owns its system browser dependencies.
         # Keep the install scoped to the pinned browser and service account.
         run: npx playwright install chromium
-      - name: Serve the built site
-        run: npx astro preview --port 4323 &
+      - name: Verify preview ownership and cleanup
+        run: node --test scripts/audit-built-site.test.mjs
       - name: Accessibility and horizontal overflow, every page, both themes
-        run: npx wait-on http://localhost:4323/docs-zerdinals-and-zrunes/ && npm run check:a11y
+        run: node scripts/audit-built-site.mjs
       - name: Search index exists
         run: test -f dist/pagefind/pagefind.js
       - name: Sitemap exists
