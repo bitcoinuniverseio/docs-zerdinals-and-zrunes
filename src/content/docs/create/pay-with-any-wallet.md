@@ -1,6 +1,6 @@
 ---
 title: Pay with any wallet
-description: Create an inscription, etch or mint with one exact ZEC payment from any Zcash wallet or exchange. No connection, no extension, no signature in the browser.
+description: Create an inscription, etch or mint with an exact ZEC payment from a wallet or exchange that supports the invoice destination.
 ---
 
 **Outcome:** you will know exactly how a payment-funded order works, what
@@ -12,15 +12,35 @@ send, including the ones you did not need to.
 You configure the operation, paste the address that should receive the
 result, and review the exact operation and exact price. The page then shows
 one unique Zcash payment address with a QR code. You send that exact amount
-from anywhere that can send transparent ZEC: Universe Wallet, Zashi, YWallet,
+from anywhere that can send transparent ZEC: Universe Wallet, Zodl (formerly Zashi), YWallet,
 another wallet, an exchange withdrawal, a shielded wallet paying a
 transparent address. Then you can close the page. The server detects the
 payment, waits for confirmation, writes the operation onto the chain, and
 delivers the result to your recipient address, along with any ZEC the
 operation did not use.
 
-No wallet connection is required. No browser extension, no account, no login,
-no seed phrase, and no signature is ever asked of your browser.
+Scan and copy do not require a wallet connection. Optional direct payment
+opens the selected wallet's approval. Never enter a seed phrase into the site.
+
+## Payment recovery candidate
+
+The unreleased September 2026 repair keeps the original payment attempt
+when the wallet response is lost or the account changes after sending.
+Reopen the same order and check its status before considering another
+payment. A wallet transaction reference is a hint for observation; only
+verified payment and delivery receipts complete the order.
+
+Noir ordinary ZEC payment uses its documented decimal amount and an explicit
+funding source. Transparent funding requires a separate choice; it is not
+an automatic fallback when private funds or available balance are unknown.
+Ordinary payment support does not establish custom market signing.
+
+Choose a wallet for the specific destination and operation. Nozy blocks
+transparent recipients. Brave's documented shielded desktop support does
+not qualify every payment or signing operation. Zodl is the renamed Zashi.
+Cachet's current ZSA evidence is for testnet, not ZSA mainnet availability.
+The chooser distinguishes documented support from locally qualified native
+behavior. Native and browser validation of this repair remains pending.
 
 ## What can be paid for this way
 
