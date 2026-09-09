@@ -7,7 +7,7 @@ operators run.** Zerdinals inscriptions, ZRunes, ZRC-20 tokens, and
 collections, each shown with the chain evidence behind it.
 
 **[Open the product](https://zrunes.io)** ·
-**[Read the documentation site](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/)** ·
+**[Read the documentation site](https://zrunes.io/docs-zerdinals-and-zrunes/)** ·
 **[Current status](src/content/docs/start/status.mdx)**
 
 [![The Discover page: the archive headline, live chain figures, and the newest artwork inscribed into Zcash](public/screenshots/discover-1440-dark.png)](https://zrunes.io)
@@ -62,7 +62,7 @@ The September 5 repair candidate remains **NO-GO** pending complete authority an
 One Markdown source builds both views: these files read completely on
 GitHub, and the same files build the searchable documentation site with
 [Astro Starlight](https://starlight.astro.build/). Content lives in
-`src/content/docs/`; the site deploys to GitHub Pages from `main`.
+`src/content/docs/`; the static site is published from `main` on the self-hosted product web server.
 
 ```bash
 npm ci

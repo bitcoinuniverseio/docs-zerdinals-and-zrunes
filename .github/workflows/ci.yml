@@ -61,3 +61,9 @@ jobs:
         run: >-
           "${RUNNER_TEMP}/trufflehog" git "file://${GITHUB_WORKSPACE}"
           --fail --github-actions --no-update --only-verified
+      - name: Preserve the verified static release
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-docs-release
+          path: dist
+          if-no-files-found: error

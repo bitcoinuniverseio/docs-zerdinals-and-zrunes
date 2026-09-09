@@ -1,5 +1,5 @@
 // Documentation site for Zerdinals and ZRunes.
-// Static build, deployed to GitHub Pages from main. Search is Pagefind,
+// Static build, served by the self-hosted product web server. Search is Pagefind,
 // bundled by Starlight: local, loaded on demand, no external service.
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
@@ -11,7 +11,7 @@ export default defineConfig({
   markdown: {
     rehypePlugins: [rehypeTableScroll],
   },
-  site: 'https://bitcoinuniverseio.github.io',
+  site: 'https://zrunes.io',
   base: '/docs-zerdinals-and-zrunes',
   trailingSlash: 'ignore',
   integrations: [
@@ -44,7 +44,7 @@ export default defineConfig({
       head: [
         {
           tag: 'meta',
-          attrs: { property: 'og:image', content: 'https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/social-card.png' },
+          attrs: { property: 'og:image', content: 'https://zrunes.io/docs-zerdinals-and-zrunes/social-card.png' },
         },
         {
           tag: 'meta',
