@@ -7,14 +7,13 @@ description: "The three ZRune operations, the limits that shape them, the strict
 counts, and how balances move, including every way a balance can burn.
 
 :::caution[Availability today]
-ZRunes activate on mainnet at block 3,470,000. Below that height the protocol
-ignores ZRune data outputs entirely, so no client anywhere can etch or mint,
-and the ZRune pages say so with the exact block and how many remain rather
-than offering a form. When the height arrives the pages become the forms
-themselves, with nothing to install and nothing to redeploy. The flows below
-describe the product as built.
-[The status page](/docs-zerdinals-and-zrunes/start/status/) is the authority
-on what can complete today.
+ZRunes activate on mainnet at block 3,470,000. Activation alone does not
+open creation or signing. Each operation also requires healthy dependencies,
+complete protocol qualification and authorization for its execution path.
+The create page shows its current availability; open **Service details** to
+inspect the reasons. The flows below describe what an available operation does.
+[Signing availability](/docs-zerdinals-and-zrunes/create/signing-availability/)
+explains the gates.
 :::
 
 ## The limits that shape everything

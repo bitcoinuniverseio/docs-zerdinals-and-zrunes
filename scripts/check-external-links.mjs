@@ -12,7 +12,7 @@ const DIST = 'dist';
 // The site's own absolute URLs (self-referencing link tags, social
 // metadata) point at the deployed location and 404 until a build is
 // deployed; the build-time internal validator already covers those pages.
-const OWN_SITE = 'https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes';
+const OWN_SITE = 'https://zrunes.io/docs-zerdinals-and-zrunes';
 const SKIP_HOSTS = new Set([
   // Rejects generic clients; the links are stable product-family domains.
 ]);

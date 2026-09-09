@@ -20,11 +20,12 @@ Creating has two paths, and each is gated on its own facts:
   described below. A ZRune transfer is connected-wallet only, honestly,
   because it spends outputs only your own key can sign.
 
-Every create page states its state before its first control, in one place,
-naming the exact reason and what it means: whether anything was created,
-whether anything was signed or paid, whether anything was broadcast, and
-whether any money is at risk. Nothing is created, signed, paid or broadcast
-while a path is closed.
+Each create page shows availability and the next useful action above the form.
+Open **Service details** for the individual dependency states and technical
+reasons. Changing wallets does not repair a service outage.
+
+A **Catching up** indicator means blocks remain to be read. It does not prove
+that historical protocol qualification is complete.
 
 The form itself appears only when the deployment will actually accept the
 order it produces. That is deliberate. A form you can fill in and submit,
@@ -34,7 +35,7 @@ what it is waiting for does not.
 [The status page](/docs-zerdinals-and-zrunes/start/status/) is the
 authority for this fact and is verified against the live product.
 
-### What has to be true before a create flow opens
+### What has to be true before connected-wallet signing opens
 
 Every one of these, checked on every request against the live system rather
 than assumed:
