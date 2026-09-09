@@ -4,7 +4,7 @@
   "name": "Zerdinals and ZRunes documentation",
   "classification": "product-docs",
   "repository": "bitcoinuniverseio/docs-zerdinals-and-zrunes",
-  "documentationUrl": "https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/",
+  "documentationUrl": "https://zrunes.io/docs-zerdinals-and-zrunes/",
   "docsRoot": "src/content/docs",
   "sourceRef": "develop",
   "releasedRef": "78bbfc80489f6f24eee21508974bc8217cdb714c",

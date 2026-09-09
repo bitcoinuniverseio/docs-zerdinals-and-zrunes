@@ -1,43 +1,24 @@
-name: pages
+name: self-hosted-release-artifact
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: false
 
 jobs:
   build:
-    # The RunsOn artifact proxy currently returns a plain-text endpoint marker
-    # to actions/upload-artifact, which makes the Pages upload fail after a
-    # successful build. This workflow only runs for trusted main pushes or a
-    # maintainer dispatch, so the organization-owned Linux fleet is safe here.
     runs-on: [self-hosted, linux, x64, universe-super]
     steps:
       - uses: actions/checkout@v4
       - uses: bitcoinuniverseio/universe-ci-actions/universe-node-env@main
-      - name: Gates that must hold on the deployed commit
-        run: npm test
-      - name: Build
-        run: npm run build
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - run: npm test
+      - run: npm run build
+      - uses: actions/upload-artifact@v4
         with:
+          name: public-docs-release
           path: dist
-  deploy:
-    needs: build
-    runs-on: [self-hosted, linux, x64, universe-super]
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+          if-no-files-found: error
+
+# Publication is an explicit operator action on the self-hosted web server.
+# Reuse the verified CI artifact when the source tree has not changed.

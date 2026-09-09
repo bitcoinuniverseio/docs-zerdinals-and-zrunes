@@ -6,7 +6,7 @@
 // two are compared against each other rather than maintained in parallel.
 import { readFileSync } from 'node:fs';
 
-const SITE = 'https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes';
+const SITE = 'https://zrunes.io/docs-zerdinals-and-zrunes';
 
 const config = readFileSync('astro.config.mjs', 'utf8');
 const llms = readFileSync('public/llms.txt', 'utf8');
