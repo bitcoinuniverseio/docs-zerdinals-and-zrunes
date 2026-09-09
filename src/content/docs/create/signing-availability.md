@@ -32,8 +32,8 @@ order it produces. That is deliberate. A form you can fill in and submit,
 which then refuses, reads as a failure you caused; a page that says plainly
 what it is waiting for does not.
 
-[The status page](/docs-zerdinals-and-zrunes/start/status/) is the
-authority for this fact and is verified against the live product.
+[The status page](/docs-zerdinals-and-zrunes/start/status/) records dated
+observations. Use the create page or `/api/readiness` for current availability.
 
 ### What has to be true before connected-wallet signing opens
 
@@ -97,16 +97,15 @@ That covers every write the product offers: a single inscription, a
 multi-part one, a collection member, a batch, and a ZRune etch, mint and
 send.
 
-The remaining gate is evidence, not construction. Signing opens when the
-wallet release proves each check above against a real chain, and the status
-page is the record of that.
+Source implementation does not establish production readiness. Signing opens
+only after the deployed services and wallet release pass qualification against
+a real chain.
 
 ## How you will know
 
-When signing opens, the create pages show their forms, the flows complete
-end to end, [the status page](/docs-zerdinals-and-zrunes/start/status/) row
-changes, and the product's own status surfaces say the same thing. Nothing
-about availability is announced anywhere these three places do not confirm.
+When signing is available, the create pages show their forms and the live
+readiness endpoint reports that the operation is open. A dated documentation
+snapshot does not override these live checks.
 
 You can read the same answer the pages read:
 
