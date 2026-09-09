@@ -64,12 +64,20 @@ both readings and naming them, never by guessing.
 
 ## Wallet boundary
 
-Private keys never touch this pipeline. The backend prepares unsigned,
+Connected-wallet private keys stay in the wallet. The backend prepares unsigned,
 effects-only transaction intents; a wallet independently verifies every
 input, output, and commitment against its own view (including the
 per-output asset verdict, which fails closed) before signing locally.
 Signing is currently gated:
 [Signing availability](/docs-zerdinals-and-zrunes/create/signing-availability/).
+
+## Service signer boundary
+
+Pay-with-any-wallet orders use an isolated service signer. Mainnet key
+protection requires self-hosted Vault Transit or a compatible self-hosted
+service. External key services and local development encryption are not
+supported mainnet providers. Creation remains closed until the deployed
+signer and its release authorization are verified.
 
 ## What is deliberately not public
 
