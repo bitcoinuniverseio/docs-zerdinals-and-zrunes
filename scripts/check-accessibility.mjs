@@ -158,6 +158,33 @@ for (const colorScheme of SCHEMES) {
         failures.push(`${colorScheme} ${width} ${route}: scrolls sideways by ${overflow}px`)
       }
     }
+    // A stale worker at the former path must not prevent the new search bundle
+    // from working under the production WebAssembly policy.
+    let versionedWorkerLoaded = false
+    await context.route('**/pagefind/pagefind-worker.js', (request) => request.abort())
+    await context.route('**/pagefind-selfhosted-v1/pagefind-worker.js', async (request) => {
+      versionedWorkerLoaded = true
+      const response = await request.fetch()
+      await request.fulfill({ response, headers: {
+        ...response.headers(),
+        'content-security-policy': "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; connect-src 'self'",
+      } })
+    })
+    try {
+      await page.goto(`${BASE}${PREFIX}/create/signing-availability/`, { waitUntil: 'networkidle' })
+      await page.getByRole('button', { name: 'Search', exact: true }).click()
+      await page.getByRole('textbox', { name: 'Search', exact: true }).fill('readiness')
+      const result = page.locator('.pagefind-ui__result-link').first()
+      await result.waitFor({ state: 'visible', timeout: 15000 })
+      if (!versionedWorkerLoaded) throw new Error('Search did not load the versioned worker')
+      const href = await result.getAttribute('href')
+      if (!new URL(href, BASE).pathname.startsWith(PREFIX + '/')) throw new Error('Search result left the self-hosted docs path')
+      await result.click()
+      await page.waitForLoadState('networkidle')
+      if (!new URL(page.url()).pathname.startsWith(PREFIX + '/')) throw new Error('Search navigation left the docs path')
+    } catch (error) {
+      failures.push(`${colorScheme} ${width} search: ${error.message}`)
+    }
     await context.close()
   }
 }
