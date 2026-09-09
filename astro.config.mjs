@@ -6,6 +6,7 @@ import starlight from '@astrojs/starlight';
 import starlightLinksValidator from 'starlight-links-validator';
 import rehypeTableScroll from './scripts/rehype-table-scroll.mjs';
 import { codeBlockAccessibility } from './scripts/ec-code-block-a11y.mjs';
+import versionSearch from './scripts/version-search.mjs';
 
 export default defineConfig({
   markdown: {
@@ -147,5 +148,6 @@ export default defineConfig({
         }),
       ],
     }),
+    versionSearch(),
   ],
 });
