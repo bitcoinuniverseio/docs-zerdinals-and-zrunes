@@ -3,7 +3,7 @@ import { cp } from 'node:fs/promises';
 // A new delivery path also invalidates cached worker response policies. Keep
 // the original bundle available for documents opened before this release.
 const directory = 'pagefind-selfhosted-v1';
-const original = "bundlePath: import.meta.env.BASE_URL.replace(/\\/$/, '') + '/pagefind/'";
+const bundlePath = /(['"])\/pagefind\/\1/g;
 
 export default function versionSearch() {
   let transformed = false;
@@ -16,10 +16,10 @@ export default function versionSearch() {
           enforce: 'pre',
           transform(source, id) {
             if (!id.replaceAll('\\', '/').split('?')[0].endsWith('/@astrojs/starlight/components/Search.astro')) return;
-            if (!source.includes(original)) return;
-            if (source.split(original).length !== 2) throw new Error('Unexpected Starlight search bundle reference');
+            if (!source.includes('bundlePath:')) return;
+            if ([...source.matchAll(bundlePath)].length !== 1) throw new Error('Unexpected Starlight search bundle reference');
             transformed = true;
-            return source.replace(original, original.replace('/pagefind/', `/${directory}/`));
+            return source.replace(bundlePath, JSON.stringify(`/${directory}/`));
           },
         }] } });
       },
