@@ -169,7 +169,7 @@ ZIP 317 conventional fees, computed from actual transaction shape. The data outp
 | ------- | -------------------------------------------------------------------------------------------------------------------------- |
 | Regtest | 1                                                                                                                          |
 | Testnet | 4,150,000                                                                                                                  |
-| Mainnet | a future block height published with the final specification hash, reference implementation commit, and golden-vector hash |
+| Mainnet | 3,470,000                                                                                                                  |
 
 Before its activation height on a network, OP_14 data outputs are ignored by the state engine. No historical OP_RETURN data is ever retroactively interpreted as ZRunes.
 
@@ -217,3 +217,11 @@ The authoritative Rust implementation (rust/zrunes-codec in index-zcash-metaprot
 4. Testnet activation with the full product flow proven end to end.
 5. Independent or differential parser parity demonstrated with zero disagreements over the vector corpus and over all testnet activity.
 6. Mainnet activation height published in advance; the state engine ships with the height before the height passes.
+
+### 16.1 Mainnet activation record (2026-09-09)
+
+- Activation height: 3,470,000. The indexer configuration key is `ZRUNES_ACTIVATION_HEIGHT=3470000`. The height has passed and the indexer reports the protocol active.
+- Frozen specification: this document at commit `0d9e0897909a603b483874a70cb5aad8b9e6dceb` (2026-08-26) of `zerdinals-and-zrunes`, the last commit that touched it before this record. Blob sha256 `3e6fa0a0402b24dff80c12a5286d4247ed790e0509f420231e673d9ff045664d`, from `git show 0d9e0897909a603b483874a70cb5aad8b9e6dceb:docs/protocol/ZRUNES-V1.md | sha256sum`. This record changes the activation row and adds this subsection; the normative sections are unchanged.
+- Reference implementation: `index-zcash-metaprotocols` commit `a0b555f9f60edf84b42329a2bf7f56246ad26c12` on `main`.
+- Golden-vector hash: `918e03eb776028dd1da336bc3dbfc22ce479e84c63d54fabd5cfbf786eedce80`, over the committed `test-vectors` tree of that commit. Recipe, run in the reference implementation repository: list `git ls-tree -r --name-only a0b555f9f60edf84b42329a2bf7f56246ad26c12 -- test-vectors`, sort the paths, build the JSON array `[[path, sha256 hex of the blob bytes], ...]` in that order, and take the sha256 of that JSON text (`JSON.stringify`, no whitespace). The blob bytes come from `git cat-file blob <commit>:<path>` so the value does not depend on a checkout's line endings.
+- Step 4 of the procedure was not run on a public testnet before mainnet activation: no Zcash testnet node existed in the estate. What was run instead is the regtest walletless campaign (`scripts/e2e-service-invoice.mjs`), whose bound evidence manifest is what the service execution authorization for the mainnet deployment is generated from. The testing policy accepts a workflow proven end to end on a test network as the release evidence; the testnet row above remains the testnet activation height for when a testnet node exists.
