@@ -12,71 +12,71 @@ src/content/docs/.
 
 ## Start here
 
-- [What this is](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/start/what-this-is/)
-- [Finding your way around](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/start/finding-your-way-around/)
-- [Safety in sixty seconds](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/start/safety/)
-- [Current status](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/start/status/)
+- [What this is](https://zrunes.io/docs-zerdinals-and-zrunes/start/what-this-is/)
+- [Finding your way around](https://zrunes.io/docs-zerdinals-and-zrunes/start/finding-your-way-around/)
+- [Safety in sixty seconds](https://zrunes.io/docs-zerdinals-and-zrunes/start/safety/)
+- [Current status](https://zrunes.io/docs-zerdinals-and-zrunes/start/status/)
 
 ## Understand
 
-- [Zerdinals](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/understand/zerdinals/)
-- [ZRunes](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/understand/zrunes/)
-- [ZRC-20, and its two readings](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/understand/zrc-20/)
-- [Ownership lives on outputs](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/understand/ownership-and-outputs/)
-- [Transparent and shielded](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/understand/transparent-and-shielded/)
-- [Collections](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/understand/collections/)
+- [Zerdinals](https://zrunes.io/docs-zerdinals-and-zrunes/understand/zerdinals/)
+- [ZRunes](https://zrunes.io/docs-zerdinals-and-zrunes/understand/zrunes/)
+- [ZRC-20, and its two readings](https://zrunes.io/docs-zerdinals-and-zrunes/understand/zrc-20/)
+- [Ownership lives on outputs](https://zrunes.io/docs-zerdinals-and-zrunes/understand/ownership-and-outputs/)
+- [Transparent and shielded](https://zrunes.io/docs-zerdinals-and-zrunes/understand/transparent-and-shielded/)
+- [Collections](https://zrunes.io/docs-zerdinals-and-zrunes/understand/collections/)
 
 ## Create
 
-- [Pay with any wallet](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/create/pay-with-any-wallet/)
-- [Inscribe a Zerdinal](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/create/inscribe/)
-- [Create tokens and collections](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/create/tokens-and-collections/)
-- [Etch, mint, transfer ZRunes](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/create/etch-mint-transfer/)
-- [Fees and confirmation](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/create/fees/)
-- [Signing availability](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/create/signing-availability/)
+- [Pay with any wallet](https://zrunes.io/docs-zerdinals-and-zrunes/create/pay-with-any-wallet/)
+- [Inscribe a Zerdinal](https://zrunes.io/docs-zerdinals-and-zrunes/create/inscribe/)
+- [Create tokens and collections](https://zrunes.io/docs-zerdinals-and-zrunes/create/tokens-and-collections/)
+- [Etch, mint, transfer ZRunes](https://zrunes.io/docs-zerdinals-and-zrunes/create/etch-mint-transfer/)
+- [Fees and confirmation](https://zrunes.io/docs-zerdinals-and-zrunes/create/fees/)
+- [Signing availability](https://zrunes.io/docs-zerdinals-and-zrunes/create/signing-availability/)
 
 ## Market
 
-- [Buying and selling](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/market/buying-and-selling/)
+- [Buying and selling](https://zrunes.io/docs-zerdinals-and-zrunes/market/buying-and-selling/)
 
 ## Own and protect
 
-- [Portfolio and watchlists](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/own/portfolio/)
-- [Protect asset-bearing outputs](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/own/protect/)
-- [Interruptions and recovery](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/own/recovery/)
+- [Portfolio and watchlists](https://zrunes.io/docs-zerdinals-and-zrunes/own/portfolio/)
+- [Protect asset-bearing outputs](https://zrunes.io/docs-zerdinals-and-zrunes/own/protect/)
+- [Interruptions and recovery](https://zrunes.io/docs-zerdinals-and-zrunes/own/recovery/)
 
 ## Verify
 
-- [Search](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/verify/search/)
-- [ZordiScan](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/verify/zordiscan/)
-- [What an empty result means](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/verify/coverage/)
-- [Proof bundles](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/verify/proof-bundles/)
+- [Search](https://zrunes.io/docs-zerdinals-and-zrunes/verify/search/)
+- [ZordiScan](https://zrunes.io/docs-zerdinals-and-zrunes/verify/zordiscan/)
+- [What an empty result means](https://zrunes.io/docs-zerdinals-and-zrunes/verify/coverage/)
+- [Proof bundles](https://zrunes.io/docs-zerdinals-and-zrunes/verify/proof-bundles/)
 
 ## Protocols
 
-- [Zerdinals v1 specification](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/protocols/zerdinals-v1/)
-- [ZRunes v1 specification](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/protocols/zrunes-v1/)
-- [Collections v1 specification](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/protocols/collections-v1/)
-- [The ordinality decision](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/protocols/ordinality/)
-- [ZMarket Orders v1 specification](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/protocols/zmarket-orders-v1/)
-- [ZMarket Orders v2 specification](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/protocols/zmarket-orders-v2/)
-- [Creator Launches and Public Launchpad](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/protocols/creator-launches/)
-- [Shielded Metaprotocols](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/protocols/shielded-metaprotocols/)
-- [Names and Dual-Registry Architecture](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/protocols/names-and-registries/)
+- [Zerdinals v1 specification](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/zerdinals-v1/)
+- [ZRunes v1 specification](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/zrunes-v1/)
+- [Collections v1 specification](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/collections-v1/)
+- [The ordinality decision](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/ordinality/)
+- [ZMarket Orders v1 specification](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/zmarket-orders-v1/)
+- [ZMarket Orders v2 specification](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/zmarket-orders-v2/)
+- [Creator Launches and Public Launchpad](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/creator-launches/)
+- [Shielded Metaprotocols](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/shielded-metaprotocols/)
+- [Names and Dual-Registry Architecture](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/names-and-registries/)
 
-- [Provenance Studio (C2PA 2.4)](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/protocols/provenance-studio/)
-- [Rights and Remix Studio](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/protocols/rights-and-remix/)
-- [Passes and Events](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/protocols/passes-and-events/)
-- [Private Releases](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/protocols/private-releases/)
-- [Creator Collectives](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/protocols/creator-collectives/)
+- [Provenance Studio (C2PA 2.4)](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/provenance-studio/)
+- [Rights and Remix Studio](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/rights-and-remix/)
+- [Passes and Events](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/passes-and-events/)
+- [Private Releases](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/private-releases/)
+- [Creator Collectives](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/creator-collectives/)
 
 ## Developers
 
-- [Architecture](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/developers/architecture/)
-- [Public HTTP API](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/developers/api/)
-- [Order notifications](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/developers/order-notifications/)
+- [Architecture](https://zrunes.io/docs-zerdinals-and-zrunes/developers/architecture/)
+- [Public HTTP API](https://zrunes.io/docs-zerdinals-and-zrunes/developers/api/)
+- [Order notifications](https://zrunes.io/docs-zerdinals-and-zrunes/developers/order-notifications/)
 
 ## Help
 
-- [Frequently asked questions](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/help/faq/)
-- [Known limitations](https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/help/known-limitations/)
+- [Frequently asked questions](https://zrunes.io/docs-zerdinals-and-zrunes/help/faq/)
+- [Known limitations](https://zrunes.io/docs-zerdinals-and-zrunes/help/known-limitations/)

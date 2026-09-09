@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bitcoinuniverseio.github.io/docs-zerdinals-and-zrunes/sitemap-index.xml
+Sitemap: https://zrunes.io/docs-zerdinals-and-zrunes/sitemap-index.xml
