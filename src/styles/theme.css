@@ -133,6 +133,7 @@ starlight-theme-select select {
 /* Display face for the site title and page titles only, as in the product:
    the expanded face is never set small. */
 .site-title span {
+  text-overflow: ellipsis;
   font-family: var(--zz-font-display);
   font-weight: 640;
   font-size: var(--sl-text-lg);
