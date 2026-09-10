@@ -42,6 +42,7 @@ src/content/docs/.
 ## Own and protect
 
 - [Portfolio and watchlists](https://zrunes.io/docs-zerdinals-and-zrunes/own/portfolio/)
+- [Send a Zerdinal](https://zrunes.io/docs-zerdinals-and-zrunes/own/send-a-zerdinal/)
 - [Protect asset-bearing outputs](https://zrunes.io/docs-zerdinals-and-zrunes/own/protect/)
 - [Interruptions and recovery](https://zrunes.io/docs-zerdinals-and-zrunes/own/recovery/)
 
