@@ -59,6 +59,7 @@ const ALL_ROUTES = [
   '/create/fees/',
   '/create/signing-availability/',
   '/own/portfolio/',
+  '/own/send-a-zerdinal/',
   '/own/protect/',
   '/own/recovery/',
   '/market/buying-and-selling/',
