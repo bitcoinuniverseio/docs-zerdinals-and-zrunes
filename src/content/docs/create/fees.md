@@ -33,10 +33,14 @@ and in zatoshis. There are no fee surprises after approval, because the
 transactions are fully planned before the first payment or signature.
 
 On the payment path, the invoice amount is exactly these figures added up:
-the carrying value, the commit fee, the reveal fees, and for a batch the
-fan-out fee that splits one payment per item. There is no service fee. Any
-ZEC the operation does not use is returned to your recipient address, so
-overpaying an invoice costs nothing but the wait for its return.
+the carrying value, the commit fee, the reveal fees, for a batch the
+fan-out fee that splits one payment per item, and one fixed service fee of
+**0.003 ZEC (300,000 zatoshis)** per invoice. The service fee is the same
+for a single inscription, a batch, an etch or a mint, it is shown as its
+own line on the invoice, and it never applies to a transfer, which your own
+wallet signs. Any ZEC the operation does not use is returned to your
+recipient address, so overpaying an invoice costs nothing but the wait for
+its return.
 
 ## Confirmation
 
