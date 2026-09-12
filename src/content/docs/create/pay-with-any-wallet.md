@@ -68,7 +68,8 @@ order and never shown to anyone else or used again. The page shows:
 
 Send the exact amount in one transaction and nothing more is asked of you.
 The amount is computed from the actual transactions the operation needs
-under Zcash's fee rules, not estimated.
+under Zcash's fee rules, not estimated, plus one fixed service fee of
+0.003 ZEC (300,000 zatoshis) per invoice, itemized on the page.
 
 ## What you are trusting, stated plainly
 
