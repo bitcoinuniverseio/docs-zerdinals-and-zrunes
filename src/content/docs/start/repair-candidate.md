@@ -42,6 +42,27 @@ The latest local frontend build no longer reports the stale route chunk/title wa
 
 Additional local browser checks covered the ZSA unavailable state and draft reload at 390px, plus names unknown availability, non-payable reference pricing, draft reload and dark theme at 768px. Defaults were restored afterward. These are bounded UI states, not actual payment, signing, delivery or full responsive and recovery acceptance.
 
+## Zcash testnet verification, 2026-09-14
+
+Two native journeys completed on public Zcash testnet against the product's
+own Zebra node and indexer, with every block read from height 1.
+
+| Journey | Result |
+| --- | --- |
+| Connected-wallet operations: single inscription, inscription transfer, ZRune etch with its six block maturity, mint and ZRune transfer | 60 checks, none failed |
+| Walletless service invoices: single, underpayment and top-up, overpayment, batch of three, etch, mint, refund after cancellation, crash recovery, asset quarantine | 57 checks, none failed |
+
+Testnet success is functional acceptance for those operations and is not a
+claim about the live mainnet deployment, which keeps its own status above.
+Two defects found on the way were repaired: the indexer's single outpoint
+route refused every unspent output on Zebra 6.3.0, and the transaction page
+called a transaction that moved artifacts an ordinary payment.
+
+Marketplace order kinds beyond the offline item ask, passes, provenance
+anchoring, name registration, shielded asset creation, the dedicated
+shielded invoice rail and the experimental asset laboratory remain
+unverified for the reasons listed above.
+
 ## What remains unverified
 
 Complete creator minting, shielded payments and creation, marketplace execution and history, registry proofs, and the experimental asset lab still require their actual authorization, transaction and persistence evidence. Complete user journeys, responsive layouts, supported themes, wallet rejection and reload/recovery states have not been established. No real transaction, authoritative spend checkpoint or delivered-asset evidence is claimed by this candidate.
