@@ -12,7 +12,7 @@ Open **Connect a wallet** and the first entry is **Web Wallet: built into
 this browser**. Nothing to install. It creates a Zcash transparent account
 in your browser and keeps the keys there.
 
-```
+```text
 Create Web Wallet ..... new 24-word recovery phrase, shown once
 Import Web Wallet ..... restore one you already have (12 to 24 words)
 Connect Web Wallet .... use it as the connected address
