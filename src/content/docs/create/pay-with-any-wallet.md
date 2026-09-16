@@ -20,7 +20,10 @@ delivers the result to your recipient address, along with any ZEC the
 operation did not use.
 
 Scan and copy do not require a wallet connection. Optional direct payment
-opens the selected wallet's approval. Never enter a seed phrase into the site.
+opens the selected wallet's approval. Never enter a seed phrase into a
+payment page; the only place on this site that takes a recovery phrase is
+the [Web Wallet](/docs-zerdinals-and-zrunes/own/web-wallet/) import, which keeps it encrypted in your
+own browser and cannot pay an invoice.
 
 ## Payment recovery candidate
 
