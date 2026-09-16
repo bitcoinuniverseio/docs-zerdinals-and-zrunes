@@ -63,6 +63,34 @@ anchoring, name registration, shielded asset creation, the dedicated
 shielded invoice rail and the experimental asset laboratory remain
 unverified for the reasons listed above.
 
+## Zcash testnet verification, 2026-09-15
+
+The native journeys were run again on public Zcash testnet, this time
+through the product's own pages with a real Universe Wallet build as well
+as through the backend harnesses, against an indexer whose replay from
+height 1 is qualified for the exact implementation it runs.
+
+| Journey | Result |
+| --- | --- |
+| Browser journey with the wallet: connect, approval and rejection, single inscription, Zerdinal send, ZRune etch with the six block maturity, ZRune mint, partial ZRune send, ZRC-20 deploy and mint read by both rulesets separately, ZRC-721 collection deploy, item mint and ownership send, reload and reconnect, explorer and portfolio readback | every step completed and read back from the indexer |
+| Connected-wallet harness: single and batch inscriptions, transfer and onward transfer with historical execution receipts, ZRune etch, mint, partial, full and onward transfers with allocation receipts, ZRC-20 and ZRC-721 operations | see the release notes for the exact count of the completing run |
+| Walletless service invoices: single, underpayment and top-up, overpayment refunded to the original payer, an ambiguous two-input payment parked rather than guessed, batch of three, etch, mint, late payment refunded, crash recovery, asset quarantine | 125 checks, none failed |
+
+The wallet in that browser journey was a controlled local build of the
+qualified wallet release plus the fixes it needed; it proves the product
+on testnet and is not a claim that the Chrome Web Store distributes that
+build. The connected-wallet path on zrunes.io stays closed until it does.
+
+Defects found on the way and repaired in the product: two orders prepared
+close together could spend the same funding; a completed send was listed
+as "ZRune order not found"; the token and collection pages closed their
+handoff when only the connected-wallet path was open; a wallet rejection
+rendered as "[object Object]"; a stored session was declared unavailable
+when the wallet injected after the page rendered. In the wallet: no Zcash
+operation could pass its readiness gate, the signing review opened
+without its review bundle, and a reload could strand the site session. In
+the indexer: an unanswered coverage probe was reported as a gap in history.
+
 ## What remains unverified
 
 Complete creator minting, shielded payments and creation, marketplace execution and history, registry proofs, and the experimental asset lab still require their actual authorization, transaction and persistence evidence. Complete user journeys, responsive layouts, supported themes, wallet rejection and reload/recovery states have not been established. No real transaction, authoritative spend checkpoint or delivered-asset evidence is claimed by this candidate.
