@@ -78,7 +78,8 @@ Your wallet rebuilds the commit address from its own key and refuses to pay
 one it could not later spend, recomputes the hash of every transaction it
 was handed and refuses any that does not match, and shows the exact effects.
 Private keys never leave the wallet, and the web application never sees a
-seed phrase.
+seed phrase. (The built-in [Web Wallet](/docs-zerdinals-and-zrunes/own/web-wallet/) keeps its own
+keys encrypted in your browser and cannot sign an inscription.)
 
 Once you approve, the whole inscription is signed and held here. **You can
 close the tab.** The reveal chain broadcasts on its own when the commit
