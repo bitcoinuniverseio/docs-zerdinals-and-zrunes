@@ -94,6 +94,7 @@ export default defineConfig({
           label: 'Own and protect',
           items: [
             { label: 'Portfolio and watchlists', slug: 'own/portfolio' },
+            { label: 'The Web Wallet', slug: 'own/web-wallet' },
             { label: 'Send a Zerdinal', slug: 'own/send-a-zerdinal' },
             { label: 'Protect asset-bearing outputs', slug: 'own/protect' },
             { label: 'Interruptions and recovery', slug: 'own/recovery' },

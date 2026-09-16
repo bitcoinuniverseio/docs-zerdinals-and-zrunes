@@ -82,7 +82,10 @@ opens.
 ## What is built, and what the gate is waiting on
 
 Private keys never leave the wallet, and the web application never sees a
-seed phrase. That has always been true. What has changed is what the wallet
+seed phrase. That has always been true. The built-in
+[Web Wallet](/docs-zerdinals-and-zrunes/own/web-wallet/) is the one place the site holds keys, and
+it holds them encrypted in your browser for its address and balance only;
+it is not a signer. What has changed is what the wallet
 is asked to sign.
 
 The product used to hand the wallet a description of an operation: a kind, a
