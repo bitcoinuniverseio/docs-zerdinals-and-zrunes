@@ -21,6 +21,11 @@ Show recovery phrase .. asks for the password, then shows the words
 Remove Wallet ......... deletes the browser copy, after a confirmation
 ```
 
+On a phone, open **More** in the bottom bar: its **Wallet** group opens
+Connect a wallet, and once the Web Wallet is connected it shows the
+address, **View balance**, **Manage wallet** and **Disconnect**. A phone
+cannot install an extension, which is exactly why this wallet is built in.
+
 ## What it can do today
 
 | Can | Cannot yet |
