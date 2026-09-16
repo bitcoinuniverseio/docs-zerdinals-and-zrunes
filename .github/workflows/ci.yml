@@ -133,9 +133,13 @@ jobs:
         run: >-
           "${RUNNER_TEMP}/trufflehog" git "file://${GITHUB_WORKSPACE}"
           --fail --github-actions --no-update --only-verified
+      # Retention, not verification: every check above has already passed.
+      # When the organisation's Actions storage quota refuses the upload, the
+      # next run rebuilds instead of reusing, which is the right outcome.
       - name: Preserve the verified static release
         if: steps.evidence.outputs.reused != 'true'
         uses: actions/upload-artifact@v4
+        continue-on-error: true
         with:
           name: public-docs-release
           path: dist
@@ -152,6 +156,7 @@ jobs:
       - name: Preserve verification provenance
         if: steps.evidence.outputs.reused != 'true'
         uses: actions/upload-artifact@v4
+        continue-on-error: true
         with:
           name: docs-ci-evidence
           path: ci-evidence.json
