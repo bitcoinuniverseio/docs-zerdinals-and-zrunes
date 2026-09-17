@@ -41,10 +41,10 @@ price, and returns the buyer's change, all together. Either that
 transaction confirms and all of it happened, or it does not and none of it
 did. There is no state where the money moved and the asset did not.
 
-The product treats a sale as final only after confirmation depth, the same
-depth everything else here uses. A transaction in the mempool is shown as
-pending and can still fail; a chain reorganization honestly reopens a
-listing whose settlement was disconnected.
+The product confirms a sale only when the configured confirmation policy and
+qualified protocol delivery evidence agree. A transaction in the mempool is
+shown as pending and can still fail; a chain reorganization reopens a listing
+whose settlement was disconnected.
 
 The small amount of ZEC riding on the asset's output (typically 546
 zatoshis) transfers to the buyer with the asset. Listings state it, and
@@ -87,6 +87,26 @@ The buyer takes the entire listed quantity. This change does not open partial
 fills, bids, or auctions. Existing version 2 asks keep their original signed
 per-base-unit price; they are not silently converted to the new contract.
 See [order versions](/docs-zerdinals-and-zrunes/protocols/zmarket-orders-v2/).
+
+Read the complete quantity and the total lot price as separate figures. The
+candidate interface preserves every digit of large quantities and keeps the
+quantity distinct from the price on narrow screens. Display formatting does
+not round the amount being bought or change the signed total.
+
+## Reopen an existing purchase
+
+After a reload or a lost response, return to the existing execution reference
+and check its status before starting another purchase. Reopening that execution
+does not prepare another trade, request another signature, or submit it again.
+An error or timeout does not establish that the earlier purchase failed.
+
+For a confirmed ZRC-20 purchase, the product checks both the inscription
+transfer and the token settlement under the selected ruleset. They must describe
+the same delivery. A transaction identifier alone is not delivery evidence; if
+those proofs are unavailable or disagree, keep the outcome unresolved.
+
+These recovery and display checks belong to the source and testnet candidate.
+They do not establish production availability; use the release status below.
 
 ## What is live today
 
