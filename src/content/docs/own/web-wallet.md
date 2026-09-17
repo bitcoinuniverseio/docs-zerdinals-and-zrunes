@@ -1,6 +1,6 @@
 ---
 title: The Web Wallet
-description: A wallet built into the site with no extension to install. Its keys are created in your browser and kept there, encrypted; it shows its address and balance and signs nothing yet.
+description: A wallet built into the site with no extension to install. Its keys are created in your browser and kept there, encrypted; it shows its address and balance and asks you to review supported transactions before signing.
 ---
 
 **Outcome:** you will know what the Web Wallet is, what it holds, what it
@@ -26,19 +26,28 @@ Connect a wallet, and once the Web Wallet is connected it shows the
 address, **View balance**, **Manage wallet** and **Disconnect**. A phone
 cannot install an extension, which is exactly why this wallet is built in.
 
-## What it can do today
+## Signing and availability
 
-| Can | Cannot yet |
+The selected network, the wallet version served by the site and the readiness
+of the node and indexer determine which actions are offered. A connected
+address alone does not mean that an operation is ready.
+
+| Operation | Availability |
 | --- | --- |
-| Hold a transparent address (`t1` on mainnet) and its public key | Sign a Zerdinal or ZRune transaction |
-| Connect as your address across the site | Pay a service invoice |
-| Show the ZEC its address holds, split into clean, asset-carrying and not-yet-scanned outputs | List or buy on the market |
-| Restore itself after a reload, with no password | Send ZEC |
+| Connect, restore after reload and read a classified transparent balance | Available when the wallet and balance service can answer. |
+| Zerdinal inscription or transfer; ZRune deploy, mint or transfer | Supported signing versions open a review and ask for your wallet password. The app must also report the operation ready. |
+| Market listing and purchase with the Web Wallet | Test-network signing is under qualification. Mainnet marketplace signing remains unavailable. |
+| Direct service-invoice payment or a standalone ZEC send | Unavailable in the Web Wallet. |
 
-Holding a key is not the same as being able to sign. The Web Wallet
-declares no signing ability, so no screen offers to inscribe, list or pay
-with it; those actions still need the Universe Wallet. When a signing path
-is qualified for it, this page will say so.
+Before approving, check the selected network, asset, quantity, recipient,
+amount and fees. A wrong password signs nothing; you can correct it or cancel.
+Disconnecting or changing wallets invalidates an open review. An unavailable
+node, indexer or unverified asset state must leave the operation unavailable.
+
+Test-network marketplace support is not a claim that the deployed marketplace
+is ready for real funds. The extension wallet's test results do not establish
+the Web Wallet's readiness. Cancelling a listing on this marketplace cannot
+revoke copies of a listing signature already shared with someone else.
 
 ## Where the keys live
 
@@ -51,8 +60,8 @@ is qualified for it, this page will say so.
   the clear; they are public.
 - Nothing secret is ever sent to this site's servers, the indexer, or
   anywhere else. Reading a balance uses only the public address.
-- The password is asked for only to show the recovery phrase. Connecting
-  and reading the balance never ask for it.
+- The password is asked for to show the recovery phrase or approve a supported
+  signature. Connecting and reading the balance never ask for it.
 
 ## Keep it safe
 
