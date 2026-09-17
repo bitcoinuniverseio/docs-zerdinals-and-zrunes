@@ -29,10 +29,12 @@ settlement retain their separate qualification requirements.
 ## Exact total-price lot asks
 
 The version 3 candidate is limited to offline `lot-ask` orders for ZRunes,
-`zrc20-zord`, and `zrc20-zecscriptions`. It signs `lotPriceZatoshis`, the exact
-price of the complete lot, under its own `universe-zmarket-lot-ask-v3` domain.
-Quantity remains an exact integer number of base units. Token decimals never
-multiply or divide the signed total price.
+`zrc20-zord`, and `zrc20-zecscriptions`. It records `lotPriceZatoshis`, the exact
+price of the complete lot, in a distinct v3 envelope with the
+`universe-zmarket-lot-ask-v3` domain. The wallet reviews the exact total; the
+maker retains the ZIP-244 `SINGLE|ANYONECANPAY` signature over the lot input
+and seller payout. Quantity remains an exact integer number of base units.
+Token decimals never multiply or divide the total price.
 
 It requires one lot and a full fill. Existing version 2 envelopes,
 `unitPriceZatoshis` values, hashes and signatures retain their original meaning.

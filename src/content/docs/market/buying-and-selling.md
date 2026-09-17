@@ -29,8 +29,8 @@ buried here:
    that spends the output and no old signature can ever use it again.
 
 A nonzero expiry is enforced by the Zcash network itself: the signature
-commits to an expiry block, and the network refuses settlement from that
-block on. An expiry of zero means the listing does not expire. Removing a
+commits to an expiry block, and the network refuses settlement above that
+block height. An expiry of zero means the listing does not expire. Removing a
 never-expiring listing from the book does not revoke its published signature.
 
 ## What settles a sale
