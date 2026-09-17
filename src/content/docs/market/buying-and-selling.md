@@ -28,9 +28,10 @@ buried here:
    passes. If you need certain revocation, transfer the asset to yourself;
    that spends the output and no old signature can ever use it again.
 
-The expiry is enforced by the Zcash network itself: the signature commits
-to an expiry block, and the network refuses the settlement from that block
-on. It is not a service policy that a copied signature could outlive.
+A nonzero expiry is enforced by the Zcash network itself: the signature
+commits to an expiry block, and the network refuses settlement above that
+block height. An expiry of zero means the listing does not expire. Removing a
+never-expiring listing from the book does not revoke its published signature.
 
 ## What settles a sale
 
@@ -68,17 +69,38 @@ one to point you at.
 ## One market, five destinations
 
 The Market navigation keeps five stable destinations: Overview, Zerdinals,
-Collections, Tokens, and ZRunes. Zerdinals have the live listing and
-settlement protocol described on this page. Collections, ZRC-20 tokens, and
-ZRunes remain archive views until each family has its own reviewed order
-type. Those pages state that limit and link back to the chain record. They do
-not copy Zerdinal orders onto assets whose transfer rules are different.
+Collections, Tokens, and ZRunes. Current source includes fungible market
+pages and full-lot asks for ZRunes and ZRC-20. The `zord` and `zecscriptions`
+rulesets have separate books; their quantities and prices are never combined.
+A deployed page opens an action only when that operation can execute safely.
+
+## Full-lot prices
+
+The next lot-ask version lets a seller name one exact total price in zatoshis
+for the whole lot. Token decimals change the displayed quantity, not that
+price. A lot of two tokens has 2, 2,000,000, or 2,000,000,000,000,000,000 base
+units for tokens with 0, 6, or 18 decimals; the same 1,000-zatoshi lot price
+still costs exactly 1,000 zatoshis in every case, before the buyer's separately
+reviewed transaction costs.
+
+The buyer takes the entire listed quantity. This change does not open partial
+fills, bids, or auctions. Existing version 2 asks keep their original signed
+per-base-unit price; they are not silently converted to the new contract.
+See [order versions](/docs-zerdinals-and-zrunes/protocols/zmarket-orders-v2/).
 
 ## What is live today
 
-Reading the market is always available. Creating a listing is a
-connected-wallet operation and opens only when a Universe Wallet release
-qualified for that operation is publicly installable.
+The source and public-testnet campaigns include working wallet and marketplace
+journeys. They do not establish which release the public site is serving.
+The production inspection on 17 September 2026 found an older product release
+and an indexer missing the current market receipt contracts and replay
+identity evidence. Production marketplace qualification remains incomplete.
+
+Creating a listing requires a wallet qualified for that operation. A published
+listing alone does not prove that execution is available: preparation and new
+submission also require an explicitly configured confirmation policy, healthy
+dependencies, and matching release evidence. An unavailable book must not be
+shown as an empty book.
 
 A fixed-price Zerdinal purchase has two independent paths. A connected
 wallet can review and sign its funding input. The pay-from-any-wallet path
