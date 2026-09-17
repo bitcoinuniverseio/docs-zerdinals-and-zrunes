@@ -8,22 +8,26 @@ stated plainly. If a limitation is not on this list and not on
 [the status page](/docs-zerdinals-and-zrunes/start/status/), the product is
 expected to do it; report the gap.
 
-## No wallet can sign yet
+## Marketplace source and production differ
 
-Creating, etching, minting, and transferring stop at the signing step.
-Production writes stay disabled until wallet signing is qualified, and
-every create flow says so at the point where it applies.
+Wallet signing and marketplace journeys have passed public-testnet campaigns.
+The production inspection on 17 September 2026 still found older serving
+artifacts without the current indexer receipt contracts and replay identity
+evidence. Those source tests do not establish production marketplace readiness.
+Check [current status](/docs-zerdinals-and-zrunes/start/status/) and the action's
+own availability before signing or paying.
 
-The transactions themselves are built and reviewable today; what is missing
-is the published evidence that the wallet release performs its checks
-against a real chain.
-[Why the gate exists](/docs-zerdinals-and-zrunes/create/signing-availability/).
+Exact total-price full-lot asks are a version 3 candidate. They cover ZRunes
+and each ZRC-20 ruleset separately, including 0, 6 and 18 decimal quantities.
+They do not open partial fills, bids or auctions. Execution also requires an
+explicit confirmation policy; publishing an order does not satisfy it.
 
-## ZRunes are not active on mainnet yet
+## ZRunes need complete indexed evidence
 
 The protocol activates at block 3,470,000. Below that height no ZRune can
-exist, by protocol rule. The Tokens surfaces show ZRC-20, which is live;
-the ZRunes surfaces show the activation state honestly.
+exist, by protocol rule. Reaching that height does not prove that the serving
+indexer has completed the required history or can provide settlement receipts.
+An unavailable ZRune route is not evidence that its market is empty.
 [ZRunes](/docs-zerdinals-and-zrunes/understand/zrunes/).
 
 ## Some ZRC-20 questions are deliberately unanswered
@@ -73,11 +77,11 @@ your browser on this device, by design (there are no accounts and no
 server-side profiles). Clearing browser data or switching devices resets
 them. [Portfolio and watchlists](/docs-zerdinals-and-zrunes/own/portfolio/).
 
-## No prices anywhere
+## Market quotes are scoped observations
 
-The product carries no floor prices, no volume, no market capitalization,
-no rarity scores, and no price estimates, because it cannot verify them
-from the chain. This is a permanent editorial rule, not a missing feature.
+Listed prices, floors and volume describe this service's orders and confirmed
+settlements. They are not chain-wide valuations or price guarantees. The two
+ZRC-20 rulesets retain separate quantities and prices.
 
 ## Reporting something not on this list
 
