@@ -36,7 +36,7 @@ address alone does not mean that an operation is ready.
 | --- | --- |
 | Connect, restore after reload and read a classified transparent balance | Available when the wallet and balance service can answer. |
 | Zerdinal inscription or transfer; ZRune deploy, mint or transfer | Supported signing versions open a review and ask for your wallet password. The app must also report the operation ready. |
-| Market listing and purchase with the Web Wallet | Test-network signing is under qualification. Mainnet marketplace signing remains unavailable. |
+| Market listing and purchase with the Web Wallet | On test networks: list a Zerdinal, a ZRune lot or a ZRC-20 lot, buy one, and revoke your own listing, each after a review that shows the asset, quantity, payout or total debit, fees, delivery address and expiry. Proven in the browser on public testnet on 2026-09-17. A ZRC-20 lot is priced in zatoshis per base unit, so a token deployed with decimals cannot be listed at an ordinary total; zero-decimal tokens list normally. Mainnet marketplace signing stays unavailable until the production release that carries it. |
 | Direct service-invoice payment or a standalone ZEC send | Unavailable in the Web Wallet. |
 
 Before approving, check the selected network, asset, quantity, recipient,
@@ -45,9 +45,12 @@ Disconnecting or changing wallets invalidates an open review. An unavailable
 node, indexer or unverified asset state must leave the operation unavailable.
 
 Test-network marketplace support is not a claim that the deployed marketplace
-is ready for real funds. The extension wallet's test results do not establish
-the Web Wallet's readiness. Cancelling a listing on this marketplace cannot
-revoke copies of a listing signature already shared with someone else.
+is ready for real funds; mainnet follows its own release. A listing you
+revoke here is no longer offered on this marketplace, but a listing
+signature already shared with someone else is not revoked by that; only
+spending the listed output is. Insufficient verified funds, a listing whose
+asset has moved, a declined review, a wrong password or an unreachable node
+or indexer all end without anything being signed or broadcast.
 
 ## Where the keys live
 
