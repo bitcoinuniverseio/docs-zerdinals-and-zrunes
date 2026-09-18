@@ -42,6 +42,38 @@ wallet signs. Any ZEC the operation does not use is returned to your
 recipient address, so overpaying an invoice costs nothing but the wait for
 its return.
 
+## The launch commission on primary sales
+
+A Creator Launchpad primary sale carries one platform commission: **15% of
+the realized primary-sale proceeds**, which is 1,500 basis points of the
+gross for the serials actually delivered. It comes out of the sale, so the
+buyer pays the price the launch asked and the creator receives the rest.
+
+| A 1 ZEC sale | Amount |
+| --- | --- |
+| Buyer pays | 1 ZEC |
+| Platform commission, 15% | 0.15 ZEC |
+| Creator proceeds | 0.85 ZEC |
+
+The commission is computed in whole zatoshis per sealed order, as the
+integer floor of the gross multiplied by 1,500 and divided by 10,000. The
+creator receives the remainder, so the commission and the creator proceeds
+always add back to the gross exactly.
+
+- A free mint has a gross of zero, so it carries no commission.
+- Commission is taken only on delivered items. Items that are not delivered
+  are refunded in full and carry no commission.
+
+This commission is separate from every other cost on this page. The fixed
+0.003 ZEC creation service fee, the network fees under ZIP 317, and the
+carrying value that rides on each asset output stay their own lines on the
+invoice and are unchanged by it. It never applies to a secondary sale; the
+market's own terms are described in
+[Buying and selling](/docs-zerdinals-and-zrunes/market/buying-and-selling/).
+
+Qualification is in progress; availability is published once the native
+Zcash Testnet campaign records PASS.
+
 ## Confirmation
 
 A transaction is final when it is mined into a block; deeper confirmation
