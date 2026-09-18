@@ -87,6 +87,7 @@ const ALL_ROUTES = [
   '/protocols/creator-collectives/',
   '/help/faq/',
   '/help/known-limitations/',
+  '/help/admin/',
 ]
 
 const routes =
