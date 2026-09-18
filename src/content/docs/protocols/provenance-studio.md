@@ -3,6 +3,15 @@ title: "Provenance Studio (C2PA 2.4)"
 description: "C2PA 2.4 provenance manifest verification, local trust lists, offline proof bundles, and ZPROV/1 child inscription anchoring on Zcash."
 ---
 
+<!-- IMPLEMENTATION-HANDOFF [DOC-001] Coverage DOC-provenance-studio.
+Verified baseline 595ebaecd5; published promises must not be mistaken for accepted behavior.
+The text promises local/offline verification and hardware/offline signing while current create flow posts signing data to the backend and has a DTO mismatch. Reconcile browser bytes, signed asset validation, actor binding, anchor prepare/sign/confirm and portable verification with PRV work packages.
+1. After the matching app source work packages pass, replace examples with the tested request/response contracts, exact formats, permissions and network-specific prerequisites.
+2. Keep every existing advertised capability in the acceptance inventory. Implement missing behavior; do not delete promises simply to reduce required scope. Until qualified, distinguish available behavior and pending requirements truthfully.
+3. Link governing versioned specifications and testnet evidence to the exact accepted product/indexer revision. Explain revocation limits and service trust where relevant without claiming stronger guarantees.
+4. Run npm run check:markdown and npm run build from this repository after implementation; targeted markdownlint passed during preparation, full build remains untested. Validate internal links and examples against real testnet API responses. Coordinate DOC-002 developer runbook changes.
+No rendered prose changed in preparation. Deploy docs only with matching accepted product release; rollback documentation with that revision.
+-->
 ## Overview
 
 Provenance Studio introduces verifiable cryptographic content provenance to Zerdinals and ZRunes based on the C2PA 2.4 standard. Creators can attach tamper-evident manifests to media, sign assertions offline or with hardware keys, and anchor provenance records permanently on the Zcash blockchain.
