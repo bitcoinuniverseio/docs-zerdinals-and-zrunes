@@ -141,7 +141,14 @@ and no transaction proves what they currently are.
 
 The collection page says so above everything else, shows the reference so you
 can follow it yourself, and never renders it as though the chain carried it.
-We do not fetch, cache, or mirror that content.
+Collection pages display an NFT gallery and a cover preview from the collection's
+metadata. The first indexed item supplies the cover when there is no separate
+collection image. Collection lists also show these previews. External artwork
+is presentation data, not proof of membership or ownership.
+
+IPFS references identify fixed content, but a provider still needs to serve the
+bytes. If metadata or images are unavailable, the preview says **Artwork
+unavailable**; the on-chain item and ownership records remain visible.
 
 ## Records that point somewhere else
 
