@@ -25,6 +25,14 @@ Typical shapes:
 The large reveal input raises the reveal cost; a ZRune data output adds
 about 3 logical actions for a full 79-byte payload.
 
+<!-- IMPLEMENTATION-HANDOFF [WP-DOCS-02]
+Dependencies: WP-LAUNCH, WP-MARKET, WP-UI.
+1. Document 1500 basis points (15%) on realized primary launch-sale proceeds only after sealed integer-zatoshi allocation and receipt verification pass. State rounding, refund, free-mint and partial-delivery behavior from that verified contract.
+2. Keep the existing fixed creation service fee, network fee, postage and any secondary-market fee on separate review lines; the 15% rule must not silently replace them or apply to secondary sales.
+3. Compare examples with backend/src/payment/launch-quote.spec.ts and backend/src/creator-launches/allocation.service.spec.ts in zerdinals-and-zrunes; require gross = commission + creator proceeds for the realized sales allocation.
+4. Publish only after functional TESTNET settlement and UI review evidence; no mainnet transactions.
+-->
+
 ## What the product shows before you pay or sign
 
 Every flow shows the complete fee display before anything is paid or
