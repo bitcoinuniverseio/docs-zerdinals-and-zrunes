@@ -2,6 +2,17 @@
 title: Buying and selling
 description: "How the market works, what a listing really is, what settles a sale in one transaction, what cancelling does and does not do, and exactly what is and is not live today."
 ---
+<!--
+IMPLEMENTATION-HANDOFF [NFT-D02] NFT-07
+Preparation only; prerequisites NFT-01 through NFT-06. Coverage: all NFT groups.
+1. Reconcile this source with typed ZRC721 NFT discovery/create/send/trade support, retaining the distinct parent-spend collection and NFPT privacy models. Existing read-only or metric exclusions must change only after implementation evidence exists.
+2. Document deploy/mint validity, carrier-spend transfer (no transfer JSON), membership provenance, accepted/rejected mint outcomes, and current owner versus minter attribution. Cross-reference index-zcash-metaprotocols src/zrc721/state.mjs at the pinned baseline in research-register.md.
+3. Update applicable API/version, wallet/execution-mode, pagination, fees, metadata provenance, testnet evidence, readiness and recovery instructions together with the matching code annotations. Do not claim all NFT protocols are interchangeable.
+4. Qualify every coverage.csv path on Zcash Testnet and run dependent ZRC20/ZRunes/Zerdinal/NFPT regressions. Publish status only from evidence, not enum membership or source comments.
+5. Use ops/DEPLOYMENT.md for compatible migrations, artifact-bound authorization, candidate health, zero-downtime cutover and rollback; retain accepted order recovery and old signed-domain validation. No deployment occurs in preparation.
+Verify: documentation build/link checks from this repository package.json where present; NFT-07 test/release matrix in work-packages.md.
+-->
+
 
 **Outcome:** you will know what a listing on this market actually is, why a
 purchase cannot half-happen, what cancelling does and does not do, and what
