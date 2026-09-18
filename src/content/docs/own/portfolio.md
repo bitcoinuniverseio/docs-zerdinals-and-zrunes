@@ -18,6 +18,22 @@ is free and anonymous.
 This is also the pre-flight check before spending from an address:
 [Protect asset-bearing outputs](/docs-zerdinals-and-zrunes/own/protect/).
 
+## Block names (ZkMap districts)
+
+A ZkMap district is the winning inscription of a block name, so it is held
+on an output like any Zerdinal and appears in two places on the address
+page. Among the inscriptions, its card carries a district badge (`ZkMap
+<height>.zkmap`) and shows the district picture drawn from the block
+instead of the inscription's text; the inscription's exact bytes stay one
+click away. The ZkMap tab lists the address's districts on their own, each
+with its picture, its name linking to the block page at `/zkmap/<height>`,
+the block it was claimed in, and a Send action when the address is yours.
+Sending or selling the winning inscription moves the district; there is no
+separate district action. The badge and the tab come from the indexer's
+claim verdict, never from the inscription's text, so a losing claim for the
+same block appears as an ordinary Zerdinal. See the
+[ZkMap v1 specification](/docs-zerdinals-and-zrunes/protocols/zkmap/).
+
 ## Watchlists
 
 You can watch a ZRune, a collection, a transparent address, or a single
