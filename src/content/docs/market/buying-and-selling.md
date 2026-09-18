@@ -145,6 +145,41 @@ NFTs category links to their public directory so they can be found; no buy,
 list or offer action exists for them, because no proof of shielded
 settlement exists that this market could verify.
 
+### The collection directory
+
+The NFTs category also carries a directory of collections reported across
+Zcash, so a collection can be found here whether or not this service can
+trade it. A directory entry records what a project has published about
+itself: a name, a link, and the protocol it says it uses. It is labelled
+**Unverified** until the collection's identity and protocol are established
+against Universe-operated chain data, and an unverified entry carries no
+ownership, supply, volume or price claim. Anything a project reports about
+itself is shown as reported by the project, next to whatever this service
+has actually observed, and the two are never added together.
+
+The directory is seeded with eight discovery leads recorded on 18 September
+2026: zkSNARKs, ZecBit Genesis, ZADDR, Zec Punks, BITFOOTS, ZecFrogs, ZecCat
+and Zecutives. Every one of them is seeded unverified, with no collection
+identifier and with every capability except discovery blocked, and each entry
+names the evidence that would unblock it.
+
+Capability is answered per protocol, not for the directory as a whole. Each
+entry says which of explore, mint, transfer, list and buy it can execute,
+and an entry that cannot execute one names the blocker rather than showing
+an empty book. Listing, buying and cancelling exist only for ZRC-721 items
+this service's own indexer has accepted; everything else in the directory is
+discovery only.
+
+ZRC-721 is a transparent inscription protocol and is not a shielded-asset
+protocol. ZIP 226 and ZIP 227, the Zcash Shielded Assets proposals, are
+Draft: there is no deployed shielded-asset support for this market to trade,
+and a project describing its collection as ZSA does not create one.
+
+These entries stay discovery only and unverified. The Zcash Testnet
+acceptance of 18 September 2026 covered the launch economics, not the
+admission of any of these collections, and ZIP 226 and ZIP 227 are still
+Draft. Nothing here is deployed on Zcash mainnet.
+
 ## Reopen an existing purchase
 
 After a reload or a lost response, return to the existing execution reference
