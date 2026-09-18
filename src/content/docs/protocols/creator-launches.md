@@ -52,15 +52,21 @@ each asset and any secondary-market terms are separate from this commission
 and are unchanged by it. See
 [Fees and confirmation](/docs-zerdinals-and-zrunes/create/fees/).
 
-Qualification is in progress; availability is published once the native
-Zcash Testnet campaign records PASS.
+A paid launch settled under these rules on public Zcash Testnet on 18
+September 2026: 200,000 zatoshis of sales paid 30,000 zatoshis to the
+platform and 170,000 zatoshis to the creator in one settlement transaction,
+and the order readback reported the same figures. The free-launch journey is
+recorded in the same acceptance record, with its Testnet run in progress.
+Partial delivery and its refund are covered by deterministic tests only,
+because that campaign had no way to force a delivery to fail. None of this
+is deployed on Zcash mainnet.
 
 ## Launch archetypes
 
 The list below is the archetype catalogue, not a list of variants that can
 be launched today. Each archetype keeps its own implementation and
-qualification gate, and a launch type with no qualified producer behind it
-is marked discovery only in the product rather than offered.
+qualification gate, and a launch type with no producer behind it is listed
+with the capability `discovery-only` rather than as a payable launch.
 
 What you can do with a launched asset afterwards depends on its protocol,
 not on the launchpad: explore, mint, transfer, list and buy are answered per

@@ -157,10 +157,11 @@ ownership, supply, volume or price claim. Anything a project reports about
 itself is shown as reported by the project, next to whatever this service
 has actually observed, and the two are never added together.
 
-The first entries are discovery leads recorded on 18 September 2026:
-zkSNARKs, ZecBit Genesis, ZADDR, Zec Punks, BITFOOTS, ZecFrogs, ZecCat and
-Zecutives. None of them is verified, none of them is tradable here, and each
-entry names what is still missing before it could be.
+The directory is seeded with eight discovery leads recorded on 18 September
+2026: zkSNARKs, ZecBit Genesis, ZADDR, Zec Punks, BITFOOTS, ZecFrogs, ZecCat
+and Zecutives. Every one of them is seeded unverified, with no collection
+identifier and with every capability except discovery blocked, and each entry
+names the evidence that would unblock it.
 
 Capability is answered per protocol, not for the directory as a whole. Each
 entry says which of explore, mint, transfer, list and buy it can execute,
@@ -174,8 +175,10 @@ protocol. ZIP 226 and ZIP 227, the Zcash Shielded Assets proposals, are
 Draft: there is no deployed shielded-asset support for this market to trade,
 and a project describing its collection as ZSA does not create one.
 
-Qualification is in progress; availability is published once the native
-Zcash Testnet campaign records PASS.
+These entries stay discovery only and unverified. The Zcash Testnet
+acceptance of 18 September 2026 covered the launch economics, not the
+admission of any of these collections, and ZIP 226 and ZIP 227 are still
+Draft. Nothing here is deployed on Zcash mainnet.
 
 ## Reopen an existing purchase
 
