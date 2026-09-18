@@ -60,7 +60,10 @@ integer floor of the gross multiplied by 1,500 and divided by 10,000. The
 creator receives the remainder, so the commission and the creator proceeds
 always add back to the gross exactly.
 
-- A free mint has a gross of zero, so it carries no commission.
+- A free mint has a gross of zero, so it carries no commission and no
+  platform output at all. The fixed service fee and the network fees are
+  still paid, and once every item has been delivered the launch is recorded
+  as settled with no settlement transaction, because nothing is owed.
 - Commission is taken only on delivered items. Items that are not delivered
   are refunded in full and carry no commission.
 
@@ -71,8 +74,14 @@ invoice and are unchanged by it. It never applies to a secondary sale; the
 market's own terms are described in
 [Buying and selling](/docs-zerdinals-and-zrunes/market/buying-and-selling/).
 
-Qualification is in progress; availability is published once the native
-Zcash Testnet campaign records PASS.
+A paid launch settled exactly this way on public Zcash Testnet on 18
+September 2026: two items at 100,000 zatoshis sold for 200,000 zatoshis, of
+which 30,000 zatoshis went to the platform and 170,000 zatoshis to the
+creator, which is the integer floor of 200,000 times 1,500 divided by 10,000.
+The free-launch journey is recorded in the same acceptance record, with its
+Testnet run in progress. Undelivered items are covered by deterministic
+tests only, because that campaign had no way to force a delivery to fail.
+None of this is deployed on Zcash mainnet.
 
 ## Confirmation
 
