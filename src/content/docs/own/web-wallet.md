@@ -108,8 +108,10 @@ zero. A real zero says so, with the height it was true at.
 The wallet and the balance service must use the same network. A testnet
 wallet cannot read its balance from a mainnet service. A response for a
 different address or network must not be displayed as your balance.
-Selecting a network in the wallet does not make that network available from
-the site's balance service. A pending history check is also not proof that
+Each balance request names the wallet's network. The site must have a
+matching service for that network; choosing a network alone does not make
+an unavailable service ready. Switching networks clears the previous balance
+while the new reading is checked. A pending history check is not proof that
 an output is clean and spendable.
 
 If the balance service is unavailable or the site reports a missing balance
@@ -117,4 +119,7 @@ route, no balance has been established. This does not mean your funds are
 gone, and reconnecting or unlocking the wallet cannot repair the service.
 Keep your recovery phrase private. Check that the site supports your wallet's
 network, then use **Refresh** after service is restored. Reading a balance
-never requires your password or recovery phrase.
+never requires your password or recovery phrase: the encrypted wallet can
+stay locked. A successful balance reading confirms only the displayed
+address and network. It does not unlock the wallet or enable payments,
+signing or trading.
