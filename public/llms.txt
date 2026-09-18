@@ -82,3 +82,4 @@ src/content/docs/.
 
 - [Frequently asked questions](https://zrunes.io/docs-zerdinals-and-zrunes/help/faq/)
 - [Known limitations](https://zrunes.io/docs-zerdinals-and-zrunes/help/known-limitations/)
+- [The admin area](https://zrunes.io/docs-zerdinals-and-zrunes/help/admin/)
