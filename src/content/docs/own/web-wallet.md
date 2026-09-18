@@ -108,6 +108,9 @@ zero. A real zero says so, with the height it was true at.
 The wallet and the balance service must use the same network. A testnet
 wallet cannot read its balance from a mainnet service. A response for a
 different address or network must not be displayed as your balance.
+Selecting a network in the wallet does not make that network available from
+the site's balance service. A pending history check is also not proof that
+an output is clean and spendable.
 
 If the balance service is unavailable or the site reports a missing balance
 route, no balance has been established. This does not mean your funds are
