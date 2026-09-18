@@ -66,11 +66,12 @@ search the chain record, and no marketplace outside this application trades
 them. If you are looking for somewhere else to buy or sell one, there is not
 one to point you at.
 
-## One market, five destinations
+## One market, six destinations
 
-The Market navigation keeps five stable destinations: Overview, Zerdinals,
-Collections, Tokens, and ZRunes. Current source includes fungible market
-pages and full-lot asks for ZRunes and ZRC-20. The `zord` and `zecscriptions`
+The Market navigation keeps six stable destinations: Overview, Zerdinals,
+Collections, NFTs, Tokens, and ZRunes. Current source includes fungible
+market pages and full-lot asks for ZRunes and ZRC-20, and typed NFT asks and
+offers under `/market/nfts` (below). The `zord` and `zecscriptions`
 rulesets have separate books; their quantities and prices are never combined.
 A deployed page opens an action only when that operation can execute safely.
 
@@ -92,6 +93,57 @@ Read the complete quantity and the total lot price as separate figures. The
 candidate interface preserves every digit of large quantities and keeps the
 quantity distinct from the price on narrow screens. Display formatting does
 not round the amount being bought or change the signed total.
+
+## NFTs
+
+A ZRC-721 item is traded as the inscription that minted it, because that is
+what it is. An NFT listing is a version 2 item ask with protocol `zrc721`,
+signed by the holder's wallet over the inscription's carrying output exactly
+as a Zerdinal ask is. The collection key and the token id are not in the
+signature; they are facts the indexer proves about that inscription, and
+the market checks them when the listing is admitted, every time it is
+revalidated, when a buyer prepares a purchase, and again before a sale is
+called delivered.
+
+What a wallet shows you when you sign or buy is the physical truth: the
+inscription id and the outpoint that carries it, the price, and the
+recipient address. In the asset composition the item appears as
+`zerdinals:<inscription id>`, because the item and the inscription are one
+thing; there is no second entry for the NFT. A listing whose output carries
+anything besides that one inscription is refused.
+
+From an item's page at `/nfts/:key/:tokenId`, or the collection's market
+page at `/market/nfts/:collectionKey`, you can:
+
+- **Buy** a listed item at its asked price, through the same purchase paths
+  as a Zerdinal.
+- **Offer** on an item, or on any item in a collection. As with every v2
+  offer, the seller signs at acceptance; an offer does not settle itself.
+- **List** an item you hold, and **cancel** a listing, with the same meaning
+  cancelling has everywhere here: withdrawal from this book, not revocation
+  of the signature.
+- **Sweep** several listed items of one collection through the cart.
+
+A watch-only address sees all of this and can do none of it: listing,
+offering and buying need the wallet that controls the output.
+
+A sale is delivered when two independent things agree: the settlement
+transaction has reached the configured confirmation depth, and the indexer
+reports the item at the buyer's output under the same collection and token
+id the listing named. The receipt the product shows
+(`market-nft-settlement-receipt-v1`) carries both the inscription transfer
+receipt and that item evidence. A transaction id alone is not delivery, and
+if either proof is missing the outcome stays unresolved.
+
+Floor, listed count and volume on NFT pages are this service's own open
+listings and confirmed settlements, as on every other market page here, and
+are never chain facts. Anything shown from a collection's off-chain
+metadata is labelled off-chain and plays no part in a sale.
+
+Shielded NFPT items are a different family and are not traded here. The
+NFTs category links to their public directory so they can be found; no buy,
+list or offer action exists for them, because no proof of shielded
+settlement exists that this market could verify.
 
 ## Reopen an existing purchase
 
@@ -115,6 +167,10 @@ journeys. They do not establish which release the public site is serving.
 The production inspection on 17 September 2026 found an older product release
 and an indexer missing the current market receipt contracts and replay
 identity evidence. Production marketplace qualification remains incomplete.
+
+The NFT journeys above are part of the same source candidate and follow the
+same rule: each action opens only where its own release evidence and
+dependencies are healthy, and the page names the blocker otherwise.
 
 Creating a listing requires a wallet qualified for that operation. A published
 listing alone does not prove that execution is available: preparation and new
