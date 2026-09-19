@@ -6,27 +6,101 @@ description: "Assemble exact ZRC-20 and ZRC-721 inscription bytes, check them ag
 **Outcome:** you will know what the two guided creation pages build, what
 their preflight checks prove, and what still depends on block order.
 
-<!-- IMPLEMENTATION-HANDOFF [Z20-08] @Z20-08-public-docs
-Coverage: DOCS-PUBLIC; ENTRY-LEGACY; REG-DEPLOY; REG-TRANSFER
-Update this section only after the implementation is verified; preparation comments do not announce a released feature. Sources R01/R02/R03; depends on Z20-01..07.
-1. Document /create/token as a browsable token list with exact progress, an end-of-row Mint action and a right-side detail/payment panel. Explain All versus selected reading, and preserve deploy, transfer and manual byte-inspection entry points plus /tokens/create redirects.
-2. State that row selection does not spend or reserve supply; the user reviews recipient, amount, fee and execution mode before invoice creation/signing. Explain invoice versus connected-wallet availability without treating one closed mode as a globally read-only service.
-3. Explain token-credit acceptance under the selected Universe reader separately from inscription delivery and unresolved external reader differences. A valid preflight can lose a block-order race; fees already spent are not automatically refundable. Keep exact-bytes and two-stage transfer explanations accurate.
-4. Add order recovery and mobile drawer instructions after verified behavior, with no account secrets or sample paid mainnet orders. Preserve all ZRC-721 content. Verify navigation/internal links and the docs build, and link actual public release evidence only after Z20-08 deployment. Roll back inaccurate feature announcements with the UI, not existing protocol documentation.
--->
 ## ZRC-20 tokens
 
-Open **Tokens**, then **Deploy or mint**, or go to `/tokens/create`. The page
-builds the exact JSON bytes for a deploy, mint, or transfer. It keeps the
-`zord` and `zecscriptions` readings separate because they disagree about
-ticker length and partial mints.
+Open **Mint**, or go to `/create/token`. The older `/tokens/create` address
+still works and keeps whatever you had in the query.
 
-Before you continue, the page asks the live indexer about the ticker and
-shows each reading independently. It catches a ticker already deployed, a
+### The token list
+
+The page opens on every ZRC-20 token this chain carries, a page at a time,
+searchable by ticker and filterable by mint state. The default state filter
+is **any**, so a finished token is listed rather than hidden.
+
+"Every token" means every distinct deploy the two readers recognise between
+them, counted once. `zord` and `zecscriptions` read the same blocks under
+different rules, so a token can exist under one and not the other, and the
+same token can have different minted totals under each. Each row therefore
+names the reading its figures came from and says when only one reading
+carries the token or when the two disagree. The total is the number of
+distinct tokens, never the two readers' counts added together.
+
+Each row shows its exact minted-of-maximum supply and ends in **Mint**. A
+token that cannot be minted under the reading shown keeps a disabled Mint
+and the reason beside it, and you can still open it to read its detail.
+
+### Minting from the panel
+
+Choosing a token fills the panel on the right; on a phone the same panel
+opens as a drawer you close with **Close**, the back gesture or Escape.
+
+**Choosing a token spends nothing and reserves nothing.** No supply is held
+for you, no invoice exists and no wallet is asked to sign. The panel reads
+the deployment again under the reading you picked, suggests the amount that
+reading would accept, and asks for the address to credit. You then review
+those exact values and confirm them before anything is created.
+
+The two readings differ on how much one mint may claim, and the panel says
+which applies:
+
+- **zord** credits up to the per-mint limit, and accepts a smaller final
+  mint when less than a limit remains.
+- **zecscriptions** credits a mint only for exactly the per-mint limit. When
+  less than one limit remains, that remainder cannot be minted under this
+  reading at all, and the panel says so rather than offering a smaller
+  amount.
+
+Once you confirm, the panel becomes the order's own panel: the payment
+address, the exact amount, the QR, the expiry, cancellation and refund
+appear in place, and the page stays at `/create/token`. Choosing another
+token from the list opens a new panel for it and leaves the order you
+already created alone; it is still reachable from your saved orders and
+from its own recovery link.
+
+Both execution modes are offered independently. Paying an invoice needs no
+wallet connection; signing with a connected wallet needs one that can sign
+Zerdinals. Either may be closed at any time, and the panel says which is
+closed and why. One mode being closed does not make the service read-only:
+browsing, existing orders and recovery stay available.
+
+### Delivery is not acceptance
+
+The order finishing means the inscription was delivered. Whether the
+reading you chose **credited** the token is a separate fact, and the panel
+reports it separately, with the block it was observed in.
+
+A preflight is an observation, not a reservation. A mint that was valid
+when you reviewed it can still lose a race to another mint in the same or
+an earlier block, and the reading will then reject it. That is a rejected
+token operation with a real inscription and real fees already spent; it is
+not a failed payment and the fees are not automatically returned. A reorg
+can also take an accepted credit back, and the panel shows that rather than
+leaving a stale success on screen.
+
+The two Universe readers are what this product states results under.
+Differences between them and external readers of the same protocol are
+recorded, not resolved here, and acceptance under one reading is never a
+claim about any other indexer.
+
+### Deploying, transferring, and the exact bytes
+
+Deploy and transfer keep their own forms, reached from the list with
+**Deploy a token** and **Create a transfer inscription**, and
+**Advanced: compose mint bytes by hand** opens the same form for a mint you
+want to write yourself. These build the exact JSON bytes and show them
+before anything is inscribed, keeping the `zord` and `zecscriptions`
+verdicts separate as they always have.
+
+Before you continue, these forms ask the live indexer about the ticker and
+show each reading independently. They catch a ticker already deployed, a
 mint with no deploy, an amount outside that reading's limit, and a transfer
 larger than the connected address's available balance. A 404 means the
 ticker is free under that reading. An unreachable or incomplete reader is
 unknown, never permission to proceed.
+
+A transfer still happens in two steps. Inscribing a transfer operation to an
+address you control commits that amount of your balance; sending that
+inscription to someone later is what moves it.
 
 ## ZRC-721 collections and items
 
