@@ -92,7 +92,42 @@ cannot be listed as a district, only as the ordinary Zerdinal it is. The
 book has three filters (For sale, Sold, Everything), and an empty book says
 whether it is empty or unreadable. Holders list a district from its block
 page at `/zkmap/<height>`, whose Market section addresses the winning
-inscription itself.
+inscription itself, and the market header links straight to the districts
+you hold.
+
+### Finding a district
+
+Search a block name exactly: `780000` and `780000.zkmap` both find that one
+district. It is not a text search over listings, so a partial height finds
+nothing rather than a list of near misses, and `007` is refused because it
+is not how a block name is written.
+
+The book can be ordered by newest, by price in either direction, or by
+block height. The search and the ordering are part of the page address, so
+a book you are looking at can be linked to someone else and the back button
+returns you to it rather than to a reset page. Ordering applies to the
+whole book, not to the listings currently on screen.
+
+### What the district figures mean
+
+Above the book, districts for sale, the floor, sales and volume are counted
+across the whole book for the network you are on, not across the listings
+shown, and not across the wider market, which contains things that were
+never districts. Amounts are exact.
+
+When the district index cannot vouch for its own coverage, the figures read
+**Unavailable** and say why. That is deliberate: a zero would look like a
+real, empty market. A book that genuinely holds nothing shows zero and no
+floor, which is a different statement.
+
+### On a district's listing page
+
+A district listing shows its block name, its picture and a link to the
+district itself, above the signed terms rather than instead of them. The
+name comes only from a current winning claim. If the inscription has since
+lost its block name, the page says so: it can still be bought, but it is
+not a district. If the claim simply cannot be read right now, the page says
+that too, and does not present an unreadable claim as an invalid one.
 
 ## Full-lot prices
 
