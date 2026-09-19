@@ -183,7 +183,6 @@ and no transaction proves what they currently are.
 
 The collection page says so above everything else, shows the reference so you
 can follow it yourself, and never renders it as though the chain carried it.
-
 Where the reference is inline JSON, an IPFS address or an `https` address,
 the product's own service may fetch the JSON it names, under a timeout, a
 size cap and a check that the address is public, and show its name,
@@ -192,6 +191,15 @@ are never proxied or mirrored, the indexer never fetches anything, and
 nothing in that panel is ownership evidence or takes part in a sale. The
 on-chain content of the mint inscription itself is what the item page
 shows as its primary media.
+
+Collection pages display an NFT gallery and a cover preview from the collection's
+metadata. The first indexed item supplies the cover when there is no separate
+collection image. Collection lists also show these previews. External artwork
+is presentation data, not proof of membership or ownership.
+
+IPFS references identify fixed content, but a provider still needs to serve the
+bytes. If metadata or images are unavailable, the preview says **Artwork
+unavailable**; the on-chain item and ownership records remain visible.
 
 ### Shielded NFPT items are not ZRC-721
 
