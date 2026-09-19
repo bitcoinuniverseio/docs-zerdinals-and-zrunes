@@ -21,12 +21,14 @@
   "protocols": [
     "zerdinals",
     "zrunes",
-    "zrc-20"
+    "zrc-20",
+    "zkmap"
   ],
   "specifications": [
     "src/content/docs/protocols/zerdinals-v1.md",
     "src/content/docs/protocols/zrunes-v1.md",
     "src/content/docs/protocols/collections-v1.md",
+    "src/content/docs/protocols/zkmap.md",
     "src/content/docs/protocols/zmarket-orders-v1.md",
     "src/content/docs/protocols/ordinality.md"
   ],

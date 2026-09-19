@@ -52,10 +52,13 @@ creator's keys.
 
 ## What the product refuses to invent
 
-No floor prices, volume, sales, or rarity scores exist anywhere in
-Collections v1, and creator identity, descriptions, artwork, and popularity
-are never fabricated. If a fact is on a collection page, it is either a
-chain fact or an accepted, signed manifest fact, and the page says which.
+Collections v1 pages carry no floor prices, volume, sales, or rarity
+scores, and creator identity, descriptions, artwork, and popularity are
+never fabricated. If a fact is on a collection page, it is either a chain
+fact or an accepted, signed manifest fact, and the page says which. Where a
+ZRC-721 collection has a market page, its floor, listed count and volume
+are this market's own open listings and confirmed settlements, labelled as
+such; rarity scores exist nowhere.
 
 ## Safety boundary
 
@@ -93,18 +96,55 @@ The other family with real collections on this chain works differently, and
 the difference matters enough to state plainly.
 
 A ZRC-721 collection begins with a **deploy** operation that names a
-collection key and a supply. Every **mint** afterwards references that key
-and claims an id. There is no parent to spend, so membership is the
-reference rather than a spend, and the rules that decide whether a mint
-counted are strict:
+collection and a supply. Every **mint** afterwards references that
+collection and claims an id. There is no parent to spend, so membership is
+the reference rather than a spend, and the rules that decide whether an
+operation counted are strict:
 
+- the collection name, trimmed, is 1 to 64 UTF-8 bytes, and its lower-cased
+  form is the collection key; the first deploy of a key wins and later
+  deploys of it are rejected
+- the supply is a whole number from 1 to 10,000,000
 - the collection has to have been deployed already when the mint was applied
-- the id has to be below the declared supply
-- the id must not already be taken by an earlier mint
+- the id has to be a whole number below the declared supply
+- the id must not already be taken by an earlier accepted mint
 - the reveal has to have a transparent output, so there is somebody to credit
 
 A mint that fails any of those is inscribed on the chain, cost a fee, and
 holds nothing.
+
+### What an NFT is here
+
+An accepted mint inscription is the item. The reader records which
+collection and id that inscription proved, and everything else about the
+item, who holds it, where it sits, whether it is still observable, is the
+inscription's own state. There is no transfer operation to send an item;
+it moves when the inscription moves, through the ordinary Send flow or a
+market sale. An item whose carrying output was spent into a shielded
+transaction is no longer observable and names no holder; one spent with no
+transparent successor is burned. Both are terminal, and both are different
+from a rejected mint, which never held an item at all.
+
+### Where to find them
+
+- `/explore/nfts` lists every ZRC-721 collection the reader has accepted,
+  with search over the collection name, sorting by deploy order, minted
+  count or name, and true page counts.
+- `/nfts/:key` is a collection: its supply and minted count, its items in
+  pages, its rejected operations by reason, and its activity, which
+  includes deploys, mints and rejections as well as the transfers, burns
+  and shielding of accepted items. Older `/collections/zrc-721/:key`
+  links still open it.
+- `/nfts/:key/:tokenId` is one item: the mint inscription, the holder and
+  carrying output when observable, the on-chain content, its history, and
+  any open listings or offers on it.
+- `/market/nfts` and `/market/nfts/:collectionKey` are the market
+  views; see [NFTs on the market](/docs-zerdinals-and-zrunes/market/buying-and-selling/#nfts).
+- The **NFTs** tab of a portfolio lists the items an address holds, with
+  the true total rather than the length of the first page.
+
+Searching for text that is not a known artifact also offers to find NFT
+collections by that name.
 
 ### Most ZGODS mints did not count
 
@@ -130,7 +170,9 @@ The collection page reads the holder from the inscription rather than
 tracking it separately, which means an item spent into a shielded pool
 reports that it is no longer observable rather than naming whoever held it
 last. The minter is kept in its own column, because once tracking ends the
-minter is the only attribution left.
+minter is the only attribution left. A `to` address in the mint payload is
+that minter attribution and nothing more: it never says who controls the
+carrying output now.
 
 ### The artwork is not on the chain
 
@@ -141,6 +183,15 @@ and no transaction proves what they currently are.
 
 The collection page says so above everything else, shows the reference so you
 can follow it yourself, and never renders it as though the chain carried it.
+Where the reference is inline JSON, an IPFS address or an `https` address,
+the product's own service may fetch the JSON it names, under a timeout, a
+size cap and a check that the address is public, and show its name,
+description and traits as text in a panel labelled **off-chain**. Images
+are never proxied or mirrored, the indexer never fetches anything, and
+nothing in that panel is ownership evidence or takes part in a sale. The
+on-chain content of the mint inscription itself is what the item page
+shows as its primary media.
+
 Collection pages display an NFT gallery and a cover preview from the collection's
 metadata. The first indexed item supplies the cover when there is no separate
 collection image. Collection lists also show these previews. External artwork
@@ -149,6 +200,15 @@ is presentation data, not proof of membership or ownership.
 IPFS references identify fixed content, but a provider still needs to serve the
 bytes. If metadata or images are unavailable, the preview says **Artwork
 unavailable**; the on-chain item and ownership records remain visible.
+
+### Shielded NFPT items are not ZRC-721
+
+Non-Fungible Privacy Tokens live in the shielded pool and are a separate
+family with their own rules. The NFTs category links to their public
+directory so they can be found, and that is all: they carry no market
+action here, because no proof of shielded settlement exists that this
+market could verify. See
+[shielded metaprotocols](/docs-zerdinals-and-zrunes/protocols/shielded-metaprotocols/).
 
 ## Records that point somewhere else
 

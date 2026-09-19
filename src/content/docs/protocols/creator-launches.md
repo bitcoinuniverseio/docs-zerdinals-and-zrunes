@@ -25,7 +25,56 @@ evidence or the original authorized destination cannot be established.
 Native wallet, node, indexer and browser validation remains required. The
 variants below retain separate implementation and qualification gates.
 
+## Commission and payout
+
+A sealed revision fixes the economics before anyone pays: the platform
+commission of 15% (1,500 basis points) of the realized primary-sale gross,
+the address the commission is paid to, and the split of the creator's
+proceeds. The commission is computed in whole zatoshis per sealed order, as
+the integer floor of the delivered gross multiplied by 1,500 and divided by
+10,000; the creator payout is the remainder, so the two add back to the
+gross exactly. A 1 ZEC sale pays 0.15 ZEC to the platform and 0.85 ZEC to
+the creator, before the separately listed creation service fee, network
+fees and carried value.
+
+- Commission is taken on delivered serials only. Serials that are not
+  delivered are refunded in full and carry no commission.
+- A zero-price launch carries no commission.
+- A revision sealed before these terms existed carries no commission
+  evidence. The product refuses to invoice it and asks the creator to seal a
+  new revision rather than inventing terms for it.
+- A changed chain receipt resumes verification of the existing serial. It
+  does not allocate a replacement serial and does not charge a second
+  commission.
+
+The fixed creation service fee, the network fees, the value carried with
+each asset and any secondary-market terms are separate from this commission
+and are unchanged by it. See
+[Fees and confirmation](/docs-zerdinals-and-zrunes/create/fees/).
+
+A paid launch settled under these rules on public Zcash Testnet on 18
+September 2026: 200,000 zatoshis of sales paid 30,000 zatoshis to the
+platform and 170,000 zatoshis to the creator in one settlement transaction,
+and the order readback reported the same figures. The free-launch journey is
+recorded in the same acceptance record, with its Testnet run in progress.
+Partial delivery and its refund are covered by deterministic tests only,
+because that campaign had no way to force a delivery to fail. None of this
+is deployed on Zcash mainnet.
+
 ## Launch archetypes
+
+The list below is the archetype catalogue, not a list of variants that can
+be launched today. Each archetype keeps its own implementation and
+qualification gate, and a launch type with no producer behind it is listed
+with the capability `discovery-only` rather than as a payable launch.
+
+What you can do with a launched asset afterwards depends on its protocol,
+not on the launchpad: explore, mint, transfer, list and buy are answered per
+protocol, and a capability that is unavailable names its blocker instead of
+being hidden. ZRC-721 items are described in
+[Collections](/docs-zerdinals-and-zrunes/understand/collections/#zrc-721-collections)
+and their market actions in
+[Buying and selling](/docs-zerdinals-and-zrunes/market/buying-and-selling/#nfts).
 
 - Fixed Collection Drops
 - 1-of-1 Inscription Releases
