@@ -25,6 +25,25 @@ you:
    (`Z•RUNE` finds `ZRUNE`), or a ZRune id in `block:tx` form.
 7. **Collection slug:** lowercase kebab-case.
 8. **Token ticker:** short uppercase letters.
+9. **ZkMap block name:** a plain height followed by `.zkmap`, such as
+   `1500000.zkmap` or `0.zkmap`. No leading zeros.
+
+## Block names
+
+Searching `<height>.zkmap` opens the block's district page at
+`/zkmap/<height>`, which shows the block name's status (available, claimed,
+not mined yet, not claimable, or unknown), the winning inscription and the
+address holding it, the block it was claimed in, the district picture, and
+the indexer checkpoint the reading is as of. A block name never routes
+through name resolution; it is not a registry name.
+
+A plain number is classified as a block height and offers both routes: the
+block in Scan first, then its block name at `/zkmap/<height>`. A
+`.zkmap` name offers the same two routes with the block name first. The
+block page in Scan also links to the block's name, and the map at
+`/explore/zkmap` lists every block in its window with a link to its
+district page. The rules are in the
+[ZkMap v1 specification](/docs-zerdinals-and-zrunes/protocols/zkmap/).
 
 ## Ambiguity is named, not guessed
 

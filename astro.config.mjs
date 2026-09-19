@@ -115,6 +115,7 @@ export default defineConfig({
             { label: 'Zerdinals v1 specification', slug: 'protocols/zerdinals-v1' },
             { label: 'ZRunes v1 specification', slug: 'protocols/zrunes-v1' },
             { label: 'Collections v1 specification', slug: 'protocols/collections-v1' },
+            { label: 'ZkMap v1 specification', slug: 'protocols/zkmap' },
             { label: 'The ordinality decision', slug: 'protocols/ordinality' },
             { label: 'ZMarket Orders v1 specification', slug: 'protocols/zmarket-orders-v1' },
             { label: 'ZMarket Orders v2 specification', slug: 'protocols/zmarket-orders-v2' },

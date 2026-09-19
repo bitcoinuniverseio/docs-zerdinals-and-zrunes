@@ -74,6 +74,7 @@ const ALL_ROUTES = [
   '/protocols/zerdinals-v1/',
   '/protocols/zrunes-v1/',
   '/protocols/collections-v1/',
+  '/protocols/zkmap/',
   '/protocols/ordinality/',
   '/protocols/zmarket-orders-v1/',
   '/protocols/zmarket-orders-v2/',
