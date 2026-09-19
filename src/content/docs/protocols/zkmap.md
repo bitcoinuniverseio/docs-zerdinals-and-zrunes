@@ -3,6 +3,19 @@ title: "ZkMap v1 specification"
 description: "The specification of ZkMap block names: one Zerdinal-carried name per Zcash block, the exact claim bytes, who wins, how a district moves, and the deterministic district picture."
 ---
 
+<!--
+IMPLEMENTATION-HANDOFF [ZMS-08] ZMS-A028 | 2026-09-19 | PREPARATION ONLY
+Coverage: MAP-01..MAP-10,REL-01..REL-04. Findings: F01,F02,F07. Status: ANNOTATED, not implemented.
+Sources: R00, R01, R09, R10, pinned in product docs/implementation/zkmap-state-20260919/research/source-register.json.
+Contract/dependencies: product docs/implementation/zkmap-state-20260919/WORK-PACKAGES.md.
+1. Depends on implemented ZMS-01 through ZMS-07, not on these annotations. Document the additive zkmap-occupancy-v1 observation contract separately from historical zkmap-v1 claim rules. Pending is a reveal observed by the owned node, not a winner, global reservation or guaranteed admission.
+2. Publish matching Free/Mempool/Taken/Unknown/future semantics across public and developer docs, including complete/fresh proof, node-local limitations, observed/expiry times, competing transactions, removal, reorg and old-server behavior. A local unpaid order is not a mempool claim.
+3. Correct the name-size statement to at most 16 ASCII bytes (10 height digits plus .zkmap); keep exact MIME, commitment, target-before-completion, chain-order winner and burned/shielded non-remint rules unchanged. Do not broaden this to a new consensus protocol or Bitcoin Signet.
+4. Update API examples and release prerequisites from actual tested responses and record native Zcash Testnet evidence plus public Mainnet deployment separately. Preserve existing capability docs and warn that source support does not prove deployed support.
+Verify: Run the repository existing docs build/link commands from its package.json after prose implementation; compare actual API responses and paired docs. No docs build was yet accepted as runtime verification.
+Rollback/security: Preparation comments are hidden instructions, not a claim that the new behavior is implemented or released.
+Preserve existing executable behavior in this preparation commit.
+-->
 :::note[Where the rules live]
 ZkMap is a ruleset (`zkmap-v1`) read by the indexer over ordinary Universe
 Zerdinals v1 inscriptions. It adds no envelope field and no new transaction
