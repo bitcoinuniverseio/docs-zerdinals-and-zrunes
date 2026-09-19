@@ -75,6 +75,25 @@ offers under `/market/nfts` (below). The `zord` and `zecscriptions`
 rulesets have separate books; their quantities and prices are never combined.
 A deployed page opens an action only when that operation can execute safely.
 
+## Block names (ZkMap districts)
+
+A ZkMap district is the winning inscription of a block name such as
+`1500000.zkmap`, so it is listed and bought as a Zerdinal: the seller's
+single signature binds the output carrying the winning inscription, one
+transaction settles the sale, and the district follows that inscription to
+the buyer. There is no separate district order type. The rules are in the
+[ZkMap v1 specification](/docs-zerdinals-and-zrunes/protocols/zkmap/).
+
+The Market navigation has a ZkMap destination at `/market/zkmap`, which is
+the Zerdinal order book filtered on the server to listings the backend
+admitted as winning districts. A district is verified against the chain
+when it is listed and again when it is bought; a losing or invalid claim
+cannot be listed as a district, only as the ordinary Zerdinal it is. The
+book has three filters (For sale, Sold, Everything), and an empty book says
+whether it is empty or unreadable. Holders list a district from its block
+page at `/zkmap/<height>`, whose Market section addresses the winning
+inscription itself.
+
 ## Full-lot prices
 
 The next lot-ask version lets a seller name one exact total price in zatoshis
