@@ -123,9 +123,10 @@ checkpoint:
 
 | Status | Shown as | Meaning |
 | --- | --- | --- |
-| `available` | Available | No eligible claim completed up to the checkpoint |
+| `available` | Available | Safe history plus a fresh, complete owned-node observation show no matching mempool reveal |
 | `claimed` | Claimed | A winner exists; the page names it and its holder |
-| `future` | Not mined yet | The height is above the checkpoint |
+| `pending` | Mempool | A valid matching reveal is observed in the owned node mempool; it is not a winner or reservation |
+| `future` | Not mined yet | A fresh verified node tip proves that the height does not exist yet |
 | `ineligible` | Not claimable | The height cannot be claimed, and the page says why |
 | `unknown` | Unknown | The indexer could not vouch for this height |
 
@@ -134,6 +135,41 @@ by someone else's claim before yours completes, and a claim that loses on
 chain still paid for its inscription. Unknown is never shown as available: a
 lagging or unqualified indexer produces an unknown cell or a read failure,
 not an empty one.
+
+### Current occupancy proof
+
+Range, detail and availability responses carry an additive
+`occupancy` envelope with schema `zkmap-occupancy-v1` when the indexer
+supports the current observation contract. It is sourced only from the owned
+Zebra mempool (`source: owned-zebra-mempool`, decoder
+`zkmap-mempool-v1`). A local order, invoice, accepted signature or broadcast
+acknowledgement is not membership proof.
+
+The envelope binds `network`, `genesisHash`, `snapshotId`,
+`sequenceAtomic` and the observed node `tip` to the historical checkpoint.
+It records `startedAt`, `observedAt`, `expiresAt`,
+`completeness: complete|partial|unavailable`, an explicit `reason`,
+`pendingCountAtomic`, up to eight bounded `candidates` and
+`candidatesTruncated`. Each candidate includes the reveal txid, input index,
+exact name and target height, decoder version, content hash, commitment and
+observed times.
+
+Only safe complete historical coverage plus a fresh, unexpired, same-tip,
+complete current-decoder observation with zero candidates can be `available`.
+A positive candidate may be `pending` even when the pool sample is partial,
+but that is advisory and does not elect an owner. A confirmed winner remains
+`claimed`, including when its owner is burned or shielded. Partial, stale,
+lagged, old-decoder or mismatched observations are `unknown` for current
+mint admission, and a missing block hash alone is not proof that a block is
+future.
+
+The legacy HTTP `status` field remains the five-value rolling-deployment
+contract. Pending is serialized there as `unavailable` with reason
+`PENDING_CLAIM_OBSERVED`; this page's six-state status comes from
+`occupancy.effectiveStatus`. Clients without the additive envelope must
+normalize historical `available` to current `unknown` rather than mint from
+it. Pending candidates are evidence only; the confirmed scanner and chain
+order decide winners.
 
 ## 7. The district picture
 
@@ -246,13 +282,13 @@ as exact decimal strings.
 
 | Operation | Purpose |
 | --- | --- |
-| `GET /api/zkmap/blocks?start=&limit=` | A window of statuses, block hashes, winners and owners (limit up to 1024) |
-| `GET /api/zkmap/blocks/{height}` | One block's status, winner and owner |
+| `GET /api/zkmap/blocks?start=&limit=` | A window of statuses, occupancy proof, block hashes, winners and owners (limit up to 1024) |
+| `GET /api/zkmap/blocks/{height}` | One block's status, occupancy proof, winner and owner |
 | `GET /api/zkmap/blocks/{height}/geometry` | The renderer input: ordered transaction byte sizes and their digest |
 | `GET /api/zkmap/blocks/{height}/art.svg?art=&network=&size=&hash=` | The district picture at 256, 512 or 1024; `art=zkmap-art-v2` needs the network it was observed on |
 | `GET /api/zkmap/districts?owner=&cursor=&limit=&order=` | Claimed districts, optionally held by one address |
 | `GET /api/zkmap/claims/{inscriptionId}` | The claim receipt and verdict of one inscription |
-| `POST /api/zkmap/availability` | Preflight of up to 24 heights; an observation, not a reservation |
+| `POST /api/zkmap/availability` | Preflight of up to 24 heights with historical and current occupancy evidence; an observation, not a reservation |
 | `POST /api/zkmap/prepare`, `POST /api/zkmap/batch/prepare` | Connected-wallet mint of one, or up to 24, names |
 | `POST /api/zkmap/invoices`, `POST /api/zkmap/invoices/batch` | Pay-from-any-wallet mint of one, or up to 24, names |
 | `GET /api/zkmap/orders/{orderId}/claim` | The claim outcome of a connected-wallet mint order |
