@@ -135,6 +135,18 @@ chain still paid for its inscription. Unknown is never shown as available: a
 lagging or unqualified indexer produces an unknown cell or a read failure,
 not an empty one.
 
+<!--
+IMPLEMENTATION-HANDOFF [ZKU07] F09; DOC-02/DOC-03
+Preparation: ANNOTATED ONLY. Executable behavior is unchanged.
+Observed: Current documentation repeats first-byte palette uniqueness and immutable/reorg claims that are not generally true.
+Sources and dependency order: docs/implementation/zkmap-unique-art-20260919/WORK-PACKAGES.md in product handoff.
+1. After ZKU02/ZKU03, document zkmap-art-v2 full-hash visual identity and the unchanged transaction-size/order layout zkmap-treemap-v1. Keep the complete zkmap-v1 claim/ownership rules unchanged.
+2. Explain the perimeter is a block signature and interior contours are decorative texture, not added transactions or claimable sub-parcels. Coinbase-only blocks remain one real parcel.
+3. Replace the promise that every same-shaped v1 block differs; document v1 preserved legacy bytes, explicit versioned network-bound URLs and the need to revalidate block identity separately from immutable images.
+4. Publish these exact accepted docs with source/app versions and actual release availability after ZKU08. Preserve historical v1 specification and all offered operations, no premature implemented/released claims.
+Verify: Documentation build/link check on approved runner, spec-to-renderer known-answer verification and API links/header checks.
+Rollback/security: Only preparation HTML comments now; no rendered prose changed. Docs rollback must match the served API version.
+-->
 ## 7. The district picture
 
 Every district has a picture, layout `zkmap-treemap-v1`, rendered by the
