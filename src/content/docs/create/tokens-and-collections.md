@@ -6,6 +6,14 @@ description: "Assemble exact ZRC-20 and ZRC-721 inscription bytes, check them ag
 **Outcome:** you will know what the two guided creation pages build, what
 their preflight checks prove, and what still depends on block order.
 
+<!-- IMPLEMENTATION-HANDOFF [Z20-08] @Z20-08-public-docs
+Coverage: DOCS-PUBLIC; ENTRY-LEGACY; REG-DEPLOY; REG-TRANSFER
+Update this section only after the implementation is verified; preparation comments do not announce a released feature. Sources R01/R02/R03; depends on Z20-01..07.
+1. Document /create/token as a browsable token list with exact progress, an end-of-row Mint action and a right-side detail/payment panel. Explain All versus selected reading, and preserve deploy, transfer and manual byte-inspection entry points plus /tokens/create redirects.
+2. State that row selection does not spend or reserve supply; the user reviews recipient, amount, fee and execution mode before invoice creation/signing. Explain invoice versus connected-wallet availability without treating one closed mode as a globally read-only service.
+3. Explain token-credit acceptance under the selected Universe reader separately from inscription delivery and unresolved external reader differences. A valid preflight can lose a block-order race; fees already spent are not automatically refundable. Keep exact-bytes and two-stage transfer explanations accurate.
+4. Add order recovery and mobile drawer instructions after verified behavior, with no account secrets or sample paid mainnet orders. Preserve all ZRC-721 content. Verify navigation/internal links and the docs build, and link actual public release evidence only after Z20-08 deployment. Roll back inaccurate feature announcements with the UI, not existing protocol documentation.
+-->
 ## ZRC-20 tokens
 
 Open **Tokens**, then **Deploy or mint**, or go to `/tokens/create`. The page
