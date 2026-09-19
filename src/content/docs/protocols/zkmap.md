@@ -173,7 +173,7 @@ Fully determined by public chain data:
 A block whose only transaction is the coinbase is one parcel, and stays one
 parcel: transactions are never invented to make a picture busier. Two blocks
 with equal or proportional transaction sizes share this geometry, and that is
-correct — they really do have the same shape. Changing any rule above is a new
+correct: they really do have the same shape. Changing any rule above is a new
 layout version, never a silent change to `zkmap-treemap-v1`.
 
 ### The artwork: `zkmap-art-v2`
@@ -210,8 +210,10 @@ clients built against it; `zkmap-art-v2` is what makes the promise true.
 
 ### Asking for a picture
 
-    GET /api/zkmap/blocks/{height}/art.svg
-        ?art=zkmap-art-v2&network=testnet&size=256&hash=<block hash>
+```text
+GET /api/zkmap/blocks/{height}/art.svg
+    ?art=zkmap-art-v2&network=testnet&size=256&hash=<block hash>
+```
 
 `art` omitted, or `art=zkmap-art-v1`, returns the legacy picture unchanged.
 `art=zkmap-art-v2` needs `network`, and it must be the network the block was
@@ -230,7 +232,7 @@ reference, no `foreignObject`, no event handler, no animation.
 A hash-pinned request (`?hash=<block hash>`) may be kept by a browser for a
 year. Such a copy is a picture of one block as it was, and it cannot notice a
 reorg by itself: a browser holding a fresh immutable copy does not ask again.
-That is why the artwork version is part of the address — a new drawing is
+That is why the artwork version is part of the address: a new drawing is
 published at a new URL rather than swapped in at the old one. Only a *fresh*
 request that pins a hash which no longer names the block at that height
 answers 409. Which block a height names now is decided by reading the block or
