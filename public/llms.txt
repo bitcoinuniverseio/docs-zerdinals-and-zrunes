@@ -59,6 +59,7 @@ src/content/docs/.
 - [Zerdinals v1 specification](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/zerdinals-v1/)
 - [ZRunes v1 specification](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/zrunes-v1/)
 - [Collections v1 specification](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/collections-v1/)
+- [ZkMap v1 specification](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/zkmap/)
 - [The ordinality decision](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/ordinality/)
 - [ZMarket Orders v1 specification](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/zmarket-orders-v1/)
 - [ZMarket Orders v2 specification](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/zmarket-orders-v2/)
