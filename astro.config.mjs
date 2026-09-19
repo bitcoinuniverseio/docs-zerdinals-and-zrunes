@@ -142,6 +142,7 @@ export default defineConfig({
           items: [
             { label: 'Frequently asked questions', slug: 'help/faq' },
             { label: 'Known limitations', slug: 'help/known-limitations' },
+            { label: 'The admin area', slug: 'help/admin' },
           ],
         },
       ],
