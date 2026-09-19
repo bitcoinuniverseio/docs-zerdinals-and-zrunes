@@ -149,13 +149,22 @@ Rollback/security: Only preparation HTML comments now; no rendered prose changed
 -->
 ## 7. The district picture
 
-Every district has a picture, layout `zkmap-treemap-v1`, rendered by the
-product from the target block itself and served as an inert SVG at
+Every district has a picture, rendered by the product from the target block
+itself and served as an inert SVG at
 `GET /api/zkmap/blocks/{height}/art.svg`. The picture is not inscribed and
 is not part of the claim; the inscription's bytes remain exactly
-`<height>.zkmap` and are one click away from every picture.
+`<height>.zkmap` and are one click away from every picture. Nothing about
+ownership, price or rarity can be read out of a drawing.
 
-The drawing is fully determined by public chain data:
+Two things are versioned separately. The **layout**
+(`zkmap-treemap-v1`) decides which rectangle each transaction gets. The
+**artwork** (`zkmap-art-v2`, and the frozen `zkmap-art-v1` before it) decides
+what is drawn on those rectangles. The claim ruleset `zkmap-v1` is a third
+thing again, and neither version touches it.
+
+### The layout: `zkmap-treemap-v1`
+
+Fully determined by public chain data:
 
 1. The canvas is the square from (0, 0) to (1024, 1024), with an 80-unit
    label band below it that never overlaps the geometry.
@@ -172,18 +181,72 @@ The drawing is fully determined by public chain data:
    one aggregate parcel that records their count.
 4. A one-unit gutter is taken from the right and bottom edge of every parcel
    that can spare it.
-5. The palette is one of three frozen sets (emerald, gold, slate), chosen by
-   the first byte of the target block hash modulo three, so two blocks with
-   the same transaction shape still differ by the block they name. The
-   coinbase parcel has its own fixed color in every palette.
 
-The SVG contains only `svg`, `rect`, `g` and `text` elements, escaped
-numeric and hex labels, and fill and stroke attributes: no script, no
-external reference, no `foreignObject`, no event handler. A hash-pinned
-request (`?hash=<block hash>`) is immutable and answers 409 once that hash no
-longer names the block at that height, which is how a reorg changes the
-picture without ever serving a stale one as current. Changing any rule above
-is a new layout version, never a silent change to `zkmap-treemap-v1`.
+A block whose only transaction is the coinbase is one parcel, and stays one
+parcel: transactions are never invented to make a picture busier. Two blocks
+with equal or proportional transaction sizes share this geometry, and that is
+correct — they really do have the same shape. Changing any rule above is a new
+layout version, never a silent change to `zkmap-treemap-v1`.
+
+### The artwork: `zkmap-art-v2`
+
+What distinguishes two districts of the same shape is the artwork, and it is
+derived from the whole block identity:
+
+1. A seed is taken over the network, the genesis hash, the decimal height and
+   the **full** block hash. It chooses one of eight frozen palettes.
+2. Every parcel has its own hash, over that seed, the parcel's position, its
+   inclusive transaction bounds and the first and last transaction id it
+   covers. That hash picks its fill from the palette's five shades and draws
+   its engraved contours. Two blocks with identical transaction sizes still
+   differ here, because their transaction ids differ.
+3. The full 256-bit block hash is drawn once around the frame, most
+   significant bit first, as 256 small cells running clockwise from the
+   top-left, outside a uniform inset. This is the district's signature.
+
+The perimeter signature is a signature and the interior contours are texture.
+Neither is a transaction, a parcel or a claimable piece of a district. The
+coinbase parcel is marked with a thin outline and otherwise takes the ordinary
+colour its own hash chose.
+
+### `zkmap-art-v1` is kept, and its promise is corrected
+
+The first artwork chose its palette from the first byte of the block hash and
+painted every coinbase parcel one fixed colour. The earlier version of this
+page said that two blocks with the same transaction shape still differ by the
+block they name. **That was not true of `zkmap-art-v1`**: proof-of-work makes
+leading hash bytes anything but uniform, and with the coinbase always the same
+colour, a block whose only transaction is the coinbase drew the same picture as
+any other such block. `zkmap-art-v1` is still served, byte for byte, for
+clients built against it; `zkmap-art-v2` is what makes the promise true.
+
+### Asking for a picture
+
+    GET /api/zkmap/blocks/{height}/art.svg
+        ?art=zkmap-art-v2&network=testnet&size=256&hash=<block hash>
+
+`art` omitted, or `art=zkmap-art-v1`, returns the legacy picture unchanged.
+`art=zkmap-art-v2` needs `network`, and it must be the network the block was
+read on: a missing network is an error, not an assumed mainnet, and a network
+this service does not serve is refused rather than drawn from another chain.
+`size` is 256, 512 or 1024, and every size shows the same complete picture and
+signature. The response names what it drew in `x-zkmap-art-version` and
+`x-zkmap-network`.
+
+The SVG contains only `svg`, `rect`, `g`, `path` and `text` elements, escaped
+numeric and hex labels, and fill and stroke attributes: no script, no external
+reference, no `foreignObject`, no event handler, no animation.
+
+### A cached picture is history, not a live answer
+
+A hash-pinned request (`?hash=<block hash>`) may be kept by a browser for a
+year. Such a copy is a picture of one block as it was, and it cannot notice a
+reorg by itself: a browser holding a fresh immutable copy does not ask again.
+That is why the artwork version is part of the address — a new drawing is
+published at a new URL rather than swapped in at the old one. Only a *fresh*
+request that pins a hash which no longer names the block at that height
+answers 409. Which block a height names now is decided by reading the block or
+the claim receipt again, never by looking at an image.
 
 ## 8. Public API
 
@@ -196,7 +259,7 @@ as exact decimal strings.
 | `GET /api/zkmap/blocks?start=&limit=` | A window of statuses, block hashes, winners and owners (limit up to 1024) |
 | `GET /api/zkmap/blocks/{height}` | One block's status, winner and owner |
 | `GET /api/zkmap/blocks/{height}/geometry` | The renderer input: ordered transaction byte sizes and their digest |
-| `GET /api/zkmap/blocks/{height}/art.svg?size=&hash=` | The district picture at 256, 512 or 1024 |
+| `GET /api/zkmap/blocks/{height}/art.svg?art=&network=&size=&hash=` | The district picture at 256, 512 or 1024; `art=zkmap-art-v2` needs the network it was observed on |
 | `GET /api/zkmap/districts?owner=&cursor=&limit=&order=` | Claimed districts, optionally held by one address |
 | `GET /api/zkmap/claims/{inscriptionId}` | The claim receipt and verdict of one inscription |
 | `POST /api/zkmap/availability` | Preflight of up to 24 heights; an observation, not a reservation |
