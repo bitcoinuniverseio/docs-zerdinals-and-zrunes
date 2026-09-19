@@ -178,8 +178,9 @@ carrying output now.
 
 A ZRC-721 deploy names its metadata by reference. For ZGODS that reference is
 an IPFS address, and the images and traits it points at were never written to
-Zcash. They can change, move, or stop being served without any transaction,
-and no transaction proves what they currently are.
+Zcash. An IPFS content identifier commits to particular bytes, but does not
+guarantee that anyone still serves them. An ordinary HTTPS reference may also
+change its contents without a transaction.
 
 The collection page says so above everything else, shows the reference so you
 can follow it yourself, and never renders it as though the chain carried it.
@@ -187,11 +188,17 @@ can follow it yourself, and never renders it as though the chain carried it.
 Where the reference is inline JSON, an IPFS address or an `https` address,
 the product's own service may fetch the JSON it names, under a timeout, a
 size cap and a check that the address is public, and show its name,
-description and traits as text in a panel labelled **off-chain**. Images
-are never proxied or mirrored, the indexer never fetches anything, and
-nothing in that panel is ownership evidence or takes part in a sale. The
-on-chain content of the mint inscription itself is what the item page
-shows as its primary media.
+description and traits as text in a panel labelled **off-chain**. Available
+artwork can be fetched and stored by the product service. The indexer does
+not fetch these files, and a stored image never proves ownership or accepted
+membership. An unavailable image does not invalidate an accepted mint.
+
+Artwork recovery improvements are under validation. They distinguish declared
+collection artwork from a representative item image, retry unavailable
+sources, and keep original bytes alongside smaller previews. A pending or
+unavailable source must remain visible as such; a substitute image cannot
+prove recovery of the collection's original content. These improvements are
+not a statement that a public release has completed.
 
 ### Shielded NFPT items are not ZRC-721
 
