@@ -123,6 +123,122 @@ them.
 8. **Resume.** Batches are saved in your browser on this device, so closing
    the tab never loses one.
 
+## Block names (ZkMap)
+
+A block name is a Zerdinal whose text is exactly `<height>.zkmap`, and the
+first eligible claim completed on chain wins that block. The rules are in the
+[ZkMap v1 specification](/docs-zerdinals-and-zrunes/protocols/zkmap/); this
+section is the mint flow as built, at `/create/zkmap`, with the map at
+`/explore/zkmap`. The page states, before anything else, whether minting is
+open on this deployment.
+
+### Picking blocks on the map
+
+The map at `/explore/zkmap` shows blocks in windows of 512 (32 columns by 16
+rows), one cell per height, each cell a real verdict from the indexer at its
+checkpoint. The window header says which block the reading is as of, and how
+many cells in the window are available and claimed. The legend is:
+
+- **Available**: no eligible claim completed up to the checkpoint. Only these
+  cells can be selected.
+- **Claimed**: a winner exists. The list under the map names it.
+- **Not mined yet**: the height is above the checkpoint.
+- **Not claimable**: the height cannot be claimed; the block page says why.
+- **Unknown**: the indexer could not vouch for the height. Unknown is never
+  drawn as available, and a window the map cannot read is reported as a read
+  failure rather than as empty cells.
+
+Click an available cell to select it, or use the keyboard: the map is a grid,
+arrow keys move between cells, Home and End jump to the first and last cell
+of the window, and Space or Enter selects the focused cell. A "List of blocks
+in this window" disclosure under the map names every cell with its status and
+a Select button, for screen readers or anyone who prefers a list. Previous,
+Next, Latest and a "Jump to block" field move between windows.
+
+A selection can also be typed: heights and inclusive ranges separated by
+commas, spaces or new lines (`0, 7, 100-124`, lower height first). A
+selection holds up to 1,000 blocks, persists in your browser across windows
+and reloads, and feeds the mint page. Typed heights are added as requested;
+whether each one is actually available is decided by the mint page's
+preflight. If the map refreshes and a selected block has been claimed by
+someone else, it leaves your selection and the page tells you which ones.
+
+The map cell is a claim status only. It is not the district picture, which
+is a separate deterministic drawing of the block's transactions shown on the
+block page and on the cards.
+
+### Minting
+
+The mint page at `/create/zkmap` has three stations.
+
+1. **Blocks.** The selection from the map, from the URL
+   (`/create/zkmap?heights=...`), or typed here. The first 24 are checked
+   for availability as soon as they are listed, and any that are not
+   available are named with their status and will not be minted. If the
+   check itself fails, the page says so and checks again before anything is
+   minted.
+2. **Recipient and payment.** One transparent address receives every name,
+   one inscription each. The same two paths as any inscription apply: pay
+   with any wallet, or sign with a connected wallet.
+3. **Pay** or **Sign.** One name is a single mint. Two to 24 names are one
+   batch request. More than 24 are split by the page into visibly numbered
+   chunks of up to 24, each its own request and its own funding, so a
+   selection of 1,000 blocks is 42 chunks paid or signed one after another.
+
+On the pay-with-any-wallet path, each chunk produces one invoice: a temporary
+payment address and an exact amount, itemized like every other invoice with
+the network fees for each inscription plus the same fixed service fee of
+0.003 ZEC per invoice as every other creation on this site
+([fees](/docs-zerdinals-and-zrunes/create/fees/)). Send the ZEC from any
+wallet or exchange. When the payment confirms, the service rechecks every
+name, inscribes the ones still available to your recipient, and returns any
+surplus. If a name was claimed by someone else before the payment was
+executed, the unspent payment is refunded to the verified payer. Creating
+the invoice opens its order page, where payment, delivery and the claim
+outcome of each name are followed.
+
+On the connected-wallet path, each chunk is prepared as one order per name,
+funded disjointly from the connected address. The page shows the exact miner
+fees and postage from the templates, then a per-item list: each name with
+its state (Ready to sign, Signing, Signed and broadcast; claim pending) and
+its own Sign button, taken in order. A name that is no longer available is
+reported in place and never signed. Declining one name in the wallet cancels
+only that name; the others are unaffected. A prepared or signed item has an
+Order link to its own order page.
+
+### What success means
+
+Every name is decided on chain, not by the page. A mint order and its claim
+have separate outcomes:
+
+- **Claim pending**: the inscription is broadcast or confirming; nobody has
+  decided yet.
+- **Claim accepted**: the indexer confirmed this inscription won its block.
+  The item links to the block page at `/zkmap/<height>`.
+- **Lost to an earlier claim**: the inscription completed, but another claim
+  for the same block completed earlier in chain order. The inscription was
+  still made and is yours; it is an ordinary Zerdinal. The item links to the
+  winning claim.
+- **Not a valid claim**, **Undone by a reorg**, **Claim status unknown**:
+  named as such, with the reason where the indexer gives one.
+
+Only "Claim accepted" beside a complete order is a won block. A complete
+order whose claim lost is shown as a loss, never as a success. Availability
+on the map is an observation at the indexer's checkpoint, not a reservation,
+and nothing here promises that a mint will win.
+
+### Recovery
+
+Orders and batches are saved in this browser under Create, so a reload or a
+wallet interruption resumes where it left off and nothing is minted twice.
+For an invoice, reopen the order page (the Open the order link, or the saved
+order under Create); it shows the payment state, the delivered inscriptions,
+and a "Block names" section with the accepted, pending and not-won count and
+one outcome per name. For a connected-wallet mint, each name's Order link
+opens its own order. The claim outcomes are read from the indexer on their
+own cadence, separately from the order state, and a refresh that fails shows
+the last known outcome rather than a guess.
+
 ## What can go wrong, and how to recover
 
 | Situation | What happens | What to do |
