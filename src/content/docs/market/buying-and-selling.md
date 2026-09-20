@@ -249,6 +249,14 @@ those proofs are unavailable or disagree, keep the outcome unresolved.
 These recovery and display checks belong to the source and testnet candidate.
 They do not establish production availability; use the release status below.
 
+<!-- IMPLEMENTATION-HANDOFF [WP-DOCS-03]
+Dependencies: WP-MARKET, WP-UI, WP-LAUNCH.
+1. Reuse origin/docs/nft-integration-20260918 market and collection guides after checking their revision against qualified code. Describe a hub with explicit protocol-specific explore, mint, transfer, list and buy capabilities, not universal trading.
+2. Treat zkSNARKs, ZecBit Genesis, ZADDR, Zec Punks, BITFOOTS, ZecFrogs, ZecCat and Zecutives as unverified discovery leads. Verify identity, protocol, official metadata and own-indexer evidence before admitting assets; supplied popularity and volume figures are not measured market data.
+3. Keep ZRC-721 inscription support distinct from any ZSA or private protocol. ZIP 226 and ZIP 227 are Draft proposals, not evidence of mainnet ZSA support. Shielded/untrackable ownership cannot authorize transparent trades.
+4. Production chain data must use Universe-operated nodes/indexers only; external collection/trait/metadata sources may inform attributed metadata, never ownership, settlement or volume. Require functional TESTNET lifecycle evidence and matching release status before publishing availability; no mainnet transactions.
+-->
+
 ## What is live today
 
 The source and public-testnet campaigns include working wallet and marketplace
