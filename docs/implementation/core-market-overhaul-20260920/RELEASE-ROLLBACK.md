@@ -25,4 +25,4 @@ Stop new unsafe admissions first. Restore prior frontend/API consumers and compa
 
 ## Final report
 
-Only report RELEASED — PUBLIC MAINNET after both functional GO and completed public release. Include accepted test network, deployed revisions, actual public URLs and receipts. State Mainnet functional tests: Not performed, as instructed. Genuine missing access/authority or public failures remain blockers; omission of Mainnet functional testing does not.
+Only report RELEASED: PUBLIC MAINNET after both functional GO and completed public release. Include accepted test network, deployed revisions, actual public URLs and receipts. State Mainnet functional tests: Not performed, as instructed. Genuine missing access/authority or public failures remain blockers; omission of Mainnet functional testing does not.

@@ -4,7 +4,7 @@ All paths labeled PROPOSED NEW are implementation instructions, not installed ro
 
 ## Market descriptor and view model
 
-Descriptor: stable product ID, label, route, tradeMode, marketKind, protocol/ruleset/registry and supported actions. Discriminant is token, collectible, name or block. Identity includes verified network/genesis plus immutable native identity; orderId, orderHash and revisionId remain separate. Money is a canonical decimal integer string. Unit prices may be exact numerator/denominator pairs, never a floating-point transaction value. Unknown metadata, price, volume and history remain null with a reason.
+Descriptor: stable product ID, label, route, tradeMode, marketKind, protocol/ruleset/registry and supported actions. Discriminant is token, collectible, name or block. Identity includes verified network/genesis plus immutable native identity; orderId, orderHash and revisionId remain separate. Money is an exact decimal integer string. Unit prices may be exact numerator/denominator pairs, never a floating-point transaction value. Unknown metadata, price, volume and history remain null with a reason.
 
 ## PROPOSED NEW catalog reads
 

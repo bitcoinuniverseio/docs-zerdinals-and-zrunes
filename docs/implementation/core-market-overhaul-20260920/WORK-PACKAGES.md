@@ -334,7 +334,7 @@ Findings: F16, N03
 
 Tests: Existing scripts/verify-deployed-assets.mjs against the actual published origin/artifact, after accepted release only
 Read-only public /.release and /api/ready checks; verify backend/indexer serving revision separately
-Functional GO requires every required row PASS; final GO additionally requires RELEASED — PUBLIC MAINNET evidence
+Functional GO requires every required row PASS; final GO additionally requires RELEASED: PUBLIC MAINNET evidence
 
 Acceptance: The overhaul is implemented, tested and publicly released through all actual services after acceptance; a ZIP, build, merged PR, private preview or disabled feature is not public release.
 
