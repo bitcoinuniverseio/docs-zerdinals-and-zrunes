@@ -3,6 +3,20 @@ title: "ZkMap v1 specification"
 description: "The specification of ZkMap block names: one Zerdinal-carried name per Zcash block, the exact claim bytes, who wins, how a district moves, and the deterministic district picture."
 ---
 
+<!-- IMPLEMENTATION-HANDOFF [ZKIDX-09]
+Coverage: N01, N02, N03, N04. Functional status: FAIL.
+Sources: S01, S02, S03, S04, S08, S09 in handoff/RESEARCH-REGISTER.md.
+Prerequisites: ZKIDX-01, ZKIDX-04.
+Verified baseline: D05: the developer runbook says Testnet and Mainnet share a parameters digest, but parametersDigest hashes network. It also describes a two-block indexer lag allowance while current safe coverage requires reaching verified node tip. Source and documentation references include older release pins.
+1. In docs-dev-zcash-metaprotocols/docs/zkmap-release.md correct the future execution text so Testnet and Mainnet have separately computed parameters digests and genesis identities; equivalent tested code is not equal network-dependent configuration.
+2. Distinguish zero indexer lag from the separate six-block node estimated-height tolerance in current coverageFreshness. Update replay instructions to require actual final source identity without declaring every API-only edit a mandatory replay.
+3. Update public indexer docs, product protocol docs and private developer docs together with actual new repository/service ownership, legacy/new route compatibility, configuration, occupancy semantics, tests and release receipts. Preserve the protocol grammar, first-winner and terminal ownership rules.
+4. Resolve version/activation statements using live supported-node network metadata and pinned governing ZIPs. Product text mentioning V6 is not evidence that a draft transaction format is active on public Mainnet. Record any remaining normative/reference disagreement explicitly rather than inventing semantics.
+5. Replace old source/release claims only after the implementation and relevant test evidence exist. Keep implemented-in-source, Testnet acceptance and public Mainnet release as separate statuses. Never publish wallet secrets, private host credentials or unverified URLs.
+Tests: Run each affected documentation repository documented check/build commands after implementation; during preparation verify HTML comments preserve all non-comment bytes. ; Assert mainnet and testnet parametersDigest differ for otherwise equivalent configuration; compare documentation freshness wording against src/chain/protocol-qualification.mjs.
+Acceptance: All consumer/operator documentation matches the accepted artifact and observed release, with correct network-specific evidence, source pins, limitations and rollback.
+Rollback: Revert incorrect published prose to last verified content, not fabricated launch claims. Source preparation HTML comments remain non-executable until implemented.
+-->
 :::note[Where the rules live]
 ZkMap is a ruleset (`zkmap-v1`) read by the indexer over ordinary Universe
 Zerdinals v1 inscriptions. It adds no envelope field and no new transaction
