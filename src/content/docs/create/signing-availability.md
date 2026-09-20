@@ -27,6 +27,13 @@ reasons. Changing wallets does not repair a service outage.
 A **Catching up** indicator means blocks remain to be read. It does not prove
 that historical protocol qualification is complete.
 
+A **Wrong network** indicator is the one you can clear yourself: the network
+selected in this browser is not the one this deployment serves, so prices,
+balances and addresses on screen belong to the other chain. Switch back, or
+open the deployment that serves the network you want. Nothing is prepared,
+quoted or signed while the two disagree, and an order already accepted is
+unaffected.
+
 The form itself appears only when the deployment will actually accept the
 order it produces. That is deliberate. A form you can fill in and submit,
 which then refuses, reads as a failure you caused; a page that says plainly
