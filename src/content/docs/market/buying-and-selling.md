@@ -7,33 +7,6 @@ description: "How the market works, what a listing really is, what settles a sal
 purchase cannot half-happen, what cancelling does and does not do, and what
 the product will and will not let you do today.
 
-<!--
-IMPLEMENTATION-HANDOFF [CMO-15] CMO-A038 | 2026-09-20 | PREPARATION ONLY
-Coverage: DOC-01,REL-03. Findings: F16, N03.
-Verified current behavior: The page describes trustless inscription settlement generically and has an
-outdated six-destination statement; native registrar names follow different custody and payment rules.
-Sources: S-APP-MARKET, S-ZKMAP, S-NAMES-MARKET, S-NAMES-REGISTRAR in
-docs/implementation/core-market-overhaul-20260920/RESEARCH.md.
-Prerequisites: CMO-14.
-1. Scope the current single-signature/atomic-swap explanation to the actual v1/v2 inscription and lot
-families. Add distinct native name marketplace guidance with registrar custody, required memo,
-credits/refunds and proof/readback, based on accepted implementation.
-2. Replace the fixed destination count with the actual registry-driven navigation, covering tokens,
-collectibles, names and ZkMap while preserving advanced market routes and cancellation warnings.
-3. State exact metric scope, completeness, network and actual release status; no generic claim that every
-market service never holds funds when names use registrar credits.
-Verify: Existing scripts/verify-deployed-assets.mjs against the actual published origin/artifact, after
-accepted release only ; Read-only public /.release and /api/ready checks; verify backend/indexer serving
-revision separately ; Functional GO requires every required row PASS; final GO additionally requires
-RELEASED — PUBLIC MAINNET evidence.
-Assert: The overhaul is implemented, tested and publicly released through all actual services after
-acceptance; a ZIP, build, merged PR, private preview or disabled feature is not public release.
-Rollback/security: Keep prior immutable artifacts/config backups and compatible schema. Roll back unsafe
-admission/UI in dependency order while preserving real funds, accepted operations, authoritative indexer
-history and recovery.
-Full cross-repository contract: docs/implementation/core-market-overhaul-20260920/WORK-PACKAGES.md.
-ANNOTATED is not functional PASS. Preserve executable behavior during preparation.
--->
 ## What a listing is
 
 A listing is one signature by the seller. It binds the output carrying the
@@ -93,14 +66,48 @@ search the chain record, and no marketplace outside this application trades
 them. If you are looking for somewhere else to buy or sell one, there is not
 one to point you at.
 
-## One market, six destinations
+## One market, several destinations
 
-The Market navigation keeps six stable destinations: Overview, Zerdinals,
-Collections, NFTs, Tokens, and ZRunes. Current source includes fungible
-market pages and full-lot asks for ZRunes and ZRC-20, and typed NFT asks and
-offers under `/market/nfts` (below). The `zord` and `zecscriptions`
-rulesets have separate books; their quantities and prices are never combined.
-A deployed page opens an action only when that operation can execute safely.
+The Market navigation lists every destination the market serves: Overview,
+Zerdinals, Collections, NFTs, ZRC-20, ZRunes, zkMap, Names and Activity, with
+Offers, Auctions, Cart, My listings, Relay Router and Licenses alongside them
+on the advanced surfaces. The list is not written out separately on each
+screen: every surface reads the same registry, so a destination that is
+served is a destination you can reach. Names had a page nobody could navigate
+to until that changed.
+
+The `zord` and `zecscriptions` rulesets have separate books; their quantities
+and prices are never combined, and a ticker that exists under both is two
+assets rather than one. A deployed page opens an action only when that
+operation can execute safely.
+
+### Finding something across a whole market
+
+Each hub reads an asset catalog rather than a page of orders, which is a
+distinction you can feel: discovery is not capped at the first couple of
+hundred orders, so an asset with a single standing ask is as findable as a
+busy one. Search and ordering live in the address bar, so a filtered list can
+be shared or restored with the back button.
+
+Prices are ranked by the exact ratio of total to quantity, never by a rounded
+figure, so an eighteen-decimal lot and a whole-unit one sort correctly
+against each other. Where a price cannot be read the market says so in words.
+It never prints a zero, because a zero reads as free.
+
+### What "not available" means here
+
+The market distinguishes states that look alike and are not:
+
+- **Nothing matches these filters.** The catalog is fine; the query is narrow.
+- **Nothing here yet.** Known to be empty, because the chain behind it has
+  been read.
+- **Not all of it has been read.** The index has not covered enough chain to
+  answer. Something missing may simply be in a block nothing has read.
+- **This could not be read.** A failure, not an empty market.
+- **The network being served is not established.** Nothing is published and
+  nothing can be signed until the service says which chain it is answering
+  about. A network selector is a preference in your browser; it does not
+  repoint the service.
 
 ## Block names (ZkMap districts)
 
@@ -261,6 +268,52 @@ acceptance of 18 September 2026 covered the launch economics, not the
 admission of any of these collections, and ZIP 226 and ZIP 227 are still
 Draft. Nothing here is deployed on Zcash mainnet.
 
+## Names work differently, and the difference matters
+
+Everything above describes an inscription changing hands: your asset sits on
+an output, your single signature binds that output to a price, and one
+transaction settles it. **None of that applies to a native name.** A name is
+not an inscription and a name purchase is not an atomic swap, so the three
+consequences at the top of this page: no escrow, a public offer, withdrawal
+rather than revocation: do not carry over. Reading them as though they did
+is the single most costly mistake available on this page.
+
+A name lives in a registry, and the registry is the authority on who holds
+it. Buying one means paying a registrar and having the registry record the
+change. Three things follow:
+
+1. **The registrar does hold funds, for a time.** Seller proceeds and
+   refunds to a losing buyer may sit as a registrar credit rather than
+   returning to your wallet on their own. The generic promise that this
+   market never holds anything is a promise about inscription trading and is
+   not true of names.
+2. **A credit is not a refund.** A credit is a balance the registrar owes
+   you. Getting it out is a separate, supported withdrawal, not something
+   that happens automatically on chain.
+3. **Payment is proved by observation, not by your having paid.** A payment
+   URI, a QR code, a wallet that says it sent something, or a button that
+   says "I have paid" are none of them evidence. An operation reaches
+   settled only when the payment has been observed and the registry itself
+   has been read back.
+
+The states are distinct and the product shows them as such: **prepared**,
+**awaiting payment**, **paid**, **settled**, and separately **conflict**,
+**expired** or **failed**. Paid is not settled: a competing buyer can still
+win the name, and then what you have is a credit and a recovery path rather
+than a name.
+
+Two registries are served and they are separate scopes, not two views of one
+list. The same label in each is two different names with two different
+owners. `zcashme-zns` has no listing or purchase protocol at all: its
+resolve, register and manage entry points are offered and its market is not,
+which is a property of that registry rather than an outage.
+
+Signing a registry command is also not the same capability as spending
+funds. The registry key that authorises a name command and the key that
+moves your ZEC are different keys, and one never stands in for the other.
+Mainnet and Testnet registries are separate signature domains besides: a
+command signed for one is not valid on the other, by design.
+
 ## Reopen an existing purchase
 
 After a reload or a lost response, return to the existing execution reference
@@ -311,6 +364,12 @@ and dependencies are healthy. Until then the product shows the precise
 blocker instead of offering a path that cannot finish. See
 [Pay with any wallet](/docs-zerdinals-and-zrunes/create/pay-with-any-wallet/)
 and [current status](/docs-zerdinals-and-zrunes/start/status/).
+
+Native name operations carry their own prerequisites and they are stricter.
+A name purchase needs a qualified registrar, an authenticated observation of
+the payment, and a registry readback before anything is called settled. Where
+any of those is missing the operation is not offered, and the product names
+which one rather than presenting a path that cannot finish.
 
 ## What is public
 
