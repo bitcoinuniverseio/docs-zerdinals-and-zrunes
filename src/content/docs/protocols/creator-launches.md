@@ -9,6 +9,14 @@ The Creator Launchpad binds a reservation to sealed creator, recipient and
 payment terms. Payment-funded launches use the service's isolated signer
 while executing the paid operation.
 
+<!-- IMPLEMENTATION-HANDOFF [WP-DOCS-01]
+Dependencies: WP-LAUNCH, WP-UI.
+1. Reconcile existing prep/creator-mainnet-20260918 and origin/docs/nft-integration-20260918 content with the implementation actually selected; do not create parallel launch or NFT guides.
+2. After qualification, document the 15% commission on realized primary-sale proceeds, sealed terms, creator payout, unsuccessful delivery refunds and reorg recovery. Creation service charges, network costs and secondary-market charges remain separate.
+3. Distinguish supported launch variants from concepts. Link per-protocol explore, mint, transfer, list and buy capabilities; unavailable capabilities must name the blocker.
+4. Public release gate: functional Zcash TESTNET launch, delivery, commission, payout/refund and recovery evidence with WP-LAUNCH and WP-UI. No mainnet transactions or claims of deployed availability from source alone.
+-->
+
 ## Receipt and settlement status
 
 The September 2026 repair candidate is unreleased. It binds each
