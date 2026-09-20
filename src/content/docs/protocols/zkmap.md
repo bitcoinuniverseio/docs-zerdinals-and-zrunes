@@ -288,6 +288,32 @@ request that pins a hash which no longer names the block at that height
 answers 409. Which block a height names now is decided by reading the block or
 the claim receipt again, never by looking at an image.
 
+<!--
+IMPLEMENTATION-HANDOFF [CMO-15] CMO-A040 | 2026-09-20 | PREPARATION ONLY
+Coverage: DOC-02,ZKM-01. Findings: F16, N03.
+Verified current behavior: The ZkMap specification already separates claim rules, artwork and ownership;
+the market presentation overhaul must not change those protocol promises.
+Sources: S-APP-MARKET, S-ZKMAP, S-NAMES-MARKET, S-NAMES-REGISTRAR in
+docs/implementation/core-market-overhaul-20260920/RESEARCH.md.
+Prerequisites: CMO-14.
+1. Add the accepted market discovery/filter/metric contract and Bitmap-style presentation explanation
+without changing zkmap-v1 claim bytes, winner ordering, occupancy or art version semantics.
+2. Explain that the market lists the verified winning Zerdinal through existing settlement, not a new
+token or name registry; image hashes are not ownership proof.
+3. Update public route/action screenshots and release status only after actual browser/Testnet evidence
+and deployment exist; label observation scope and unknown metrics.
+Verify: Existing scripts/verify-deployed-assets.mjs against the actual published origin/artifact, after
+accepted release only ; Read-only public /.release and /api/ready checks; verify backend/indexer serving
+revision separately ; Functional GO requires every required row PASS; final GO additionally requires
+RELEASED — PUBLIC MAINNET evidence.
+Assert: The overhaul is implemented, tested and publicly released through all actual services after
+acceptance; a ZIP, build, merged PR, private preview or disabled feature is not public release.
+Rollback/security: Keep prior immutable artifacts/config backups and compatible schema. Roll back unsafe
+admission/UI in dependency order while preserving real funds, accepted operations, authoritative indexer
+history and recovery.
+Full cross-repository contract: docs/implementation/core-market-overhaul-20260920/WORK-PACKAGES.md.
+ANNOTATED is not functional PASS. Preserve executable behavior during preparation.
+-->
 ## 8. Public API
 
 All operations are under the `zkmap` tag of the

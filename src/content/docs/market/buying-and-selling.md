@@ -7,6 +7,33 @@ description: "How the market works, what a listing really is, what settles a sal
 purchase cannot half-happen, what cancelling does and does not do, and what
 the product will and will not let you do today.
 
+<!--
+IMPLEMENTATION-HANDOFF [CMO-15] CMO-A038 | 2026-09-20 | PREPARATION ONLY
+Coverage: DOC-01,REL-03. Findings: F16, N03.
+Verified current behavior: The page describes trustless inscription settlement generically and has an
+outdated six-destination statement; native registrar names follow different custody and payment rules.
+Sources: S-APP-MARKET, S-ZKMAP, S-NAMES-MARKET, S-NAMES-REGISTRAR in
+docs/implementation/core-market-overhaul-20260920/RESEARCH.md.
+Prerequisites: CMO-14.
+1. Scope the current single-signature/atomic-swap explanation to the actual v1/v2 inscription and lot
+families. Add distinct native name marketplace guidance with registrar custody, required memo,
+credits/refunds and proof/readback, based on accepted implementation.
+2. Replace the fixed destination count with the actual registry-driven navigation, covering tokens,
+collectibles, names and ZkMap while preserving advanced market routes and cancellation warnings.
+3. State exact metric scope, completeness, network and actual release status; no generic claim that every
+market service never holds funds when names use registrar credits.
+Verify: Existing scripts/verify-deployed-assets.mjs against the actual published origin/artifact, after
+accepted release only ; Read-only public /.release and /api/ready checks; verify backend/indexer serving
+revision separately ; Functional GO requires every required row PASS; final GO additionally requires
+RELEASED — PUBLIC MAINNET evidence.
+Assert: The overhaul is implemented, tested and publicly released through all actual services after
+acceptance; a ZIP, build, merged PR, private preview or disabled feature is not public release.
+Rollback/security: Keep prior immutable artifacts/config backups and compatible schema. Roll back unsafe
+admission/UI in dependency order while preserving real funds, accepted operations, authoritative indexer
+history and recovery.
+Full cross-repository contract: docs/implementation/core-market-overhaul-20260920/WORK-PACKAGES.md.
+ANNOTATED is not functional PASS. Preserve executable behavior during preparation.
+-->
 ## What a listing is
 
 A listing is one signature by the seller. It binds the output carrying the
