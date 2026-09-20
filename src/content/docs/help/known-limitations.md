@@ -53,10 +53,11 @@ content stored somewhere else rather than content written into the chain.
 The record is permanent; what it points at is not, and no transaction proves
 what that content currently is.
 
-The product marks these and shows the reference rather than rendering it as
-the artifact, but it cannot make the referenced content permanent and does
-not fetch, cache, or mirror it. If that content disappears, the chain still
-carries the record and nothing more.
+The product marks these references and distinguishes them from content
+written into the chain. Its NFT artwork service can retain bytes it
+successfully retrieves, but cannot reconstruct missing content from an IPFS
+identifier alone. If the source disappears before it is preserved, the chain
+still carries the record and nothing more.
 [Collections and pointer records](/docs-zerdinals-and-zrunes/understand/collections/).
 
 ## Most ZGODS mints hold nothing
