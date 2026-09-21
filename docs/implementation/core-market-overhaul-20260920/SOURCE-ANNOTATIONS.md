@@ -1,0 +1,47 @@
+# Source annotation index
+
+Stable marker and symbol are authoritative; line numbers are supplemental. Status is ANNOTATED, not implemented. Findings Fxx/OBS are in findings.json; required additions N01-N03 are in required-capabilities.json. All artifact-relative references resolve from the handoff root.
+
+- CMO-A001 / CMO-01: app/frontend/src/components/MarketNav.tsx:42 at export function MarketNav. Requirements NAV-01,NAV-02,UI-01. Prerequisites none.
+- CMO-A002 / CMO-02: app/backend/src/market-v2/market-v2.controller.ts:142 at @Get('orders'). Requirements TOK-01,NFT-01,API-01. Prerequisites CMO-01.
+- CMO-A003 / CMO-02: app/backend/src/market-v2/analytics.service.ts:465 at async listCollections(. Requirements COL-01,COL-02. Prerequisites CMO-01.
+- CMO-A004 / CMO-02: app/backend/src/market-v2/book.service.ts:385 at private async openLotAsks(. Requirements TOK-02,TOK-03. Prerequisites CMO-01.
+- CMO-A005 / CMO-02: app/frontend/src/api/marketV2.ts:101 at export async function listV2Orders(. Requirements API-01,TOK-01,NFT-01. Prerequisites CMO-01.
+- CMO-A006 / CMO-03: indexer/src/api/server.mjs:2530 at async function handleCollections(res, url) {. Requirements COL-01,COL-02,IDX-01. Prerequisites CMO-01.
+- CMO-A007 / CMO-03: app/backend/src/zcash/indexer.client.ts:2435 at async collectionList(limit: number). Requirements COL-01,IDX-01. Prerequisites CMO-01.
+- CMO-A008 / CMO-03: app/backend/src/market-v2/collection-membership.authority.ts:137 at export function readMembersFor(. Requirements NFT-02,COL-02,IDX-02. Prerequisites CMO-01.
+- CMO-A009 / CMO-04: app/frontend/src/hooks/useBackendQuery.ts:41 at export function useBackendQuery<T>. Requirements NET-01,NET-02,READ-01. Prerequisites CMO-01.
+- CMO-A010 / CMO-04: app/frontend/src/components/market-v2/BookOrderRows.tsx:16 at export function useBookOrders(. Requirements TOK-02,NET-01,READ-01. Prerequisites CMO-01.
+- CMO-A011 / CMO-04: app/frontend/src/hooks/useMarketStream.ts:26 at export function useMarketStream(. Requirements STREAM-01,NET-01. Prerequisites CMO-01.
+- CMO-A012 / CMO-04: app/frontend/src/api/client.ts:8 at export class ApiError extends Error. Requirements API-02,NAME-02. Prerequisites CMO-01.
+- CMO-A013 / CMO-05: app/frontend/src/pages/MarketPage.tsx:33 at export function MarketPage(). Requirements UI-01,UI-02,OVERVIEW-01. Prerequisites CMO-01.
+- CMO-A014 / CMO-05: app/frontend/src/pages/MarketPage.module.css:4 at .derivedNote {. Requirements UI-01,UI-02. Prerequisites CMO-01.
+- CMO-A015 / CMO-06: app/frontend/src/pages/MarketProtocolPages.tsx:113 at function AskBook({. Requirements TOK-01,TOK-02,TOK-03. Prerequisites CMO-02, CMO-04, CMO-05.
+- CMO-A016 / CMO-06: app/frontend/src/pages/MarketTokenDetailPage.tsx:18 at export function MarketTokenDetailPage(). Requirements TOK-02,TOK-03,TRADE-01. Prerequisites CMO-02, CMO-04, CMO-05.
+- CMO-A017 / CMO-06: app/frontend/src/pages/MarketZRuneDetailPage.tsx:22 at export function MarketZRuneDetailPage(). Requirements TOK-02,TOK-03,TRADE-01. Prerequisites CMO-02, CMO-04, CMO-05.
+- CMO-A018 / CMO-07: app/frontend/src/pages/MarketNftsPage.tsx:36 at export function MarketNftsPage(). Requirements NFT-01,UI-01. Prerequisites CMO-02, CMO-03, CMO-04, CMO-05.
+- CMO-A019 / CMO-07: app/frontend/src/pages/MarketCollectionPage.tsx:62 at export async function readNftBook(. Requirements NFT-02,COL-02. Prerequisites CMO-02, CMO-03, CMO-04, CMO-05.
+- CMO-A020 / CMO-08: app/frontend/src/pages/names/NamesMarketPage.tsx:26 at export function NamesMarketPage(). Requirements NAME-01,NAME-02,NAV-02. Prerequisites CMO-01, CMO-04, CMO-05.
+- CMO-A021 / CMO-08: app/backend/src/name-registries/names.controller.ts:151 at @Get('listings/:registryId'). Requirements NAME-01,NAME-02,API-03. Prerequisites CMO-01, CMO-04, CMO-05.
+- CMO-A022 / CMO-09: indexer/src/main.mjs:115 at const scanner = createScanner({ pool, rpc, config, log: createLogger('scanner') }). Requirements NAME-03,IDX-03. Prerequisites CMO-01.
+- CMO-A023 / CMO-09: app/backend/src/name-registries/registry-sources.ts:241 at export class BscRootAnchorSource. Requirements NAME-03,NAME-04. Prerequisites CMO-01.
+- CMO-A024 / CMO-09: app/backend/src/name-registries/zcashnames-protocol.ts:294 at export function zcashNamesSignedMessage(. Requirements NAME-04,NET-03. Prerequisites CMO-01.
+- CMO-A025 / CMO-09: indexer/src/projections/name-registries/zcashnames.mjs:78 at export function parseZcashNamesCommand(memo) {. Requirements NAME-04,NET-03. Prerequisites CMO-01.
+- CMO-A026 / CMO-10: app/backend/src/name-registries/name-operations.service.ts:208 at settlement(): NameSettlementStatus {. Requirements NAME-05,NAME-06,NAME-07,NAME-08. Prerequisites CMO-04, CMO-08, CMO-09.
+- CMO-A027 / CMO-10: app/backend/src/payment/shielded-payment.service.ts:72 at getRailCapability(): ShieldedRailCapability {. Requirements NAME-05,PAY-01,PAY-02. Prerequisites CMO-04, CMO-08, CMO-09.
+- CMO-A028 / CMO-10: app/frontend/src/pages/names/NameOperation.tsx:121 at export function NameOperationForm({. Requirements NAME-05,NAME-06,NAME-07,NAME-08. Prerequisites CMO-04, CMO-08, CMO-09.
+- CMO-A029 / CMO-11: app/frontend/src/pages/zkmap/MarketZkMapPage.tsx:115 at export function MarketZkMapPage(). Requirements ZKM-01,ZKM-02,ZKM-03,UI-01. Prerequisites CMO-01, CMO-04, CMO-05.
+- CMO-A030 / CMO-04: app/frontend/src/pages/zkmap/MarketZkMapPage.tsx:320 at function MarketZkMapBook({. Requirements ZKM-02,NET-02,READ-01. Prerequisites CMO-01.
+- CMO-A031 / CMO-11: app/frontend/src/components/zkmap/ZkMapListingCard.tsx:44 at export function ZkMapListingCard({. Requirements ZKM-03,UI-02. Prerequisites CMO-01, CMO-04, CMO-05.
+- CMO-A032 / CMO-12: app/frontend/src/components/market-v2/OrderReview.tsx:39 at export function OrderReview({. Requirements TRADE-01,TRADE-02,WAL-01. Prerequisites CMO-01, CMO-04, CMO-06, CMO-07, CMO-11.
+- CMO-A033 / CMO-12: app/backend/src/market-v2/execution-worker.service.ts:210 at private async observeOrBroadcast(. Requirements WORK-01,WORK-02,TRADE-02. Prerequisites CMO-01, CMO-04, CMO-06, CMO-07, CMO-11.
+- CMO-A034 / CMO-13: app/frontend/src/pages/MarketProtocolPages.tsx:332 at export function MarketActivityPage(). Requirements ACT-01,ACT-02. Prerequisites CMO-02, CMO-03, CMO-09, CMO-12.
+- CMO-A035 / CMO-14: app/frontend/playwright.config.ts:68 at export default defineConfig({. Requirements QA-01,QA-02,QA-03. Prerequisites CMO-06, CMO-07, CMO-08, CMO-10, CMO-11, CMO-12, CMO-13.
+- CMO-A036 / CMO-14: app/frontend/vite.config.ts:66 at export default defineConfig(({ mode }) => {. Requirements QA-01,QA-02. Prerequisites CMO-06, CMO-07, CMO-08, CMO-10, CMO-11, CMO-12, CMO-13.
+- CMO-A037 / CMO-15: app/ops/DEPLOYMENT.md:15 at # Production deployment. Requirements REL-01,REL-02,REL-03. Prerequisites CMO-14.
+- CMO-A038 / CMO-15: public/src/content/docs/market/buying-and-selling.md:11 at ## What a listing is. Requirements DOC-01,REL-03. Prerequisites CMO-14.
+- CMO-A039 / CMO-15: public/src/content/docs/protocols/names-and-registries.md:7 at ## Dual Registries. Requirements DOC-01,NAME-01. Prerequisites CMO-14.
+- CMO-A040 / CMO-15: public/src/content/docs/protocols/zkmap.md:292 at ## 8. Public API. Requirements DOC-02,ZKM-01. Prerequisites CMO-14.
+- CMO-A041 / CMO-15: private/docs/market-orders-v2.md:2 at # Decision record: ZMarket Orders v2 and the market event history. Requirements DOC-03,REL-01. Prerequisites CMO-14.
+- CMO-A042 / CMO-10: app/frontend/src/api/names.ts:102 at const SettlementSchema = v.object({. Requirements NAME-05,API-03. Prerequisites CMO-04, CMO-08, CMO-09.
+- CMO-A043 / CMO-02: app/backend/src/market-v2/market-v2.module.ts:62 at @Module({. Requirements API-01,COL-01,ACT-01. Prerequisites CMO-01.
