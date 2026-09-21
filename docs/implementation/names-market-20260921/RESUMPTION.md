@@ -1,9 +1,0 @@
-# Resumption verification
-
-The interrupted preparation was recovered from its existing two Names worktrees and evidence directory. Those source comments were not recreated from memory. Four documentation worktrees were added, preserving the original checkouts. All new edits remain non-executable comments or handoff documentation.
-
-At 2026-09-21T15:58:47Z, read-only SSH inspected loaded nginx configuration and active API processes. The zrunes.io /api route names universe_zrunes_api; /idx names universe_zrunes_indexer. Five release-specific API services were active, including the frontend-labelled 51e44351 release on port 38853. The selected anchor variables were absent from the initial /proc process environment, which DOES NOT establish absence from runtime-loaded dotenv/configuration. The exact named-upstream target and effective anchor configuration are still unqualified. A follow-up tool inspection was blocked and not executed. No route, environment, service or credential was modified. See evidence/resume-routing-readback.txt. B05 remains a targeted prerequisite, not a claim that SSH is unavailable.
-
-Fresh GitHub read on resumption found application PR302 open: feat/zkmaps-rename-20260921 at ea0e212cc6aa6954dce9e486a39ec8d25fd10688 against develop a5ea1f921467db9eaa094334a69e4490ce4c45aa; the indexer open-PR list was empty. The older no-open-PR snapshot is historical, not current. Preserve this other agent's work and review only overlapping drift at integration. No PR was modified, merged or closed.
-
-Research was extended with ZIP258/229/318/326 and their status/implementation caveats. Actual deployed registrar version, representative note/pool mapping, Testnet cryptographic authority and native wallet send support remain concrete qualification work, not inferred successes.
