@@ -1,13 +1,13 @@
 ---
 title: "ZRunes v1 specification"
-description: "The normative specification of the ZRunes fungible-asset metaprotocol: carrier, operations, malformed handling, invariants, and the release procedure."
+description: "The normative specification of the ZRunes fungible-asset metaprotocol: carrier, operations, malformed handling, invariants, the release procedure, and a non-normative note on telling ZRunes v1 apart from other payloads on Zcash."
 ---
 
 :::note[Normative source]
-This page is the published copy of the normative specification maintained in the product repository (docs/protocol/ZRUNES-V1.md at commit bd3bede4a238). Where this page and that file disagree, the product repository file is the authority. The Status line below describes the protocol release state in its own words.
+This page is the published copy of the normative specification maintained in the product repository (docs/protocol/ZRUNES-V1.md at commit b38c406620e3). Where this page and that file disagree, the product repository file is the authority. The Status line below describes the protocol release state in its own words.
 :::
 
-Status: Final draft for regtest and testnet validation. Mainnet activation happens only through the release procedure in section 15.
+Status: Final draft for regtest and testnet validation. Mainnet activation happens only through the release procedure in section 16. Section 17 is a non-normative note on protocol identity.
 Version: 1.0.0
 Date: 2026-08-25
 
@@ -221,7 +221,55 @@ The authoritative Rust implementation (rust/zrunes-codec in index-zcash-metaprot
 ### 16.1 Mainnet activation record (2026-09-09)
 
 - Activation height: 3,470,000. The indexer configuration key is `ZRUNES_ACTIVATION_HEIGHT=3470000`. The height has passed and the indexer reports the protocol active.
-- Frozen specification: this document at commit `0d9e0897909a603b483874a70cb5aad8b9e6dceb` (2026-08-26) of `zerdinals-and-zrunes`, the last commit that touched it before this record. Blob sha256 `3e6fa0a0402b24dff80c12a5286d4247ed790e0509f420231e673d9ff045664d`, from `git show 0d9e0897909a603b483874a70cb5aad8b9e6dceb:docs/protocol/ZRUNES-V1.md | sha256sum`. This record changes the activation row and adds this subsection; the normative sections are unchanged.
+- Frozen specification: this document at commit `0d9e0897909a603b483874a70cb5aad8b9e6dceb` (2026-08-26), the last commit that touched it before this record. Blob sha256 `3e6fa0a0402b24dff80c12a5286d4247ed790e0509f420231e673d9ff045664d`, from `git show 0d9e0897909a603b483874a70cb5aad8b9e6dceb:docs/protocol/ZRUNES-V1.md | sha256sum`. This record changes the activation row and adds this subsection; the normative sections are unchanged.
 - Reference implementation: `index-zcash-metaprotocols` commit `a0b555f9f60edf84b42329a2bf7f56246ad26c12` on `main`.
-- Golden-vector hash: `918e03eb776028dd1da336bc3dbfc22ce479e84c63d54fabd5cfbf786eedce80`, over the committed `test-vectors` tree of that commit. Recipe, run in the reference implementation repository: list `git ls-tree -r --name-only a0b555f9f60edf84b42329a2bf7f56246ad26c12 -- test-vectors`, sort the paths, build the JSON array `[[path, sha256 hex of the blob bytes], ...]` in that order, and take the sha256 of that JSON text (`JSON.stringify`, no whitespace). The blob bytes come from `git cat-file blob <commit>:<path>` so the value does not depend on a checkout's line endings.
+- Golden-vector hash: `918e03eb776028dd1da336bc3dbfc22ce479e84c63d54fabd5cfbf786eedce80`, over the committed `test-vectors` tree of that commit. Recipe, run in the reference implementation repository: list `git ls-tree -r --name-only a0b555f9f60edf84b42329a2bf7f56246ad26c12 -- test-vectors`, sort the paths, build the JSON array `[[path, sha256 hex of the blob bytes], ...]` in that order, and take the sha256 of that JSON text (`JSON.stringify`, no whitespace). The blob bytes come from `git cat-file blob <commit>:<path>` so the value does not depend on a checkout's line endings. As one command:
+
+  ```bash
+  node -e 'const {createHash:h}=require("node:crypto"),{execFileSync:x}=require("node:child_process"),c="a0b555f9f60edf84b42329a2bf7f56246ad26c12";const e=x("git",["ls-tree","-r","--name-only",c,"--","test-vectors"]).toString().split("\n").filter(Boolean).sort().map(n=>[n,h("sha256").update(x("git",["cat-file","blob",c+":"+n])).digest("hex")]);console.log(h("sha256").update(JSON.stringify(e)).digest("hex"))'
+  ```
+
 - Step 4 of the procedure was not run on a public testnet before mainnet activation: no Zcash testnet node existed in the estate. What was run instead is the regtest walletless campaign (`scripts/e2e-service-invoice.mjs`), whose bound evidence manifest is what the service execution authorization for the mainnet deployment is generated from. The testing policy accepts a workflow proven end to end on a test network as the release evidence; the testnet row above remains the testnet activation height for when a testnet node exists.
+
+## 17. Protocol identity (non-normative)
+
+Nothing in this section changes any rule above. It exists because the name ZRunes is used by more than one project on Zcash, and readers reasonably ask why a confirmed transaction that a website presents as a ZRune does not appear in this product.
+
+### 17.1 Five separate facts
+
+A token claim is usually made as if these were one fact. They are five, and each can be true without the next:
+
+1. A Zcash transaction is confirmed.
+2. It carries an OP_RETURN payload.
+3. The payload is recognizable under some protocol's rules.
+4. Those rules accept it as a valid etching or a successful mint.
+5. A ledger credits a balance that can be spent.
+
+This document defines facts 3 to 5 for ZRunes v1 and for nothing else. Confirmation is a fact about Zcash. Whether some other ruleset accepts some other payload is a question for whoever publishes that ruleset.
+
+### 17.2 ZRunes v1 versus OP_13 payloads
+
+| | ZRunes v1 | Bitcoin ord 0.29.0 | OP_13 payloads seen on Zcash |
+| --- | --- | --- | --- |
+| Chain | Zcash | Bitcoin | Zcash |
+| Marker | OP_RETURN OP_14, hex `6a5e` | OP_RETURN OP_13, hex `6a5d` | OP_RETURN OP_13, hex `6a5d` |
+| Mint encoding | one MINT tag 24 followed by block and transaction index (section 4) | tag 20 repeated once per id component | one tag 20 pair, then the index and a trailing `0` |
+| Name encoding | bijective base 26, section 5 | bijective base 26 | integers that do not decode to the names displayed for them |
+| Etch admission | matured six-block P2SH commitment, section 6.1 | no commitment of this kind | not established |
+| Activation | fixed per network, section 12 | not applicable | not applicable |
+
+Sections 2 and 12 therefore make an OP_13 output absent to this protocol. That is a property of the marker, not a judgement about the bytes: this product holds no ruleset for them and makes no claim, in either direction, about whether their own protocol accepts them.
+
+The Bitcoin column is the ord reference implementation at commit `7e37a3bd3391044b39f5f11f20dfdb8b3764cd0e` (version 0.29.0), files `runestone.rs`, `message.rs`, `tag.rs` and `rune.rs`. It is quoted for comparison. It is not a Zcash ruleset and does not become one by being ported.
+
+### 17.3 What was observed, and when
+
+On 2026-09-21, 113 transactions published by a third-party site using the name ZRunes were read from a Universe-owned Zcash Mainnet node with genesis verification, and 13 of their blocks were checked by reproducing transaction-order Merkle roots. Of those, 103 carried an OP_13 output and 10 carried no OP_RETURN at all; every OP_13 carrier confirmed below this protocol's activation height of 3,470,000. In each of the 11 OP_13 etch payloads the name integer decoded to a different name than the one displayed for it, and each of the 92 OP_13 mint payloads held `[20, height, index, 0]`.
+
+These are observations of bytes on a dated read, not a census of anyone's history and not a verdict on anyone's ruleset. Names shown by a website are claims made by that website, not wire values.
+
+### 17.4 The diagnostic contract
+
+The indexer reports OP_13 outputs on its transaction route as an optional `carrier_observations` array under the contract `foreign-carrier-observation-v1`. It reports the marker, the output index, bounded raw bytes, a parse status and `v1Eligibility: not_v1_carrier`.
+
+It is a reader over bytes already in hand. It creates no balance, holder, supply figure or spendability receipt, opens no extra node call, writes nothing, and reads no third-party feed. A syntactic decode is not ledger acceptance. Its limits are fixed constants and it reports when it reaches one rather than shortening what it returns. An indexer that omits the field has not checked; that is not the same as having checked and found none.
