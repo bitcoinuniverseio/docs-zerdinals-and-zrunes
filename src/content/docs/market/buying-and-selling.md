@@ -60,7 +60,7 @@ An empty market shows as empty; nothing is fabricated to look busy.
 ## Where this market is
 
 This market is part of the application at [zrunes.io](https://zrunes.io) and
-nowhere else. Zerdinals and ZRunes are Zcash protocols, and the wider Bitcoin
+nowhere else. Zordinals and ZRUNES are Zcash protocols, and the wider Bitcoin
 Universe surfaces treat them as read and explore only: they display and
 search the chain record, and no marketplace outside this application trades
 them. If you are looking for somewhere else to buy or sell one, there is not
@@ -109,9 +109,9 @@ The market distinguishes states that look alike and are not:
   about. A network selector is a preference in your browser; it does not
   repoint the service.
 
-## Block names (ZkMap districts)
+## Block numbers (ZkMap districts)
 
-A ZkMap district is the winning inscription of a block name such as
+A ZkMap district is the winning inscription of a block number such as
 `1500000.zkmap`, so it is listed and bought as a Zerdinal: the seller's
 single signature binds the output carrying the winning inscription, one
 transaction settles the sale, and the district follows that inscription to
@@ -131,10 +131,10 @@ you hold.
 
 ### Finding a district
 
-Search a block name exactly: `780000` and `780000.zkmap` both find that one
+Search a block number exactly: `780000` and `780000.zkmap` both find that one
 district. It is not a text search over listings, so a partial height finds
 nothing rather than a list of near misses, and `007` is refused because it
-is not how a block name is written.
+is not how a block number is written.
 
 The book can be ordered by newest, by price in either direction, or by
 block height. The search and the ordering are part of the page address, so
@@ -156,10 +156,10 @@ floor, which is a different statement.
 
 ### On a district's listing page
 
-A district listing shows its block name, its picture and a link to the
+A district listing shows its block number, its picture and a link to the
 district itself, above the signed terms rather than instead of them. The
 name comes only from a current winning claim. If the inscription has since
-lost its block name, the page says so: it can still be bought, but it is
+lost its block number, the page says so: it can still be bought, but it is
 not a district. If the claim simply cannot be read right now, the page says
 that too, and does not present an unreadable claim as an invalid one.
 

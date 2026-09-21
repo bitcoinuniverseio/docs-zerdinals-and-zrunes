@@ -1,6 +1,6 @@
 ---
 title: "ZkMap v1 specification"
-description: "The specification of ZkMap block names: one Zerdinal-carried name per Zcash block, the exact claim bytes, who wins, how a district moves, and the deterministic district picture."
+description: "The specification of ZkMap block numbers: one Zerdinal-carried block number per Zcash block, the exact claim bytes, who wins, how a district moves, and the deterministic district picture."
 ---
 
 <!-- IMPLEMENTATION-HANDOFF [ZKIDX-09]
@@ -34,8 +34,8 @@ Date: 2026-09-18
 
 ## 1. Overview
 
-ZkMap assigns one name to every Zcash block. The name of block 1,500,000 is
-`1500000.zkmap`; the name of the genesis block is `0.zkmap`. A block name is
+ZkMap assigns one number to every Zcash block. The number of block 1,500,000 is
+`1500000.zkmap`; the number of the genesis block is `0.zkmap`. A block number is
 claimed by inscribing it as a Zerdinal. The first eligible claim completed on
 chain wins the block, and the block (its district) then belongs to whoever
 holds the output that carries the winning inscription.
@@ -80,7 +80,7 @@ the inscription is composed in the browser.
 
 ## 3. Eligibility
 
-A claim targets the block named in its body. The target height must be
+A claim targets the block numberd in its body. The target height must be
 strictly below the height of the block in which the claim completes (the
 block containing the reveal transaction that carries the final piece). A
 claim that names its own block, or a block that has not been mined yet, is
@@ -118,7 +118,7 @@ for every Zerdinal. Consequences:
 1. Sending the winning inscription sends the district. A market sale that
    settles the winning inscription's output delivers the district to the
    buyer.
-2. The name itself never changes hands; its inscription does. There is no
+2. The block number itself never changes hands; its inscription does. There is no
    transfer operation specific to ZkMap.
 3. A winner whose output is burned, or spent into a shielded pool where the
    protocol stops tracking it, keeps the block occupied forever. The block
@@ -329,8 +329,8 @@ as exact decimal strings.
 | `GET /api/zkmap/districts?owner=&cursor=&limit=&order=` | Claimed districts, optionally held by one address |
 | `GET /api/zkmap/claims/{inscriptionId}` | The claim receipt and verdict of one inscription |
 | `POST /api/zkmap/availability` | Preflight of up to 24 heights with historical and current occupancy evidence; an observation, not a reservation |
-| `POST /api/zkmap/prepare`, `POST /api/zkmap/batch/prepare` | Connected-wallet mint of one, or up to 24, names |
-| `POST /api/zkmap/invoices`, `POST /api/zkmap/invoices/batch` | Pay-from-any-wallet mint of one, or up to 24, names |
+| `POST /api/zkmap/prepare`, `POST /api/zkmap/batch/prepare` | Connected-wallet mint of one, or up to 24, block numbers |
+| `POST /api/zkmap/invoices`, `POST /api/zkmap/invoices/batch` | Pay-from-any-wallet mint of one, or up to 24, block numbers |
 | `GET /api/zkmap/orders/{orderId}/claim` | The claim outcome of a connected-wallet mint order |
 | `GET /api/zkmap/payment-orders/{orderId}/claims` | The claim outcomes of an invoice mint |
 

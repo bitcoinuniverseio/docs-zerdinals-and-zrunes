@@ -10,7 +10,7 @@ hundreds of things.
 ## Plain language
 
 A transparent Zcash transaction consumes outputs and creates new ones, like
-bills handed over and change handed back. Zerdinals and ZRunes attach to
+bills handed over and change handed back. Zordinals and ZRUNES attach to
 those outputs. Owning an asset means controlling the private key that can
 spend the output it currently sits on. There is no registry beside the
 chain, no account, and no undo.

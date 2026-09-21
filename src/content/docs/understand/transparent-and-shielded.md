@@ -1,6 +1,6 @@
 ---
 title: Transparent and shielded
-description: "Zerdinals and ZRunes live entirely in the transparent pool. What an indexer can read, which operations need a transparent address, and what shielding does to an asset."
+description: "Zordinals and ZRUNES live entirely in the transparent pool. What an indexer can read, which operations need a transparent address, and what shielding does to an asset."
 ---
 
 **You will get from this page:** which operations need a transparent address,
@@ -18,7 +18,7 @@ addresses, amounts, and transactions are public. Shielded value is hidden by
 cryptography, so the chain proves the money moved correctly without
 revealing addresses or amounts.
 
-Zerdinals and ZRunes use only the transparent side. Content, addresses,
+Zordinals and ZRUNES use only the transparent side. Content, addresses,
 balances, and activity are publicly visible, forever. Nothing in this
 product makes your on-chain activity private, and nothing here is an
 alternative to a shielded wallet.
