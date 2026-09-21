@@ -188,17 +188,19 @@ order decide winners.
 ## 7. The district picture
 
 Every district has a picture, rendered by the product from the target block
-itself and served as an inert SVG at
+itself and served as an inert image. The current edition is
+`zkmap-bitmap-v1`, a PNG at `GET /api/zkmap/blocks/{height}/art.png`; the
+four SVG editions before it stay exactly as they were, at
 `GET /api/zkmap/blocks/{height}/art.svg`. The picture is not inscribed and
 is not part of the claim; the inscription's bytes remain exactly
 `<height>.zkmap` and are one click away from every picture. Nothing about
 ownership, price or rarity can be read out of a drawing.
 
-Two things are versioned separately. The **layout**
-(`zkmap-treemap-v1`) decides which rectangle each transaction gets. The
-**artwork** (`zkmap-art-v2`, and the frozen `zkmap-art-v1` before it) decides
-what is drawn on those rectangles. The claim ruleset `zkmap-v1` is a third
-thing again, and neither version touches it.
+Two things are versioned separately. The **layout** decides where each
+transaction goes; the **artwork** decides what is drawn there. The claim
+ruleset `zkmap-v1` is a third thing again, and no artwork version touches it.
+Every edition keeps its own addresses and its own bytes for ever: a new
+drawing is published at a new URL rather than swapped in at an old one.
 
 ### The layout: `zkmap-treemap-v1`
 
@@ -246,6 +248,62 @@ The perimeter signature is a signature and the interior contours are texture.
 Neither is a transaction, a parcel or a claimable piece of a district. The
 coinbase parcel is marked with a thin outline and otherwise takes the ordinary
 colour its own hash chose.
+
+### The bitmap edition: `zkmap-bitmap-v1`
+
+The current picture is not an SVG and is not drawn from transaction sizes. It
+draws one yellow square per transaction, sized by the **public transparent
+value** that transaction paid out, packed in the block's own order on a
+transparent ground:
+
+```text
+GET /api/zkmap/blocks/{height}/art.png
+    ?art=zkmap-bitmap-v1&network=testnet&size=256&hash=<block hash>
+```
+
+| Property | Value |
+| --- | --- |
+| Artwork | `zkmap-bitmap-v1` |
+| Layout | `bitmap-mondrian-v1` |
+| Native image | 576 x 576, 8 bit RGBA PNG |
+| Colour | `#FACC15` opaque, on fully transparent |
+| Sizes | 256, 512, 576 and 1024 |
+
+A transaction's square has side `max(1, ceil(log10(zatoshis)) - 5)`: one unit
+per order of magnitude above 0.01 ZEC, and the smallest square for everything
+at or below it. Squares are placed in transaction order, never sorted, into the
+first free slot scanning rows upward and left to right.
+
+**What the size means, and what it does not.** It is public transparent output
+value, counted in exact zatoshis. Shielded value is private and stays private:
+a transaction that moved its whole payment shielded has a public transparent
+sum of zero and draws the smallest square, and nothing infers a hidden amount
+from a value balance or anything else. The picture is therefore not a picture
+of a block's total economic activity, and two blocks that moved the same public
+amounts really do look alike. Fees, subsidies and byte sizes are not used as
+stand-ins for a value anywhere.
+
+There is no label. The block's name, its transaction count and its date are
+text on the page beside the picture, where a screen reader and a text search
+can reach them.
+
+`network` is required and must be the network the block was read on, as for
+every edition after v1. The response names what it drew in
+`x-zkmap-art-version`, `x-zkmap-network`, `x-zkmap-block-hash`,
+`x-zkmap-input-digest` and `x-zkmap-content-sha256`.
+
+### The immutable address of a picture's bytes
+
+```text
+GET /api/zkmap/media/{sha256}
+```
+
+A height is an alias that follows the chain, so `art.png` is always
+revalidated. This route names exact bytes and nothing else, so it may be kept
+for a year. It makes no claim about which block is current and none about who
+owns the district: it may serve a picture of a block that has since been
+replaced, which is what a historical reference is for. It answers only for
+published district artwork.
 
 ### `zkmap-art-v1` is kept, and its promise is corrected
 
@@ -324,8 +382,10 @@ as exact decimal strings.
 | --- | --- |
 | `GET /api/zkmap/blocks?start=&limit=` | A window of statuses, occupancy proof, block hashes, winners and owners (limit up to 1024) |
 | `GET /api/zkmap/blocks/{height}` | One block's status, occupancy proof, winner and owner |
-| `GET /api/zkmap/blocks/{height}/geometry` | The renderer input: ordered transaction byte sizes and their digest |
-| `GET /api/zkmap/blocks/{height}/art.svg?art=&network=&size=&hash=` | The district picture at 256, 512 or 1024; `art=zkmap-art-v2` needs the network it was observed on |
+| `GET /api/zkmap/blocks/{height}/geometry` | The SVG editions' input: ordered transaction byte sizes and their digest |
+| `GET /api/zkmap/blocks/{height}/art.svg?art=&network=&size=&hash=` | The SVG district picture at 256, 512 or 1024; every edition after v1 needs the network it was observed on |
+| `GET /api/zkmap/blocks/{height}/art.png?art=zkmap-bitmap-v1&network=&size=&hash=` | The bitmap district picture at 256, 512, 576 or 1024 |
+| `GET /api/zkmap/media/{sha256}` | Exact published artwork bytes, immutable; no claim about the current chain or about ownership |
 | `GET /api/zkmap/districts?owner=&cursor=&limit=&order=` | Claimed districts, optionally held by one address |
 | `GET /api/zkmap/claims/{inscriptionId}` | The claim receipt and verdict of one inscription |
 | `POST /api/zkmap/availability` | Preflight of up to 24 heights with historical and current occupancy evidence; an observation, not a reservation |
