@@ -249,7 +249,7 @@ This document defines facts 3 to 5 for ZRunes v1 and for nothing else. Confirmat
 
 ### 17.2 ZRunes v1 versus OP_13 payloads
 
-| | ZRunes v1 | Bitcoin ord 0.29.0 | OP_13 payloads seen on Zcash |
+| What | ZRunes v1 | Bitcoin ord 0.29.0 | OP_13 payloads seen on Zcash |
 | --- | --- | --- | --- |
 | Chain | Zcash | Bitcoin | Zcash |
 | Marker | OP_RETURN OP_14, hex `6a5e` | OP_RETURN OP_13, hex `6a5d` | OP_RETURN OP_13, hex `6a5d` |
