@@ -1,0 +1,53 @@
+[
+  {
+    "annotationId": "CMO-A038",
+    "workPackage": "CMO-15",
+    "repo": "public",
+    "file": "src/content/docs/market/buying-and-selling.md",
+    "symbol": "## What a listing is",
+    "coverage": "DOC-01,REL-03",
+    "findings": [
+      "F16",
+      "N03"
+    ],
+    "prerequisites": [
+      "CMO-14"
+    ],
+    "status": "ANNOTATED",
+    "line": 11
+  },
+  {
+    "annotationId": "CMO-A039",
+    "workPackage": "CMO-15",
+    "repo": "public",
+    "file": "src/content/docs/protocols/names-and-registries.md",
+    "symbol": "## Dual Registries",
+    "coverage": "DOC-01,NAME-01",
+    "findings": [
+      "F16",
+      "N03"
+    ],
+    "prerequisites": [
+      "CMO-14"
+    ],
+    "status": "ANNOTATED",
+    "line": 7
+  },
+  {
+    "annotationId": "CMO-A040",
+    "workPackage": "CMO-15",
+    "repo": "public",
+    "file": "src/content/docs/protocols/zkmap.md",
+    "symbol": "## 8. Public API",
+    "coverage": "DOC-02,ZKM-01",
+    "findings": [
+      "F16",
+      "N03"
+    ],
+    "prerequisites": [
+      "CMO-14"
+    ],
+    "status": "ANNOTATED",
+    "line": 292
+  }
+]

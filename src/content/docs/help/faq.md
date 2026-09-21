@@ -51,7 +51,7 @@ them side by side, and names the reading behind every figure.
 
 ## Can my inscription or ZRune be private?
 
-No. Zerdinals and ZRunes use transparent Zcash transactions; content,
+No. Zordinals and ZRUNES use transparent Zcash transactions; content,
 addresses, balances, and activity are publicly visible, forever. Shielding
 does not make an asset private; it destroys its tracking (a Zerdinal
 becomes permanently untrackable, a ZRune balance is burned by rule).

@@ -1,6 +1,6 @@
 <img src="public/mark.svg" alt="" width="40" height="40" align="left">
 
-# Zerdinals and ZRunes
+# Zordinals and ZRUNES
 
 **The record of what has been written into Zcash, read from a node its
 operators run.** Zerdinals inscriptions, ZRunes, ZRC-20 tokens, and
