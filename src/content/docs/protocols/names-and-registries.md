@@ -29,6 +29,20 @@ history and recovery.
 Full cross-repository contract: docs/implementation/core-market-overhaul-20260920/WORK-PACKAGES.md.
 ANNOTATED is not functional PASS. Preserve executable behavior during preparation.
 -->
+<!--
+IMPLEMENTATION-HANDOFF [NM-08] NM-A26 | 2026-09-21 | PREPARATION ONLY
+Coverage: N-RELEASE,N-READ,N-ERROR,N-PROOF,N-RECOVER. Findings: D01,D02,D06,D09,D10,D11.
+Current: Current documentation does not describe the complete repaired Names source/verification/settlement contract. Existing explanatory text is preserved during preparation; historical claims are not current release evidence.
+Sources: S-APP,S-IDX,S-PROOFS,S-ANCHOR,S-MARKET; Names handoff RESEARCH.md and WORK-PACKAGES.md.
+Prerequisites: NM-01,NM-02,NM-03,NM-04,NM-05,NM-06,NM-07.
+1. Document supported native list/delist/buy separately from zcashme registration and resolution; preserve both entries and the existing ZkMap distinction. Include specific safe source/history/anchor errors, exact price and registrar custody/credit/withdrawal semantics only after accepted release evidence.
+2. Use the matched accepted application/indexer contracts and evidence from this handoff. Record actual released versions and supported wallet/network operations; never describe a comment, fixture pass or unavailable capability as implemented or released.
+3. Coordinate this documentation with the other three documentation repositories and NM-08 release receipts. Retain legitimate authentication and registry trust distinctions, and keep viewing/spending material and private endpoints out of public documentation.
+Tests: Build and run the existing public documentation package scripts after implementation; verify rendered Names links, mobile and keyboard use, no secrets, and the actual deployed page bytes.
+Assert: Published docs match the actual accepted and publicly deployed behavior, with truthful unsupported/unavailable/settlement distinctions. No hidden required feature or unverified success claim.
+Rollback/security: Restore compatible documentation with the matched product/provider artifact. Preserve incident history and pending-operation recovery; no production change during preparation.
+ANNOTATED is not implemented, tested end-to-end or released.
+-->
 ## Dual Registries
 
 The Names Hub resolves labels across both major Zcash naming systems:
