@@ -1,5 +1,36 @@
 <img src="public/mark.svg" alt="" width="40" height="40" align="left">
 
+<!--
+IMPLEMENTATION-HANDOFF [C250-12] C250-A041
+Preparation only; functional status BLOCKED. Coverage CAP-12; defects F12.
+Observed: Capacity and recovery guidance must describe the released product, not preparation
+comments.
+Required: After full functional acceptance, accepted revisions are integrated through existing
+authorized CI/CD and the complete required product remains publicly usable on Mainnet, with
+verifiable deployment and rollback evidence.
+Sources S11, S12, S13, S14 in SOURCE_REGISTER.md; prerequisites C250-11.
+1. After functional acceptance, update the existing public operations/status pages with the
+measured user envelope, pending/retry wording and recovery behavior.
+2. Retain all protocol/menu/feature documentation and coordinate terminology with legitimate
+concurrent PRs. Do not advertise guaranteed block confirmation times.
+3. Build the docs using its pinned scripts and verify actual public pages only after the accepted
+release is deployed.
+Verify: Existing deployment owner: ops/DEPLOYMENT.md and ops/hostinger service/nginx files. Exact
+production CLI/service names and access must be verified from the installed process; no unverified
+deployment command is presented as executed. | Execute coordinated regression on every meaningful
+post-acceptance change. Then record deployment receipts, release SHA, public exposure checks and
+an exercised rollback on staging.
+Acceptance: RELEASED - PUBLIC MAINNET only after every applicable flow passes Testnet/local fault
+gates and actual public rollout is complete. Mainnet functional tests are not required and must
+not be performed merely to manufacture evidence.
+Migration/rollback: Retain prior immutable artifacts/configuration and tested DB-compatible
+readers. Stop new admission when required while continuing durable recovery. Avoid destructive
+down migrations or dropping reservation/request history; provide exact verified service rollback
+commands at release time.
+Shared contract:
+zerdinals-and-zrunes/docs/implementation/concurrency-250-20260921/WORK_PACKAGES.md; same directory
+contains ANNOTATION_INDEX.json and COVERAGE.csv.
+-->
 # Zordinals and ZRUNES
 
 **The record of what has been written into Zcash, read from a node its
