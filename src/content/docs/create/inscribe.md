@@ -123,9 +123,9 @@ them.
 8. **Resume.** Batches are saved in your browser on this device, so closing
    the tab never loses one.
 
-## Block names (ZkMap)
+## Block numbers (ZkMap)
 
-A block name is a Zerdinal whose text is exactly `<height>.zkmap`, and the
+A block number is a Zerdinal whose text is exactly `<height>.zkmap`, and the
 first eligible claim completed on chain wins that block. The rules are in the
 [ZkMap v1 specification](/docs-zerdinals-and-zrunes/protocols/zkmap/); this
 section is the mint flow as built, at `/create/zkmap`, with the map at
@@ -233,7 +233,7 @@ Orders and batches are saved in this browser under Create, so a reload or a
 wallet interruption resumes where it left off and nothing is minted twice.
 For an invoice, reopen the order page (the Open the order link, or the saved
 order under Create); it shows the payment state, the delivered inscriptions,
-and a "Block names" section with the accepted, pending and not-won count and
+and a "Block numbers" section with the accepted, pending and not-won count and
 one outcome per name. For a connected-wallet mint, each name's Order link
 opens its own order. The claim outcomes are read from the indexer on their
 own cadence, separately from the order state, and a refresh that fails shows

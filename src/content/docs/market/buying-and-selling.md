@@ -60,24 +60,58 @@ An empty market shows as empty; nothing is fabricated to look busy.
 ## Where this market is
 
 This market is part of the application at [zrunes.io](https://zrunes.io) and
-nowhere else. Zerdinals and ZRunes are Zcash protocols, and the wider Bitcoin
+nowhere else. Zordinals and ZRUNES are Zcash protocols, and the wider Bitcoin
 Universe surfaces treat them as read and explore only: they display and
 search the chain record, and no marketplace outside this application trades
 them. If you are looking for somewhere else to buy or sell one, there is not
 one to point you at.
 
-## One market, six destinations
+## One market, several destinations
 
-The Market navigation keeps six stable destinations: Overview, Zerdinals,
-Collections, NFTs, Tokens, and ZRunes. Current source includes fungible
-market pages and full-lot asks for ZRunes and ZRC-20, and typed NFT asks and
-offers under `/market/nfts` (below). The `zord` and `zecscriptions`
-rulesets have separate books; their quantities and prices are never combined.
-A deployed page opens an action only when that operation can execute safely.
+The Market navigation lists every destination the market serves: Overview,
+Zerdinals, Collections, NFTs, ZRC-20, ZRunes, zkMap, Names and Activity, with
+Offers, Auctions, Cart, My listings, Relay Router and Licenses alongside them
+on the advanced surfaces. The list is not written out separately on each
+screen: every surface reads the same registry, so a destination that is
+served is a destination you can reach. Names had a page nobody could navigate
+to until that changed.
 
-## Block names (ZkMap districts)
+The `zord` and `zecscriptions` rulesets have separate books; their quantities
+and prices are never combined, and a ticker that exists under both is two
+assets rather than one. A deployed page opens an action only when that
+operation can execute safely.
 
-A ZkMap district is the winning inscription of a block name such as
+### Finding something across a whole market
+
+Each hub reads an asset catalog rather than a page of orders, which is a
+distinction you can feel: discovery is not capped at the first couple of
+hundred orders, so an asset with a single standing ask is as findable as a
+busy one. Search and ordering live in the address bar, so a filtered list can
+be shared or restored with the back button.
+
+Prices are ranked by the exact ratio of total to quantity, never by a rounded
+figure, so an eighteen-decimal lot and a whole-unit one sort correctly
+against each other. Where a price cannot be read the market says so in words.
+It never prints a zero, because a zero reads as free.
+
+### What "not available" means here
+
+The market distinguishes states that look alike and are not:
+
+- **Nothing matches these filters.** The catalog is fine; the query is narrow.
+- **Nothing here yet.** Known to be empty, because the chain behind it has
+  been read.
+- **Not all of it has been read.** The index has not covered enough chain to
+  answer. Something missing may simply be in a block nothing has read.
+- **This could not be read.** A failure, not an empty market.
+- **The network being served is not established.** Nothing is published and
+  nothing can be signed until the service says which chain it is answering
+  about. A network selector is a preference in your browser; it does not
+  repoint the service.
+
+## Block numbers (ZkMap districts)
+
+A ZkMap district is the winning inscription of a block number such as
 `1500000.zkmap`, so it is listed and bought as a Zerdinal: the seller's
 single signature binds the output carrying the winning inscription, one
 transaction settles the sale, and the district follows that inscription to
@@ -97,10 +131,10 @@ you hold.
 
 ### Finding a district
 
-Search a block name exactly: `780000` and `780000.zkmap` both find that one
+Search a block number exactly: `780000` and `780000.zkmap` both find that one
 district. It is not a text search over listings, so a partial height finds
 nothing rather than a list of near misses, and `007` is refused because it
-is not how a block name is written.
+is not how a block number is written.
 
 The book can be ordered by newest, by price in either direction, or by
 block height. The search and the ordering are part of the page address, so
@@ -122,10 +156,10 @@ floor, which is a different statement.
 
 ### On a district's listing page
 
-A district listing shows its block name, its picture and a link to the
+A district listing shows its block number, its picture and a link to the
 district itself, above the signed terms rather than instead of them. The
 name comes only from a current winning claim. If the inscription has since
-lost its block name, the page says so: it can still be bought, but it is
+lost its block number, the page says so: it can still be bought, but it is
 not a district. If the claim simply cannot be read right now, the page says
 that too, and does not present an unreadable claim as an invalid one.
 
@@ -234,6 +268,52 @@ acceptance of 18 September 2026 covered the launch economics, not the
 admission of any of these collections, and ZIP 226 and ZIP 227 are still
 Draft. Nothing here is deployed on Zcash mainnet.
 
+## Names work differently, and the difference matters
+
+Everything above describes an inscription changing hands: your asset sits on
+an output, your single signature binds that output to a price, and one
+transaction settles it. **None of that applies to a native name.** A name is
+not an inscription and a name purchase is not an atomic swap, so the three
+consequences at the top of this page: no escrow, a public offer, withdrawal
+rather than revocation: do not carry over. Reading them as though they did
+is the single most costly mistake available on this page.
+
+A name lives in a registry, and the registry is the authority on who holds
+it. Buying one means paying a registrar and having the registry record the
+change. Three things follow:
+
+1. **The registrar does hold funds, for a time.** Seller proceeds and
+   refunds to a losing buyer may sit as a registrar credit rather than
+   returning to your wallet on their own. The generic promise that this
+   market never holds anything is a promise about inscription trading and is
+   not true of names.
+2. **A credit is not a refund.** A credit is a balance the registrar owes
+   you. Getting it out is a separate, supported withdrawal, not something
+   that happens automatically on chain.
+3. **Payment is proved by observation, not by your having paid.** A payment
+   URI, a QR code, a wallet that says it sent something, or a button that
+   says "I have paid" are none of them evidence. An operation reaches
+   settled only when the payment has been observed and the registry itself
+   has been read back.
+
+The states are distinct and the product shows them as such: **prepared**,
+**awaiting payment**, **paid**, **settled**, and separately **conflict**,
+**expired** or **failed**. Paid is not settled: a competing buyer can still
+win the name, and then what you have is a credit and a recovery path rather
+than a name.
+
+Two registries are served and they are separate scopes, not two views of one
+list. The same label in each is two different names with two different
+owners. `zcashme-zns` has no listing or purchase protocol at all: its
+resolve, register and manage entry points are offered and its market is not,
+which is a property of that registry rather than an outage.
+
+Signing a registry command is also not the same capability as spending
+funds. The registry key that authorises a name command and the key that
+moves your ZEC are different keys, and one never stands in for the other.
+Mainnet and Testnet registries are separate signature domains besides: a
+command signed for one is not valid on the other, by design.
+
 ## Reopen an existing purchase
 
 After a reload or a lost response, return to the existing execution reference
@@ -284,6 +364,12 @@ and dependencies are healthy. Until then the product shows the precise
 blocker instead of offering a path that cannot finish. See
 [Pay with any wallet](/docs-zerdinals-and-zrunes/create/pay-with-any-wallet/)
 and [current status](/docs-zerdinals-and-zrunes/start/status/).
+
+Native name operations carry their own prerequisites and they are stricter.
+A name purchase needs a qualified registrar, an authenticated observation of
+the payment, and a registry readback before anything is called settled. Where
+any of those is missing the operation is not offered, and the product names
+which one rather than presenting a path that cannot finish.
 
 ## What is public
 
