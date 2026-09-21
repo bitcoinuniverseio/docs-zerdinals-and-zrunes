@@ -1,10 +1,11 @@
 ---
 title: ZRunes
-description: "What ZRunes are, the block height at which they activate on mainnet, which facts about them are real chain facts today, and how a balance is burned by protocol rule."
+description: "What a ZRune is, the block height at which ZRunes v1 activated on mainnet, how to tell a ZRune v1 from another project using the same name, and how a balance is burned by protocol rule."
 ---
 
-**You will get from this page:** what a ZRune is, why none exist on mainnet
-yet, and how to check the activation state yourself.
+**You will get from this page:** what a ZRune v1 is, how to read its
+activation state from the chain yourself, and how to tell it apart from other
+projects on Zcash that use the same name.
 
 ## Plain language
 
@@ -14,9 +15,11 @@ mint, mint cap, and an opening and closing block window). Anyone can mint
 while the terms allow it. Balances attach to transparent outputs and move by
 output allocation in ordinary transactions.
 
-## When ZRunes open on mainnet
+## When ZRunes v1 opened on mainnet
 
-ZRunes activate on Zcash mainnet at **block 3,470,000**.
+ZRunes v1 activated on Zcash mainnet at **block 3,470,000**. That height has
+passed, so the protocol is open and what exists is whatever the chain has
+recorded since.
 
 Before that height the protocol ignores ZRune data outputs entirely, so
 nothing can be etched or minted and no ZRune can exist. That is a rule of the
@@ -32,10 +35,54 @@ https://zrunes.io/idx/zcash-metaprotocols/status
 ```
 
 The `zrunes` block in the response carries `activationHeight` and `active`.
-Until `active` is true, an empty list of ZRunes means the protocol has not
-opened yet, not that nobody wanted one. The current chain height is on
+Read it rather than trusting any count written on a page, including this one:
+a number in prose is true on the day it is written and this endpoint is true
+now. With `active` true, an empty list means no ZRune v1 has been etched up
+to the checkpoint that answered. The current chain height is on
 [the status page](/docs-zerdinals-and-zrunes/start/status/) and on every
 page of the product.
+
+## Not every ZRune is a ZRune v1
+
+More than one project on Zcash uses the name ZRunes. They are separate
+protocols with separate rules, and this product reads exactly one of them.
+
+A ZRune v1 is carried in an `OP_RETURN` output whose first byte after
+`OP_RETURN` is `OP_14` (hex `6a5e`). Other projects write their own payloads
+in their own format on the same chain. The most common of those starts with
+`OP_13` (hex `6a5d`). To this protocol an `OP_13` output is simply not a
+carrier, in the same way a letter addressed to another street is not your
+post. That is a rule of the format, not a judgement about the bytes: we hold
+no ruleset for them and make no claim, either way, about what their own
+protocol does with them.
+
+So five things people often hear as one thing are five separate facts:
+
+1. The transaction is confirmed on Zcash.
+2. It carries a payload.
+3. Some protocol recognizes that payload.
+4. That protocol accepts it as a valid etching or a successful mint.
+5. A ledger credits a balance that can be spent.
+
+A block explorer can show you 1 and 2 for anything. This product answers 3,
+4 and 5 for ZRunes v1 and says so plainly when a payload is not one.
+
+### Checking any transaction
+
+Paste any Zcash transaction id into the lookup on the
+[ZRunes tab of Explore](https://zrunes.io/explore/zrunes), or open it
+directly at `https://zrunes.io/scan/tx/<txid>`. If it carries a payload in a
+format this product does not read, the page shows the output, the raw bytes
+and the one verdict we can honestly give: not ZRunes v1. Nothing there is a
+balance, and no id from it is offered to a mint or trade form.
+
+Behind that page the indexer reports those outputs as an optional
+`carrier_observations` array on its transaction route, under the contract
+`foreign-carrier-observation-v1`. It is a reader over bytes that were already
+in hand. It creates no balance, holder, supply figure or spendability
+guarantee, and it is not an alternative ledger. If your indexer does not send
+the field, it has not looked, which is not the same as having looked and
+found nothing.
 
 ## Why it matters
 
@@ -97,3 +144,4 @@ full rules, including every failure mode, are in
 - [Etch, mint, transfer ZRunes](/docs-zerdinals-and-zrunes/create/etch-mint-transfer/)
 - [Normative specification: ZRunes v1](/docs-zerdinals-and-zrunes/protocols/zrunes-v1/)
 - [Current status](/docs-zerdinals-and-zrunes/start/status/)
+- [Protocol identity: ZRunes v1 and other payloads](/docs-zerdinals-and-zrunes/protocols/zrunes-v1/)
