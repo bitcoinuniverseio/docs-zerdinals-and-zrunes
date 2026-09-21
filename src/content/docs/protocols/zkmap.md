@@ -261,7 +261,7 @@ GET /api/zkmap/blocks/{height}/art.png
     ?art=zkmap-bitmap-v1&network=testnet&size=256&hash=<block hash>
 ```
 
-| | |
+| Property | Value |
 | --- | --- |
 | Artwork | `zkmap-bitmap-v1` |
 | Layout | `bitmap-mondrian-v1` |
