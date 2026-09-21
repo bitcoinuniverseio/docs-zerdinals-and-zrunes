@@ -18,9 +18,9 @@ is free and anonymous.
 This is also the pre-flight check before spending from an address:
 [Protect asset-bearing outputs](/docs-zerdinals-and-zrunes/own/protect/).
 
-## Block names (ZkMap districts)
+## Block numbers (ZkMap districts)
 
-A ZkMap district is the winning inscription of a block name, so it is held
+A ZkMap district is the winning inscription of a block number, so it is held
 on an output like any Zerdinal and appears in two places on the address
 page. Among the inscriptions, its card carries a district badge (`ZkMap
 <height>.zkmap`) and shows the district picture drawn from the block

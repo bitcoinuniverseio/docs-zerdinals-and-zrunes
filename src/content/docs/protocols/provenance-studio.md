@@ -14,7 +14,7 @@ No rendered prose changed in preparation. Deploy docs only with matching accepte
 -->
 ## Overview
 
-Provenance Studio introduces verifiable cryptographic content provenance to Zerdinals and ZRunes based on the C2PA 2.4 standard. Creators can attach tamper-evident manifests to media, sign assertions offline or with hardware keys, and anchor provenance records permanently on the Zcash blockchain.
+Provenance Studio introduces verifiable cryptographic content provenance to Zordinals and ZRUNES based on the C2PA 2.4 standard. Creators can attach tamper-evident manifests to media, sign assertions offline or with hardware keys, and anchor provenance records permanently on the Zcash blockchain.
 
 ## Key Capabilities
 

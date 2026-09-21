@@ -67,7 +67,7 @@ allowed to reach.
 
 ## Everything here is public
 
-Zerdinals and ZRunes use transparent Zcash transactions. Content, addresses,
+Zordinals and ZRUNES use transparent Zcash transactions. Content, addresses,
 balances, and activity are publicly visible, forever. Nothing in this product
 makes on-chain activity private. If you need financial privacy on Zcash, use
 shielded ZEC in a shielded wallet, and keep that activity separate from your
