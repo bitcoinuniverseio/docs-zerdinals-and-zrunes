@@ -178,7 +178,7 @@ mint admission, and a missing block hash alone is not proof that a block is
 future.
 
 The legacy HTTP `status` field remains the five-value rolling-deployment
-contract. Pending is serialized there as `unavailable` with reason
+contract. Pending is serialized there as `unknown` with reason
 `PENDING_CLAIM_OBSERVED`; this page's six-state status comes from
 `occupancy.effectiveStatus`. Clients without the additive envelope must
 normalize historical `available` to current `unknown` rather than mint from
@@ -372,7 +372,80 @@ history and recovery.
 Full cross-repository contract: docs/implementation/core-market-overhaul-20260920/WORK-PACKAGES.md.
 ANNOTATED is not functional PASS. Preserve executable behavior during preparation.
 -->
-## 8. Public API
+## 8. The district page
+
+`https://zrunes.io/zkmap/<height>` is one district, and it opens with the
+district: the picture, and beside it the shortest true answer about it.
+
+**The summary.** The claim status in its own words, the current owner as a
+link to their portfolio with a copy control beside it, the date the block was
+mined, how many transactions it holds, and one action if there is one to
+offer. Where the service says a height cannot be claimed at all, the reason
+it gave is shown rather than the bare words "Not claimable". Claim status and sale status are never fused into a single badge: a
+district can be claimed and not for sale, and a listing is an offer held by
+this service, not a chain fact.
+
+**The action.** Mint, when the district is free and its observation is still
+current. Send, when the connected wallet is the confirmed holder and the
+carrying output can be spent. View inscription, whenever a winner exists.
+Nothing invents a Buy, a price or a rarity score. An observation that has
+expired says the availability is being checked rather than continuing to
+offer a mint, because availability is an observation and not a reservation.
+
+**The market.** One rail per district, beside the picture. It says which of
+five things it is doing rather than guessing: checking, unavailable with a
+retry, verified not listed, an active listing at its exact price, or a last
+answer that could not be re-checked. An offer marked as possibly unbacked is
+not an ordinary safe purchase, and a sale waiting to confirm is not a sale.
+An offer that ended without a sale says how it ended: cancelled, with the
+published limit of what cancelling actually revokes; expired, with the block
+height the signature committed to; no longer valid, with the service's own
+reason; or overtaken by a chain reorganisation, with whether the settlement
+it recorded still stands. A completed sale is reported instead of any of
+these, because two answers to one question is worse than one.
+
+**The evidence.** Under the summary, at most four trait highlights chosen
+from what the service actually answered, then the whole catalogue behind
+**All traits**, searchable by plain name, original id or description, and
+filterable by whether the answer is known, unknown, or a key that has no
+Zcash meaning. Nothing is dropped to make the page short: every returned
+trait is there, and `false`, `0`, unknown and not-applicable stay four
+different answers.
+
+**The record.** **Transactions** lists every transaction of the block, paged,
+with its byte size and its coinbase and shielded marks, and it is the
+keyboard equivalent of pointing at a square in the picture. **Record
+details** holds the full block hash, the winning inscription, the claiming
+block and transaction, the owner address, the carrying output and the
+checkpoint the record was read at, whole and selectable, with links into the
+explorer and the portfolio. **How ZkMaps work** is the short version of this
+page. All three are closed until you open one, and a link that names one
+opens it.
+
+**When a read fails.** The picture, the transactions, the traits and the
+market are four separate reads, and each says so on its own with a retry that
+asks only for itself. A failed trait read never removes the owner or the
+market record. The transactions and the traits are read against the exact
+block, network, genesis, height and hash together, so a reorg that replaces
+the block at a height asks for the replacement rather than leaving the
+sections blank.
+
+**Selling and cancelling.** A published listing shows its cancellation value
+once, and this browser keeps a copy bound to that network, listing, asset and
+seller so the cancel page can find it again. "Listing published" and
+"Recovery saved" are two separate statements: a browser that refuses to keep
+the value says so while it is still on screen and offers it as a copy or a
+file. Pasting the value by hand always works, on any device. A request whose
+answer never arrived is settled by asking the service about the order that
+was signed, never by signing a second time.
+
+**Paying.** An invoice shows the exact ZIP-321 request as a QR. A request too
+long for the small in-house encoder is drawn by the larger one; a request
+longer than any QR can hold says so and points at the copy and
+open-in-wallet controls, which carry the identical request. The address, the
+exact amount and the instructions never change with the symbol.
+
+## 9. Public API
 
 All operations are under the `zkmap` tag of the
 [public HTTP API](/docs-zerdinals-and-zrunes/developers/api/). Heights travel
@@ -400,7 +473,7 @@ read at. A mint order's claim outcome (`pending`, `accepted`, `conflict`,
 only `accepted` beside a complete order is a won district. A complete order
 whose claim lost is a conflict, and the product says so.
 
-## 9. What this protocol does not do
+## 10. What this protocol does not do
 
 1. It does not resolve names to addresses and is not part of any name
    registry. See
