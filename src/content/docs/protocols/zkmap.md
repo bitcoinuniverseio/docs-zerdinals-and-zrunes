@@ -178,7 +178,7 @@ mint admission, and a missing block hash alone is not proof that a block is
 future.
 
 The legacy HTTP `status` field remains the five-value rolling-deployment
-contract. Pending is serialized there as `unavailable` with reason
+contract. Pending is serialized there as `unknown` with reason
 `PENDING_CLAIM_OBSERVED`; this page's six-state status comes from
 `occupancy.effectiveStatus`. Clients without the additive envelope must
 normalize historical `available` to current `unknown` rather than mint from
@@ -188,17 +188,19 @@ order decide winners.
 ## 7. The district picture
 
 Every district has a picture, rendered by the product from the target block
-itself and served as an inert SVG at
+itself and served as an inert image. The current edition is
+`zkmap-bitmap-v1`, a PNG at `GET /api/zkmap/blocks/{height}/art.png`; the
+four SVG editions before it stay exactly as they were, at
 `GET /api/zkmap/blocks/{height}/art.svg`. The picture is not inscribed and
 is not part of the claim; the inscription's bytes remain exactly
 `<height>.zkmap` and are one click away from every picture. Nothing about
 ownership, price or rarity can be read out of a drawing.
 
-Two things are versioned separately. The **layout**
-(`zkmap-treemap-v1`) decides which rectangle each transaction gets. The
-**artwork** (`zkmap-art-v2`, and the frozen `zkmap-art-v1` before it) decides
-what is drawn on those rectangles. The claim ruleset `zkmap-v1` is a third
-thing again, and neither version touches it.
+Two things are versioned separately. The **layout** decides where each
+transaction goes; the **artwork** decides what is drawn there. The claim
+ruleset `zkmap-v1` is a third thing again, and no artwork version touches it.
+Every edition keeps its own addresses and its own bytes for ever: a new
+drawing is published at a new URL rather than swapped in at an old one.
 
 ### The layout: `zkmap-treemap-v1`
 
@@ -246,6 +248,62 @@ The perimeter signature is a signature and the interior contours are texture.
 Neither is a transaction, a parcel or a claimable piece of a district. The
 coinbase parcel is marked with a thin outline and otherwise takes the ordinary
 colour its own hash chose.
+
+### The bitmap edition: `zkmap-bitmap-v1`
+
+The current picture is not an SVG and is not drawn from transaction sizes. It
+draws one yellow square per transaction, sized by the **public transparent
+value** that transaction paid out, packed in the block's own order on a
+transparent ground:
+
+```text
+GET /api/zkmap/blocks/{height}/art.png
+    ?art=zkmap-bitmap-v1&network=testnet&size=256&hash=<block hash>
+```
+
+| Property | Value |
+| --- | --- |
+| Artwork | `zkmap-bitmap-v1` |
+| Layout | `bitmap-mondrian-v1` |
+| Native image | 576 x 576, 8 bit RGBA PNG |
+| Colour | `#FACC15` opaque, on fully transparent |
+| Sizes | 256, 512, 576 and 1024 |
+
+A transaction's square has side `max(1, ceil(log10(zatoshis)) - 5)`: one unit
+per order of magnitude above 0.01 ZEC, and the smallest square for everything
+at or below it. Squares are placed in transaction order, never sorted, into the
+first free slot scanning rows upward and left to right.
+
+**What the size means, and what it does not.** It is public transparent output
+value, counted in exact zatoshis. Shielded value is private and stays private:
+a transaction that moved its whole payment shielded has a public transparent
+sum of zero and draws the smallest square, and nothing infers a hidden amount
+from a value balance or anything else. The picture is therefore not a picture
+of a block's total economic activity, and two blocks that moved the same public
+amounts really do look alike. Fees, subsidies and byte sizes are not used as
+stand-ins for a value anywhere.
+
+There is no label. The block's name, its transaction count and its date are
+text on the page beside the picture, where a screen reader and a text search
+can reach them.
+
+`network` is required and must be the network the block was read on, as for
+every edition after v1. The response names what it drew in
+`x-zkmap-art-version`, `x-zkmap-network`, `x-zkmap-block-hash`,
+`x-zkmap-input-digest` and `x-zkmap-content-sha256`.
+
+### The immutable address of a picture's bytes
+
+```text
+GET /api/zkmap/media/{sha256}
+```
+
+A height is an alias that follows the chain, so `art.png` is always
+revalidated. This route names exact bytes and nothing else, so it may be kept
+for a year. It makes no claim about which block is current and none about who
+owns the district: it may serve a picture of a block that has since been
+replaced, which is what a historical reference is for. It answers only for
+published district artwork.
 
 ### `zkmap-art-v1` is kept, and its promise is corrected
 
@@ -314,7 +372,80 @@ history and recovery.
 Full cross-repository contract: docs/implementation/core-market-overhaul-20260920/WORK-PACKAGES.md.
 ANNOTATED is not functional PASS. Preserve executable behavior during preparation.
 -->
-## 8. Public API
+## 8. The district page
+
+`https://zrunes.io/zkmap/<height>` is one district, and it opens with the
+district: the picture, and beside it the shortest true answer about it.
+
+**The summary.** The claim status in its own words, the current owner as a
+link to their portfolio with a copy control beside it, the date the block was
+mined, how many transactions it holds, and one action if there is one to
+offer. Where the service says a height cannot be claimed at all, the reason
+it gave is shown rather than the bare words "Not claimable". Claim status and sale status are never fused into a single badge: a
+district can be claimed and not for sale, and a listing is an offer held by
+this service, not a chain fact.
+
+**The action.** Mint, when the district is free and its observation is still
+current. Send, when the connected wallet is the confirmed holder and the
+carrying output can be spent. View inscription, whenever a winner exists.
+Nothing invents a Buy, a price or a rarity score. An observation that has
+expired says the availability is being checked rather than continuing to
+offer a mint, because availability is an observation and not a reservation.
+
+**The market.** One rail per district, beside the picture. It says which of
+five things it is doing rather than guessing: checking, unavailable with a
+retry, verified not listed, an active listing at its exact price, or a last
+answer that could not be re-checked. An offer marked as possibly unbacked is
+not an ordinary safe purchase, and a sale waiting to confirm is not a sale.
+An offer that ended without a sale says how it ended: cancelled, with the
+published limit of what cancelling actually revokes; expired, with the block
+height the signature committed to; no longer valid, with the service's own
+reason; or overtaken by a chain reorganisation, with whether the settlement
+it recorded still stands. A completed sale is reported instead of any of
+these, because two answers to one question is worse than one.
+
+**The evidence.** Under the summary, at most four trait highlights chosen
+from what the service actually answered, then the whole catalogue behind
+**All traits**, searchable by plain name, original id or description, and
+filterable by whether the answer is known, unknown, or a key that has no
+Zcash meaning. Nothing is dropped to make the page short: every returned
+trait is there, and `false`, `0`, unknown and not-applicable stay four
+different answers.
+
+**The record.** **Transactions** lists every transaction of the block, paged,
+with its byte size and its coinbase and shielded marks, and it is the
+keyboard equivalent of pointing at a square in the picture. **Record
+details** holds the full block hash, the winning inscription, the claiming
+block and transaction, the owner address, the carrying output and the
+checkpoint the record was read at, whole and selectable, with links into the
+explorer and the portfolio. **How ZkMaps work** is the short version of this
+page. All three are closed until you open one, and a link that names one
+opens it.
+
+**When a read fails.** The picture, the transactions, the traits and the
+market are four separate reads, and each says so on its own with a retry that
+asks only for itself. A failed trait read never removes the owner or the
+market record. The transactions and the traits are read against the exact
+block, network, genesis, height and hash together, so a reorg that replaces
+the block at a height asks for the replacement rather than leaving the
+sections blank.
+
+**Selling and cancelling.** A published listing shows its cancellation value
+once, and this browser keeps a copy bound to that network, listing, asset and
+seller so the cancel page can find it again. "Listing published" and
+"Recovery saved" are two separate statements: a browser that refuses to keep
+the value says so while it is still on screen and offers it as a copy or a
+file. Pasting the value by hand always works, on any device. A request whose
+answer never arrived is settled by asking the service about the order that
+was signed, never by signing a second time.
+
+**Paying.** An invoice shows the exact ZIP-321 request as a QR. A request too
+long for the small in-house encoder is drawn by the larger one; a request
+longer than any QR can hold says so and points at the copy and
+open-in-wallet controls, which carry the identical request. The address, the
+exact amount and the instructions never change with the symbol.
+
+## 9. Public API
 
 All operations are under the `zkmap` tag of the
 [public HTTP API](/docs-zerdinals-and-zrunes/developers/api/). Heights travel
@@ -324,8 +455,10 @@ as exact decimal strings.
 | --- | --- |
 | `GET /api/zkmap/blocks?start=&limit=` | A window of statuses, occupancy proof, block hashes, winners and owners (limit up to 1024) |
 | `GET /api/zkmap/blocks/{height}` | One block's status, occupancy proof, winner and owner |
-| `GET /api/zkmap/blocks/{height}/geometry` | The renderer input: ordered transaction byte sizes and their digest |
-| `GET /api/zkmap/blocks/{height}/art.svg?art=&network=&size=&hash=` | The district picture at 256, 512 or 1024; `art=zkmap-art-v2` needs the network it was observed on |
+| `GET /api/zkmap/blocks/{height}/geometry` | The SVG editions' input: ordered transaction byte sizes and their digest |
+| `GET /api/zkmap/blocks/{height}/art.svg?art=&network=&size=&hash=` | The SVG district picture at 256, 512 or 1024; every edition after v1 needs the network it was observed on |
+| `GET /api/zkmap/blocks/{height}/art.png?art=zkmap-bitmap-v1&network=&size=&hash=` | The bitmap district picture at 256, 512, 576 or 1024 |
+| `GET /api/zkmap/media/{sha256}` | Exact published artwork bytes, immutable; no claim about the current chain or about ownership |
 | `GET /api/zkmap/districts?owner=&cursor=&limit=&order=` | Claimed districts, optionally held by one address |
 | `GET /api/zkmap/claims/{inscriptionId}` | The claim receipt and verdict of one inscription |
 | `POST /api/zkmap/availability` | Preflight of up to 24 heights with historical and current occupancy evidence; an observation, not a reservation |
@@ -340,7 +473,7 @@ read at. A mint order's claim outcome (`pending`, `accepted`, `conflict`,
 only `accepted` beside a complete order is a won district. A complete order
 whose claim lost is a conflict, and the product says so.
 
-## 9. What this protocol does not do
+## 10. What this protocol does not do
 
 1. It does not resolve names to addresses and is not part of any name
    registry. See
