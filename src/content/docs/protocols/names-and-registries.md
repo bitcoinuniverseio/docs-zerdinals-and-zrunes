@@ -36,6 +36,81 @@ The Names Hub resolves labels across both major Zcash naming systems:
 - `zcashme-zns`: ZcashMe Name Service
 - `zcashnames-zns1`: ZcashNames Registry
 
+They are not the same kind of integration, and the difference matters when
+you use them.
+
+`zcashnames-zns1` has a market. Names can be registered, updated, transferred,
+listed for sale, delisted and bought, each as a command the owner signs with
+their registry key and sends as a payment to the registrar. The Names market
+shows the names currently listed, at the price their owner set.
+
+`zcashme-zns` has registration and resolution, and no market at all. Asking it
+for listings returns nothing, because it has no listings to have. That is a
+true answer about the registry rather than a failure, and the page says so in
+those terms.
+
+## Why a registry can be unreadable
+
+Both registries keep their records in the memo of a shielded note paid to
+their registrar, which means the chain carries them encrypted. Reading a
+registry needs that registry's viewing key, which ZCashNames publishes for
+exactly this purpose: it lets anyone audit the registry without asking
+permission. The key reveals what the registrar received. It confers no
+ability to spend anything.
+
+So there are two quite different reasons a registry might show you nothing,
+and the interface distinguishes them:
+
+- **The registry is empty.** Nothing is listed. You are seeing the whole
+  market, and it happens to be small.
+- **The registry could not be read.** No decryption capability is configured,
+  so nothing has been observed. This is not an empty market, and it is not
+  something retrying fixes.
+
+A market that cannot be read says so, in those words. It is never presented
+as a market with nothing in it.
+
+There is a third state worth knowing about: a registry that is still reading
+its history. Its records exist and are being caught up on, so the page may
+not show every name yet, and buying stays unavailable until it finishes. A
+price taken from a partial view might already have been changed by a block
+nobody has read.
+
+## What a listing is evidence of
+
+Every name shown carries a proof that it is in the registry at a published
+state root, and the page verifies that proof before showing it. If any name
+on a page fails that check, the whole page is refused rather than quietly
+dropping the name that failed. A page you are shown is a page that verified.
+
+Prices are exact integers in zatoshis and are shown as they are. The page
+tells you which checkpoint it was read at, and whether there are more names
+than it is showing.
+
+## Verifying it yourself
+
+None of this asks you to take our word for it. ZCashNames publishes the
+registrar's address, its viewing key, the start block and the contract on BNB
+Smart Chain where each state root is anchored. With those you can scan Zcash
+from the start block, decrypt every command the service has received, replay
+them, compute the state root and compare it against the one on chain. If the
+registrar had censored, reordered or invented an operation, your root would
+differ.
+
+Our indexer does exactly that, and its replay reproduces the anchored root.
+
+## Buying a name
+
+A purchase is a `BUY` command you sign with your registry key, paid to the
+registrar at the listed price. Signing a registry command is a separate thing
+from authorising a wallet transaction and from proving control of an address:
+they are three distinct permissions and the interface keeps them apart.
+
+Native shielded settlement for these operations is not yet available, so an
+operation can be prepared and its command signed, but the payment rail that
+would complete it is reported as unavailable rather than implied to work. A
+prepared operation is never shown as settled.
+
 ## Security Features
 
 - Ambiguity Detection: Alerts users when a name is claimed on multiple registries with different destination addresses.
