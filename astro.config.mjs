@@ -8,6 +8,22 @@ import rehypeTableScroll from './scripts/rehype-table-scroll.mjs';
 import { codeBlockAccessibility } from './scripts/ec-code-block-a11y.mjs';
 import versionSearch from './scripts/version-search.mjs';
 
+/*
+ * IMPLEMENTATION-HANDOFF [PRIV-12-DOC01] PREPARATION ONLY
+ * STATUS 2026-09-22: the product now publishes /privacy, /cookies and /terms,
+ * rendered from frontend/src/legal/legalContent.ts. Two operator facts are marked
+ * pending on the pages themselves: the registered legal name and address of the
+ * contracting entity, and a governing-law clause. What remains here is the
+ * documentation side of that, and it is not scheduled. This comment is the record
+ * of where the work lands.
+ * Coverage: RELEASE-01, RELEASE-02, RELEASE-03, RELEASE-04, RELEASE-05, RELEASE-06; sources: R-GDPR, R-CRD, R-TECH.
+ * Prerequisites: PRIV-01, PRIV-11. Product source register and detailed contracts: docs/implementation/privacy-us-eu-20260921/WORK-PACKAGES.md and SOURCE-REGISTER.md.
+ * 1. Add discoverable privacy, cookies, terms and privacy-choice navigation pointing to the product's single approved/versioned legal source. Do not copy unapproved prose or hardcode an invented operator/contact into this documentation configuration.
+ * 2. Audit actual docs storage/local Pagefind and external links independently; describe only observed processing and preserve local search and existing sidebar entries. Reuse approved current/archived links and no-JS readable legal pages.
+ * 3. Run the existing package build/link checker on this pinned checkout after implementation and public link probes after the coordinated product/docs release. A successful documentation build is not evidence that consent or rights processing works.
+ * 4. Rollback restores a compatible docs artifact without removing access to current rights/contact information or publishing contradictory old policies. Preserve the concurrent shared zkmap.md edit; this preparation uses an isolated worktree.
+ * Do not change executable behavior in this preparation stage. ANNOTATED is not functional PASS.
+ */
 export default defineConfig({
   markdown: {
     rehypePlugins: [rehypeTableScroll],
