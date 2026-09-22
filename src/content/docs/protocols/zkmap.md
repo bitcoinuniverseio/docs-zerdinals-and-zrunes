@@ -322,7 +322,8 @@ district: the picture, and beside it the shortest true answer about it.
 **The summary.** The claim status in its own words, the current owner as a
 link to their portfolio with a copy control beside it, the date the block was
 mined, how many transactions it holds, and one action if there is one to
-offer. Claim status and sale status are never fused into a single badge: a
+offer. Where the service says a height cannot be claimed at all, the reason
+it gave is shown rather than the bare words "Not claimable". Claim status and sale status are never fused into a single badge: a
 district can be claimed and not for sale, and a listing is an offer held by
 this service, not a chain fact.
 
@@ -338,6 +339,12 @@ five things it is doing rather than guessing: checking, unavailable with a
 retry, verified not listed, an active listing at its exact price, or a last
 answer that could not be re-checked. An offer marked as possibly unbacked is
 not an ordinary safe purchase, and a sale waiting to confirm is not a sale.
+An offer that ended without a sale says how it ended: cancelled, with the
+published limit of what cancelling actually revokes; expired, with the block
+height the signature committed to; no longer valid, with the service's own
+reason; or overtaken by a chain reorganisation, with whether the settlement
+it recorded still stands. A completed sale is reported instead of any of
+these, because two answers to one question is worse than one.
 
 **The evidence.** Under the summary, at most four trait highlights chosen
 from what the service actually answered, then the whole catalogue behind
