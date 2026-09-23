@@ -1,27 +1,27 @@
 {
-  "verifiedAt": "2026-08-31T22:49:23Z",
+  "verifiedAt": "2026-09-23T04:49:15Z",
   "product": {
     "url": "https://zrunes.io",
-    "deployedCommit": "618800fbfc628a3e8a80cd8b493c2d363aa57e61",
-    "bundleFingerprint": "index-Dp4dVhM7.js"
+    "deployedCommit": "39176f5f722f51ec13cb5d85a125af89be1e72e3",
+    "bundleFingerprint": "index-By_yQJsy.js"
   },
   "reads": {
     "available": true
   },
   "coverage": {
-    "scannedHeight": 3467533,
-    "networkHeight": 3467534,
+    "scannedHeight": 3493051,
+    "networkHeight": 3493053,
     "chainComplete": true
   },
   "writes": {
-    "enabled": false
+    "enabled": true
   },
   "walletSigning": {
     "available": false
   },
   "zrunes": {
     "activationHeight": 3470000,
-    "active": false
+    "active": true
   },
   "protocolVersions": {
     "zerdinals": "v1",
