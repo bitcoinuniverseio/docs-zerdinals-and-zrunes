@@ -63,6 +63,26 @@ Zerdinals. Either may be closed at any time, and the panel says which is
 closed and why. One mode being closed does not make the service read-only:
 browsing, existing orders and recovery stay available.
 
+### When the token cannot be read
+
+If the reading cannot describe a token right now, the panel says so and
+offers a raw mint instead of stopping. You type the exact ticker and amount,
+pick the reading, and give the address to credit. The bytes are built by the
+same mint builder, and the review says plainly that the reading has not
+confirmed the token.
+
+A raw mint checks only what the bytes decide on their own:
+
+- the ticker fits the reading: 4 to 5 bytes under `zord`, 1 to 64 under
+  `zecscriptions`;
+- the amount is a positive number with at most 18 digits after the point.
+
+No precision, deployment or supply is assumed for it. The reading decides
+afterwards whether, and how much, it credits, and the outcome shows
+**Pending verification** until it does. If the reading comes back while you
+prepare it and already knows the mint will not count (supply used up, over
+the limit, too many decimals), it is refused before anything is paid.
+
 ### Delivery is not acceptance
 
 The order finishing means the inscription was delivered. Whether the
@@ -96,7 +116,8 @@ show each reading independently. They catch a ticker already deployed, a
 mint with no deploy, an amount outside that reading's limit, and a transfer
 larger than the connected address's available balance. A 404 means the
 ticker is free under that reading. An unreachable or incomplete reader is
-unknown, never permission to proceed.
+unknown, never a free ticker. For a mint, the form then points you to the
+raw mint described above.
 
 A transfer still happens in two steps. Inscribing a transfer operation to an
 address you control commits that amount of your balance; sending that

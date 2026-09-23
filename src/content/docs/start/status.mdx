@@ -75,10 +75,12 @@ by rule, so before that height nothing can be etched or minted and no ZRune
 exists. This is a protocol fact that any independent node reading the chain
 reproduces, not a setting on the product's side.
 
-The product reads chain progress from its own indexer. Reaching activation
-height is one prerequisite: creating or minting also requires current indexed
-coverage, wallet signing qualification and operation readiness. Activation
-alone does not establish that an operation can complete.
+The product measures activation against its own Zcash node's height.
+Reaching activation height is one prerequisite: etching or minting also
+requires a node level with the network, an open payment or signing path and
+operation readiness, though not a finished read of the chain. Sending ZRunes
+also requires current indexed coverage. Activation alone does not establish
+that an operation can complete.
 [The specification](/docs-zerdinals-and-zrunes/protocols/zrunes-v1/).
 
 ## Protocol versions

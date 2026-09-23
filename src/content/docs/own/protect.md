@@ -31,6 +31,13 @@ clear, because an output created in an unread block is indistinguishable
 from one that never carried anything. A wallet that consults the verdict
 cannot be told an unknown output is safe to spend.
 
+Paying for a new inscription, ZRune or ZkMap claim does not wait for the
+whole chain. The service proves each coin it would spend on its own: either
+the record has read the block that created it and found nothing, or the
+service's node traces it back through plain ZEC to newly mined coins or a
+shielded balance. An output that cannot be proven either way is still left
+alone. [How creating is checked](/docs-zerdinals-and-zrunes/verify/coverage/).
+
 ## Committed balances
 
 A ZRC-20 transfer happens in two steps: inscribing the transfer sets the
@@ -47,7 +54,7 @@ output you should not spend casually.
 | --- | --- | --- |
 | You spent an asset-bearing output to a normal address | The asset moved to the first transparent output's owner | If you control the destination, nothing is lost; move it deliberately next time |
 | You spent it entirely into a shielded pool | Zerdinal: tracking ended permanently. ZRune: balance burned | Nothing recovers either state; this is why the routine above exists |
-| The verdict says unchecked | Part of the chain is unread | Wait for coverage to complete; the status page shows progress |
+| The verdict says unchecked | Part of the chain is unread | Wait for coverage to complete; the status page shows progress. To pay for a new creation now, send ZEC from a shielded balance, which is proven at its first confirmation |
 
 ## Related
 
