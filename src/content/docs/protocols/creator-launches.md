@@ -96,3 +96,13 @@ and their market actions in
 - ZRune Etch Campaigns
 - Batch Merkle Airdrops
 - Non-Fungible Privacy Token (NFPT) Drops
+
+<!-- IMPLEMENTATION-HANDOFF [LP-14] | DOCS/RELEASE | preparation only
+Dependencies: LP-01 through LP-13. Governing sources and exact revisions: server handoff research/SOURCE-REGISTER.json.
+1. Update this owning documentation with the implemented 3-step design/settings/launch journey, 18% per-mint fee and separate network costs, explicit collection verification and real wallet requirements; preserve historical 15% sealed-order explanations.
+2. Document producer/manifest/receipt versions, native parent authorization and recovery, network-separated migrations, phase/refund/reveal states and actual API contracts. No claim that database sealing alone is on-chain publication or that transparent artwork is secret.
+3. Cross-link the actual accepted Testnet evidence, UI/chain/indexer readback, relevant repositories and release artifacts. Do not promote old reports, annotations or unit tests into full PASS.
+4. After every applicable functional row passes, integrate legitimate release PRs and deploy through ops/DEPLOYMENT.md with verified service names, backups and rollback. Public Mainnet exposure/revision/health receipts are required; Mainnet functional test transfers are not.
+Tests: build this documentation with its verified package scripts where present, check links/claims against new API/schema and UI, and capture public docs route after release. Commands not yet executed are NOT TESTED.
+Rollback: retain old version docs, compatible readers and paid-order recovery; disable unsafe new admission, never destroy history.
+-->
