@@ -22,8 +22,8 @@ Before spending from any address that might hold assets:
 
 The indexer publishes a per-output verdict on whether an output carries an
 asset, and it names every asset on the output rather than the first one it
-finds. Universe Wallet consults this verdict before letting a transaction
-spend an output.
+finds. This site pays fees and market funding only from outputs this
+verdict shows as asset-free.
 
 The verdict fails closed: while any part of the chain is unread, an output
 with nothing recorded against it is reported as **unchecked**, not as
