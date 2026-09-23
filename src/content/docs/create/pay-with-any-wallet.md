@@ -7,6 +7,29 @@ description: Create an inscription, etch or mint with an exact ZEC payment from 
 you are trusting and for how long, and what happens to every zatoshi you
 send, including the ones you did not need to.
 
+<!--
+IMPLEMENTATION-HANDOFF [LIVE-NOIR-D01] NW11 | F01,F07,F11,F12 | PREPARATION ONLY
+Observed: this payment guide still describes recipient-directed automatic refunds,
+while product refund-authority.ts binds only a proven original payer and otherwise
+returns UNRESOLVED. The public guide also names Universe as a supported payer.
+Sources: product82cd9295, official Noir SDK8035db61 and ZIP321; see product
+docs/implementation/noir-mainnet-20260923/SOURCE_REGISTER.md.
+1. After NW01/NW03, describe Noir as preferred and Web as the second connection
+   choice, remove Universe from offered connection/payment instructions, and keep
+   manual payment instructions without requiring a wallet connection.
+2. After NW08, replace every refund/change/late-payment destination statement with
+   the actual qualified policy. Clearly distinguish original payer from delivery
+   recipient and disclose unresolved shielded, multi-input and exchange recovery.
+3. After NW09/NW10, document only proven Private ZEC and market-invoice operations;
+   keep required unfinished functionality in the release gate, not hidden by copy.
+4. Publish matching user/developer docs after the accepted application release.
+   Verify all links, public routes, exact amounts and mobile instructions against
+   the real TESTNET journeys. Run the existing package scripts for build/link
+   validation (inspect package.json first); these commands are not yet executed.
+Acceptance: no claim of automatic refunds, native compatibility or public release
+without matching evidence. Rollback docs with application presentation while
+preserving existing recovery instructions. No prose is changed in preparation.
+-->
 ## The whole flow, in one paragraph
 
 You configure the operation, paste the address that should receive the
