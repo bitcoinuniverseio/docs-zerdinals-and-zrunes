@@ -7,41 +7,40 @@ description: Create an inscription, etch or mint with an exact ZEC payment from 
 you are trusting and for how long, and what happens to every zatoshi you
 send, including the ones you did not need to.
 
-<!--
-IMPLEMENTATION-HANDOFF [WPK-08] WPK-A18 | 2026-09-23 | PREPARATION ONLY
-Coverage: C37,C38. Defects: D11,U01. Preparation ANNOTATED; not a functional PASS.
-Verified: this page recommends Universe for ZEC and describes an older recipient-refund policy;
-current product invoice/readiness instead describes payer refunds. No refund semantics change is authorized here.
-Sources S-USER, S-NOIR, S-APP PaymentInvoicePanel/readiness and payment watcher; dependencies WPK-01/06/07.
-1. Remove current Universe recommendation. Describe Noir as preferred connection/ordinary ZEC payer,
-and Web as second connection option with a separate encrypted-browser setup and its real capabilities.
-2. Update compact-picker instructions and screenshots only after implementation; do not publish mock UI.
-3. Keep scan/copy without connection and exact payment review. Distinguish payment from protocol signing.
-4. Resolve refund copy by tracing actual sealed quote/refund policy, watcher and regression tests at accepted
-revision. Update only stale documentation once verified; never change custody policy to fit this prose.
-5. Preserve returned-source/payer privacy warnings and prior-order policy compatibility as actually implemented.
-Verify: inspect app backend refund policy tests and run this repo npm run build at accepted docs revision;
-manually validate links and reproduced user journey. Commands/build results pending runner execution.
-Acceptance: public instructions match released app, no Universe promotion or invented Noir signing.
-Rollback: publish previous compatible docs artifact if release rolls back; never discard order policy/history.
--->
 ## The whole flow, in one paragraph
 
 You configure the operation, paste the address that should receive the
 result, and review the exact operation and exact price. The page then shows
 one unique Zcash payment address with a QR code. You send that exact amount
-from anywhere that can send transparent ZEC: Universe Wallet, Zodl (formerly Zashi), YWallet,
+from anywhere that can send transparent ZEC: Noir Wallet, Zodl (formerly Zashi), YWallet,
 another wallet, an exchange withdrawal, a shielded wallet paying a
 transparent address. Then you can close the page. The server detects the
 payment, waits for confirmation, writes the operation onto the chain, and
-delivers the result to your recipient address, along with any ZEC the
-operation did not use.
+delivers the result to your recipient address. ZEC the operation did not
+use goes back to the address that paid, as described below.
 
 Scan and copy do not require a wallet connection. Optional direct payment
 opens the selected wallet's approval. Never enter a seed phrase into a
 payment page; the only place on this site that takes a recovery phrase is
 the [Web Wallet](/docs-zerdinals-and-zrunes/own/web-wallet/) import, which keeps it encrypted in your
 own browser and cannot pay an invoice.
+
+## Choosing a wallet
+
+**Choose wallet** on the payment page opens the full list of Zcash wallets,
+grouped by how each one pays: directly from this page, by opening the
+wallet, or by scanning or copying. Choosing one only opens its payment
+view. Nothing is connected, signed or sent until you approve the exact
+amount and address in the wallet itself.
+
+**Noir Wallet** is the one wallet that pays an invoice directly from this
+page. It sends ordinary ZEC and asks which funds to pay from: shielded, or
+transparent, which makes your sending address public. It cannot sign
+Zerdinals or ZRunes transactions. The **Web Wallet** signs those, but it
+does not pay invoices; use scan or copy with another wallet instead.
+Universe Wallet is no longer offered. An order it already paid is still
+followed to the end, and a new payment for it goes through the QR code or
+the copy controls.
 
 ## Payment recovery candidate
 
@@ -97,16 +96,17 @@ under Zcash's fee rules, not estimated, plus one fixed service fee of
 Between your payment and the finished operation, the service controls the
 ZEC you sent. This is temporary custody and we do not pretend otherwise:
 you send ZEC to a temporary payment address created for this order, and the
-service uses that ZEC only to complete this operation or return it to your
-recipient address.
+service uses that ZEC only to complete this operation or return it to the
+address that paid.
 
 The custody is engineered to be as small as it can be:
 
 - one key and one address per order, never pooled with anyone else's money;
 - execution starts automatically once your payment confirms;
-- an order that cannot proceed refunds automatically;
+- an order that cannot proceed refunds automatically to the verified payer;
 - the signing key lives in an isolated service that will only ever sign the
-  exact operation your order sealed, or a refund to your recipient.
+  exact operation your order sealed, or a refund to the payer it verified
+  from your first deposit.
 
 ## Underpaid, overpaid, late
 
@@ -114,20 +114,28 @@ The custody is engineered to be as small as it can be:
   and how much is still needed. Send the difference to the same address.
   Sending in several transactions is fine; the requirement is restated
   precisely if extra payment inputs change the fee.
-- **Overpaid:** the surplus is returned to your recipient address with the
-  operation itself. Overpayment is not revenue and is never kept.
+- **Overpaid:** the surplus is returned to the address that paid.
+  Overpayment is not revenue and is never kept.
 - **After expiry, after cancellation, or after completion:** money arriving
-  on the order's address is refunded to your recipient address. An expired
+  on the order's address is returned to the address that paid. An expired
   or finished order never executes again.
 
 ## If the operation cannot proceed
 
 If the operation cannot safely proceed after payment, your ZEC is returned
-to the recipient address minus the necessary refund network fee. That is
-the whole policy. There is no service deduction, and refunds go to the
-recipient address you supplied, never to a guessed sender: payments can come
-from exchanges and shielded wallets, where the sending address is not a
-place money can safely return to.
+to the address that funded the invoice, minus the necessary refund network
+fee. There is no service deduction, and a refund is never sent to the
+recipient address: the person who receives the result is not always the
+person who paid.
+
+The paying address is verified from your first deposit, and it can only be
+verified when that transaction spends a single input from an ordinary
+transparent address. A payment from a shielded wallet, or one that spends
+several inputs, as exchange withdrawals often do, has no single provable
+payer and cannot be refunded automatically.
+Its ZEC is then held on the order's own address, never sent anywhere else,
+and the order page says what is needed to release it. Pay from a single
+transparent address if an automatic refund matters to you.
 
 ## Your recovery link
 
@@ -142,4 +150,5 @@ where it stands whenever you return.
 These operations are transparent Zcash transactions. The payment address,
 the amount, the recipient address and the operation's content are public on
 the chain, permanently. Pay from a shielded wallet if the source of funds
-should stay private; what the operation itself writes is public by nature.
+should stay private, knowing that such a payment cannot be refunded
+automatically; what the operation itself writes is public by nature.

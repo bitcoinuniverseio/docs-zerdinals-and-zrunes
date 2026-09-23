@@ -6,26 +6,15 @@ description: A wallet built into the site with no extension to install. Its keys
 **Outcome:** you will know what the Web Wallet is, what it holds, what it
 can and cannot do, and how to keep it safe.
 
-<!--
-IMPLEMENTATION-HANDOFF [WPK-08] WPK-A23 | 2026-09-23 | PREPARATION ONLY
-Coverage: C37,C38. Defects: D11. Preparation ANNOTATED; not a functional PASS.
-Verified: this page calls Web the first connection entry; requested interface puts Noir first.
-Sources S-USER, S-APP actual Web Wallet contract. Dependencies WPK-02/05/07.
-1. Describe Connect a wallet, then Web Wallet (second option), then Create/Import or manage.
-2. Keep mobile More entry, backup/password/remove warnings and no direct invoice payment unchanged.
-3. Preserve factual capability/network distinctions; verify accepted Web signing availability rather
-than copying old mainnet/testnet prose into new claims. No new signing functionality is implied.
-4. Replace large action-list explanation with one small accurate screenshot only after UI is built,
-using synthetic non-secret account data. Give image useful alternative text, no phrase screenshots.
-Verify: npm run build after confirming package scripts; every local link and mobile instruction;
-compare rendered instructions against accepted app browser evidence. Do not assert release from a mockup.
-Rollback: republish docs compatible with actual app artifact, preserving wallet security guidance.
--->
 ## What it is
 
-Open **Connect a wallet** and the first entry is **Web Wallet: built into
-this browser**. Nothing to install. It creates a Zcash transparent account
-in your browser and keeps the keys there.
+Open **Connect a wallet**. Noir Wallet is the recommended first entry; the
+**Web Wallet** is the second, marked **No extension needed**. Nothing to
+install: it creates a Zcash transparent account in your browser and keeps
+the keys there.
+
+Press **Set up** to create or import one, or **Open** once it exists. Its
+view opens in the same dialog, with **Back** to return to the list:
 
 ```text
 Create Web Wallet ..... new 24-word recovery phrase, shown once
@@ -36,9 +25,13 @@ Show recovery phrase .. asks for the password, then shows the words
 Remove Wallet ......... deletes the browser copy, after a confirmation
 ```
 
+Going **Back** or closing the dialog in the middle of a step ends that
+step: nothing you typed and no recovery word stays behind.
+
 On a phone, open **More** in the bottom bar: its **Wallet** group opens
 Connect a wallet, and once the Web Wallet is connected it shows the
-address, **View balance**, **Manage wallet** and **Disconnect**. A phone
+address, **View balance**, **Manage wallet** (Connect a wallet, where
+**Open** leads to the wallet) and **Disconnect**. A phone
 cannot install an extension, which is exactly why this wallet is built in.
 
 ## Signing and availability
