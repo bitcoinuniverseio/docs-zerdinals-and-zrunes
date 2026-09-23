@@ -50,8 +50,8 @@ on what can complete today.
 
 ## The advanced path: connected wallet
 
-Where the qualified Universe Wallet release is available, the page also
-offers the connected-wallet path: your own wallet funds the commit and signs
+With the built-in Web Wallet connected, the page also offers the
+connected-wallet path: your own wallet funds the commit and signs
 every transaction itself. Its stations continue as Destination, Review, and
 Sign and follow, and everything below describes that signing.
 
