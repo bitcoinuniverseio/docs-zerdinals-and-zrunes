@@ -88,7 +88,8 @@ mint:
 4. On the payment path, the mint window is re-proved after your payment
    confirms. If the cap was reached or the window closed in between, no
    transaction is broadcast, because it would pay a fee and count for
-   nothing, and your ZEC is refunded to your recipient address instead.
+   nothing, and your ZEC is returned to the verified payer instead (see
+   [where unused ZEC goes](/docs-zerdinals-and-zrunes/create/pay-with-any-wallet/#where-unused-zec-goes)).
 
 ## Transfer
 
