@@ -7,6 +7,24 @@ description: Create an inscription, etch or mint with an exact ZEC payment from 
 you are trusting and for how long, and what happens to every zatoshi you
 send, including the ones you did not need to.
 
+<!--
+IMPLEMENTATION-HANDOFF [WPK-08] WPK-A18 | 2026-09-23 | PREPARATION ONLY
+Coverage: C37,C38. Defects: D11,U01. Preparation ANNOTATED; not a functional PASS.
+Verified: this page recommends Universe for ZEC and describes an older recipient-refund policy;
+current product invoice/readiness instead describes payer refunds. No refund semantics change is authorized here.
+Sources S-USER, S-NOIR, S-APP PaymentInvoicePanel/readiness and payment watcher; dependencies WPK-01/06/07.
+1. Remove current Universe recommendation. Describe Noir as preferred connection/ordinary ZEC payer,
+and Web as second connection option with a separate encrypted-browser setup and its real capabilities.
+2. Update compact-picker instructions and screenshots only after implementation; do not publish mock UI.
+3. Keep scan/copy without connection and exact payment review. Distinguish payment from protocol signing.
+4. Resolve refund copy by tracing actual sealed quote/refund policy, watcher and regression tests at accepted
+revision. Update only stale documentation once verified; never change custody policy to fit this prose.
+5. Preserve returned-source/payer privacy warnings and prior-order policy compatibility as actually implemented.
+Verify: inspect app backend refund policy tests and run this repo npm run build at accepted docs revision;
+manually validate links and reproduced user journey. Commands/build results pending runner execution.
+Acceptance: public instructions match released app, no Universe promotion or invented Noir signing.
+Rollback: publish previous compatible docs artifact if release rolls back; never discard order policy/history.
+-->
 ## The whole flow, in one paragraph
 
 You configure the operation, paste the address that should receive the
