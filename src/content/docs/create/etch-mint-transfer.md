@@ -37,11 +37,14 @@ Etching creates a ZRune. You choose:
 1. The name (4 to 26 letters). If the normalized name is already taken, the
    etching is void.
 2. Optional display fields: a symbol and spacers.
-3. Divisibility (0 to 18).
-4. An optional premine credited to you at etch time.
-5. Optional mint terms: amount per mint, mint cap, and an opening and
-   closing block height window. Without terms, nobody can ever mint; supply
-   is the premine alone.
+3. Divisibility (0 to 18): how finely the token can be split when it is
+   sent. It never changes the amounts you type.
+4. The total supply and an optional premine credited to you at etch time,
+   both in whole tokens.
+5. An optional amount per mint, also in whole tokens. The number of mints
+   follows from it: 21,000,000 supply at 1,000 per mint is 21,000 mints.
+   Without an amount per mint, nobody can ever mint; supply is the premine
+   alone.
 
 Etching is a two-step flow on chain because of front-running protection:
 first a commitment transaction locks a hash of your chosen name (observers
