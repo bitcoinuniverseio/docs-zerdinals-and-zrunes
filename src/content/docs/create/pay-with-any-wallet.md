@@ -1,6 +1,6 @@
 ---
 title: Pay with any wallet
-description: Create an inscription, batch, etch, mint or market purchase with an exact ZEC payment, from Noir Wallet in one click or from any wallet or exchange by QR code.
+description: Create an inscription, batch, etch or mint with an exact ZEC payment, from Noir Wallet in one click or from any wallet or exchange by QR code.
 ---
 
 **Outcome:** you will know exactly how a payment-funded order works, what
@@ -58,7 +58,9 @@ the confirmed payment on the chain moves the order forward.
 - A ZRUNES etch, including the six-confirmation commitment wait, which the
   server carries whether or not your browser is open.
 - A ZRUNES mint.
-- A purchase from a marketplace listing, where the listing offers it.
+
+Buying a marketplace listing is paid from a connected signing wallet, not
+by invoice.
 
 Moving something you already own works differently on purpose. Sending a
 ZRUNES balance or an existing Zordinal spends outputs that only your own
@@ -83,11 +85,15 @@ under Zcash's fee rules, not estimated, plus one fixed service fee of
 
 ## Private ZEC
 
-The **Private ZEC** tab pays to a shielded receiver created for the order
-instead of the transparent address. It is offered only where the private
-payment service is running for that network; otherwise the tab says it is
-unavailable and why, and the transparent invoice above still works from a
-shielded wallet.
+The **Private ZEC** tab pays to a shielded address created for the order
+instead of the transparent address. You give a shielded address for
+refunds, send the exact amount shown (the order price plus the fee to move
+it on), and the service forwards the payment to the order once it
+confirms. It is offered only where the private payment service is running
+for that network; otherwise the tab says it is unavailable and why, and the
+transparent invoice above still works from a shielded wallet. Pay it in
+one transaction: a payment split across several notes cannot be forwarded
+and is refunded when the order expires.
 
 ## What you are trusting, stated plainly
 
