@@ -62,9 +62,10 @@ becomes permanently untrackable, a ZRune balance is burned by rule).
 Everything shown comes from Universe-operated nodes reading the chain from
 the beginning. Until the read is complete, the product cannot distinguish
 "does not exist" from "not yet reached", so it tells you which situation
-you are in and shows the blocks read against the chain length. While that
-is the case, no page reports totals, and creating and transferring are
-gated on the same evidence.
+you are in where the answer appears. While that is the case, no page
+reports totals, and sending or trading assets waits for the record. Creating
+does not: inscribing, etching, minting and ZkMap claims are checked against
+the service's own node and each coin they spend.
 [What an empty result means](/docs-zerdinals-and-zrunes/verify/coverage/).
 
 ## What happens if the site cannot reach the indexer?

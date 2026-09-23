@@ -65,8 +65,9 @@ where it stopped and what the next approval is.
 
 ## How to verify after any interruption
 
-1. Check [the status page](/docs-zerdinals-and-zrunes/start/status/) or the
-   product's own status tape for coverage and freshness.
+1. Check [the status page](/docs-zerdinals-and-zrunes/start/status/) for
+   the last recorded coverage and freshness, or the order's own page for
+   where it stands now.
 2. Search the relevant txid or address in Scan; the chain record is
    the authority, and it was never at risk.
 
