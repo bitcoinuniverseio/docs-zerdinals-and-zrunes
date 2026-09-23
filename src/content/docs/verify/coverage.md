@@ -15,6 +15,22 @@ with nothing in it is not a statement that nothing exists: the records may
 sit in blocks the node has not reached. Most explorers blur this into a
 generic empty state. This one never does.
 
+<!--
+IMPLEMENTATION-HANDOFF [WA-08-A01]
+DOC-01; D-08; preparation only, executable behavior unchanged.
+Observed: This page promises a public chain-reading status tape and says creating and transferring are gated on the same full-read evidence.
+Required: Document the new public creation policy accurately, without claiming unknown reads are complete.
+Sources: USER-01; WA-00; SPEC-ZERDINALS
+Prerequisites: WA-01 through WA-07 implemented and verified before publishing changed claims
+1. Remove the promise of public coverage chrome and the statement that full history is required for creation. Explain missing/stale read results without inventing zero counts.
+2. Explain that minting/inscription use per-operation node, signing and safe-funding requirements, while read projections may catch up independently.
+3. Replace the blanket wallet refusal description with precise per-outpoint asset protection: unknown funding evidence remains unsafe, but proven inputs do not require an unrelated global scan to finish.
+4. Update linked recovery/protect/status pages only where they repeat the obsolete global-admission rule. Preserve technical diagnostic APIs and legitimate ownership safeguards.
+Verify: Use this repository's existing package scripts after inspecting package.json; verify links and generated public copy. Do not publish promises before the application acceptance gate passes.
+Evidence: record revision, network, assertions and logs; component checks are not end-to-end acceptance.
+Rollback: Rollback public documentation with the matching application release, without reintroducing the prohibited public header badge as a repair.
+-->
+
 ## The four situations
 
 1. **The chain is still being read.** The status tape shows READING THE

@@ -1,0 +1,123 @@
+[
+  {
+    "id": "USER-01",
+    "type": "Product policy",
+    "version": "2026-09-23 request",
+    "requirements": "No public coverage chrome; global chain reading must not block mint/inscribe; fix map selection; preserve this rule."
+  },
+  {
+    "id": "USER-02",
+    "type": "Assignment method",
+    "version": "Pasted text(20260923-213349).txt",
+    "requirements": "This phase annotates only; next phase implements, tests on supported public test network and releases. Full ZIP plus exact prompt required."
+  },
+  {
+    "id": "ZIP-225",
+    "type": "Zcash specification",
+    "url": "https://zips.z.cash/zip-0225",
+    "repository": "zcash/zips",
+    "version": "afa086bd976e316612a5c06fb139429958d07d84",
+    "sourcePath": "zips/zip-0225.rst",
+    "accessed": "2026-09-23",
+    "requirements": "Transaction format and branch/expiry fields"
+  },
+  {
+    "id": "ZIP-244",
+    "type": "Zcash specification",
+    "url": "https://zips.z.cash/zip-0244",
+    "repository": "zcash/zips",
+    "version": "afa086bd976e316612a5c06fb139429958d07d84",
+    "sourcePath": "zips/zip-0244.rst",
+    "accessed": "2026-09-23",
+    "requirements": "Transaction identifier and signature digests; do not use Bitcoin signing assumptions"
+  },
+  {
+    "id": "ZIP-317",
+    "type": "Zcash specification",
+    "url": "https://zips.z.cash/zip-0317",
+    "repository": "zcash/zips",
+    "version": "afa086bd976e316612a5c06fb139429958d07d84",
+    "sourcePath": "zips/zip-0317.rst",
+    "accessed": "2026-09-23",
+    "requirements": "Exact conventional fee from actual transaction shape"
+  },
+  {
+    "id": "ZIP-203",
+    "type": "Zcash specification",
+    "url": "https://zips.z.cash/zip-0203",
+    "repository": "zcash/zips",
+    "version": "afa086bd976e316612a5c06fb139429958d07d84",
+    "sourcePath": "zips/zip-0203.rst",
+    "accessed": "2026-09-23",
+    "requirements": "Transaction expiry and rejection/recovery boundary"
+  },
+  {
+    "id": "RPC-01",
+    "url": "https://zcash.github.io/rpc/getblockchaininfo.html",
+    "version": "RPC reference 6.12.2 observed 2026-09-23",
+    "requirements": "Current network/height/nextblock branch; reference method contract, not proof of deployed Zebra version."
+  },
+  {
+    "id": "RPC-02",
+    "url": "https://zcash.github.io/rpc/gettxout.html",
+    "version": "RPC reference 6.12.2 observed 2026-09-23",
+    "requirements": "Current unspent value/script is distinct from absence of metaprotocol assets."
+  },
+  {
+    "id": "NETWORK-01",
+    "url": "https://zebra.zfnd.org/user/custom-testnets.html",
+    "version": "Official Zebra documentation accessed 2026-09-23",
+    "requirements": "Use native Zcash Testnet here; Bitcoin Signet is not the implemented network. Never use sample activation values as production configuration."
+  },
+  {
+    "id": "A11Y-01",
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/grid/",
+    "version": "APG grid pattern accessed 2026-09-23",
+    "requirements": "Retain roving focus, keyboard navigation and accurate selected/disabled state."
+  },
+  {
+    "id": "SPEC-ZERDINALS",
+    "type": "Repository specification/reference",
+    "url": "https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/blob/e1bf89ca9357bfdc8768fbe24b5a9513bccfbb5d/docs/protocol/ZERDINALS-V1.md",
+    "version": "e1bf89ca9357bfdc8768fbe24b5a9513bccfbb5d",
+    "file": "docs/protocol/ZERDINALS-V1.md",
+    "requirements": "v1 envelope, content commitment, transparent ownership, safe inputs, signing and recovery.",
+    "accessed": "2026-09-23"
+  },
+  {
+    "id": "SPEC-ZRUNES",
+    "type": "Repository specification/reference",
+    "url": "https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/blob/e1bf89ca9357bfdc8768fbe24b5a9513bccfbb5d/docs/protocol/ZRUNES-V1.md",
+    "version": "e1bf89ca9357bfdc8768fbe24b5a9513bccfbb5d",
+    "file": "docs/protocol/ZRUNES-V1.md",
+    "requirements": "OP_14; exact id/payload; six-block etch maturity; supply/cap/window; zero allocation is not success.",
+    "accessed": "2026-09-23"
+  },
+  {
+    "id": "SPEC-ZKMAP",
+    "type": "Repository specification/reference",
+    "url": "https://github.com/bitcoinuniverseio/index-zcash-metaprotocols/blob/895cf81e413092a374890d42b1466bb433fb0b2f/src/projections/zkmap.mjs",
+    "version": "895cf81e413092a374890d42b1466bb433fb0b2f",
+    "file": "src/projections/zkmap.mjs",
+    "requirements": "Exact text/plain height name; target below completion; first eligible completion wins; later claims lose; burned winner remains occupied.",
+    "accessed": "2026-09-23"
+  },
+  {
+    "id": "SPEC-ZRC20",
+    "type": "Repository specification/reference",
+    "url": "https://github.com/bitcoinuniverseio/index-zcash-metaprotocols/blob/895cf81e413092a374890d42b1466bb433fb0b2f/src/zrc20/rules.mjs",
+    "version": "895cf81e413092a374890d42b1466bb433fb0b2f",
+    "file": "src/zrc20/rules.mjs",
+    "requirements": "Existing ruleset identity is binding. Focused implementation review of this rules module and state.mjs is still required before finalizing raw-intent amount validation; no invented precision or alternate reading.",
+    "accessed": "2026-09-23"
+  },
+  {
+    "id": "SPEC-ZRC721",
+    "type": "Repository specification/reference",
+    "url": "https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/blob/e1bf89ca9357bfdc8768fbe24b5a9513bccfbb5d/docs/protocol/COLLECTIONS-V1.md",
+    "version": "e1bf89ca9357bfdc8768fbe24b5a9513bccfbb5d",
+    "file": "docs/protocol/COLLECTIONS-V1.md",
+    "requirements": "Preserve offered collection/item wrappers and exact existing inscription semantics; this task does not invent a new NFT protocol.",
+    "accessed": "2026-09-23"
+  }
+]
