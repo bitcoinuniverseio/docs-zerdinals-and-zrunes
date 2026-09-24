@@ -469,7 +469,7 @@ as exact decimal strings.
 | Operation | Purpose |
 | --- | --- |
 | `GET /api/zkmap/blocks?start=&limit=` | A window of statuses, occupancy proof, block hashes, winners and owners (limit up to 1024) |
-| `GET /api/zkmap/blocks?start=&limit=&view=draft` | The map for picking blocks while the reading catches up (`zkmap-blocks-draft-v1`): the node tip, the projection checkpoint or null, a `strict` flag, and one status per height up to the node tip. Unknown is never available |
+| `GET /api/zkmap/blocks?start=&limit=&view=draft` | The map for picking blocks while the reading is incomplete (`zkmap-blocks-draft-v1`): the node tip, the projection checkpoint or null, a `strict` flag, and one status per height up to the node tip. Unknown is never available |
 | `GET /api/zkmap/blocks/{height}` | One block's status, occupancy proof, winner and owner |
 | `GET /api/zkmap/blocks/{height}/geometry` | The SVG editions' input: ordered transaction byte sizes and their digest |
 | `GET /api/zkmap/blocks/{height}/art.svg?art=&network=&size=&hash=` | The SVG district picture at 256, 512 or 1024; every edition after v1 needs the network it was observed on |
