@@ -460,37 +460,22 @@ longer than any QR can hold says so and points at the copy and
 open-in-wallet controls, which carry the identical request. The address, the
 exact amount and the instructions never change with the symbol.
 
-<!--
-IMPLEMENTATION-HANDOFF [ZMC-12] ZMC-A24 | 2026-09-24 | PREPARATION ONLY
-Coverage: R01-R20,R28-R59,R74-R80. Findings: F01,F02,F03,F05,F09. Preparation: ANNOTATED, not
-implemented or released.
-Sources: S01,S02,S03,S04,S05,S08,S14 in the bundled RESEARCH.md. Prerequisites: ZMC-07,ZMC-08,ZMC-09.
-Verified current behavior: The public specification documents claim/owner/art rules and the legacy
-listing rail. The requested all-district terminal and its qualified filter/offer contracts are not
-documented here.
-1. After implementation and evidenced acceptance, describe All/Listed/Unlisted as current winning
-districts, listed-first ordering, exact ZEC prices and null unlisted prices. Explain that unclaimed
-blocks remain in the atlas/mint flow and burned/shielded winners remain occupied but untradeable.
-2. Document existing 109-key catalog adaptation with known/unknown/not-applicable states, applicable
-Zcash filters, full-scope counts and current observable holder scope. Do not import Bitcoin-only
-rarity or private shielded-value claims.
-3. Add accepted API query/response/pagination/freshness/reset behavior and actual chart/activity
-provenance. Explain that offers are application orders over qualified winners, not a new on-chain
-zkMap protocol; collection/instant-sell/cart documentation requires actual native Testnet proof.
-4. Update buying-and-selling navigation/screenshots together, preserve
-creation/transfer/cancel/refund/recovery documentation, and publish actual release status only after
-ZMC-11 receipts. No secrets, internal host credentials or unverified release promises.
-Tests / execution prerequisites: Run this repository's actual package.json documented build/check
-scripts after implementation. Preparation validates HTML-comment-only changes preserve all rendered
-non-comment bytes. Cross-check public text against CONTRACTS.md and native Testnet/release evidence.
-Acceptance: User docs match the implemented/verified/released feature and distinguish read
-observations, signed offers, confirmed ownership and private/unknown data.
-Rollback / security: Revert only incorrect prose/screenshots to the last verified state, retaining
-valid protocol rules and recovery guidance.
-Shared contract and index:
-zerdinals-and-zrunes/docs/implementation/zkmap-core-20260924/{CONTRACTS.md,WORK-PACKAGES.md,ANNOTATION-INDEX.json}.
-Preserve executable behavior in this preparation stage.
--->
+### The district market
+
+The market at `/market/zkmap` is built from the winning districts, not
+from listings: every district is shown whether or not it was ever listed,
+and a listing is attached to the district it sells. The market's copy of the
+districts is refreshed from the indexer continuously and is only published
+once it is complete, so a half-read market is never shown as the whole one.
+The copy is for browsing; a purchase still reads the claim receipt and the
+live output of the winning inscription when it happens.
+
+Offers on "any zkMap district" are ordinary market orders over the reserved
+collection `zkmap-v1:all`: a district belongs to it exactly when its
+inscription is the current winner of its block and is held at the output the
+seller names. This is an application rule of the market, not a new on-chain
+protocol, and it does not change who wins a block.
+
 ## 9. Public API
 
 All operations are under the `zkmap` tag of the
@@ -513,6 +498,11 @@ as exact decimal strings.
 | `POST /api/zkmap/invoices`, `POST /api/zkmap/invoices/batch` | Pay-from-any-wallet mint of one, or up to 24, block numbers |
 | `GET /api/zkmap/orders/{orderId}/claim` | The claim outcome of a connected-wallet mint order |
 | `GET /api/zkmap/payment-orders/{orderId}/claims` | The claim outcomes of an invoice mint |
+| `GET /api/zkmap/market` | Every winning district, listed first, with filters (`status`, `q`, price, block range, `owner`, `traits`) applied to the whole market; unlisted districts have no ask and no price |
+| `GET /api/zkmap/market/facets` | Per-trait counts over the selected districts, each trait counted without its own selection |
+| `GET /api/zkmap/market/holders` | Current holders of the selected districts |
+| `GET /api/zkmap/market/history?window=` | Confirmed district sales only: count, exact volume, last, high, low and the sale points |
+| `GET /api/zkmap/market/activity?kind=` | District sales, listings and delistings, newest first |
 
 Every response is bound to the indexer checkpoint (height and hash) it was
 read at, or says it has none. A mint order's claim outcome (`pending`, `accepted`, `conflict`,
