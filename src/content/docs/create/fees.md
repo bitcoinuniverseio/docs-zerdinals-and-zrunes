@@ -39,9 +39,10 @@ fan-out fee that splits one payment per item, and one fixed service fee of
 for a single inscription, a batch, an etch or a mint, it is shown as its
 own line on the invoice, and it never applies to a transfer, which your own
 wallet signs, or to a launch mint, which carries the platform share below
-instead. Any ZEC the operation does not use is returned to your
-recipient address, so overpaying an invoice costs nothing but the wait for
-its return.
+instead. Any ZEC the operation does not use goes back to the address
+that paid, never to the recipient address by default
+([where unused ZEC goes](/docs-zerdinals-and-zrunes/create/pay-with-any-wallet/#where-unused-zec-goes)),
+so overpaying an invoice costs nothing but the wait for its return.
 
 ## The platform share on launch mints
 

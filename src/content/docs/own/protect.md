@@ -22,14 +22,21 @@ Before spending from any address that might hold assets:
 
 The indexer publishes a per-output verdict on whether an output carries an
 asset, and it names every asset on the output rather than the first one it
-finds. Universe Wallet consults this verdict before letting a transaction
-spend an output.
+finds. The product consults this verdict before any transaction it builds
+spends an output.
 
 The verdict fails closed: while any part of the chain is unread, an output
 with nothing recorded against it is reported as **unchecked**, not as
 clear, because an output created in an unread block is indistinguishable
 from one that never carried anything. A wallet that consults the verdict
 cannot be told an unknown output is safe to spend.
+
+Paying for a new inscription, ZRune or ZkMap claim does not wait for the
+whole chain. The service proves each coin it would spend on its own: either
+the record has read the block that created it and found nothing, or the
+service's node traces it back through plain ZEC to newly mined coins or a
+shielded balance. An output that cannot be proven either way is still left
+alone. [How creating is checked](/docs-zerdinals-and-zrunes/verify/coverage/).
 
 ## Committed balances
 
@@ -46,8 +53,8 @@ output you should not spend casually.
 | Situation | What happens | What to do |
 | --- | --- | --- |
 | You spent an asset-bearing output to a normal address | The asset moved to the first transparent output's owner | If you control the destination, nothing is lost; move it deliberately next time |
-| You spent it entirely into a shielded pool | Zerdinal: tracking ended permanently. ZRune: balance burned | Nothing recovers either state; this is why the routine above exists |
-| The verdict says unchecked | Part of the chain is unread | Wait for coverage to complete; the status page shows progress |
+| You spent it entirely into a shielded pool | Zordinal: tracking ended permanently. ZRune: balance burned | Nothing recovers either state; this is why the routine above exists |
+| The verdict says unchecked | Part of the chain is unread | Wait for coverage to complete; the status page shows progress. To pay for a new creation now, send ZEC from a shielded balance, which is proven at its first confirmation |
 
 ## Related
 

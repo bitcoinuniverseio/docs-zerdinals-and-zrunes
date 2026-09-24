@@ -119,7 +119,7 @@ prepared operation is never shown as settled.
 ## ZkMap block numbers are not ZNS names
 
 A ZkMap block number such as `1500000.zkmap` is not a registry name and never
-passes through the Names Hub. It is a Zerdinal inscription whose text is
+passes through the Names Hub. It is a Zordinal inscription whose text is
 exactly `<height>.zkmap`, and the block it names belongs to whoever holds the
 winning inscription's output. Nothing resolves it to a destination address, no
 registry can transfer or expire it, and the ambiguity and confusable checks

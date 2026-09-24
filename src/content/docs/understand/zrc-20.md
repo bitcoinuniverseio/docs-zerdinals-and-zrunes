@@ -9,7 +9,7 @@ that without picking a winner.
 
 ## Plain language
 
-ZRC-20 is the token standard carried inside legacy Zerdinals inscriptions. A
+ZRC-20 is the token standard carried inside legacy Zordinals inscriptions. A
 token is deployed, minted, and moved by writing small JSON documents into
 Zcash transactions. Nothing about it is a separate chain, a bridge, or a
 wrapper: every balance is reconstructable from Zcash blocks alone.
@@ -101,6 +101,6 @@ never presented as proof that something does not exist.
 
 ## Related
 
-- [Zerdinals](/docs-zerdinals-and-zrunes/understand/zerdinals/)
+- [Zordinals](/docs-zerdinals-and-zrunes/understand/zerdinals/)
 - [Scan](/docs-zerdinals-and-zrunes/verify/zordiscan/)
 - [Transparent and shielded](/docs-zerdinals-and-zrunes/understand/transparent-and-shielded/)

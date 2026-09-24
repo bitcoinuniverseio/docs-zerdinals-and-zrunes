@@ -3,7 +3,7 @@ title: Current status
 description: "What is live, what is gated, and when each fact was last verified against the product and the chain, with the scanned height and the deployed commit behind every claim."
 ---
 
-**Every creation operation was open on mainnet when checked on 23 September 2026.** Inscribing single files and batches, sending Zerdinals and ZRunes, etching and minting ZRunes, claiming zkMap blocks, and listing and buying on the market were all accepting new orders from a connected wallet. Inscribing, etching, minting and zkMap claims could also be paid from any wallet; sending, listing and buying need your own wallet to sign. Each of them was run end to end on the public Zcash testnet before that release went live.
+**Every creation operation was open on mainnet when checked on 23 September 2026.** Inscribing single files and batches, sending Zordinals and ZRunes, etching and minting ZRunes, claiming zkMap blocks, and listing and buying on the market were all accepting new orders from a connected wallet. Inscribing, etching, minting and zkMap claims could also be paid from any wallet; sending, listing and buying need your own wallet to sign. Each of them was run end to end on the public Zcash testnet before that release went live.
 
 Availability changes with the chain and the service, so treat the observations below as dated facts, not a promise. The product and `https://zrunes.io/api/readiness` always say what is open right now.
 
@@ -75,17 +75,19 @@ by rule, so before that height nothing can be etched or minted and no ZRune
 exists. This is a protocol fact that any independent node reading the chain
 reproduces, not a setting on the product's side.
 
-The product reads chain progress from its own indexer. Reaching activation
-height is one prerequisite: creating or minting also requires current indexed
-coverage, wallet signing qualification and operation readiness. Activation
-alone does not establish that an operation can complete.
+The product measures activation against its own Zcash node's height.
+Reaching activation height is one prerequisite: etching or minting also
+requires a node level with the network, an open payment or signing path and
+operation readiness, though not a finished read of the chain. Sending ZRunes
+also requires current indexed coverage. Activation alone does not establish
+that an operation can complete.
 [The specification](/docs-zerdinals-and-zrunes/protocols/zrunes-v1/).
 
 ## Protocol versions
 
 | Protocol | Version | State |
 | --- | --- | --- |
-| Zerdinals | {status.protocolVersions.zerdinals} | Active on mainnet; also reads the pre-existing legacy envelope |
+| Zordinals | {status.protocolVersions.zerdinals} | Active on mainnet; also reads the pre-existing legacy envelope |
 | ZRunes | {status.protocolVersions.zrunes} | Specified; mainnet activation at block {status.zrunes.activationHeight.toLocaleString('en-US')} |
 | Collections | {status.protocolVersions.collections} | Active: parent-by-spend verification live in the product |
 

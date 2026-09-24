@@ -8,9 +8,13 @@ can and cannot do, and how to keep it safe.
 
 ## What it is
 
-Open **Connect a wallet** and the first entry is **Web Wallet: built into
-this browser**. Nothing to install. It creates a Zcash transparent account
-in your browser and keeps the keys there.
+Open **Connect a wallet**. Noir Wallet is the recommended first entry; the
+**Web Wallet** is the second, marked **No extension needed**. Nothing to
+install: it creates a Zcash transparent account in your browser and keeps
+the keys there.
+
+Press **Set up** to create or import one, or **Open** once it exists. Its
+view opens in the same dialog, with **Back** to return to the list:
 
 ```text
 Create Web Wallet ..... new 24-word recovery phrase, shown once
@@ -21,9 +25,13 @@ Show recovery phrase .. asks for the password, then shows the words
 Remove Wallet ......... deletes the browser copy, after a confirmation
 ```
 
+Going **Back** or closing the dialog in the middle of a step ends that
+step: nothing you typed and no recovery word stays behind.
+
 On a phone, open **More** in the bottom bar: its **Wallet** group opens
 Connect a wallet, and once the Web Wallet is connected it shows the
-address, **View balance**, **Manage wallet** and **Disconnect**. A phone
+address, **View balance**, **Manage wallet** (Connect a wallet, where
+**Open** leads to the wallet) and **Disconnect**. A phone
 cannot install an extension, which is exactly why this wallet is built in.
 
 ## Signing and availability
@@ -35,8 +43,8 @@ address alone does not mean that an operation is ready.
 | Operation | Availability |
 | --- | --- |
 | Connect, restore after reload and read a classified transparent balance | Available when the wallet and balance service can answer. |
-| Zerdinal inscription or transfer; ZRune deploy, mint or transfer | Supported signing versions open a review and ask for your wallet password. The app must also report the operation ready. |
-| Market listing and purchase with the Web Wallet | On test networks: list a Zerdinal, a ZRune lot or a ZRC-20 lot, buy one, and revoke your own listing, each after a review that shows the asset, quantity, payout or total debit, fees, delivery address and expiry. Proven in the browser on public testnet on 2026-09-17. A ZRC-20 lot is priced in zatoshis per base unit, so a token deployed with decimals cannot be listed at an ordinary total; zero-decimal tokens list normally. Mainnet marketplace signing stays unavailable until the production release that carries it. |
+| Zordinal inscription or transfer; ZRune deploy, mint or transfer | Supported signing versions open a review and ask for your wallet password. The app must also report the operation ready. |
+| Market listing and purchase with the Web Wallet | On test networks: list a Zordinal, a ZRune lot or a ZRC-20 lot, buy one, and revoke your own listing, each after a review that shows the asset, quantity, payout or total debit, fees, delivery address and expiry. Proven in the browser on public testnet on 2026-09-17. A ZRC-20 lot is priced in zatoshis per base unit, so a token deployed with decimals cannot be listed at an ordinary total; zero-decimal tokens list normally. Mainnet marketplace signing stays unavailable until the production release that carries it. |
 | Direct service-invoice payment or a standalone ZEC send | Unavailable in the Web Wallet. |
 
 Before approving, check the selected network, asset, quantity, recipient,
@@ -96,7 +104,7 @@ remove the current one first.
 from the configured node and the indexer's verdict on each. It shows:
 
 - the total tracked, and how much of it is clean and spendable;
-- how much sits on outputs that carry a Zerdinal or ZRune (spending one
+- how much sits on outputs that carry a Zordinal or ZRune (spending one
   moves the asset with it);
 - how much sits on outputs the indexer has not scanned yet;
 - the node height and block hash the figures are true at, and when they
@@ -112,8 +120,7 @@ its own node and its own scanned index, and a request carries the wallet's
 network with it, so one network can never answer for the other. Choose any
 other network and the page says so instead of showing a figure.
 
-A balance can be briefly unavailable while the node is between blocks or
-catching up. That is the page refusing to guess, not a problem with your
+A balance can be briefly unavailable while the node is between blocks. That is the page refusing to guess, not a problem with your
 wallet. **Refresh** picks it up again as soon as the service answers.
 
 The wallet and the balance service must use the same network. A testnet

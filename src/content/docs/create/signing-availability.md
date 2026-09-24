@@ -1,6 +1,6 @@
 ---
 title: Signing availability
-description: "What gates each way of creating, why the connected-wallet path waits on a qualified wallet release, and how you will know the moment each one of them opens."
+description: "What gates each way of creating, why neither waits for the chain to be read, why the connected-wallet path waits on a qualified wallet release, and how you will know the moment each one of them opens."
 ---
 
 **Outcome:** you will know exactly why write flows are gated, what has to be
@@ -20,12 +20,18 @@ Creating has two paths, and each is gated on its own facts:
   described below. A ZRune transfer is connected-wallet only, honestly,
   because it spends outputs only your own key can sign.
 
-Each create page shows availability and the next useful action above the form.
-Open **Service details** for the individual dependency states and technical
-reasons. Changing wallets does not repair a service outage.
+Neither path waits for the record to finish reading the chain. Creating
+checks only what the transaction itself needs, from the service's own Zcash
+node: the right network, a usable chain height, the next block's signing
+rules, ZRunes activation where it applies, and funding proven free of assets
+output by output. Sending, listing and buying keep waiting for the full
+record, because they move assets the record has to see first.
+[Why creating does not wait](/docs-zerdinals-and-zrunes/verify/coverage/).
 
-A **Catching up** indicator means blocks remain to be read. It does not prove
-that historical protocol qualification is complete.
+Each create page shows, beside its submit button, whether the order can be
+sent now and the one thing holding it if not. Open **Service details** for
+the individual dependency states and technical reasons. Changing wallets does
+not repair a service outage.
 
 A **Wrong network** indicator is the one you can clear yourself: the network
 selected in this browser is not the one this deployment serves, so prices,
@@ -34,10 +40,9 @@ open the deployment that serves the network you want. Nothing is prepared,
 quoted or signed while the two disagree, and an order already accepted is
 unaffected.
 
-The form itself appears only when the deployment will actually accept the
-order it produces. That is deliberate. A form you can fill in and submit,
-which then refuses, reads as a failure you caused; a page that says plainly
-what it is waiting for does not.
+The form itself is always there. You can write and edit a draft whatever
+the service is doing, and a slow or failed check never clears it; only the
+submit button waits for the service to say yes.
 
 [The status page](/docs-zerdinals-and-zrunes/start/status/) records dated
 observations. Use the create page or `/api/readiness` for current availability.
@@ -54,9 +59,13 @@ than assumed:
    requires.
 4. That authorization covers the specific operation being asked for, not
    merely the protocol.
-5. The database, the Zcash node and the indexer are all answering.
-6. The indexer has read the whole chain and is level with the node.
-7. The protocol itself has activated on this network.
+5. The database and the Zcash node are answering, and the node is level
+   with the network.
+6. The protocol itself has activated on this network.
+
+For sending a Zordinal or a ZRune, the record must also have read the whole
+chain and be level with the node, because a send spends outputs the record
+has to vouch for.
 
 Anything unknown counts as closed. A deployment that cannot establish one of
 these does not guess.
@@ -72,10 +81,10 @@ without an index:
    Money sent to a commit nobody can spend is not recoverable, and the page
    asking for the signature is not a source the wallet can take an address
    from on trust.
-2. The wallet must check every input against the per-output asset verdict,
-   so signing a transaction cannot accidentally spend an output that
-   carries an artifact. That verdict fails closed while any block is
-   unread.
+2. Every input must be checked against per-output asset evidence, so
+   signing a transaction cannot accidentally spend an output that carries
+   an artifact. An output that cannot be proven clean is treated as unsafe
+   and left alone.
 3. The wallet must display the exact effects of the transaction it is
    signing, byte-bound to the template it received, and refuse anything it
    cannot fully account for. It recomputes the template's own hash, so a
@@ -113,9 +122,9 @@ a real chain.
 
 ## How you will know
 
-When signing is available, the create pages show their forms and the live
-readiness endpoint reports that the operation is open. A dated documentation
-snapshot does not override these live checks.
+When signing is available, the create pages enable their submit buttons
+and the live readiness endpoint reports that the operation is open. A dated
+documentation snapshot does not override these live checks.
 
 You can read the same answer the pages read:
 
