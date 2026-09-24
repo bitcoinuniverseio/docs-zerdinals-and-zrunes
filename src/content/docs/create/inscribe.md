@@ -8,10 +8,12 @@ approval means, and how batches behave, so that when you run it nothing
 surprises you.
 
 :::caution[Availability today]
-The page states, before anything else on it, whether inscribing is open on
-this deployment and what is holding it if not. The wizard appears only when
-an order can actually be accepted, so nothing here asks you to choose a file
-for an operation that was never going to complete. Nothing below is
+The wizard is always there, so you can prepare a draft at any time. Beside
+the submit button the page says whether inscribing is open on this
+deployment and what is holding it if not. Inscribing does not wait for the
+record to finish reading the chain; it needs the service's own node, an
+open payment or signing path, and funding proven free of assets
+([why](/docs-zerdinals-and-zrunes/verify/coverage/)). Nothing below is
 speculative; it describes the flow as built, and
 [the status page](/docs-zerdinals-and-zrunes/start/status/) is the authority
 on what can complete today.
@@ -130,8 +132,9 @@ A block number is a Zerdinal whose text is exactly `<height>.zkmap`, and the
 first eligible claim completed on chain wins that block. The rules are in the
 [ZkMap v1 specification](/docs-zerdinals-and-zrunes/protocols/zkmap/); this
 section is the mint flow as built, at `/create/zkmap`, with the map at
-`/explore/zkmap`. The page states, before anything else, whether minting is
-open on this deployment.
+`/explore/zkmap`. The page says, beside its submit button, whether minting
+is open on this deployment. Minting does not wait for the map to finish
+reading the chain.
 
 ### Picking blocks on the map
 
@@ -140,16 +143,23 @@ rows), one cell per height, each cell a real verdict from the indexer at its
 checkpoint. The window header says which block the reading is as of, and how
 many cells in the window are available and claimed. The legend is:
 
-- **Available**: no eligible claim completed up to the checkpoint. Only these
-  cells can be selected.
+- **Available**: no eligible claim completed up to the checkpoint.
+- **Pending**: another claim for the block is waiting to be mined. It has
+  not won yet.
+- **Unknown**: the map could not vouch for the height right now, usually
+  because it is still reading. Unknown is never drawn as available.
 - **Claimed**: a winner exists. The list under the map names it.
-- **Not mined yet**: the height is above the checkpoint.
+- **Not mined yet**: the block does not exist yet.
 - **Not claimable**: the height cannot be claimed; the block page says why.
-- **Unknown**: the indexer could not vouch for the height. Unknown is never
-  drawn as available, and a window the map cannot read is reported as a read
-  failure rather than as empty cells.
 
-Click an available cell to select it, or use the keyboard: the map is a grid,
+Available, Pending and Unknown cells can all be selected, and each keeps its
+own label. Selecting a Pending or Unknown block proposes a claim attempt:
+nothing is reserved, and another claim may win. Claimed, Not mined yet and
+Not claimable cells cannot be selected. If the map cannot be read at all, the
+window is drawn as unknown up to the node's current height with a small
+retry line, and your selection is kept.
+
+Click a cell to select it, or use the keyboard: the map is a grid,
 arrow keys move between cells, Home and End jump to the first and last cell
 of the window, and Space or Enter selects the focused cell. A "List of blocks
 in this window" disclosure under the map names every cell with its status and
@@ -160,7 +170,7 @@ A selection can also be typed: heights and inclusive ranges separated by
 commas, spaces or new lines (`0, 7, 100-124`, lower height first). A
 selection holds up to 1,000 blocks, persists in your browser across windows
 and reloads, and feeds the mint page. Typed heights are added as requested;
-whether each one is actually available is decided by the mint page's
+whether each one can be attempted is decided by the mint page's
 preflight. If the map refreshes and a selected block has been claimed by
 someone else, it leaves your selection and the page tells you which ones.
 
@@ -174,10 +184,12 @@ The mint page at `/create/zkmap` has three stations.
 
 1. **Blocks.** The selection from the map, from the URL
    (`/create/zkmap?heights=...`), or typed here. The first 24 are checked
-   for availability as soon as they are listed, and any that are not
-   available are named with their status and will not be minted. If the
-   check itself fails, the page says so and checks again before anything is
-   minted.
+   as soon as they are listed. Blocks known to be lost (claimed, not mined
+   yet, not claimable) are listed with one button to remove them, and
+   nothing is sent until they are gone. Blocks with no known status, or with
+   another claim pending, can go ahead: the page says that nothing is
+   reserved and another claim may win. If the check itself fails, the page
+   says so and you can still continue on the same terms.
 2. **Recipient and payment.** One transparent address receives every name,
    one inscription each. The same two paths as any inscription apply: pay
    with any wallet, or sign with a connected wallet.
@@ -192,9 +204,10 @@ the network fees for each inscription plus the same fixed service fee of
 0.003 ZEC per invoice as every other creation on this site
 ([fees](/docs-zerdinals-and-zrunes/create/fees/)). Send the ZEC from any
 wallet or exchange. When the payment confirms, the service rechecks every
-name, inscribes the ones still available to your recipient, and returns any
-surplus. If a name was claimed by someone else before the payment was
-executed, the unspent payment is refunded to the verified payer. Creating
+name and inscribes to your recipient unless a name is by then known to be
+claimed; an unknown status does not hold the payment up, and the chain
+decides. If a name is known to be claimed by someone else before the payment
+is executed, the unspent payment is refunded to the verified payer. Creating
 the invoice opens its order page, where payment, delivery and the claim
 outcome of each name are followed.
 
@@ -202,8 +215,8 @@ On the connected-wallet path, each chunk is prepared as one order per name,
 funded disjointly from the connected address. The page shows the exact miner
 fees and postage from the templates, then a per-item list: each name with
 its state (Ready to sign, Signing, Signed and broadcast; claim pending) and
-its own Sign button, taken in order. A name that is no longer available is
-reported in place and never signed. Declining one name in the wallet cancels
+its own Sign button, taken in order. A name that is known to be claimed by
+then is reported in place and never signed. Declining one name in the wallet cancels
 only that name; the others are unaffected. A prepared or signed item has an
 Order link to its own order page.
 
@@ -212,8 +225,9 @@ Order link to its own order page.
 Every name is decided on chain, not by the page. A mint order and its claim
 have separate outcomes:
 
-- **Claim pending**: the inscription is broadcast or confirming; nobody has
-  decided yet.
+- **Pending verification**: the inscription is broadcast or confirming;
+  nobody has decided yet. Every mint is an attempt, and its outcome arrives
+  later, from the chain.
 - **Claim accepted**: the indexer confirmed this inscription won its block.
   The item links to the block page at `/zkmap/<height>`.
 - **Lost to an earlier claim**: the inscription completed, but another claim

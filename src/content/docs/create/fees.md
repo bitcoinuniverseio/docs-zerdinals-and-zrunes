@@ -46,9 +46,10 @@ fan-out fee that splits one payment per item, and one fixed service fee of
 **0.003 ZEC (300,000 zatoshis)** per invoice. The service fee is the same
 for a single inscription, a batch, an etch or a mint, it is shown as its
 own line on the invoice, and it never applies to a transfer, which your own
-wallet signs. Any ZEC the operation does not use is returned to your
-recipient address, so overpaying an invoice costs nothing but the wait for
-its return.
+wallet signs. Any ZEC the operation does not use goes back to the address
+that paid, never to the recipient address by default
+([where unused ZEC goes](/docs-zerdinals-and-zrunes/create/pay-with-any-wallet/#where-unused-zec-goes)),
+so overpaying an invoice costs nothing but the wait for its return.
 
 ## The launch commission on primary sales
 
