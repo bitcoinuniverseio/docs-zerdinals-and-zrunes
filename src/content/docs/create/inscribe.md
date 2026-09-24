@@ -52,9 +52,10 @@ on what can complete today.
 
 ## The advanced path: connected wallet
 
-With the built-in Web Wallet connected, the page also offers the
-connected-wallet path: your own wallet funds the commit and signs
-every transaction itself. Its stations continue as Destination, Review, and
+When a wallet that signs Zordinals, such as the Web Wallet, is connected,
+the page also offers the connected-wallet path: your own wallet funds the
+commit and signs every transaction itself. Noir Wallet pays invoices but
+does not sign these transactions. Its stations continue as Destination, Review, and
 Sign and follow, and everything below describes that signing.
 
 ## What you are approving on the connected-wallet path

@@ -26,6 +26,10 @@ result to your recipient address.
 | **Web Wallet** (built into this site) | Signs Zordinals, ZRUNES and marketplace transactions, but it does not pay invoices. Use one of the other options to pay. |
 | **Any other wallet or exchange** | Scan the QR code or copy the address and exact amount. No connection is needed. |
 
+Universe Wallet is no longer offered. An order it already paid is still
+followed to the end, and a new payment for it goes through the QR code or
+the copy controls.
+
 When Noir is connected on the right network, a new invoice opens with Noir
 already selected. Choosing another wallet, or paying by QR code, is always
 one tap away, and a payment you already started is never moved to another
