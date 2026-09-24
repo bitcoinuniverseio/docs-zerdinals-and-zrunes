@@ -16,13 +16,21 @@
       "networks": [
         "mainnet"
       ]
+    },
+    {
+      "chain": "bitcoin",
+      "networks": [
+        "mainnet",
+        "signet"
+      ]
     }
   ],
   "protocols": [
     "zerdinals",
     "zrunes",
     "zrc-20",
-    "zkmap"
+    "zkmap",
+    "shielded-bitcoin"
   ],
   "specifications": [
     "src/content/docs/protocols/zerdinals-v1.md",
@@ -30,7 +38,8 @@
     "src/content/docs/protocols/collections-v1.md",
     "src/content/docs/protocols/zkmap.md",
     "src/content/docs/protocols/zmarket-orders-v1.md",
-    "src/content/docs/protocols/ordinality.md"
+    "src/content/docs/protocols/ordinality.md",
+    "src/content/docs/protocols/shielded-bitcoin.md"
   ],
   "audiences": [
     "user",
