@@ -253,10 +253,11 @@ never a request.
 Each item counts as delivered for a Verified collection only when both its
 delivery and its membership receipt match the sealed terms. If membership
 cannot be proven after an item is inscribed, the buyer still owns the item;
-the order is held for review rather than refunded. If the parent is
-returned to you while a paid order has not started minting, that order
-cannot mint a member any more, so its payment goes back to the address that
-paid instead of waiting.
+the order is held for review rather than refunded. Returning the parent
+waits while an invoice of the collection is still open or a paid order has
+not yet planned its items. A paid order that has not started minting when
+the parent is gone anyway cannot mint a member any more, so its payment
+goes back to the address that paid instead of waiting.
 
 ## Who can mint in each phase
 
