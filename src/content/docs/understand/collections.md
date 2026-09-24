@@ -8,7 +8,7 @@ actually proves, and why some collections are labeled unverified forever.
 
 ## Plain language
 
-A collection groups Zerdinals under one identity: an artist's series, a
+A collection groups Zordinals under one identity: an artist's series, a
 project's set, a family of related pieces. The hard question is what makes
 membership true. Anyone can claim any inscription belongs to any collection,
 so a record that wants to be trusted has to say what each claim rests on.
@@ -19,7 +19,7 @@ Every collection carries one of four levels, shown everywhere the
 collection appears:
 
 1. **Verified (on-chain).** Membership is proven by parent-by-spend. The
-   collection's identity is itself a Zerdinal, the parent. A child joins by
+   collection's identity is itself a Zordinal, the parent. A child joins by
    having its genesis reveal transaction spend the parent's carrying output,
    which only the parent's current owner can do. Membership is proof of
    creator control at inscription time, permanent, and recorded with the
@@ -44,7 +44,7 @@ can add a member, remove one, or edit the set.
 
 ## A concrete example
 
-A creator inscribes a parent Zerdinal for the series. For each piece, the
+A creator inscribes a parent Zordinal for the series. For each piece, the
 genesis reveal transaction spends the parent's current output, which moves
 the parent to output 1 of that transaction and stamps the child as a member.
 An impostor cannot do this: spending the parent's output requires the
@@ -237,6 +237,6 @@ display rules are specified in
 
 ## Related
 
-- [Zerdinals](/docs-zerdinals-and-zrunes/understand/zerdinals/)
-- [Inscribe a Zerdinal](/docs-zerdinals-and-zrunes/create/inscribe/)
+- [Zordinals](/docs-zerdinals-and-zrunes/understand/zerdinals/)
+- [Inscribe a Zordinal](/docs-zerdinals-and-zrunes/create/inscribe/)
 - [Create a ZRC-721 collection or item](/docs-zerdinals-and-zrunes/create/tokens-and-collections/)

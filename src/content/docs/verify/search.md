@@ -19,7 +19,7 @@ you:
 3. **Transparent address:** `t1` (P2PKH), `t3` (P2SH), or `tm` (testnet).
 4. **Unified Address:** `u1` prefixed. The transparent receiver inside it
    is what the protocols track.
-5. **Zerdinal inscription id:** a transaction id followed by `i` and a
+5. **Zordinal inscription id:** a transaction id followed by `i` and a
    number.
 6. **ZRune name:** uppercase letters, with or without bullet spacers
    (`Z•RUNE` finds `ZRUNE`), or a ZRune id in `block:tx` form.

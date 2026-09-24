@@ -43,8 +43,8 @@ address alone does not mean that an operation is ready.
 | Operation | Availability |
 | --- | --- |
 | Connect, restore after reload and read a classified transparent balance | Available when the wallet and balance service can answer. |
-| Zerdinal inscription or transfer; ZRune deploy, mint or transfer | Supported signing versions open a review and ask for your wallet password. The app must also report the operation ready. |
-| Market listing and purchase with the Web Wallet | On test networks: list a Zerdinal, a ZRune lot or a ZRC-20 lot, buy one, and revoke your own listing, each after a review that shows the asset, quantity, payout or total debit, fees, delivery address and expiry. Proven in the browser on public testnet on 2026-09-17. A ZRC-20 lot is priced in zatoshis per base unit, so a token deployed with decimals cannot be listed at an ordinary total; zero-decimal tokens list normally. Mainnet marketplace signing stays unavailable until the production release that carries it. |
+| Zordinal inscription or transfer; ZRune deploy, mint or transfer | Supported signing versions open a review and ask for your wallet password. The app must also report the operation ready. |
+| Market listing and purchase with the Web Wallet | On test networks: list a Zordinal, a ZRune lot or a ZRC-20 lot, buy one, and revoke your own listing, each after a review that shows the asset, quantity, payout or total debit, fees, delivery address and expiry. Proven in the browser on public testnet on 2026-09-17. A ZRC-20 lot is priced in zatoshis per base unit, so a token deployed with decimals cannot be listed at an ordinary total; zero-decimal tokens list normally. Mainnet marketplace signing stays unavailable until the production release that carries it. |
 | Direct service-invoice payment or a standalone ZEC send | Unavailable in the Web Wallet. |
 
 Before approving, check the selected network, asset, quantity, recipient,
@@ -104,7 +104,7 @@ remove the current one first.
 from the configured node and the indexer's verdict on each. It shows:
 
 - the total tracked, and how much of it is clean and spendable;
-- how much sits on outputs that carry a Zerdinal or ZRune (spending one
+- how much sits on outputs that carry a Zordinal or ZRune (spending one
   moves the asset with it);
 - how much sits on outputs the indexer has not scanned yet;
 - the node height and block hash the figures are true at, and when they

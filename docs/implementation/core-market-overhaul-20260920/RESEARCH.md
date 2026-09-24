@@ -36,7 +36,7 @@ src/zrc721/state.mjs and test/zrc721-state.test.mjs; accepted-mint evidence, not
 
 Owned ZkMap specification; public @ 297c86f8a6304d992d9a73c0039f1109c6130b7b
 
-src/content/docs/protocols/zkmap.md; winner is traded as a Zerdinal, artwork is not ownership.
+src/content/docs/protocols/zkmap.md; winner is traded as a Zordinal, artwork is not ownership.
 
 ## S-INDEXER
 

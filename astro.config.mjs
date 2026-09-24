@@ -1,4 +1,4 @@
-// Documentation site for Zerdinals and ZRunes.
+// Documentation site for Zordinals and ZRunes.
 // Static build, served by the self-hosted product web server. Search is Pagefind,
 // bundled by Starlight: local, loaded on demand, no external service.
 import { defineConfig } from 'astro/config';
@@ -34,9 +34,9 @@ export default defineConfig({
   integrations: [
     starlight({
       expressiveCode: { plugins: [codeBlockAccessibility()] },
-      title: 'Zerdinals and ZRunes',
+      title: 'Zordinals and ZRunes',
       description:
-        'The record of what has been written into Zcash: Zerdinals inscriptions, ZRunes, ZRC-20 tokens, collections, and the Scan explorer.',
+        'The record of what has been written into Zcash: Zordinals inscriptions, ZRunes, ZRC-20 tokens, collections, and the Scan explorer.',
       logo: { src: './public/mark.svg', alt: '' },
       favicon: '/mark.svg',
       social: [
@@ -81,7 +81,7 @@ export default defineConfig({
         {
           label: 'Understand',
           items: [
-            { label: 'Zerdinals', slug: 'understand/zerdinals' },
+            { label: 'Zordinals', slug: 'understand/zerdinals' },
             { label: 'ZRunes', slug: 'understand/zrunes' },
             { label: 'ZRC-20, and its two readings', slug: 'understand/zrc-20' },
             { label: 'Ownership lives on outputs', slug: 'understand/ownership-and-outputs' },
@@ -93,7 +93,7 @@ export default defineConfig({
           label: 'Create',
           items: [
             { label: 'Pay with any wallet', slug: 'create/pay-with-any-wallet' },
-            { label: 'Inscribe a Zerdinal', slug: 'create/inscribe' },
+            { label: 'Inscribe a Zordinal', slug: 'create/inscribe' },
             { label: 'Create tokens and collections', slug: 'create/tokens-and-collections' },
             { label: 'Etch, mint, transfer ZRunes', slug: 'create/etch-mint-transfer' },
             { label: 'Fees and confirmation', slug: 'create/fees' },
@@ -111,7 +111,7 @@ export default defineConfig({
           items: [
             { label: 'Portfolio and watchlists', slug: 'own/portfolio' },
             { label: 'The Web Wallet', slug: 'own/web-wallet' },
-            { label: 'Send a Zerdinal', slug: 'own/send-a-zerdinal' },
+            { label: 'Send a Zordinal', slug: 'own/send-a-zerdinal' },
             { label: 'Protect asset-bearing outputs', slug: 'own/protect' },
             { label: 'Interruptions and recovery', slug: 'own/recovery' },
           ],
@@ -128,7 +128,7 @@ export default defineConfig({
         {
           label: 'Protocols',
           items: [
-            { label: 'Zerdinals v1 specification', slug: 'protocols/zerdinals-v1' },
+            { label: 'Zordinals v1 specification', slug: 'protocols/zerdinals-v1' },
             { label: 'ZRunes v1 specification', slug: 'protocols/zrunes-v1' },
             { label: 'Collections v1 specification', slug: 'protocols/collections-v1' },
             { label: 'ZkMap v1 specification', slug: 'protocols/zkmap' },
