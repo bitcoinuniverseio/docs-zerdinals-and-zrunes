@@ -120,8 +120,7 @@ its own node and its own scanned index, and a request carries the wallet's
 network with it, so one network can never answer for the other. Choose any
 other network and the page says so instead of showing a figure.
 
-A balance can be briefly unavailable while the node is between blocks or
-catching up. That is the page refusing to guess, not a problem with your
+A balance can be briefly unavailable while the node is between blocks. That is the page refusing to guess, not a problem with your
 wallet. **Refresh** picks it up again as soon as the service answers.
 
 The wallet and the balance service must use the same network. A testnet
