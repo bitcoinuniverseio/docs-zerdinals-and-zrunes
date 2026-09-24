@@ -72,7 +72,7 @@ height 1 is qualified for the exact implementation it runs.
 
 | Journey | Result |
 | --- | --- |
-| Browser journey with the wallet: connect, approval and rejection, single inscription, Zerdinal send, ZRune etch with the six block maturity, ZRune mint, partial ZRune send, ZRC-20 deploy and mint read by both rulesets separately, ZRC-721 collection deploy, item mint and ownership send, reload and reconnect, explorer and portfolio readback | every step completed and read back from the indexer |
+| Browser journey with the wallet: connect, approval and rejection, single inscription, Zordinal send, ZRune etch with the six block maturity, ZRune mint, partial ZRune send, ZRC-20 deploy and mint read by both rulesets separately, ZRC-721 collection deploy, item mint and ownership send, reload and reconnect, explorer and portfolio readback | every step completed and read back from the indexer |
 | Connected-wallet harness: single and batch inscriptions, transfer and onward transfer with historical execution receipts, ZRune etch, mint, partial, full and onward transfers with allocation receipts, ZRC-20 and ZRC-721 operations | see the release notes for the exact count of the completing run |
 | Walletless service invoices: single, underpayment and top-up, overpayment refunded to the original payer, an ambiguous two-input payment parked rather than guessed, batch of three, etch, mint, late payment refunded, crash recovery, asset quarantine | 125 checks, none failed |
 
