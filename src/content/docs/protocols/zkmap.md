@@ -1,6 +1,6 @@
 ---
 title: "ZkMap v1 specification"
-description: "The specification of ZkMap block numbers: one Zerdinal-carried block number per Zcash block, the exact claim bytes, who wins, how a district moves, and the deterministic district picture."
+description: "The specification of ZkMap block numbers: one Zordinal-carried block number per Zcash block, the exact claim bytes, who wins, how a district moves, and the deterministic district picture."
 ---
 
 <!-- IMPLEMENTATION-HANDOFF [ZKIDX-09]
@@ -19,15 +19,15 @@ Rollback: Revert incorrect published prose to last verified content, not fabrica
 -->
 :::note[Where the rules live]
 ZkMap is a ruleset (`zkmap-v1`) read by the indexer over ordinary Universe
-Zerdinals v1 inscriptions. It adds no envelope field and no new transaction
-shape; every claim is a plain Zerdinal that any existing decoder reads. This
+Zordinals v1 inscriptions. It adds no envelope field and no new transaction
+shape; every claim is a plain Zordinal that any existing decoder reads. This
 page states the rules the indexer applies and the product shows. Where the
 product and this page disagree, the indexer's claim projection is the
 authority, and the product only ever displays what it reports.
 :::
 
 Status: Implemented in source. Mainnet creation follows the same launch gates
-as every other Zerdinal operation; the status page says what can complete
+as every other Zordinal operation; the status page says what can complete
 today.
 Ruleset: `zkmap-v1`
 Date: 2026-09-18
@@ -36,12 +36,12 @@ Date: 2026-09-18
 
 ZkMap assigns one number to every Zcash block. The number of block 1,500,000 is
 `1500000.zkmap`; the number of the genesis block is `0.zkmap`. A block number is
-claimed by inscribing it as a Zerdinal. The first eligible claim completed on
+claimed by inscribing it as a Zordinal. The first eligible claim completed on
 chain wins the block, and the block (its district) then belongs to whoever
 holds the output that carries the winning inscription.
 
-A district is therefore a Zerdinal with a verdict attached to it. It moves
-the way any Zerdinal moves, lists and sells the way any Zerdinal does, and is
+A district is therefore a Zordinal with a verdict attached to it. It moves
+the way any Zordinal moves, lists and sells the way any Zordinal does, and is
 tracked by the same ownership rules. ZkMap adds exactly two things: the rule
 that decides which inscription wins a block, and a deterministic picture drawn
 from the block itself.
@@ -50,9 +50,9 @@ from the block itself.
 
 A claim is an inscription that satisfies all of the following:
 
-1. It is a complete, verified Universe Zerdinals v1 inscription: the envelope
+1. It is a complete, verified Universe Zordinals v1 inscription: the envelope
    parses under
-   [Zerdinals v1](/docs-zerdinals-and-zrunes/protocols/zerdinals-v1/), every
+   [Zordinals v1](/docs-zerdinals-and-zrunes/protocols/zerdinals-v1/), every
    piece has arrived, and the v1 content commitment verifies. Legacy
    inscriptions without the v1 commitment are never claims, whatever their
    text says.
@@ -62,7 +62,7 @@ A claim is an inscription that satisfies all of the following:
    leading zeros in the height, no whitespace, no newline, no byte order
    mark, no other bytes. `0.zkmap` is valid. `007.zkmap`, `7.zkmap`
    followed by a newline, and `7.zkmap` preceded by a space are not claims;
-   they are ordinary Zerdinals.
+   they are ordinary Zordinals.
 4. The height is an unsigned decimal from `0` to `2147483647`.
 
 The grammar of the body is:
@@ -98,7 +98,7 @@ the active chain, in chain order:
 3. within a transaction, lower inscription index first.
 
 Every later eligible claim for the same height is a loser. A losing claim is
-not deleted, hidden or refunded by the protocol: it is an ordinary Zerdinal,
+not deleted, hidden or refunded by the protocol: it is an ordinary Zordinal,
 owned and transferable like any other, with a claim receipt whose verdict is
 `loser` and which names the winning inscription.
 
@@ -113,7 +113,7 @@ has no receipt.
 The district belongs to the holder of the winning inscription's carrying
 output, exactly as
 [ownership lives on outputs](/docs-zerdinals-and-zrunes/understand/ownership-and-outputs/)
-for every Zerdinal. Consequences:
+for every Zordinal. Consequences:
 
 1. Sending the winning inscription sends the district. A market sale that
    settles the winning inscription's output delivers the district to the
@@ -371,7 +371,7 @@ docs/implementation/core-market-overhaul-20260920/RESEARCH.md.
 Prerequisites: CMO-14.
 1. Add the accepted market discovery/filter/metric contract and Bitmap-style presentation explanation
 without changing zkmap-v1 claim bytes, winner ordering, occupancy or art version semantics.
-2. Explain that the market lists the verified winning Zerdinal through existing settlement, not a new
+2. Explain that the market lists the verified winning Zordinal through existing settlement, not a new
 token or name registry; image hashes are not ownership proof.
 3. Update public route/action screenshots and release status only after actual browser/Testnet evidence
 and deployment exist; label observation scope and unknown metrics.
@@ -504,7 +504,7 @@ whose claim lost is a conflict, and the product says so.
 
 ## Related
 
-- [Zerdinals v1 specification](/docs-zerdinals-and-zrunes/protocols/zerdinals-v1/)
-- [Inscribe a Zerdinal](/docs-zerdinals-and-zrunes/create/inscribe/)
+- [Zordinals v1 specification](/docs-zerdinals-and-zrunes/protocols/zerdinals-v1/)
+- [Inscribe a Zordinal](/docs-zerdinals-and-zrunes/create/inscribe/)
 - [Buying and selling](/docs-zerdinals-and-zrunes/market/buying-and-selling/)
 - [Search](/docs-zerdinals-and-zrunes/verify/search/)

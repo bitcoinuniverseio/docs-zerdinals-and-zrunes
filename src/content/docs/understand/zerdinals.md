@@ -1,14 +1,14 @@
 ---
-title: Zerdinals
-description: "What a Zerdinal inscription is, what its number means, which facts about it you can rely on, and what to know before you inscribe anything that will be public forever."
+title: Zordinals
+description: "What a Zordinal inscription is, what its number means, which facts about it you can rely on, and what to know before you inscribe anything that will be public forever."
 ---
 
-**You will get from this page:** what a Zerdinal is, what is actually
+**You will get from this page:** what a Zordinal is, what is actually
 guaranteed about one, and the boundaries to know before you hold or make one.
 
 ## Plain language
 
-Zerdinals are digital artifacts inscribed through Zcash transparent
+Zordinals are digital artifacts inscribed through Zcash transparent
 transactions. An inscription writes your content (an image, text, JSON, or
 other supported types) into the Zcash chain through a commit and reveal pair
 of transactions. The content lives on chain. Ownership is the ownership of
@@ -48,7 +48,7 @@ both directions; nothing published this way can be unpublished.
 
 ## Safety boundary
 
-1. Zerdinals use transparent Zcash data. Addresses, content, and activity
+1. Zordinals use transparent Zcash data. Addresses, content, and activity
    are publicly visible forever.
 2. Ownership lives on an output that ordinary wallets can spend by accident.
    [Safety in sixty seconds](/docs-zerdinals-and-zrunes/start/safety/) covers
@@ -59,19 +59,19 @@ both directions; nothing published this way can be unpublished.
 
 ## Technical detail
 
-A Zerdinal is created by a commit transaction (a P2SH output whose redeem
+A Zordinal is created by a commit transaction (a P2SH output whose redeem
 script commits to the reveal key and a hash of the content) and one or more
 reveal transactions carrying the content in their input scripts, up to 4
 pieces of 240 bytes per transaction and up to 255 pieces total (61,200
 bytes). When the carrying output is spent, the inscription moves to the
 first transparent non-data output of the spending transaction.
 
-Zerdinals deliberately do not number individual zatoshis.
+Zordinals deliberately do not number individual zatoshis.
 [The ordinality decision](/docs-zerdinals-and-zrunes/protocols/ordinality/)
 explains why that theory cannot be honest on Zcash.
 
 ## Related
 
-- [Normative specification: Zerdinals v1](/docs-zerdinals-and-zrunes/protocols/zerdinals-v1/)
-- [Inscribe a Zerdinal](/docs-zerdinals-and-zrunes/create/inscribe/)
+- [Normative specification: Zordinals v1](/docs-zerdinals-and-zrunes/protocols/zerdinals-v1/)
+- [Inscribe a Zordinal](/docs-zerdinals-and-zrunes/create/inscribe/)
 - [Ownership lives on outputs](/docs-zerdinals-and-zrunes/understand/ownership-and-outputs/)

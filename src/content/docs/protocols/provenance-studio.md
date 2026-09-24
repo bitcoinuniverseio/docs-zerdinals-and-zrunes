@@ -31,7 +31,7 @@ Provenance Studio introduces verifiable cryptographic content provenance to Zord
 
 ### 3. ZPROV/1 Child Inscription Anchors
 
-- On-chain child inscriptions anchor the C2PA manifest store SHA-256 digest directly to the parent Zerdinal inscription.
+- On-chain child inscriptions anchor the C2PA manifest store SHA-256 digest directly to the parent Zordinal inscription.
 - Protocol prefix: `ZPROV/1`.
 - Links `parentInscriptionId`, `manifestStoreSha256`, and signing parameters immutably on Zcash.
 

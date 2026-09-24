@@ -1,7 +1,7 @@
-# Zerdinals and ZRunes
+# Zordinals and ZRunes
 
 > Public documentation for the Zcash digital-artifact product at
-> https://zrunes.io: Zerdinals inscriptions, ZRunes, ZRC-20 tokens,
+> https://zrunes.io: Zordinals inscriptions, ZRunes, ZRC-20 tokens,
 > collections, and the ZordiScan explorer. Every availability claim defers
 > to the status page; every figure in the product is read from
 > first-party Zcash infrastructure.
@@ -19,7 +19,7 @@ src/content/docs/.
 
 ## Understand
 
-- [Zerdinals](https://zrunes.io/docs-zerdinals-and-zrunes/understand/zerdinals/)
+- [Zordinals](https://zrunes.io/docs-zerdinals-and-zrunes/understand/zerdinals/)
 - [ZRunes](https://zrunes.io/docs-zerdinals-and-zrunes/understand/zrunes/)
 - [ZRC-20, and its two readings](https://zrunes.io/docs-zerdinals-and-zrunes/understand/zrc-20/)
 - [Ownership lives on outputs](https://zrunes.io/docs-zerdinals-and-zrunes/understand/ownership-and-outputs/)
@@ -29,7 +29,7 @@ src/content/docs/.
 ## Create
 
 - [Pay with any wallet](https://zrunes.io/docs-zerdinals-and-zrunes/create/pay-with-any-wallet/)
-- [Inscribe a Zerdinal](https://zrunes.io/docs-zerdinals-and-zrunes/create/inscribe/)
+- [Inscribe a Zordinal](https://zrunes.io/docs-zerdinals-and-zrunes/create/inscribe/)
 - [Create tokens and collections](https://zrunes.io/docs-zerdinals-and-zrunes/create/tokens-and-collections/)
 - [Etch, mint, transfer ZRunes](https://zrunes.io/docs-zerdinals-and-zrunes/create/etch-mint-transfer/)
 - [Fees and confirmation](https://zrunes.io/docs-zerdinals-and-zrunes/create/fees/)
@@ -43,7 +43,7 @@ src/content/docs/.
 
 - [Portfolio and watchlists](https://zrunes.io/docs-zerdinals-and-zrunes/own/portfolio/)
 - [The Web Wallet](https://zrunes.io/docs-zerdinals-and-zrunes/own/web-wallet/)
-- [Send a Zerdinal](https://zrunes.io/docs-zerdinals-and-zrunes/own/send-a-zerdinal/)
+- [Send a Zordinal](https://zrunes.io/docs-zerdinals-and-zrunes/own/send-a-zerdinal/)
 - [Protect asset-bearing outputs](https://zrunes.io/docs-zerdinals-and-zrunes/own/protect/)
 - [Interruptions and recovery](https://zrunes.io/docs-zerdinals-and-zrunes/own/recovery/)
 
@@ -56,7 +56,7 @@ src/content/docs/.
 
 ## Protocols
 
-- [Zerdinals v1 specification](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/zerdinals-v1/)
+- [Zordinals v1 specification](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/zerdinals-v1/)
 - [ZRunes v1 specification](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/zrunes-v1/)
 - [Collections v1 specification](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/collections-v1/)
 - [ZkMap v1 specification](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/zkmap/)

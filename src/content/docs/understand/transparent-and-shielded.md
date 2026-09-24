@@ -33,7 +33,7 @@ the viewing key that only its owner holds.
 <figure class="zz-figure">
 <svg viewBox="0 0 480 392" role="img" aria-labelledby="figure-visibility-title" aria-describedby="figure-visibility-desc" xmlns="http://www.w3.org/2000/svg">
   <title id="figure-visibility-title">The readable and unreadable halves of a Zcash transaction</title>
-  <desc id="figure-visibility-desc">A Zcash transaction is drawn in two panels. The left panel, transparent parts, lists input scripts which carry Zerdinal envelopes, output scripts which carry the address and value, and the OP_RETURN output which carries the ZRunestone. An arrow leads from it to the statement that every protocol record is derived from here. The right panel, shielded parts, lists the Sapling bundle, the Orchard bundle, and the Ironwood bundle. An arrow leads from it to the statement that no protocol record is ever derived from here. A note underneath records that the fee paid is public in both cases.</desc>
+  <desc id="figure-visibility-desc">A Zcash transaction is drawn in two panels. The left panel, transparent parts, lists input scripts which carry Zordinal envelopes, output scripts which carry the address and value, and the OP_RETURN output which carries the ZRunestone. An arrow leads from it to the statement that every protocol record is derived from here. The right panel, shielded parts, lists the Sapling bundle, the Orchard bundle, and the Ironwood bundle. An arrow leads from it to the statement that no protocol record is ever derived from here. A note underneath records that the fee paid is public in both cases.</desc>
   <g fill="var(--zz-diagram-muted)" font-family="inherit" font-size="14" letter-spacing="1.4">
     <text x="12" y="20">TRANSPARENT PARTS</text>
     <text x="254" y="20">SHIELDED PARTS</text>
@@ -54,7 +54,7 @@ the viewing key that only its owner holds.
       <text x="272" y="190">Ironwood bundle</text>
     </g>
     <g fill="var(--zz-diagram-muted)" font-size="15">
-      <text x="30" y="86">carry Zerdinal envelopes</text>
+      <text x="30" y="86">carry Zordinal envelopes</text>
       <text x="30" y="148">carry address and value</text>
       <text x="30" y="210">carries the ZRunestone</text>
       <text x="272" y="86">spends and outputs</text>
@@ -85,7 +85,7 @@ the viewing key that only its owner holds.
 
 | Part of a transaction | Readable | What is derived from it |
 | --- | --- | --- |
-| Input scripts | Yes | Zerdinal envelopes: content type, content pieces, and the v1 commitment |
+| Input scripts | Yes | Zordinal envelopes: content type, content pieces, and the v1 commitment |
 | Output scripts | Yes | the owning address, the value, and which output an asset moves to |
 | The `OP_RETURN` data output | Yes | the ZRunestone: etch, mint, and transfer instructions |
 | Sapling spends and outputs | No | nothing |
@@ -108,8 +108,8 @@ so that it cannot collide with them.
 
 | Operation | Transparent address required | Why |
 | --- | --- | --- |
-| Receiving an inscription | Yes, the destination | the Zerdinal attaches to a transparent output |
-| Inscribing a Zerdinal | Yes, the destination | as above |
+| Receiving an inscription | Yes, the destination | the Zordinal attaches to a transparent output |
+| Inscribing a Zordinal | Yes, the destination | as above |
 | Etching, minting, or transferring a ZRune | Yes | ZRunes exist only on transparent outputs |
 | Minting a ZRC-20 token | Yes | a mint with no transparent recipient is rejected outright |
 | Transferring a ZRC-20 balance | Yes | a transfer inscription with no transparent holder is rejected outright |
@@ -232,14 +232,14 @@ Shielding does not make an asset private. It ends its trackability.
   `minted = circulating + burned + shielded`.
 
 Unshielding later does not undo any of it. Tracking that has ended stays
-ended, and returning value never resurrects an untrackable Zerdinal.
+ended, and returning value never resurrects an untrackable Zordinal.
 
 ## What you will and will not see
 
 This is the part most Zcash explorers get wrong, so it is worth being
 precise about what the product does instead.
 
-- **The artifact is not hidden and not deleted.** An untrackable Zerdinal
+- **The artifact is not hidden and not deleted.** An untrackable Zordinal
   keeps its page. That page shows the complete provenance chain, then the
   shielding transaction, then the terminal state. It is a fact with a
   transaction behind it, not a gap.
@@ -295,7 +295,7 @@ Two habits follow from everything above:
 
 The exact conditions distinguishing a move, a burn, and a shielded terminal
 state are normative:
-[Zerdinals v1](/docs-zerdinals-and-zrunes/protocols/zerdinals-v1/) defines
+[Zordinals v1](/docs-zerdinals-and-zrunes/protocols/zerdinals-v1/) defines
 `SHIELDED_UNTRACKABLE` and `BURNED`;
 [ZRunes v1](/docs-zerdinals-and-zrunes/protocols/zrunes-v1/) defines when a
 balance burns. Both are deterministic: two independent indexers reach the

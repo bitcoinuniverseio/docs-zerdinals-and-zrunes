@@ -1,5 +1,5 @@
 ---
-title: Inscribe a Zerdinal
+title: Inscribe a Zordinal
 description: The inscribe wizard, the payment that funds the whole inscription from any Zcash wallet, batch mode, and the advanced connected-wallet path.
 ---
 
@@ -25,7 +25,7 @@ on what can complete today.
   cannot be inscribed.
 - A destination: a transparent Zcash address, or a Unified Address that
   contains a transparent receiver. Shielded-only recipients are rejected
-  before any transaction is built, because a Zerdinal cannot be tracked into
+  before any transaction is built, because a Zordinal cannot be tracked into
   a shielded pool.
 - Enough ZEC for the exact quoted amount, in any wallet or exchange that
   can send transparent ZEC. Nothing needs to be connected to this site.
@@ -128,7 +128,7 @@ them.
 
 ## Block numbers (ZkMap)
 
-A block number is a Zerdinal whose text is exactly `<height>.zkmap`, and the
+A block number is a Zordinal whose text is exactly `<height>.zkmap`, and the
 first eligible claim completed on chain wins that block. The rules are in the
 [ZkMap v1 specification](/docs-zerdinals-and-zrunes/protocols/zkmap/); this
 section is the mint flow as built, at `/create/zkmap`, with the map at
@@ -232,7 +232,7 @@ have separate outcomes:
   The item links to the block page at `/zkmap/<height>`.
 - **Lost to an earlier claim**: the inscription completed, but another claim
   for the same block completed earlier in chain order. The inscription was
-  still made and is yours; it is an ordinary Zerdinal. The item links to the
+  still made and is yours; it is an ordinary Zordinal. The item links to the
   winning claim.
 - **Not a valid claim**, **Undone by a reorg**, **Claim status unknown**:
   named as such, with the reason where the indexer gives one.
@@ -280,4 +280,4 @@ checkable against a Zcash node.
 - [Pay with any wallet](/docs-zerdinals-and-zrunes/create/pay-with-any-wallet/)
 - [Fees and confirmation](/docs-zerdinals-and-zrunes/create/fees/)
 - [Signing availability](/docs-zerdinals-and-zrunes/create/signing-availability/)
-- [Zerdinals v1 specification](/docs-zerdinals-and-zrunes/protocols/zerdinals-v1/)
+- [Zordinals v1 specification](/docs-zerdinals-and-zrunes/protocols/zerdinals-v1/)

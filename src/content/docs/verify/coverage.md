@@ -19,7 +19,7 @@ This one never does.
 
 1. **The chain is still being read.** The result says so where it appears,
    instead of reporting a count. Absence here means nothing at all, and no
-   page turns it into a zero: a count of Zerdinals, ZRunes, collections or
+   page turns it into a zero: a count of Zordinals, ZRunes, collections or
    activity is shown only when it can be right.
 2. **No records yet.** Shown only once the whole chain has been read. This
    is a real, checkable statement that nothing of that kind exists.

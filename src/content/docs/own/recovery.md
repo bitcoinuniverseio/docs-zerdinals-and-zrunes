@@ -74,4 +74,4 @@ where it stopped and what the next approval is.
 ## Related
 
 - [What an empty result means](/docs-zerdinals-and-zrunes/verify/coverage/)
-- [Inscribe a Zerdinal](/docs-zerdinals-and-zrunes/create/inscribe/)
+- [Inscribe a Zordinal](/docs-zerdinals-and-zrunes/create/inscribe/)
