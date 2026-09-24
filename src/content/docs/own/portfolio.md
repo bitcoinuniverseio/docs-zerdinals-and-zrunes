@@ -21,7 +21,7 @@ This is also the pre-flight check before spending from an address:
 ## Block numbers (ZkMap districts)
 
 A ZkMap district is the winning inscription of a block number, so it is held
-on an output like any Zerdinal and appears in two places on the address
+on an output like any Zordinal and appears in two places on the address
 page. Among the inscriptions, its card carries a district badge (`ZkMap
 <height>.zkmap`) and shows the district picture drawn from the block
 instead of the inscription's text; the inscription's exact bytes stay one
@@ -31,13 +31,13 @@ the block it was claimed in, and a Send action when the address is yours.
 Sending or selling the winning inscription moves the district; there is no
 separate district action. The badge and the tab come from the indexer's
 claim verdict, never from the inscription's text, so a losing claim for the
-same block appears as an ordinary Zerdinal. See the
+same block appears as an ordinary Zordinal. See the
 [ZkMap v1 specification](/docs-zerdinals-and-zrunes/protocols/zkmap/).
 
 ## Watchlists
 
 You can watch a ZRune, a collection, a transparent address, or a single
-Zerdinal from its page. What that means, exactly:
+Zordinal from its page. What that means, exactly:
 
 1. Watchlists are stored in your browser on this device. There is no server
    component and no account; nothing about your watchlist leaves your
@@ -48,7 +48,7 @@ Zerdinal from its page. What that means, exactly:
 3. The Activity page compares current chain data against your last-visit
    snapshot and reports real deltas: supply minted and holder count changes
    for a ZRune, member count for a collection, inscriptions held at an
-   address, and state or owner changes for a Zerdinal. If nothing changed,
+   address, and state or owner changes for a Zordinal. If nothing changed,
    it says nothing changed.
 4. Removing the item, or clearing the browser's storage, removes the
    watchlist. There is no copy anywhere else.
@@ -69,7 +69,7 @@ news) is reported as nothing at all.
 
 ## Share cards
 
-A Zerdinal detail page can export a share card: a 1200 by 630 PNG drawn
+A Zordinal detail page can export a share card: a 1200 by 630 PNG drawn
 entirely in your browser, with no external calls. The card contains only
 public chain facts: the content preview, the name or short id, the serial
 number, the collection if any, the genesis block height, the content type,

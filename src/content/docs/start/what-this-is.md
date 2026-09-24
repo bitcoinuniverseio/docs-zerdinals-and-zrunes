@@ -1,6 +1,6 @@
 ---
 title: What this is
-description: "A one-minute explanation of Zerdinals, ZRunes, ZRC-20, collections, and Scan, who this documentation is for, and what this product deliberately refuses to do."
+description: "A one-minute explanation of Zordinals, ZRunes, ZRC-20, collections, and Scan, who this documentation is for, and what this product deliberately refuses to do."
 ---
 
 **You will get from this page:** the whole product in one minute, and where to
@@ -16,17 +16,17 @@ two things a person does with a record: check it, and add to it.
 
 Four kinds of things live in the record:
 
-1. **Zerdinals** are inscriptions: content written on chain through a commit
+1. **Zordinals** are inscriptions: content written on chain through a commit
    and reveal pair of transactions. Each completed inscription gets a
    sequence number that is permanently unique.
-   [About Zerdinals](/docs-zerdinals-and-zrunes/understand/zerdinals/).
+   [About Zordinals](/docs-zerdinals-and-zrunes/understand/zerdinals/).
 2. **ZRC-20 tokens** are fungible tokens carried inside legacy inscriptions
    as small JSON documents.
    [About ZRC-20](/docs-zerdinals-and-zrunes/understand/zrc-20/).
 3. **ZRunes** are fungible assets carried in transaction data outputs, with
    fixed mint terms and a mainnet activation height.
    [About ZRunes](/docs-zerdinals-and-zrunes/understand/zrunes/).
-4. **Collections** group Zerdinals, with an on-chain membership proof where
+4. **Collections** group Zordinals, with an on-chain membership proof where
    one exists and an honest label where one does not.
    [About collections](/docs-zerdinals-and-zrunes/understand/collections/).
 
@@ -48,7 +48,7 @@ protocol reading, and the raw data.
 
 ## Ownership, in one sentence
 
-Owning a Zerdinal or a ZRune balance means controlling the transparent Zcash
+Owning a Zordinal or a ZRune balance means controlling the transparent Zcash
 output it sits on; it moves when that output is spent, and it can be lost the
 same way, which is why
 [the safety page](/docs-zerdinals-and-zrunes/start/safety/) comes next.
@@ -59,6 +59,6 @@ same way, which is why
 | --- | --- |
 | Avoid the one common way to lose an asset | [Safety in sixty seconds](/docs-zerdinals-and-zrunes/start/safety/) |
 | See what is live and what is gated today | [Current status](/docs-zerdinals-and-zrunes/start/status/) |
-| Inscribe something | [Inscribe a Zerdinal](/docs-zerdinals-and-zrunes/create/inscribe/) |
+| Inscribe something | [Inscribe a Zordinal](/docs-zerdinals-and-zrunes/create/inscribe/) |
 | Look up an address, block, or artifact | [Search](/docs-zerdinals-and-zrunes/verify/search/) |
 | Integrate against the API | [Public HTTP API](/docs-zerdinals-and-zrunes/developers/api/) |

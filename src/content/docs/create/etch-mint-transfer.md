@@ -7,11 +7,13 @@ description: "The three ZRune operations, the limits that shape them, the strict
 counts, and how balances move, including every way a balance can burn.
 
 :::caution[Availability today]
-ZRunes activate on mainnet at block 3,470,000. Activation alone does not
-open creation or signing. Each operation also requires healthy dependencies,
-complete protocol qualification and authorization for its execution path.
-The create page shows its current availability; open **Service details** to
-inspect the reasons. The flows below describe what an available operation does.
+ZRunes activate on mainnet at block 3,470,000, measured on the service's own
+Zcash node. Etching and minting also need a node level with the network and
+an open execution path, but they never wait for the record to finish reading
+the chain. Transfers do, because they spend ZRune balances the record has to
+see. The create page shows its current availability beside the submit
+button; open **Service details** to inspect the reasons. The flows below
+describe what an available operation does.
 [Signing availability](/docs-zerdinals-and-zrunes/create/signing-availability/)
 explains the gates.
 :::
@@ -88,7 +90,26 @@ mint:
 4. On the payment path, the mint window is re-proved after your payment
    confirms. If the cap was reached or the window closed in between, no
    transaction is broadcast, because it would pay a fee and count for
-   nothing, and your ZEC is refunded to your recipient address instead.
+   nothing, and your ZEC is returned to the verified payer instead (see
+   [where unused ZEC goes](/docs-zerdinals-and-zrunes/create/pay-with-any-wallet/#where-unused-zec-goes)).
+
+### Minting by id when the ZRune cannot be read
+
+A ZRune id is `block:position`, the exact place its etching sits on chain.
+If the record cannot read that ZRune right now, you can still mint it by its
+id. The service's own node checks the id first: the transaction at that
+position must exist, sit at or above the activation block, and carry a ZRunes
+v1 data output. Anything else, including a token from the separate OP_13
+family, is refused as not found.
+
+The order then names the id alone. The amount per mint shows as **Set by the
+chain**, because nothing was read to confirm it. If the mint window has
+closed or the cap is reached, the mint can confirm and count for nothing,
+so check the ZRune's page first when you can.
+
+Etching works the same way: if the record cannot say whether a name is free,
+the etch can still go ahead, and the earliest etching of a name on chain
+wins. A name the record already shows as taken is always refused.
 
 ## Transfer
 

@@ -37,14 +37,15 @@ Two things that surprise people:
   moves everything on it at once.
   [Details](/docs-zerdinals-and-zrunes/understand/ownership-and-outputs/).
 - **Shielding is not storage.** Spending an asset-bearing output entirely
-  into a shielded pool ends tracking permanently for a Zerdinal and burns a
+  into a shielded pool ends tracking permanently for a Zordinal and burns a
   ZRune balance by protocol rule. Unshielding later does not undo either.
   [Details](/docs-zerdinals-and-zrunes/understand/transparent-and-shielded/).
 
 ## The safety net that fails closed
 
 The indexer behind the product publishes a per-output verdict on whether an
-output carries an asset, and Universe Wallet consults it before spending.
+output carries an asset, and the product consults it before any
+transaction it builds spends an output.
 While any part of the chain is unread, an output with nothing recorded
 against it is reported as **unchecked**, not as clear, because an output
 created in an unread block is indistinguishable from one that never carried

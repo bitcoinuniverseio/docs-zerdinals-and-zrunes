@@ -137,7 +137,7 @@ Prerequisites: CMO-02, CMO-03, CMO-04, CMO-05
 Sources: S-CORE, S-NFT, S-COLLECTIONS, S-APP-MARKET
 Findings: F02, F06, N01
 
-1. Use one Core-style collection gallery shell with protocol-discriminated cards; Zerdinal parent-spend collections and ZRC-721 collections remain different identities even with identical names.
+1. Use one Core-style collection gallery shell with protocol-discriminated cards; Zordinal parent-spend collections and ZRC-721 collections remain different identities even with identical names.
 
 2. Replace readNftBook global scanning and LegacyCollectionBook browser intersections with collection-scoped catalog pages. Show verified item artwork, collection membership, listing state/price and owner actions; never infer membership from an image or name.
 
@@ -234,7 +234,7 @@ Findings: F04, F11, N01
 
 2. Retain existing For sale/Sold/All discovery lenses and qualified server metrics. If adding digit/height ranges, derive only exact height properties; do not invent rarity, area, supply, geography or sale history from artwork. Bind every view and cache to network/genesis/checkpoint.
 
-3. Route owned winner listing through existing v1 Zerdinal listing/review; buying uses the listing execution receipt. No new zkmap transfer protocol or name-registry operation is introduced. Burned/shielded winners remain occupied, loser claims are not districts.
+3. Route owned winner listing through existing v1 Zordinal listing/review; buying uses the listing execution receipt. No new zkmap transfer protocol or name-registry operation is introduced. Burned/shielded winners remain occupied, loser claims are not districts.
 
 4. Use the shared page controller for every initial/retry/more path, keeping abort plus generation checks. Prefer existing batched winner observations when validated, with receipt detail fallback; image hashes/versioned cache identify artwork, not current ownership.
 
