@@ -47,7 +47,7 @@ p{margin-top:26px;font-size:25px;line-height:1.4;color:#A7B0BE;max-width:30ch}
 </style></head><body><div class="mark"></div><div class="pad">
 <div class="lock">
   <svg viewBox="0 0 32 32"><path d="M4 4h24L4 28Z" fill="#F4F6F9"/><rect x="4" y="4" width="24" height="24" fill="none" stroke="#F4F6F9" stroke-width="2.5"/><path d="M29 3 3 29" stroke="#D8F252" stroke-width="3.5"/></svg>
-  <span class="name">Zerdinals <em>/ ZRunes</em></span>
+  <span class="name">Zordinals <em>/ ZRunes</em></span>
 </div>
 <div><h1>Read the<br><span>documentation</span></h1>
 <p>Understand, create, own, and verify Zcash digital artifacts. Every claim checkable against the chain.</p></div>

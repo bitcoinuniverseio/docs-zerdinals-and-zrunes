@@ -53,7 +53,7 @@ output you should not spend casually.
 | Situation | What happens | What to do |
 | --- | --- | --- |
 | You spent an asset-bearing output to a normal address | The asset moved to the first transparent output's owner | If you control the destination, nothing is lost; move it deliberately next time |
-| You spent it entirely into a shielded pool | Zerdinal: tracking ended permanently. ZRune: balance burned | Nothing recovers either state; this is why the routine above exists |
+| You spent it entirely into a shielded pool | Zordinal: tracking ended permanently. ZRune: balance burned | Nothing recovers either state; this is why the routine above exists |
 | The verdict says unchecked | Part of the chain is unread | Wait for coverage to complete; the status page shows progress. To pay for a new creation now, send ZEC from a shielded balance, which is proven at its first confirmation |
 
 ## Related

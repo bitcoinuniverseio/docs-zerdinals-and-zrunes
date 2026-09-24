@@ -3,7 +3,7 @@
 # Zordinals and ZRUNES
 
 **The record of what has been written into Zcash, read from a node its
-operators run.** Zerdinals inscriptions, ZRunes, ZRC-20 tokens, and
+operators run.** Zordinals inscriptions, ZRunes, ZRC-20 tokens, and
 collections, each shown with the chain evidence behind it.
 
 **[Open the product](https://zrunes.io)** ·
@@ -20,7 +20,7 @@ first-party infrastructure.*
 | You are | Start with |
 | --- | --- |
 | **A collector** | [Safety in sixty seconds](src/content/docs/start/safety.md), then [Portfolio and watchlists](src/content/docs/own/portfolio.md) |
-| **A creator** | [Inscribe a Zerdinal](src/content/docs/create/inscribe.md) and [Etch, mint, transfer ZRunes](src/content/docs/create/etch-mint-transfer.md) |
+| **A creator** | [Inscribe a Zordinal](src/content/docs/create/inscribe.md) and [Etch, mint, transfer ZRunes](src/content/docs/create/etch-mint-transfer.md) |
 | **A developer** | [Public HTTP API](src/content/docs/developers/api.md) and [the protocol specifications](src/content/docs/protocols/zerdinals-v1.md) |
 
 ## What this is
@@ -49,11 +49,11 @@ The September 5 repair candidate remains **NO-GO** pending complete authority an
 ## Documentation map
 
 - **Start here:** [What this is](src/content/docs/start/what-this-is.md) · [Safety](src/content/docs/start/safety.md) · [Status](src/content/docs/start/status.mdx)
-- **Understand:** [Zerdinals](src/content/docs/understand/zerdinals.md) · [ZRunes](src/content/docs/understand/zrunes.md) · [ZRC-20](src/content/docs/understand/zrc-20.md) · [Ownership and outputs](src/content/docs/understand/ownership-and-outputs.md) · [Transparent and shielded](src/content/docs/understand/transparent-and-shielded.md) · [Collections](src/content/docs/understand/collections.md)
+- **Understand:** [Zordinals](src/content/docs/understand/zerdinals.md) · [ZRunes](src/content/docs/understand/zrunes.md) · [ZRC-20](src/content/docs/understand/zrc-20.md) · [Ownership and outputs](src/content/docs/understand/ownership-and-outputs.md) · [Transparent and shielded](src/content/docs/understand/transparent-and-shielded.md) · [Collections](src/content/docs/understand/collections.md)
 - **Create:** [Inscribe](src/content/docs/create/inscribe.md) · [Tokens and collections](src/content/docs/create/tokens-and-collections.md) · [Etch, mint, transfer](src/content/docs/create/etch-mint-transfer.md) · [Fees](src/content/docs/create/fees.md) · [Signing availability](src/content/docs/create/signing-availability.md)
 - **Own and protect:** [Portfolio and watchlists](src/content/docs/own/portfolio.md) · [Protect outputs](src/content/docs/own/protect.md) · [Recovery](src/content/docs/own/recovery.md)
 - **Verify:** [Search](src/content/docs/verify/search.md) · [ZordiScan](src/content/docs/verify/zordiscan.md) · [What an empty result means](src/content/docs/verify/coverage.md)
-- **Protocols:** [Zerdinals v1](src/content/docs/protocols/zerdinals-v1.md) · [ZRunes v1](src/content/docs/protocols/zrunes-v1.md) · [Collections v1](src/content/docs/protocols/collections-v1.md) · [Ordinality decision](src/content/docs/protocols/ordinality.md)
+- **Protocols:** [Zordinals v1](src/content/docs/protocols/zerdinals-v1.md) · [ZRunes v1](src/content/docs/protocols/zrunes-v1.md) · [Collections v1](src/content/docs/protocols/collections-v1.md) · [Ordinality decision](src/content/docs/protocols/ordinality.md)
 - **Developers:** [Architecture](src/content/docs/developers/architecture.md) · [Public HTTP API](src/content/docs/developers/api.md)
 - **Help:** [FAQ](src/content/docs/help/faq.md) · [Known limitations](src/content/docs/help/known-limitations.md)
 

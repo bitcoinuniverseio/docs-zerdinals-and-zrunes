@@ -37,7 +37,7 @@ Two things that surprise people:
   moves everything on it at once.
   [Details](/docs-zerdinals-and-zrunes/understand/ownership-and-outputs/).
 - **Shielding is not storage.** Spending an asset-bearing output entirely
-  into a shielded pool ends tracking permanently for a Zerdinal and burns a
+  into a shielded pool ends tracking permanently for a Zordinal and burns a
   ZRune balance by protocol rule. Unshielding later does not undo either.
   [Details](/docs-zerdinals-and-zrunes/understand/transparent-and-shielded/).
 

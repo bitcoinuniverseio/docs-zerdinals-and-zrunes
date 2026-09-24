@@ -59,7 +59,7 @@ from its own recovery link.
 
 Both execution modes are offered independently. Paying an invoice needs no
 wallet connection; signing with a connected wallet needs one that can sign
-Zerdinals. Either may be closed at any time, and the panel says which is
+Zordinals. Either may be closed at any time, and the panel says which is
 closed and why. One mode being closed does not make the service read-only:
 browsing, existing orders and recovery stay available.
 
@@ -167,7 +167,7 @@ id efficiently, the page says that instead of guessing.
 An accepted mint inscription **is** the item. There is no separate token
 record that could be owned apart from it: whoever controls the transparent
 output carrying that inscription holds the item, and the item follows every
-ordinary rule for a Zerdinal, including the terminal states. A carrying
+ordinary rule for a Zordinal, including the terminal states. A carrying
 output spent into a shielded transaction ends tracking, and the item shows
 that it is no longer observable rather than naming a holder; one spent with
 no transparent successor is burned. The minter is a separate fact from the
