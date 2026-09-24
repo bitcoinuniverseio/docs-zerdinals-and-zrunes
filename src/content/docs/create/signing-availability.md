@@ -22,7 +22,7 @@ Creating has two paths, and each is gated on its own facts:
 
 Neither path waits for the record to finish reading the chain. Creating
 checks only what the transaction itself needs, from the service's own Zcash
-node: the right network, a node level with it, the next block's signing
+node: the right network, a usable chain height, the next block's signing
 rules, ZRunes activation where it applies, and funding proven free of assets
 output by output. Sending, listing and buying keep waiting for the full
 record, because they move assets the record has to see first.
@@ -32,9 +32,6 @@ Each create page shows, beside its submit button, whether the order can be
 sent now and the one thing holding it if not. Open **Service details** for
 the individual dependency states and technical reasons. Changing wallets does
 not repair a service outage.
-
-A **Catching up** indicator on a create page means the service's own node is
-behind the network. It clears by itself once the node catches up.
 
 A **Wrong network** indicator is the one you can clear yourself: the network
 selected in this browser is not the one this deployment serves, so prices,
