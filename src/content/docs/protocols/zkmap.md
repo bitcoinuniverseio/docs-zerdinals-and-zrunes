@@ -460,6 +460,37 @@ longer than any QR can hold says so and points at the copy and
 open-in-wallet controls, which carry the identical request. The address, the
 exact amount and the instructions never change with the symbol.
 
+<!--
+IMPLEMENTATION-HANDOFF [ZMC-12] ZMC-A24 | 2026-09-24 | PREPARATION ONLY
+Coverage: R01-R20,R28-R59,R74-R80. Findings: F01,F02,F03,F05,F09. Preparation: ANNOTATED, not
+implemented or released.
+Sources: S01,S02,S03,S04,S05,S08,S14 in the bundled RESEARCH.md. Prerequisites: ZMC-07,ZMC-08,ZMC-09.
+Verified current behavior: The public specification documents claim/owner/art rules and the legacy
+listing rail. The requested all-district terminal and its qualified filter/offer contracts are not
+documented here.
+1. After implementation and evidenced acceptance, describe All/Listed/Unlisted as current winning
+districts, listed-first ordering, exact ZEC prices and null unlisted prices. Explain that unclaimed
+blocks remain in the atlas/mint flow and burned/shielded winners remain occupied but untradeable.
+2. Document existing 109-key catalog adaptation with known/unknown/not-applicable states, applicable
+Zcash filters, full-scope counts and current observable holder scope. Do not import Bitcoin-only
+rarity or private shielded-value claims.
+3. Add accepted API query/response/pagination/freshness/reset behavior and actual chart/activity
+provenance. Explain that offers are application orders over qualified winners, not a new on-chain
+zkMap protocol; collection/instant-sell/cart documentation requires actual native Testnet proof.
+4. Update buying-and-selling navigation/screenshots together, preserve
+creation/transfer/cancel/refund/recovery documentation, and publish actual release status only after
+ZMC-11 receipts. No secrets, internal host credentials or unverified release promises.
+Tests / execution prerequisites: Run this repository's actual package.json documented build/check
+scripts after implementation. Preparation validates HTML-comment-only changes preserve all rendered
+non-comment bytes. Cross-check public text against CONTRACTS.md and native Testnet/release evidence.
+Acceptance: User docs match the implemented/verified/released feature and distinguish read
+observations, signed offers, confirmed ownership and private/unknown data.
+Rollback / security: Revert only incorrect prose/screenshots to the last verified state, retaining
+valid protocol rules and recovery guidance.
+Shared contract and index:
+zerdinals-and-zrunes/docs/implementation/zkmap-core-20260924/{CONTRACTS.md,WORK-PACKAGES.md,ANNOTATION-INDEX.json}.
+Preserve executable behavior in this preparation stage.
+-->
 ## 9. Public API
 
 All operations are under the `zkmap` tag of the
