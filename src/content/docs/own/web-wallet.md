@@ -8,9 +8,13 @@ can and cannot do, and how to keep it safe.
 
 ## What it is
 
-Open **Connect a wallet** and the first entry is **Web Wallet: built into
-this browser**. Nothing to install. It creates a Zcash transparent account
-in your browser and keeps the keys there.
+Open **Connect a wallet**. Noir Wallet is the recommended first entry; the
+**Web Wallet** is the second, marked **No extension needed**. Nothing to
+install: it creates a Zcash transparent account in your browser and keeps
+the keys there.
+
+Press **Set up** to create or import one, or **Open** once it exists. Its
+view opens in the same dialog, with **Back** to return to the list:
 
 ```text
 Create Web Wallet ..... new 24-word recovery phrase, shown once
@@ -21,9 +25,13 @@ Show recovery phrase .. asks for the password, then shows the words
 Remove Wallet ......... deletes the browser copy, after a confirmation
 ```
 
+Going **Back** or closing the dialog in the middle of a step ends that
+step: nothing you typed and no recovery word stays behind.
+
 On a phone, open **More** in the bottom bar: its **Wallet** group opens
 Connect a wallet, and once the Web Wallet is connected it shows the
-address, **View balance**, **Manage wallet** and **Disconnect**. A phone
+address, **View balance**, **Manage wallet** (Connect a wallet, where
+**Open** leads to the wallet) and **Disconnect**. A phone
 cannot install an extension, which is exactly why this wallet is built in.
 
 ## Signing and availability
