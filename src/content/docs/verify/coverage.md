@@ -5,7 +5,7 @@ description: "The four situations behind an empty page, why the product never bl
 
 **Outcome:** you will be able to read any empty page or missing record
 correctly, and you will know why minting and inscribing keep working while
-the record is still catching up.
+the record is still incomplete.
 
 ## Why this needs a page
 
@@ -40,14 +40,14 @@ inscription, a batch, a ZRune etch or mint and a ZkMap claim are built from
 the service's own Zcash node, not from how far the record has read. Each one
 checks only what that transaction needs:
 
-- the node is on the right network and level with it;
+- the node is on the right network and reports a usable chain height;
 - the node publishes the rules the next block is signed under;
 - for ZRunes, the node's height has reached the activation block;
 - the path you chose is open: your connected wallet release, or the
   service's own signer and payment watcher;
 - every coin it spends is proven free of assets, one output at a time.
 
-While the record catches up, a result you create may take a while to appear
+While the record is incomplete, a result you create may take a while to appear
 on its pages. That is the reading, not the order. Sending, listing and buying
 still wait for the full record, because they move assets the record has to
 see first.
