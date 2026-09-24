@@ -59,9 +59,29 @@ from its own recovery link.
 
 Both execution modes are offered independently. Paying an invoice needs no
 wallet connection; signing with a connected wallet needs one that can sign
-Zerdinals. Either may be closed at any time, and the panel says which is
+Zordinals. Either may be closed at any time, and the panel says which is
 closed and why. One mode being closed does not make the service read-only:
 browsing, existing orders and recovery stay available.
+
+### When the token cannot be read
+
+If the reading cannot describe a token right now, the panel says so and
+offers a raw mint instead of stopping. You type the exact ticker and amount,
+pick the reading, and give the address to credit. The bytes are built by the
+same mint builder, and the review says plainly that the reading has not
+confirmed the token.
+
+A raw mint checks only what the bytes decide on their own:
+
+- the ticker fits the reading: 4 to 5 bytes under `zord`, 1 to 64 under
+  `zecscriptions`;
+- the amount is a positive number with at most 18 digits after the point.
+
+No precision, deployment or supply is assumed for it. The reading decides
+afterwards whether, and how much, it credits, and the outcome shows
+**Pending verification** until it does. If the reading comes back while you
+prepare it and already knows the mint will not count (supply used up, over
+the limit, too many decimals), it is refused before anything is paid.
 
 ### Delivery is not acceptance
 
@@ -96,7 +116,8 @@ show each reading independently. They catch a ticker already deployed, a
 mint with no deploy, an amount outside that reading's limit, and a transfer
 larger than the connected address's available balance. A 404 means the
 ticker is free under that reading. An unreachable or incomplete reader is
-unknown, never permission to proceed.
+unknown, never a free ticker. For a mint, the form then points you to the
+raw mint described above.
 
 A transfer still happens in two steps. Inscribing a transfer operation to an
 address you control commits that amount of your balance; sending that
@@ -146,7 +167,7 @@ id efficiently, the page says that instead of guessing.
 An accepted mint inscription **is** the item. There is no separate token
 record that could be owned apart from it: whoever controls the transparent
 output carrying that inscription holds the item, and the item follows every
-ordinary rule for a Zerdinal, including the terminal states. A carrying
+ordinary rule for a Zordinal, including the terminal states. A carrying
 output spent into a shielded transaction ends tracking, and the item shows
 that it is no longer observable rather than naming a holder; one spent with
 no transparent successor is burned. The minter is a separate fact from the

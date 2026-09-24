@@ -1,6 +1,6 @@
 ---
-title: "Zerdinals v1 specification"
-description: "The normative specification of the Universe Zerdinals v1 inscription protocol: envelope, commitment, ownership, terminal states, and launch gates."
+title: "Zordinals v1 specification"
+description: "The normative specification of the Universe Zordinals v1 inscription protocol: envelope, commitment, ownership, terminal states, and launch gates."
 ---
 
 :::note[Normative source]
@@ -13,11 +13,11 @@ Date: 2026-08-25
 
 ## 1. Overview
 
-A Zerdinal is a digital artifact inscribed on Zcash through a pair of transparent transactions: a commit transaction and one or more reveal transactions. The content bytes live in the reveal transaction scriptSig. Ownership is bound to one transparent output and moves through ordinary transparent spends.
+A Zordinal is a digital artifact inscribed on Zcash through a pair of transparent transactions: a commit transaction and one or more reveal transactions. The content bytes live in the reveal transaction scriptSig. Ownership is bound to one transparent output and moves through ordinary transparent spends.
 
-Universe Zerdinals v1 is a strict, integrity-hardened profile of the inscription envelope already live on Zcash mainnet since late 2025 (the ord scriptSig envelope used by the community Zerdinals ecosystem, Zordinals tooling, and Zecscriptions). Every v1 inscription is readable by existing ecosystem decoders. Every v1 inscription additionally carries a content hash commitment that generic legacy inscriptions lack.
+Universe Zordinals v1 is a strict, integrity-hardened profile of the inscription envelope already live on Zcash mainnet since late 2025 (the ord scriptSig envelope used by the community Zordinals ecosystem, Zordinals tooling, and Zecscriptions). Every v1 inscription is readable by existing ecosystem decoders. Every v1 inscription additionally carries a content hash commitment that generic legacy inscriptions lack.
 
-Zerdinals are transparent. Content, ownership, and activity are public. Nothing in this protocol is shielded or private.
+Zordinals are transparent. Content, ownership, and activity are public. Nothing in this protocol is shielded or private.
 
 ## 2. Network domain
 
@@ -81,7 +81,7 @@ where contentType is the exact ASCII bytes pushed in the envelope and content is
 
 Because the P2SH address is the hash of the redeem script, the commit transaction commits to the content before any content bytes touch the chain. This closes the malleability gap in the generic legacy envelope, where scriptSig data is excluded from the ZIP 244 transaction id and is not covered by any signature, so relayed content could in principle be altered before confirmation without changing the txid. In v1, altered content no longer matches C and the result is not a valid v1 inscription.
 
-Detection rule: an inscription is Universe Zerdinals v1 if and only if every reveal input in its chain has a redeem script of the exact shape above and the reassembled content satisfies the commitment. Otherwise it is indexed as the legacy family.
+Detection rule: an inscription is Universe Zordinals v1 if and only if every reveal input in its chain has a redeem script of the exact shape above and the reassembled content satisfies the commitment. Otherwise it is indexed as the legacy family.
 
 Standardness: the redeem script is a nonstandard P2SH script with exactly one signature operation, which Zcash mempool policy accepts (the limit is 15). The scriptSig is push-only. Total scriptSig size stays far below the 1650-byte standardness limit at 4 pieces per transaction.
 
@@ -156,7 +156,7 @@ A transfer is an ordinary transparent transaction spending the carrying output. 
 
 1. The carrying output must be spent as input, and the intended recipient must be output 0 (or the first non-data transparent output).
 2. Asset-safe coin selection must never select a carrying output for fees or plain value sends.
-3. The approval screen must state which Zerdinals move and to whom.
+3. The approval screen must state which Zordinals move and to whom.
 
 ## 10. Terminal states
 
@@ -198,4 +198,4 @@ Mainnet creation stays disabled until all of the following hold:
 
 ## 15. Relationship to legacy inscriptions
 
-The indexer reads the legacy family (generic ord scriptSig envelopes without the v1 commitment, including Zecscriptions single-piece envelopes, ZRC-20 and ZRC-721 payloads, and IPFS pointer records) exactly as deployed decoders do, with the documented decoder defects corrected (piece counts above 255 are still treated as invalid for ecosystem compatibility, missing pieces are never silently zero-filled, and content is never served incomplete). Legacy assets keep their protocol-family badge and are read-only in the product. The product creates only Universe Zerdinals v1.
+The indexer reads the legacy family (generic ord scriptSig envelopes without the v1 commitment, including Zecscriptions single-piece envelopes, ZRC-20 and ZRC-721 payloads, and IPFS pointer records) exactly as deployed decoders do, with the documented decoder defects corrected (piece counts above 255 are still treated as invalid for ecosystem compatibility, missing pieces are never silently zero-filled, and content is never served incomplete). Legacy assets keep their protocol-family badge and are read-only in the product. The product creates only Universe Zordinals v1.

@@ -7,7 +7,7 @@ description: "The normative specification of the four collection verification le
 This page is the published copy of the normative specification maintained in the product repository (docs/protocol/COLLECTIONS-V1.md at commit bd3bede4a238). Where this page and that file disagree, the product repository file is the authority. The Status line below describes the protocol release state in its own words.
 :::
 
-Status: Final draft alongside Zerdinals v1.
+Status: Final draft alongside Zordinals v1.
 Date: 2026-08-25
 
 Collections must never be arbitrary administrative groupings presented as chain fact. Every collection carries one of four verification levels, displayed everywhere the collection appears.
@@ -16,11 +16,11 @@ Collections must never be arbitrary administrative groupings presented as chain 
 
 ### 1.1 On-chain collection (Verified)
 
-The minimal deterministic membership model for Universe Zerdinals v1, chosen over deployment inscriptions and manifest hashes because it needs no new envelope fields and proves control cryptographically.
+The minimal deterministic membership model for Universe Zordinals v1, chosen over deployment inscriptions and manifest hashes because it needs no new envelope fields and proves control cryptographically.
 
 Parent reference by spend:
 
-1. The collection identity is itself a Zerdinal (the parent).
+1. The collection identity is itself a Zordinal (the parent).
 2. A child joins the collection when the genesis reveal transaction of the child spends the parent's carrying output as one of its inputs (any input after input 0, which is always the commit input).
 3. In such a transaction, the parent transfers to output 1, which must be a transparent non-data output. This explicit assignment overrides the default transfer rule for this transaction shape only. If output 1 is missing or not a transparent non-data output, the parent claim is void: the child has no collection, and the parent follows the default transfer rule.
 4. Only the current owner of the parent output can produce this transaction, so membership is proof of creator control at inscription time. Membership is permanent and recorded at child completion.

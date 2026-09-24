@@ -14,7 +14,7 @@ No rendered prose changed in preparation. Deploy docs only with matching accepte
 -->
 ## Overview
 
-The Rights and Remix Studio provides on-chain intellectual property expressions, verifiable license issuance, and cryptographic lineage tracking for Zerdinal and ZRune creators.
+The Rights and Remix Studio provides on-chain intellectual property expressions, verifiable license issuance, and cryptographic lineage tracking for Zordinal and ZRune creators.
 
 ## Key Capabilities
 

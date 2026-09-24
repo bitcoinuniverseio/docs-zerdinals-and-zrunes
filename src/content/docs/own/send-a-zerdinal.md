@@ -1,5 +1,5 @@
 ---
-title: Send a Zerdinal
+title: Send a Zordinal
 description: "Moving an artifact you hold to another transparent address: one transaction, why the recipient is always the first output, and what else travels with it."
 ---
 
