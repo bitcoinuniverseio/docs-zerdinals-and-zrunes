@@ -12,7 +12,7 @@ Yes. The content bytes live in the reveal transaction scripts on the Zcash
 chain, in 240-byte pieces. Reconstructing your content needs only a Zcash
 node; no Universe server has to exist for your inscription to survive.
 
-Universe Zerdinals v1 adds a commitment: the commit transaction's address is
+Universe Zordinals v1 adds a commitment: the commit transaction's address is
 derived from a hash of your exact content and content type. The chain
 committed to your content before any content byte was broadcast, and
 anything that does not match that commitment is not your inscription. You
@@ -53,7 +53,7 @@ them side by side, and names the reading behind every figure.
 
 No. Zordinals and ZRUNES use transparent Zcash transactions; content,
 addresses, balances, and activity are publicly visible, forever. Shielding
-does not make an asset private; it destroys its tracking (a Zerdinal
+does not make an asset private; it destroys its tracking (a Zordinal
 becomes permanently untrackable, a ZRune balance is burned by rule).
 [Transparent and shielded](/docs-zerdinals-and-zrunes/understand/transparent-and-shielded/).
 

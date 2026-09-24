@@ -66,7 +66,7 @@ than assumed:
    with the network.
 6. The protocol itself has activated on this network.
 
-For sending a Zerdinal or a ZRune, the record must also have read the whole
+For sending a Zordinal or a ZRune, the record must also have read the whole
 chain and be level with the node, because a send spends outputs the record
 has to vouch for.
 

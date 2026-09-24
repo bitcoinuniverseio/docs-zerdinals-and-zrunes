@@ -116,5 +116,5 @@ commit confirm, then each reveal, rather than a spinner.
 
 ## Related
 
-- [Inscribe a Zerdinal](/docs-zerdinals-and-zrunes/create/inscribe/)
+- [Inscribe a Zordinal](/docs-zerdinals-and-zrunes/create/inscribe/)
 - [Etch, mint, transfer ZRunes](/docs-zerdinals-and-zrunes/create/etch-mint-transfer/)

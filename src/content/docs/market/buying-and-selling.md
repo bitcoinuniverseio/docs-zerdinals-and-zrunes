@@ -69,7 +69,7 @@ one to point you at.
 ## One market, several destinations
 
 The Market navigation lists every destination the market serves: Overview,
-Zerdinals, Collections, NFTs, ZRC-20, ZRunes, zkMap, Names and Activity, with
+Zordinals, Collections, NFTs, ZRC-20, ZRunes, zkMap, Names and Activity, with
 Offers, Auctions, Cart, My listings, Relay Router and Licenses alongside them
 on the advanced surfaces. The list is not written out separately on each
 screen: every surface reads the same registry, so a destination that is
@@ -112,17 +112,17 @@ The market distinguishes states that look alike and are not:
 ## Block numbers (ZkMap districts)
 
 A ZkMap district is the winning inscription of a block number such as
-`1500000.zkmap`, so it is listed and bought as a Zerdinal: the seller's
+`1500000.zkmap`, so it is listed and bought as a Zordinal: the seller's
 single signature binds the output carrying the winning inscription, one
 transaction settles the sale, and the district follows that inscription to
 the buyer. There is no separate district order type. The rules are in the
 [ZkMap v1 specification](/docs-zerdinals-and-zrunes/protocols/zkmap/).
 
 The Market navigation has a ZkMap destination at `/market/zkmap`, which is
-the Zerdinal order book filtered on the server to listings the backend
+the Zordinal order book filtered on the server to listings the backend
 admitted as winning districts. A district is verified against the chain
 when it is listed and again when it is bought; a losing or invalid claim
-cannot be listed as a district, only as the ordinary Zerdinal it is. The
+cannot be listed as a district, only as the ordinary Zordinal it is. The
 book has three filters (For sale, Sold, Everything), and an empty book says
 whether it is empty or unreadable. Holders list a district from its block
 page at `/zkmap/<height>`, whose Market section addresses the winning
@@ -187,7 +187,7 @@ not round the amount being bought or change the signed total.
 A ZRC-721 item is traded as the inscription that minted it, because that is
 what it is. An NFT listing is a version 2 item ask with protocol `zrc721`,
 signed by the holder's wallet over the inscription's carrying output exactly
-as a Zerdinal ask is. The collection key and the token id are not in the
+as a Zordinal ask is. The collection key and the token id are not in the
 signature; they are facts the indexer proves about that inscription, and
 the market checks them when the listing is admitted, every time it is
 revalidated, when a buyer prepares a purchase, and again before a sale is
@@ -204,7 +204,7 @@ From an item's page at `/nfts/:key/:tokenId`, or the collection's market
 page at `/market/nfts/:collectionKey`, you can:
 
 - **Buy** a listed item at its asked price, through the same purchase paths
-  as a Zerdinal.
+  as a Zordinal.
 - **Offer** on an item, or on any item in a collection. As with every v2
   offer, the seller signs at acceptance; an offer does not settle itself.
 - **List** an item you hold, and **cancel** a listing, with the same meaning
@@ -355,7 +355,7 @@ submission also require an explicitly configured confirmation policy, healthy
 dependencies, and matching release evidence. An unavailable book must not be
 shown as an empty book.
 
-A fixed-price Zerdinal purchase has two independent paths. A connected
+A fixed-price Zordinal purchase has two independent paths. A connected
 wallet can review and sign its funding input. The pay-from-any-wallet path
 creates an exact ZEC invoice and, after confirmation, combines those funds
 with the seller's already sealed authorization. The service never signs the

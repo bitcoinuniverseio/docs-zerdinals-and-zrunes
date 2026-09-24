@@ -1,6 +1,6 @@
 ---
 title: Ownership lives on outputs
-description: "Why owning a Zerdinal or a ZRune balance means controlling one transparent output, why a single output can carry hundreds of assets, and everything that follows from it."
+description: "Why owning a Zordinal or a ZRune balance means controlling one transparent output, why a single output can carry hundreds of assets, and everything that follows from it."
 ---
 
 **You will get from this page:** the single mental model that explains how
@@ -17,7 +17,7 @@ chain, no account, and no undo.
 
 When the output is spent:
 
-- a **Zerdinal** moves to the first transparent non-data output of the
+- a **Zordinal** moves to the first transparent non-data output of the
   spending transaction;
 - **ZRune balances** pool with everything else the transaction spent and
   are allocated to outputs by the transaction's edicts, with a default rule
@@ -72,7 +72,7 @@ ordinary while it happened.
 The successor rules (which output an asset moves to, and when a spend is a
 burn or a shielded terminal state instead) are normative and deterministic.
 They are specified in
-[Zerdinals v1](/docs-zerdinals-and-zrunes/protocols/zerdinals-v1/) and
+[Zordinals v1](/docs-zerdinals-and-zrunes/protocols/zerdinals-v1/) and
 [ZRunes v1](/docs-zerdinals-and-zrunes/protocols/zrunes-v1/).
 
 ## Related

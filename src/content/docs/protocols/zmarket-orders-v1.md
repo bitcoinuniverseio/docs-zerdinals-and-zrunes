@@ -199,6 +199,6 @@ quantities never mix rulesets.
 The `domain` and `version` fields are inside the signed digest input, via the
 container fields they bind. A change to layout, digest construction, or field
 meaning is a new version with a new domain string. Version 1 covers
-fixed-price listings of P2PKH-held Zerdinal inscriptions. Offers, auctions,
+fixed-price listings of P2PKH-held Zordinal inscriptions. Offers, auctions,
 fungible amount orders, and ZRune listings extend this document in later
 versions rather than mutating v1.

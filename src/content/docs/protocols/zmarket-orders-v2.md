@@ -7,7 +7,7 @@ The signed-order protocol for Zcash metaprotocols version 2.
 
 ## Implementation status
 
-Current source and public-testnet campaigns cover transparent Zerdinal
+Current source and public-testnet campaigns cover transparent Zordinal
 single-item asks and full-lot fungible asks. Production qualification remains
 incomplete: the 17 September 2026 deployment inspection found older serving
 artifacts without the indexer contracts required by current market execution.
