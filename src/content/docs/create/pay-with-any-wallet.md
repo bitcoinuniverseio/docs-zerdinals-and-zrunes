@@ -36,7 +36,7 @@ amount and address in the wallet itself.
 **Noir Wallet** is the one wallet that pays an invoice directly from this
 page. It sends ordinary ZEC and asks which funds to pay from: shielded, or
 transparent, which makes your sending address public. It cannot sign
-Zerdinals or ZRunes transactions. The **Web Wallet** signs those, but it
+Zordinals or ZRunes transactions. The **Web Wallet** signs those, but it
 does not pay invoices; use scan or copy with another wallet instead.
 Universe Wallet is no longer offered. An order it already paid is still
 followed to the end, and a new payment for it goes through the QR code or
