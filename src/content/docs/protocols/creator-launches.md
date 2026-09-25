@@ -9,11 +9,9 @@ proves, and what happens when something is not delivered.
 
 :::caution[Availability today]
 This page describes the launch studio with its 18% terms, native verified
-collections, phase access, token campaigns and storefront sales. That
-release has not yet finished its public Zcash Testnet acceptance and is not
-on Zcash mainnet. The
+collections, phase access, token campaigns and storefront sales. The
 [status page](/docs-zerdinals-and-zrunes/start/status/) is the authority on
-what can complete today.
+what can complete today on each network.
 :::
 
 ## Three stages
