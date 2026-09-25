@@ -50,6 +50,11 @@ the parent to output 1 of that transaction and stamps the child as a member.
 An impostor cannot do this: spending the parent's output requires the
 creator's keys.
 
+A creator can also delegate the parent to a dedicated launch key, so that a
+launch mints members while the creator is offline. That key then holds the
+parent, under the limits described in
+[Creator Launches](/docs-zerdinals-and-zrunes/protocols/creator-launches/#how-a-verified-collection-mints).
+
 ## What the product refuses to invent
 
 Collections v1 pages carry no floor prices, volume, sales, or rarity
