@@ -460,6 +460,22 @@ longer than any QR can hold says so and points at the copy and
 open-in-wallet controls, which carry the identical request. The address, the
 exact amount and the instructions never change with the symbol.
 
+### The district market
+
+The market at `/market/zkmap` is built from the winning districts, not
+from listings: every district is shown whether or not it was ever listed,
+and a listing is attached to the district it sells. The market's copy of the
+districts is refreshed from the indexer continuously and is only published
+once it is complete, so a half-read market is never shown as the whole one.
+The copy is for browsing; a purchase still reads the claim receipt and the
+live output of the winning inscription when it happens.
+
+Offers on "any zkMap district" are ordinary market orders over the reserved
+collection `zkmap-v1:all`: a district belongs to it exactly when its
+inscription is the current winner of its block and is held at the output the
+seller names. This is an application rule of the market, not a new on-chain
+protocol, and it does not change who wins a block.
+
 ## 9. Public API
 
 All operations are under the `zkmap` tag of the
@@ -482,6 +498,11 @@ as exact decimal strings.
 | `POST /api/zkmap/invoices`, `POST /api/zkmap/invoices/batch` | Pay-from-any-wallet mint of one, or up to 24, block numbers |
 | `GET /api/zkmap/orders/{orderId}/claim` | The claim outcome of a connected-wallet mint order |
 | `GET /api/zkmap/payment-orders/{orderId}/claims` | The claim outcomes of an invoice mint |
+| `GET /api/zkmap/market` | Every winning district, listed first, with filters (`status`, `q`, price, block range, `owner`, `traits`) applied to the whole market; unlisted districts have no ask and no price |
+| `GET /api/zkmap/market/facets` | Per-trait counts over the selected districts, each trait counted without its own selection |
+| `GET /api/zkmap/market/holders` | Current holders of the selected districts |
+| `GET /api/zkmap/market/history?window=` | Confirmed district sales only: count, exact volume, last, high, low and the sale points |
+| `GET /api/zkmap/market/activity?kind=` | District sales, listings and delistings, newest first |
 
 Every response is bound to the indexer checkpoint (height and hash) it was
 read at, or says it has none. A mint order's claim outcome (`pending`, `accepted`, `conflict`,
