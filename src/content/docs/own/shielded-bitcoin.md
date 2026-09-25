@@ -12,20 +12,20 @@ app's network selector:
 | App network | Shielded Bitcoin network |
 | --- | --- |
 | Mainnet | Bitcoin mainnet |
-| Testnet | Bitcoin Signet (test notes only) |
+| Testnet | Bitcoin Signet (test coins only) |
 | Regtest | Lab Signet, Universe's private test chain (for Universe's own testing; not served on zrunes.io) |
 
-:::caution[No way to add value yet]
-Shielded Bitcoin covers private transfers between notes. Moving bitcoin in
-(peg-in) or out (peg-out) is not part of the protocol yet, so on mainnet no
-notes exist and **Send is unavailable**. You can create a wallet and a receive
-address, but nothing can arrive until a peg-in exists. Test notes on Signet
-and the lab chain have no value.
+:::caution[Deposits are not open yet]
+Shielded Bitcoin covers private transfers inside the shielded pool. Moving
+bitcoin in or out of the pool is not part of the protocol yet, so on mainnet
+there is nothing to send and **Send is unavailable**. You can create a wallet
+and a receive address now. Test coins on Signet and the lab chain have no
+value.
 :::
 
 ## Create or restore
 
-**Backup and restore > Create wallet** makes a new wallet in this browser,
+**Backup > Create wallet** makes a new wallet in this browser,
 encrypted with your password, and shows **24 backup words once**. Write them
 down: they are the only way to restore the wallet on another device. **Restore
 wallet** takes the 24 words and a new password. **Forget this wallet** deletes
@@ -58,8 +58,8 @@ fees.
    hash and kept for later). Proving takes about 10 to 60 seconds.
 4. It builds the Bitcoin transaction, checks it, and publishes it.
 
-A transfer spends one or two of your notes. If your balance is spread over
-more notes than that, send to yourself first to combine them.
+A transfer spends one or two of the payments you hold. If your balance is
+spread over more than two, send to yourself first to combine them.
 
 ## Follow a transfer
 
@@ -67,21 +67,21 @@ Submission is not acceptance. The status moves through **In the mempool**,
 **In a block**, and **Accepted**, the last one meaning Shielded Bitcoin
 checked the proof and recorded the transfer. **Rejected**, **Expired** (not
 mined within about 100 blocks) and **Orphaned** (its block left the chain)
-return the notes to you; send again.
+return the amount to you; send again.
 
 ## Share read-only access
 
-**Disclosure** lets you show activity without giving spending power:
+**Share** lets you show activity without giving spending power:
 
 | What you share | What it shows |
 | --- | --- |
-| **Incoming view key** | Every note this wallet received; not what it spent |
-| **Outgoing view key** | What this wallet sent; not what it received |
-| **One note** | That one note: amount, address, block |
+| **Everything I receive** | Every payment this wallet received; not what it spent |
+| **Everything I send** | What this wallet sent; not what it received |
+| **One payment** | That one payment: amount, address, block |
 
-None of them can spend. Anyone can paste a disclosure into **Check** to
-verify it against the published history. A view key covers your whole history,
-so share a single note when that is enough.
+None of them can spend. Anyone can paste what they were given into **Check
+shared text** to verify it against the published history. The first two cover
+your whole history, so share one payment when that is enough.
 
 A wallet restored from an incoming view key shows **Received (view-only)**:
 it cannot send and cannot see spends.
