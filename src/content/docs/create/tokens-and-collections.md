@@ -202,5 +202,6 @@ block and transaction order decide which one counts.
 
 - [ZRC-20 and its two readings](/docs-zerdinals-and-zrunes/understand/zrc-20/)
 - [Collections](/docs-zerdinals-and-zrunes/understand/collections/)
+- [Launch a Zordinal collection](/docs-zerdinals-and-zrunes/protocols/creator-launches/)
 - [Pay with any wallet](/docs-zerdinals-and-zrunes/create/pay-with-any-wallet/)
 - [Fees and confirmation](/docs-zerdinals-and-zrunes/create/fees/)
