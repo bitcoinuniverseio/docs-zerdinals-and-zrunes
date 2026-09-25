@@ -60,7 +60,7 @@ this profile.
 | --- | --- | --- |
 | Mainnet | 968457 | none |
 | Signet | 323550 | 1,000,000 test sats held by Universe for testing |
-| Lab Signet (Universe's private test chain) | 8006 | 1,000,000 test sats held by Universe for testing |
+| Lab Signet (Universe's private test chain, internal testing only) | 8006 | 1,000,000 test sats held by Universe for testing |
 
 Test notes on Signet and the lab chain are declared by Universe for testing.
 They are not backed by bitcoin and cannot be redeemed.
