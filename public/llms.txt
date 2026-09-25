@@ -43,6 +43,7 @@ src/content/docs/.
 
 - [Portfolio and watchlists](https://zrunes.io/docs-zerdinals-and-zrunes/own/portfolio/)
 - [The Web Wallet](https://zrunes.io/docs-zerdinals-and-zrunes/own/web-wallet/)
+- [The Shielded Bitcoin wallet](https://zrunes.io/docs-zerdinals-and-zrunes/own/shielded-bitcoin/)
 - [Send a Zordinal](https://zrunes.io/docs-zerdinals-and-zrunes/own/send-a-zerdinal/)
 - [Protect asset-bearing outputs](https://zrunes.io/docs-zerdinals-and-zrunes/own/protect/)
 - [Interruptions and recovery](https://zrunes.io/docs-zerdinals-and-zrunes/own/recovery/)
@@ -65,6 +66,7 @@ src/content/docs/.
 - [ZMarket Orders v2 specification](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/zmarket-orders-v2/)
 - [Creator Launches and Public Launchpad](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/creator-launches/)
 - [Shielded Metaprotocols](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/shielded-metaprotocols/)
+- [Shielded Bitcoin (universe-sb-v1)](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/shielded-bitcoin/)
 - [Names and Dual-Registry Architecture](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/names-and-registries/)
 
 - [Provenance Studio (C2PA 2.4)](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/provenance-studio/)
