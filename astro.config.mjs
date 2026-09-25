@@ -111,6 +111,7 @@ export default defineConfig({
           items: [
             { label: 'Portfolio and watchlists', slug: 'own/portfolio' },
             { label: 'The Web Wallet', slug: 'own/web-wallet' },
+            { label: 'The Shielded Bitcoin wallet', slug: 'own/shielded-bitcoin' },
             { label: 'Send a Zordinal', slug: 'own/send-a-zerdinal' },
             { label: 'Protect asset-bearing outputs', slug: 'own/protect' },
             { label: 'Interruptions and recovery', slug: 'own/recovery' },
@@ -137,6 +138,7 @@ export default defineConfig({
             { label: 'ZMarket Orders v2 specification', slug: 'protocols/zmarket-orders-v2' },
             { label: 'Creator Launches and Public Launchpad', slug: 'protocols/creator-launches' },
             { label: 'Shielded Metaprotocols', slug: 'protocols/shielded-metaprotocols' },
+            { label: 'Shielded Bitcoin (universe-sb-v1)', slug: 'protocols/shielded-bitcoin' },
             { label: 'Names and Dual-Registry Architecture', slug: 'protocols/names-and-registries' },
             { label: 'Provenance Studio (C2PA 2.4)', slug: 'protocols/provenance-studio' },
             { label: 'Rights and Remix Studio', slug: 'protocols/rights-and-remix' },
