@@ -142,28 +142,52 @@ checkpoint:
 | `pending` | Mempool | A valid matching reveal is observed in the owned node mempool; it is not a winner or reservation |
 | `future` | Not mined yet | A fresh verified node tip proves that the height does not exist yet |
 | `ineligible` | Not claimable | The height cannot be claimed, and the page says why |
-| `unknown` | Unknown | The indexer could not vouch for this height |
+| `unknown` | Not yet checked | Nothing is known about this height yet; never shown as available |
 
 Availability is never a reservation. A block shown as available can be won
 by someone else's claim before yours completes, and a claim that loses on
-chain still paid for its inscription. Unknown is never shown as available: a
-lagging or unqualified indexer produces an unknown cell or a read failure,
-not an empty one.
+chain still paid for its inscription. A block nobody could check yet is
+shown as not yet checked, never as available and never with a question mark.
 
-### Claiming a block whose status is unknown
+### The last known status
 
-A claim is decided by the chain, not by what anyone observed first, so the
-product does not wait for the map to finish reading before it lets you try.
-A claim attempt is refused only when the height is already known to be lost:
-`claimed`, `future` or `ineligible`. An `unknown` or `pending` height can be
-attempted. Nothing is reserved for it, the order records that it was
-admitted without a known status, and the first eligible claim completed on
-chain still wins. The outcome is read back later from the claim receipt,
-exactly as for any other claim.
+A status, once known, stays on screen. When a later check fails, is cut short
+or cannot decide a block, the map, the block list, the side panel, the block
+page and the mint review keep showing the last known status in its own words
+and colour, with when it was last checked. Nothing turns a known block back
+into "not yet checked" because one read went wrong.
 
-On the pay-with-any-wallet path, an unknown status never holds a confirmed
-payment up. A payment is refunded before it is spent only when its height is
-known to be claimed by then.
+The service keeps these last known statuses too, per network, chain and
+block, with the time each was first seen. They are shown for information
+only: they never decide who owns a ZkMap, and never allow a send, a listing
+or a purchase. A claimed block stays claimed until the owned node proves its
+winning transaction left the chain; the earlier winner is then kept in the
+block's history, marked as reorganised away.
+
+### Minting any block
+
+A claim is decided by the chain, not by what anyone observed first, so any
+valid block number can be minted: available, pending, already claimed, not
+mined yet, not claimable or not checked yet. Each mint is an attempt. The
+review says which blocks will probably not win and why, and asks you to
+accept the terms before anything is created:
+
+- the first valid claim completed on chain wins;
+- fees are spent whether or not your attempt wins;
+- on the pay-with-any-wallet path, the payment funds the attempt and is not
+  refunded because another claim came first.
+
+Nothing is reserved, and minting a block that already has a winner does not
+change its winner: your inscription is kept as an ordinary Zordinal, and the
+outcome says it lost. A block that is not mined yet only counts if its claim
+completes after the block exists.
+
+These terms (`attempt-any-v1`) are recorded with the order when it is
+created and never change afterwards. Orders created before them, and clients
+that do not accept them, keep the earlier terms (`legacy-conflict-check-v1`):
+a block already known to be claimed, not mined or not claimable is refused,
+and an unspent invoice payment whose block was claimed before it was spent is
+refunded.
 
 ### Current occupancy proof
 
@@ -403,6 +427,9 @@ this service, not a chain fact.
 **The action.** Mint, when the district is free and its observation is still
 current. Send, when the connected wallet is the confirmed holder and the
 carrying output can be spent. View inscription, whenever a winner exists.
+Try to mint, for any other block: the mint review states the risk. When the
+block cannot be read right now, the page shows its last known status and when
+it was checked, or says it has not been checked yet.
 Nothing invents a Buy, a price or a rarity score. An observation that has
 expired says the availability is being checked rather than continuing to
 offer a mint, because availability is an observation and not a reservation.
@@ -460,6 +487,22 @@ longer than any QR can hold says so and points at the copy and
 open-in-wallet controls, which carry the identical request. The address, the
 exact amount and the instructions never change with the symbol.
 
+### The district market
+
+The market at `/market/zkmap` is built from the winning districts, not
+from listings: every district is shown whether or not it was ever listed,
+and a listing is attached to the district it sells. The market's copy of the
+districts is refreshed from the indexer continuously and is only published
+once it is complete, so a half-read market is never shown as the whole one.
+The copy is for browsing; a purchase still reads the claim receipt and the
+live output of the winning inscription when it happens.
+
+Offers on "any zkMap district" are ordinary market orders over the reserved
+collection `zkmap-v1:all`: a district belongs to it exactly when its
+inscription is the current winner of its block and is held at the output the
+seller names. This is an application rule of the market, not a new on-chain
+protocol, and it does not change who wins a block.
+
 ## 9. Public API
 
 All operations are under the `zkmap` tag of the
@@ -470,18 +513,25 @@ as exact decimal strings.
 | --- | --- |
 | `GET /api/zkmap/blocks?start=&limit=` | A window of statuses, occupancy proof, block hashes, winners and owners (limit up to 1024) |
 | `GET /api/zkmap/blocks?start=&limit=&view=draft` | The map for picking blocks while the reading is incomplete (`zkmap-blocks-draft-v1`): the node tip, the projection checkpoint or null, a `strict` flag, and one status per height up to the node tip. Unknown is never available |
+| `GET /api/zkmap/blocks?start=&limit=&view=display` | The map as shown (`zkmap-display-v1`): `currentRead` (`ok`, `degraded` or `unavailable`), and per height the `current` read, the `lastKnown` status with its own chain identity and first-seen time, and the `display` status with its `source` (`current`, `retained` or `none`) and whether it is `stale`. Tip and chain identity are null when nothing current could establish them |
 | `GET /api/zkmap/blocks/{height}` | One block's status, occupancy proof, winner and owner |
+| `GET /api/zkmap/blocks/{height}?view=display` | One block as shown (`zkmap-block-display-v1`): the strict record or null, the `display` status, `lastKnown` and the winners recorded for the height (`history`, each `active` or `reorged`) |
 | `GET /api/zkmap/blocks/{height}/geometry` | The SVG editions' input: ordered transaction byte sizes and their digest |
 | `GET /api/zkmap/blocks/{height}/art.svg?art=&network=&size=&hash=` | The SVG district picture at 256, 512 or 1024; every edition after v1 needs the network it was observed on |
 | `GET /api/zkmap/blocks/{height}/art.png?art=zkmap-bitmap-v1&network=&size=&hash=` | The bitmap district picture at 256, 512, 576 or 1024 |
 | `GET /api/zkmap/media/{sha256}` | Exact published artwork bytes, immutable; no claim about the current chain or about ownership |
 | `GET /api/zkmap/districts?owner=&cursor=&limit=&order=` | Claimed districts, optionally held by one address |
 | `GET /api/zkmap/claims/{inscriptionId}` | The claim receipt and verdict of one inscription |
-| `POST /api/zkmap/availability` | Preflight of up to 24 heights with historical and current occupancy evidence; an observation, not a reservation. `source` says what answered (`strict`, `draft` or `node`), and the checkpoint is null when there is none |
-| `POST /api/zkmap/prepare`, `POST /api/zkmap/batch/prepare` | Connected-wallet mint of one, or up to 24, block numbers |
-| `POST /api/zkmap/invoices`, `POST /api/zkmap/invoices/batch` | Pay-from-any-wallet mint of one, or up to 24, block numbers |
+| `POST /api/zkmap/availability` | Preflight of up to 24 heights with historical and current occupancy evidence; an observation, not a reservation. `source` says what answered (`strict`, `draft` or `node`); the checkpoint and `genesisHash` are null when only the node answered. Each height carries its `lastKnown` status, and `admissionPolicy` names the terms new orders are created under |
+| `POST /api/zkmap/prepare`, `POST /api/zkmap/batch/prepare` | Connected-wallet mint of one, or up to 24, block numbers. Send `admissionPolicy: "attempt-any-v1"` to accept the attempt terms; without it the earlier terms apply |
+| `POST /api/zkmap/invoices`, `POST /api/zkmap/invoices/batch` | Pay-from-any-wallet mint of one, or up to 24, block numbers, with the same `admissionPolicy` acknowledgment |
 | `GET /api/zkmap/orders/{orderId}/claim` | The claim outcome of a connected-wallet mint order |
 | `GET /api/zkmap/payment-orders/{orderId}/claims` | The claim outcomes of an invoice mint |
+| `GET /api/zkmap/market` | Every winning district, listed first, with filters (`status`, `q`, price, block range, `owner`, `traits`) applied to the whole market; unlisted districts have no ask and no price |
+| `GET /api/zkmap/market/facets` | Per-trait counts over the selected districts, each trait counted without its own selection |
+| `GET /api/zkmap/market/holders` | Current holders of the selected districts |
+| `GET /api/zkmap/market/history?window=` | Confirmed district sales only: count, exact volume, last, high, low and the sale points |
+| `GET /api/zkmap/market/activity?kind=` | District sales, listings and delistings, newest first |
 
 Every response is bound to the indexer checkpoint (height and hash) it was
 read at, or says it has none. A mint order's claim outcome (`pending`, `accepted`, `conflict`,
@@ -497,9 +547,10 @@ whose claim lost is a conflict, and the product says so.
 2. It does not reserve a block for anyone before a claim completes on
    chain.
 3. It does not refund a claim that lost on chain; the inscription was made
-   and is the loser's to keep. (The product's invoice path refunds a payment
-   whose name was already known to be taken before the payment was executed, which is a
-   product rule, not a protocol rule.)
+   and is the loser's to keep. (Under the earlier product terms only, the
+   invoice path refunds a payment whose name was already known to be taken
+   before the payment was spent. That is a product rule, not a protocol
+   rule, and the attempt terms do not include it.)
 4. It does not re-open a block whose winner was burned or shielded.
 
 ## Related
