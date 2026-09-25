@@ -11,7 +11,7 @@ Standardized encrypted memo payloads riding within Sapling and Orchard note ciph
 
 ### Non-Fungible Privacy Tokens (NFPT)
 
-Privacy-preserving asset representations referencing immutable content hashes with zero-knowledge ownership proofs.
+Shielded memos that label an item by its content hash. The ZINC draft that defines them treats ownership as advisory: a memo is a label, not a note-bound token, so there is no ownership proof yet. Zordinals shows NFPTs for discovery only and does not sell them in launches.
 
 ### Sovereign Zones
 
