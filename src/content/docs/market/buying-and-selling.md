@@ -56,6 +56,8 @@ Floor, volume, and sale counts on the market pages are derived from this
 service's open listings and confirmed settlements only, and every market
 page says so. They are not chain facts and are never presented as such.
 An empty market shows as empty; nothing is fabricated to look busy.
+The overview's cheapest open ask covers every family at once, so it is
+labelled **Lowest ask**; a **Floor** is always one collection's.
 
 ## Where this market is
 
@@ -407,7 +409,10 @@ creates an exact ZEC invoice and, after confirmation, combines those funds
 with the seller's already sealed authorization. The service never signs the
 seller's asset input. Each path opens only when its own release authorization
 and dependencies are healthy. Until then the product shows the precise
-blocker instead of offering a path that cannot finish. See
+blocker instead of offering a path that cannot finish. When one path is open
+and the other is not, the listing says which one is open (for example
+**Open, with a wallet**) and names the closed path's reason once, rather than
+calling the whole purchase paused. See
 [Pay with any wallet](/docs-zerdinals-and-zrunes/create/pay-with-any-wallet/)
 and [current status](/docs-zerdinals-and-zrunes/start/status/).
 
