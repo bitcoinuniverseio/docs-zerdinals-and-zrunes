@@ -13,7 +13,7 @@ app's network selector:
 | --- | --- |
 | Mainnet | Bitcoin mainnet |
 | Testnet | Bitcoin Signet (test notes only) |
-| Regtest | Lab Signet, Universe's private test chain (test notes only) |
+| Regtest | Lab Signet, Universe's private test chain (for Universe's own testing; not served on zrunes.io) |
 
 :::caution[No way to add value yet]
 Shielded Bitcoin covers private transfers between notes. Moving bitcoin in
