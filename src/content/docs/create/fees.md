@@ -81,8 +81,9 @@ sealed; new sales on such a launch need a new revision, which seals the
 current terms. A paid launch settled under those earlier terms on public
 Zcash Testnet on 18 September 2026: 200,000 zatoshis of sales paid 30,000
 zatoshis to the platform and 170,000 zatoshis to the creator. The 18% terms
-have their own Testnet acceptance still to complete, and none of this is
-deployed on Zcash mainnet. The whole launch journey is described in
+were accepted on public Zcash Testnet on 24 September 2026; the
+[status page](/docs-zerdinals-and-zrunes/start/status/) shows what is
+available on each network today. The whole launch journey is described in
 [Creator Launches and Public Launchpad](/docs-zerdinals-and-zrunes/protocols/creator-launches/).
 
 ## Confirmation
