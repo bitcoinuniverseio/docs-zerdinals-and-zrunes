@@ -118,41 +118,87 @@ transaction settles the sale, and the district follows that inscription to
 the buyer. There is no separate district order type. The rules are in the
 [ZkMap v1 specification](/docs-zerdinals-and-zrunes/protocols/zkmap/).
 
-The Market navigation has a ZkMap destination at `/market/zkmap`, which is
-the Zordinal order book filtered on the server to listings the backend
-admitted as winning districts. A district is verified against the chain
-when it is listed and again when it is bought; a losing or invalid claim
-cannot be listed as a district, only as the ordinary Zordinal it is. The
-book has three filters (For sale, Sold, Everything), and an empty book says
-whether it is empty or unreadable. Holders list a district from its block
-page at `/zkmap/<height>`, whose Market section addresses the winning
-inscription itself, and the market header links straight to the districts
-you hold.
+The Market navigation has a ZkMap destination at `/market/zkmap`. It shows
+**every** district: each winning block number is one card, whether or not
+it has ever been listed. Blocks nobody has claimed are not cards here; they
+stay in the block map and the mint flow.
+
+- **All** (the default), **Listed** and **Not listed** choose the cards.
+  Listed districts always come first, across every page: first the ones you
+  can buy now, then listings that are pending or cannot be bought right now,
+  then the rest.
+- A district that is not listed shows no price and no Buy button. It is
+  never shown as free, and a price filter never matches it.
+- A district whose winning inscription was burned or moved into a shielded
+  transaction stays occupied and is shown as **Not tradeable**, with no
+  holder.
 
 ### Finding a district
 
-Search a block number exactly: `780000` and `780000.zkmap` both find that one
-district. It is not a text search over listings, so a partial height finds
-nothing rather than a list of near misses, and `007` is refused because it
-is not how a block number is written.
+The filters on the left apply to the whole market, not to the cards on
+screen:
 
-The book can be ordered by newest, by price in either direction, or by
-block height. The search and the ordering are part of the page address, so
-a book you are looking at can be linked to someone else and the back button
-returns you to it rather than to a reset page. Ordering applies to the
-whole book, not to the listings currently on screen.
+- **Search**: a block number (`780000` or `780000.zkmap`) or a winning
+  inscription id. It is exact, so a partial height finds nothing rather
+  than near misses, and `007` is refused because it is not how a block
+  number is written.
+- **Price** in ZEC, exact to eight decimal places.
+- **Block range**, from one block number to another.
+- **Holder address**: the districts one address holds right now.
+- **Traits**: the block traits grouped by section, with a count beside each
+  value. A count is how many districts in your current selection have that
+  value. Unknown and not applicable are counted apart, never as false or
+  zero, and traits that only exist on Bitcoin are listed under **Not on
+  Zcash** with the reason.
+
+The **Holders** tab lists the current holders of the selected districts,
+with how many each holds and lists and the listed value. Clicking one filters
+the market to that holder.
+
+The order (lowest or highest price, newest claim, block number), the view
+(grid or list) and the card size are in the page address, so a view can be
+linked to someone else and the back button returns to it. Changing the card
+size or the view never reloads the market. If the market moves while you
+scroll further, the list starts again from the top instead of mixing two
+moments together.
 
 ### What the district figures mean
 
-Above the book, districts for sale, the floor, sales and volume are counted
-across the whole book for the network you are on, not across the listings
-shown, and not across the wider market, which contains things that were
-never districts. Amounts are exact.
+The toolbar counts the districts that match your filters, all districts,
+and how many are listed. The floor is the lowest price you can buy at now.
 
-When the district index cannot vouch for its own coverage, the figures read
-**Unavailable** and say why. That is deliberate: a zero would look like a
-real, empty market. A book that genuinely holds nothing shows zero and no
-floor, which is a different statement.
+The **Sales** chart shows only confirmed sales, with their real time and
+price. A market with no sales says **No sales yet**; it never draws a price
+line or a change from asking prices. **Activity** lists sales, new listings
+and delistings, each at the time it happened.
+
+When the market cannot be read, it says so and offers a retry. That is a
+different statement from an empty market, and a listing book with nothing in
+it is not the same as a map with no districts.
+
+### Offers and selling instantly
+
+The **Offers** panel is a collection offer on every zkMap district. A buyer
+offers a price for any one district and signs it once in the Web Wallet;
+the district is delivered to the buyer's own address. A holder of any
+district can then **Sell now** to the best offer. The sale is one
+transaction that the seller signs; the network fee and the market fee come
+out of the seller's amount, and the panel shows the exact figures before
+anything is signed.
+
+The buyer's signature is kept by the market service until a sale uses it,
+and is never shown publicly. Spending the funds an offer names ends the
+offer, and the buyer can also cancel it. Offers can be made and accepted
+with the in-app Web Wallet; other wallets are told so rather than shown a
+button that cannot work.
+
+### Buying several districts
+
+Tick the box on any district you can buy, or **Select all loaded** to take
+every buyable listing on screen. The bar at the bottom shows the count and
+the exact total. Each district is still its own transaction: you approve
+each one, each one succeeds or fails on its own, and a purchase that went
+through is never repeated. If one fails, the others are not undone.
 
 ### On a district's listing page
 
