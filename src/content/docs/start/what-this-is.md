@@ -62,3 +62,10 @@ same way, which is why
 | Inscribe something | [Inscribe a Zordinal](/docs-zerdinals-and-zrunes/create/inscribe/) |
 | Look up an address, block, or artifact | [Search](/docs-zerdinals-and-zrunes/verify/search/) |
 | Integrate against the API | [Public HTTP API](/docs-zerdinals-and-zrunes/developers/api/) |
+
+## Acknowledgements
+
+The market's price, depth and floor charts are drawn with TradingView
+Lightweight Charts, under its open-source licence:
+
+> TradingView Lightweight Charts™ Copyright (с) 2025 TradingView, Inc. https://www.tradingview.com/
