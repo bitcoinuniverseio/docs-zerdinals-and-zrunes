@@ -84,6 +84,10 @@ Listed prices, floors and volume describe this service's orders and confirmed
 settlements. They are not chain-wide valuations or price guarantees. The two
 ZRC-20 rulesets retain separate quantities and prices.
 
+Token price charts cover at most the last 30 days and leave out sales made
+through version 1 orders. Those sales are on chain but are not drawn. See
+[A token's page](/docs-zerdinals-and-zrunes/market/buying-and-selling/#a-tokens-page).
+
 ## Reporting something not on this list
 
 Open an issue in the
