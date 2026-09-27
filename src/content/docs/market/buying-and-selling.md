@@ -111,6 +111,109 @@ The market distinguishes states that look alike and are not:
   about. A network selector is a preference in your browser; it does not
   repoint the service.
 
+## Token hubs (ZRC-20 and ZRunes)
+
+The ZRC-20 hub (one per ruleset, `zord` or `zecscriptions`) and the ZRunes
+hub share one layout: a table of tokens with the protocol's activity beside
+it. On a phone the activity moves below the table.
+
+**Search** matches the identifier only. On the ZRC-20 hub that is the ticker.
+On the ZRunes hub it is the ZRune ID, such as `3493055:7`; to find a ZRune by
+name, use Explore, which the hub links to.
+
+**Trading period** (24H, 7D or 30D) sets the three period columns. They count
+confirmed sales only. Listings never move them.
+
+| Column | Meaning |
+| --- | --- |
+| Lowest ask | The cheapest open listing now, per token (or per base unit, see below) |
+| Change | From the first to the last confirmed sale in the period |
+| Volume | ZEC paid across those sales, fees excluded, with the quantity sold |
+| Sales | How many confirmed sales |
+| Listed | Total quantity on sale now |
+| Listings | Number of open listings |
+
+The period columns can say two things that look alike:
+
+| Shown | Meaning |
+| --- | --- |
+| **No sales** (volume 0, sales 0) | The figures were read, and nobody bought this token in the period |
+| **Not available** | The figures could not be read right now. Nothing is known about sales |
+
+Period columns cover the whole market, not just the rows on screen, so they
+are shown but cannot be sorted. You can sort by asset, lowest ask or newest
+listings.
+
+### Per token or per base unit
+
+A price is **per token** when the token's divisibility (its decimals) is
+known. When it is not, the price is **per base unit** and says so. A price is
+never shown per token on a guess.
+
+## A token's page
+
+The top line shows **Lowest ask**, **Listed** and **Listings**, the same
+figures as the hub. Below it are the price chart, the depth chart and the
+history. The buy and sell panel sits beside them (above them on a phone).
+
+### Price chart
+
+The chart draws **confirmed sales only**. Each price is what buyer and seller
+agreed, **fees excluded**, divided by the quantity sold. A lot of 1,000
+units sold for 5,000 zatoshis and a lot of 10 units sold for 50 zatoshis are
+the same price.
+
+| Window | Candle lengths offered |
+| --- | --- |
+| 6H | 1 minute, 5 minutes, 1 hour |
+| 1D | 5 minutes, 1 hour |
+| 7D (default) | 1 hour, 1 day |
+| 30D | 1 day |
+
+- **Line** or **Candles** switches how the same sales are drawn.
+- **Reset view** undoes any zoom or pan.
+- **Price data** opens the same numbers as a table (time, open, high, low,
+  close, sales). Hovering the chart also shows them in text.
+- Above the chart: last sale, change, high, low, sales and volume for the
+  window.
+
+There is no **All** button. The service keeps at most 30 days of sales for a
+chart, so "All" would be 30 days under another name. Sales made through
+[version 1 orders](/docs-zerdinals-and-zrunes/protocols/zmarket-orders-v1/)
+are not included.
+
+What the chart can say instead of a line:
+
+| Message | Meaning |
+| --- | --- |
+| No confirmed sales in the last 7D | Read correctly; nothing sold in that window |
+| Price history could not be read | A failure on this page, not a quiet market. Try again |
+| This window has more sales than one chart can hold | Pick a shorter window |
+| Showing the history read at (time) | The latest refresh failed, so the last good chart stays up |
+
+### Depth chart
+
+Under **Price depth**: every open listing and offer, price left to right,
+quantity stacked upward. It shows how much is for sale at or below each
+price. It is about open orders, not sales. **Depth levels** opens it as a
+table.
+
+### History and activity labels
+
+| Label | Meaning |
+| --- | --- |
+| Listed | Someone put tokens on sale |
+| Delisted | A listing was cancelled on this market |
+| Submitted, not yet confirmed | A purchase was broadcast; it can still fail |
+| Confirmed | The purchase transaction confirmed |
+| Settled | The sale is complete and counts as a sale |
+| Reorged out | A chain reorganization removed the transaction |
+
+The price on a row is the **agreed total for the quantity on that row, fees
+excluded**. It is not what one token cost, and not what the buyer paid in
+total. Each hub only lists its own protocol, so a `zord` hub never shows a
+`zecscriptions` sale.
+
 ## Block numbers (ZkMap districts)
 
 A ZkMap district is the winning inscription of a block number such as
@@ -169,10 +272,19 @@ moments together.
 The toolbar counts the districts that match your filters, all districts,
 and how many are listed. The floor is the lowest price you can buy at now.
 
-The **Sales** chart shows only confirmed sales, with their real time and
-price. A market with no sales says **No sales yet**; it never draws a price
-line or a change from asking prices. **Activity** lists sales, new listings
-and delistings, each at the time it happened.
+The **Floor price** chart shows the lowest open ask at each moment. It is
+rebuilt from the market's complete record of listings, delistings and sales,
+so an old listing that is still open counts from the day it was listed.
+
+- It is ask history. Sales do not draw it, and there are no candles.
+- Between events the floor holds, so the line steps.
+- Where no district was listed, there is no floor and the line breaks.
+- Windows: 24H, 7D, 30D and All. **Reset view** undoes zoom and pan.
+- If the record grows too long to rebuild, the chart says **Floor history is
+  too long to rebuild here** and shows no floor rather than a partial one.
+
+**Activity** lists sales, new listings and delistings, each at the time it
+happened. A market with no sales says **No sales yet**.
 
 When the market cannot be read, it says so and offers a retry. That is a
 different statement from an empty market, and a listing book with nothing in

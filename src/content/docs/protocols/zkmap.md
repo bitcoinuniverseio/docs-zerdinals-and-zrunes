@@ -532,6 +532,7 @@ as exact decimal strings.
 | `GET /api/zkmap/market/holders` | Current holders of the selected districts |
 | `GET /api/zkmap/market/history?window=` | Confirmed district sales only: count, exact volume, last, high, low and the sale points |
 | `GET /api/zkmap/market/activity?kind=` | District sales, listings and delistings, newest first |
+| `GET /api/zkmap/market/floor-history` | The lowest open ask and the listed count over the whole market history (`zkmap-floor-history-v1`), one point per change; `floorZatoshis` is null where nothing was listed. Past 20,000 events it answers `complete: false` with `reason: "over-bound"` and no points |
 
 Every response is bound to the indexer checkpoint (height and hash) it was
 read at, or says it has none. A mint order's claim outcome (`pending`, `accepted`, `conflict`,
