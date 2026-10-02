@@ -15,6 +15,8 @@ jobs:
   checks:
     runs-on: [self-hosted, universe-runners-1]
     steps:
+      - name: Provide universe host tools
+        uses: bitcoinuniverseio/universe-ci-actions/universe-host-tools@c9bb29ab2b39ea95dcc430fda80416deb2c4eb85
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
