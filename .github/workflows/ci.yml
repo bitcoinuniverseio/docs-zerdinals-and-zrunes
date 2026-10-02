@@ -13,7 +13,7 @@ concurrency:
 
 jobs:
   checks:
-    runs-on: [self-hosted, linux, x64, universe-super]
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
         with:
