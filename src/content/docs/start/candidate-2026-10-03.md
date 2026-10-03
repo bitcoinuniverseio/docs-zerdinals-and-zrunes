@@ -76,3 +76,42 @@ native functional acceptance. Complete native journeys remain zero and release
 approval remains held; newer source needs its own qualification.
 
 Source: [application checkpoint](https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/tree/2c7dd1f5f4a31010448f853b9406b3a811c29fbf).
+
+## Later revision evidence and pending checks
+
+The earlier completed CI and browser results above remain historical evidence
+for their original revision. Application revision
+`06db5f497683d422ab209c6d6f86cb3d1a64862f` has separate results from
+[main CI run 37120717526](https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/actions/runs/37120717526):
+backend passed 4270 tests with 58 existing skips, across 380 passing and 10
+skipped suites. The mandatory seven-suite SQL gate passed 50 tests with zero
+skips. Frontend passed 3641 of 3642 tests across 328 suites, with one failure;
+visual checks were skipped. The other seven jobs passed. This run did not pass
+all application gates.
+
+The frontend failure asserted original invoice submission before its asynchronous
+request fingerprint completed. Test-only correction
+`694b6b7f8e1a4719d5fd19ce9f441f22725bfceb` waits for the original dispatch while
+preserving the zero-value composition and admission assertions. Fresh CI for
+that correction remains pending in this evidence record; a component result
+cannot replace the failed full-run result.
+
+[Offline PCZT run 37120680194](https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/actions/runs/37120680194)
+for the exact application revision above passed 11 Rust tests and seven actual
+CLI cases with zero skips. This qualifies the tested offline codec and CLI
+contracts only. Wallet acceptance and native acceptance remain false, with zero
+complete native journeys. Later optional adapter work and browser draft recovery
+source checkpoint `b75bcae8` require their own fresh fleet evidence. No browser
+execution or success for those later changes is claimed here.
+
+Indexer documentation checkpoint
+`6c2ba3947e61a215b853a0cf62d5669250b386aa` changes documentation only over runtime
+`824b4340a29fdae558c1881fbb026e1ba34b1945`. The runtime's previously accepted
+five-job run, 911 full tests and 39 mandatory SQL tests with zero skips, remains
+historical evidence for that runtime. Documentation changes do not resolve the
+held independent name-reader contract or the governing non-value-output rule.
+No historical protocol state or qualification is substituted by this update.
+
+Release remains held. These results authorize no merge, deployment, production
+migration or public release. Native Testnet and Bitcoin Signet qualification,
+real-service wallet journeys and pending approved browser gates remain open.
