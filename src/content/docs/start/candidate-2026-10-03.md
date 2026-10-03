@@ -3,11 +3,12 @@ title: October 3 implementation candidate
 description: Implemented contracts, safe recovery and the remaining release requirements.
 ---
 
-This describes application source revision `9eb38be49271c024b6790163fd890ef252821463`
+This describes application source revision `2c7dd1f5f4a31010448f853b9406b3a811c29fbf`
 and indexer revision `824b4340a29fdae558c1881fbb026e1ba34b1945`. It is an
 implementation candidate, **not a deployed release or Mainnet GO**. The application
 revision is pinned below in the source reference; recorded September journeys do
-not qualify these changed artifacts.
+not qualify these changed artifacts. Accounting source checkpoint
+`9eb38be49271c024b6790163fd890ef252821463` is retained in this revision.
 
 ## Read, prepare, then review
 
@@ -66,4 +67,9 @@ reorg and ambiguity recovery, approved browser checks, unchanged bundle budgets,
 serving artifact identity and the coordinated release gates remain required.
 No deployment, production trust change or release acceptance is reported here.
 
-Source: [application checkpoint](https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/tree/9eb38be49271c024b6790163fd890ef252821463).
+The later local production bundle build passes its unchanged size limits.
+Earlier visual failures were reviewed and repaired selectively; final browser
+and backend verification for this revised artifact is still pending. A source
+build or screenshot baseline change is not native functional acceptance.
+
+Source: [application checkpoint](https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/tree/2c7dd1f5f4a31010448f853b9406b3a811c29fbf).
