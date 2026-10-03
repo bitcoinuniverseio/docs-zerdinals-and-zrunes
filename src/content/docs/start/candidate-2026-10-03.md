@@ -115,3 +115,48 @@ No historical protocol state or qualification is substituted by this update.
 Release remains held. These results authorize no merge, deployment, production
 migration or public release. Native Testnet and Bitcoin Signet qualification,
 real-service wallet journeys and pending approved browser gates remain open.
+
+## Completed exact-candidate checks at 12:43:48 UTC
+
+Application candidate `499be6a46515f4391eca140af52430d3a61c3746` passed all ten
+jobs in [main CI run 37122747236](https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/actions/runs/37122747236),
+completed on October 3 at 12:43:48 UTC. These results supersede the failed
+frontend gate above only for this exact later candidate; the earlier run remains
+part of the evidence history.
+
+Frontend passed 3645 tests in 329 suites with zero failures. Its unchanged
+bundle limits passed: 153.8 KiB initial JavaScript, 926.4 KiB total JavaScript,
+76.1 KiB CSS and 214.8 KiB engine worker against 156/927/78/230 KiB ceilings.
+Backend passed 4291 tests with 58 existing skips, across 380 passing and 10
+skipped suites. The separate mandatory seven-suite SQL gate passed 50 tests
+with zero skips.
+
+Approved-runner visual product gates passed 627 cases with three existing
+exclusions. Both `gates` and `gates-dark` executed the new shielded draft
+recovery checks using real browser WebCrypto and actual downloaded/imported
+file bytes. Screenshot comparisons passed 196 cases with four existing mobile
+project exclusions. No baselines, tolerances or project guards were changed.
+This establishes controlled offline browser artifact recovery, not wallet,
+protocol or real-service native acceptance.
+
+[Offline PCZT run 37122728760](https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/actions/runs/37122728760)
+for exact candidate `499be6a46515f4391eca140af52430d3a61c3746` independently
+passed 11 Rust tests, seven actual CLI cases, two archive checks and four adapter
+tests against the actual earlier `06db5f49` artifact, all with zero skips. The
+original qualified artifact tuple and durable fixture remain unchanged.
+New artifact `11273902401` has ZIP size 509667 bytes and SHA256
+`5dfe10e37fb91c4cf490ecd3f641eac375142047a25f10436dbc1f5518c3254d`;
+its binary SHA256 is
+`ae40b6374d3767dc12b24ca59e098e0253f511462204c3ba1783118033d200f2`.
+Codec, CLI, archive and prior-artifact adapter checks do not establish native
+wallet execution.
+
+All 53 work packages and 88 source annotations remain subject to their full
+requirements; eight work packages retain unresolved external authority or
+qualification prerequisites. Complete native journeys remain zero, native
+acceptance is false and release approval is false. Indexer documentation
+`6c2ba3947e61a215b853a0cf62d5669250b386aa` and runtime
+`824b4340a29fdae558c1881fbb026e1ba34b1945` remain unchanged. Later documentation
+heads record this evidence without becoming the exact fully tested application
+candidate. No merge, deployment, production change or public release follows
+from these successful component and fixture gates.
