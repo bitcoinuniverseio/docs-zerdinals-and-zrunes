@@ -8,6 +8,36 @@ conventions shared by all of them, and examples you can run as they stand.
 
 ## The surface
 
+The [October 3 candidate](/docs-zerdinals-and-zrunes/start/candidate-2026-10-03/)
+adds the application contracts below. This is source documentation, not evidence
+that a current public deployment serves those additions.
+
+### Candidate application accounting API
+
+The application gateway uses `/api/portfolio/:address/accounting/export` for
+complete v1 JSON or CSV, with `network` and `format` query parameters. V1 retains
+its 200-transaction complete-export limit. Larger history uses additive
+`GET /api/portfolio/:address/accounting/pages?network=...&cursor=...`.
+
+Every `transparent-accounting-page-v2` response is `complete:false`. It binds
+owner, network, genesis, the active snapshot checkpoint, height-window range,
+offset/count, transaction digest and raw rowset digest. Ordering is
+`height-window-node-order`; `windowComplete` describes only that window.
+`snapshotExhausted` and a null next cursor terminate the snapshot, but a consumer
+must also verify all prior windows and offsets from height zero before export.
+
+Opaque cursor version 3 retains the adaptive range end; fixed-window version 2
+continuations remain compatible. A cursor checksum checks encoding integrity,
+not authentication. New tip growth can continue a still-active anchor. A removed
+anchor or changed window returns a typed `PORTFOLIO_LEDGER_REORG` hold requiring
+restart. Unknown previous outputs or service timeouts are refused, not zeroed.
+The JavaScript `pagePortfolioAccounting` and Python `page_portfolio_accounting`
+SDK methods fetch one page and do not loop automatically.
+
+Application readiness adds `serving-chain-identity-v1`, tying selected network to
+observed node genesis and release. This observation is not protocol activation,
+registry authority or a global prerequisite based on scan completion.
+
 The product's indexer publishes a read-only HTTP API through the product
 domain:
 
