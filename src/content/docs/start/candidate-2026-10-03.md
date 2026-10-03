@@ -172,3 +172,48 @@ The offline local-viewing component at `d2ef878fc92d2f60023cf6a8915ae860530cd211
 The dedicated experimental ZSA run37133211693 verifies its own Regtest genesis and activation, then passes three native issuance/transfer/burn/persistence scenarios and persisted-head agreement. Its three-party scenario fails with a node crash. It does not qualify public Zcash Testnet or Mainnet. The original Shielded Bitcoin Signet profile and live node genesis/activation match; that alone does not establish wallet ownership, hosted proving resources or transfer/replay acceptance.
 
 Later candidate `012ee73984cb7d790ebdc513bc092b5c61586744` retains the qualified component evidence and adds bounded crash diagnostics. It is distinct from the exact all-ten-job application source above. All53 work packages and88 annotations retain their operation-specific acceptance requirements. Complete native public-network journeys remain zero and public release remains false. Component, isolated database and browser fixture results do not establish GO.
+
+## Later verified component evidence and remaining holds
+
+Application source `2cb4b13de1d913761166e99bbb90df376e28e4f8` completed
+[CI run 37148647216](https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/actions/runs/37148647216).
+Frontend passed 3,691 tests across 335 files. Approved browser product gates passed
+627 cases with three historical exclusions; screenshot comparisons passed 196
+with four historical mobile exclusions. Gzip results remained 153.8/926.7/76.1/214.8
+KiB against unchanged 156/927/78/230 ceilings. Backend, signer, Shielded Bitcoin,
+SDK and protocol jobs were skipped through verified unchanged-source reuse from
+`938dc36ec6ac0639d5979232d2e1a6c7f5314ab9`, run 37134657217. They did not rerun
+or acquire new native acceptance.
+
+The separate isolated viewing campaign at
+`c8491a1aa11524aec87161957bc61f8763463808` passed all five actual browser
+component cases in
+[run 37150072001](https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/actions/runs/37150072001),
+with zero skips, retries or flaky results. Result artifact 11284220051 binds the
+exact source and report. It checks the official-generated public-fixture
+ciphertext codec, worker privacy/forget and isolated provider cleanup. Fixture
+session reorg controls and the separately parsed public block do not prove that
+the encrypted transactions were included in a real block, or that a native
+received-note lifecycle completed. Earlier attempts remain failed: run
+37149729760 lacked transaction package declarations; run 37150019017 failed its
+declaration artifact restore-path check. Neither executed the browser cases.
+
+The independently verified `5fa4ea928044eed7064c098853e4db76a06fb232` viewing
+component has a local private review package of 458 files, including all 440
+unchanged original notice files totaling 15,342,809 bytes. Source, lock,
+compiler, inventory and original-source review bindings accompany the exact
+698,866-byte WASM. The project owner's private-wrapper distribution decision
+is recorded separately from generated integrity checks; no new upstream license
+grant or reproducible-build claim is made. The viewing consumer profile remains
+held, its production allowlist empty and its pages unmounted.
+
+The owner recovery record reports one actual Zallet identity creation, followed
+by interrupted initialization. No mnemonic or payer was created. Recovery is
+continuing under the same owner with the original database preserved; this is
+not wallet or lifecycle acceptance. Regtest qualification source `465b3ade`
+is prepared but has not executed.
+
+Complete native public-network journeys remain zero, native wallet acceptance
+and public release remain false. These later component results preserve the
+historical failures above; they do not authorize a deployment or enable a held
+product consumer.
