@@ -217,3 +217,22 @@ Complete native public-network journeys remain zero, native wallet acceptance
 and public release remain false. These later component results preserve the
 historical failures above; they do not authorize a deployment or enable a held
 product consumer.
+
+The later application candidate `714217c0c588d41f4569d244d4c3e67736432734`
+passed all ten fresh jobs in [CI run 37159569483](https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/actions/runs/37159569483).
+No dependency job was reused or skipped. Backend results include 4,320 passing
+tests with 58 existing skips and all 50 mandatory SQL checks without skips;
+frontend results include 3,691 passing tests. Product browser checks passed 627
+cases with three historical exclusions, and visual checks passed 196 with four
+mobile exclusions. This is component and integration evidence; complete native
+public-network journeys remain zero and public release remains false.
+
+Actual resource probes found that the existing approved-fleet Docker daemon
+does not enforce the requested container limits. Read-only inspection found
+delegated user-service controllers; a separate tiny service probe exposed a
+reader-lifetime race before kernel evidence could be admitted. Its failed owner
+is preserved while a bounded handshake and explicit reconciliation are prepared.
+On the separate Testnet host, seedless Zallet preflight refused before creating
+a container or invoking the native command. The original interrupted databases
+and wallet identity remain preserved. Neither result qualifies a payer or
+changes the public-release decision.
