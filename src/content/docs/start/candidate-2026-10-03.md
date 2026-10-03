@@ -160,3 +160,15 @@ acceptance is false and release approval is false. Indexer documentation
 heads record this evidence without becoming the exact fully tested application
 candidate. No merge, deployment, production change or public release follows
 from these successful component and fixture gates.
+
+## Later exact-source qualification at16:10:21UTC
+
+Application source `938dc36ec6ac0639d5979232d2e1a6c7f5314ab9` passed all ten jobs in [CI run37134657217](https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/actions/runs/37134657217) on October3. Frontend passed3656 tests across331 suites; unchanged gzip budgets passed at153.8/926.7/76.1/214.8KiB. Backend passed4320 tests with58 existing skips, across382 passing and10 skipped suites. Mandatory SQL passed50 tests in seven suites with zero skips. Approved browser product gates passed627 with three existing exclusions; screenshots passed196 with four existing mobile exclusions. No baselines, tolerances or size limits were relaxed. This supersedes the earlier SDK and bundle failures for this exact later source.
+
+Indexer source `116835af376efc82e41df8af974c558806c83f29` separately passed all five jobs in [CI run37125857030](https://github.com/bitcoinuniverseio/index-zcash-metaprotocols/actions/runs/37125857030), including931 full tests and39 mandatory SQL tests with zero skips. Corrected non-value-output rules remain staged; the frozen default parser and historical protocol state remain unchanged.
+
+The offline local-viewing component at `d2ef878fc92d2f60023cf6a8915ae860530cd211` passed13 native Rust tests with zero ignored and four mandatory actual WebAssembly tests in [run37133998668](https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/actions/runs/37133998668). Independently verified artifact11278400447 binds source, official cohort, resolved lock, compiler receipts and the698866-byte binary SHA256 `488cdb75311b72568f91174f8fbd3dc286d202cbb4bafe33cd36721cbe9f4151`. It qualifies bounded observation and public block-commitment checks. Product distribution notices, browser privacy and checkpoint/reorg lifecycle, spend knowledge and native received-note journeys remain separate requirements.
+
+The dedicated experimental ZSA run37133211693 verifies its own Regtest genesis and activation, then passes three native issuance/transfer/burn/persistence scenarios and persisted-head agreement. Its three-party scenario fails with a node crash. It does not qualify public Zcash Testnet or Mainnet. The original Shielded Bitcoin Signet profile and live node genesis/activation match; that alone does not establish wallet ownership, hosted proving resources or transfer/replay acceptance.
+
+Later candidate `012ee73984cb7d790ebdc513bc092b5c61586744` retains the qualified component evidence and adds bounded crash diagnostics. It is distinct from the exact all-ten-job application source above. All53 work packages and88 annotations retain their operation-specific acceptance requirements. Complete native public-network journeys remain zero and public release remains false. Component, isolated database and browser fixture results do not establish GO.
