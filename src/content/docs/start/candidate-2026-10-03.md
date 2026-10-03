@@ -67,9 +67,12 @@ reorg and ambiguity recovery, approved browser checks, unchanged bundle budgets,
 serving artifact identity and the coordinated release gates remain required.
 No deployment, production trust change or release acceptance is reported here.
 
-The later local production bundle build passes its unchanged size limits.
-Earlier visual failures were reviewed and repaired selectively; final browser
-and backend verification for this revised artifact is still pending. A source
-build or screenshot baseline change is not native functional acceptance.
+CI run 37113834588 for this source passed all ten jobs, including backend,
+required database regressions, frontend and approved-runner visual fixtures.
+The bundle passes unchanged size limits. Visual product gates passed 625 cases
+with three exclusions; screenshot comparisons passed 196 with four mobile
+project exclusions. These fixture checks are not real-service performance or
+native functional acceptance. Complete native journeys remain zero and release
+approval remains held; newer source needs its own qualification.
 
 Source: [application checkpoint](https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/tree/2c7dd1f5f4a31010448f853b9406b3a811c29fbf).
