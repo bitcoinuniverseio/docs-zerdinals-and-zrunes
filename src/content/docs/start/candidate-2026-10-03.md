@@ -294,3 +294,21 @@ with exit1 and empty cgroup, preserving four earlier services. Private diagnosti
 files were locally absent; the diagnostic does not qualify signed publisher
 metadata, native fixture tools or a new daemon. Complete native public-network
 journeys remain zero and public release remains false.
+
+
+The subsequent whole-wallet encryption and offhost encrypted-backup roundtrip
+succeeded. Native receipt `6e7ce1a5bb9bb9dc768535e1c38e4690f3110634f7542cb6aae5df7d9720b0ff`
+binds the read-only wallet encryption; protected stored-file readback receipt
+`37e360b997ca61287b4f4c4695e040a448b7e4571085ddd37489de235a6bc36d`
+reproduces the exact complete ciphertext. The prior mnemonic backup and all
+original failed histories remain preserved. Native restore, wallet confirmation,
+account creation, funding and complete public-network acceptance remain pending.
+
+Publisher run37178288723 at `a0a9553cb01f7eae08a05ed4b823cb2233ee1fe7`
+progressed through signature verification but refused the verified release
+identity check. Both prior failed owners and four earlier services remained
+unchanged; the new failed owner is retained. No fixture tool, finite filesystem
+or isolated daemon is qualified. The earlier1558-record backup catalog covers
+only two selected workspace metadata subtrees, so its zero counts cannot show
+complete original-profile backup absence. Complete native public-network
+journeys remain zero and public release remains false.
