@@ -369,3 +369,26 @@ remain pending: the original provisioning attempt and a fresh staged preflight
 both timed out without admitting ciphertext copying. Unknown search outcomes
 remain unknown. Complete native journeys remain zero; public release remains
 false.
+
+
+The original wallet backup was confirmed by the supported native command on
+2026-10-04. Receipt 12ad31000c726b4bc29684b6236a6707d596bceb7244632507a8af743f6b53ee
+records two actual native commands with exit zero: decryption of the original
+mnemonic backup and confirmation of the original wallet. The existing encrypted
+seed stayed unchanged. The three quiz answers came from locked memory; no
+plaintext mnemonic file or new seed was created. Physical no-swap limits covered
+the controller, attach clients and native processes. The shared owner remained
+limited to 2 GiB, one CPU and 128 tasks, with core dumps disabled.
+The confirmed wallet still has zero accounts. Authenticated wallet service,
+account creation, refreshed backups, funding and native product journeys remain
+pending. Historical failed requests and the successful offline recovery remain
+preserved.
+
+A read-only Windows worker test completed all thirteen markers with exit zero
+and verified Low I/O priority, a 2 GiB job, two CPUs and sixteen processes.
+Very Low I/O priority had stalled the earlier diagnostic. A fresh storage
+preflight using Low priority created an empty first receipt and failed before
+copying or querying the encrypted backup cache. That unknown attempt remains
+preserved while the receipt writer is diagnosed. No custody recovery or search
+absence is inferred. Complete native journeys remain zero; public release
+remains false.
