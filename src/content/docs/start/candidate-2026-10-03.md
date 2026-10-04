@@ -312,3 +312,30 @@ or isolated daemon is qualified. The earlier1558-record backup catalog covers
 only two selected workspace metadata subtrees, so its zero counts cannot show
 complete original-profile backup absence. Complete native public-network
 journeys remain zero and public release remains false.
+
+
+The later publisher metadata run37183178914 at49bf7aee passed on the approved
+fleet. Artifact11295778052, result SHA256
+b81b428f5faf0c4c8c9bcddbf7711ac73aa8c230bf6e72ddbc87b6626102159f,
+authenticates the three exact Docker package coordinates under observed kernel
+controls. The four failed publisher owners and four original units were
+freshly double observed unchanged. Archives were not downloaded; tool bytes,
+an isolated daemon and a finite fixture remain unqualified. Focused publisher
+tests39 passed without skips; full CI for this later source remains pending.
+
+Original durable recovery inputs were independently observed under
+receipt745df26c047efeb45c663df340d5346ba0eba6b35ca87d1aa277289cfe6734c6.
+The first recovery request70ba timed out before native create or start, with
+native commands zero and an empty output database. Separate read-only checks
+confirmed no recovery container, active custody UID or owned slice. The image
+metadata format failed, while the original JSON image inspection verified its
+exact image, owner and absence of volumes. These observations admit source
+review of a first native continuation; they do not prove a restored wallet.
+The original failure and zero-output state remain preserved.
+
+Read-only native metadata inventory qualified access to the existing backup
+cache:98 files across86 directories, totaling1,390,832,029 bytes. Authenticated
+repository config matched its exact cache ID. An isolated encrypted cache copy
+and the resulting search are still pending. Neither selected-catalog zero
+counts nor this cache inventory establishes absence of original custody.
+Complete native journeys remain zero and public release remains false.
