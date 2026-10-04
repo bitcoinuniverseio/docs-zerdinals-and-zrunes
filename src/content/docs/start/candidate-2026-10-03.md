@@ -275,3 +275,22 @@ passed five fresh jobs and reused five dependency suites whose Git trees were
 independently verified against the fully fresh714 revision. Independent review
 SHA256 is `3a24de95e59d617e32b13266c35c844a26a188ea30bfd9ca56218d92d6b036b1`.
 This is component evidence and does not qualify public-network acceptance.
+
+The separate supported export of the same existing native Testnet seed succeeded
+once. Protected receipt `7b3166a672e6e54fbdb5a4a882e90521ae8ce1fc18e4c647d0107e6c92589bf5`
+records actual kernel enforcement and encrypted ciphertext. The wallet database
+payload hash before and after is identical; only the permitted ctime metadata
+change occurred. The original failed database metadata, identity, backups and
+prior export histories remain preserved. No plaintext mnemonic was read.
+Offhost ciphertext recovery, full wallet backup and native restore must still
+qualify before backup confirmation, account creation or funding.
+
+Application CI run37171213462 at `f3126469d598d828a6ba6493568d4ced7b2c9096`
+passed five fresh jobs and reused five exact714 source trees. Independent review
+SHA256 is `a87729c2c616d93d06d64268cbf4680dc5afdbd7a3cc2c9ea1c0a1bef656037d`.
+This does not claim fresh full CI for later qualification-source revisions.
+Read-only publisher diagnosis37174112239 verified the retained service failed
+with exit1 and empty cgroup, preserving four earlier services. Private diagnostic
+files were locally absent; the diagnostic does not qualify signed publisher
+metadata, native fixture tools or a new daemon. Complete native public-network
+journeys remain zero and public release remains false.
