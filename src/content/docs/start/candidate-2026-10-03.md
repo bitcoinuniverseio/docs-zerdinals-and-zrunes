@@ -236,3 +236,22 @@ On the separate Testnet host, seedless Zallet preflight refused before creating
 a container or invoking the native command. The original interrupted databases
 and wallet identity remain preserved. Neither result qualifies a payer or
 changes the public-release decision.
+
+The later seedless native Zallet migration completed on the exact reconciled
+Testnet container without retry or altered fsync. Actual kernel limits, normal
+exit, closed journals, native Testnet/version metadata, integrity and all required
+tables were verified. The 667,648-byte empty template has SHA256
+`bb3b83eee8b5bb90834b32e0f46b5c55ca0f2f098f393ae653913a3a2e9766d4`;
+every required private key, account, address and note count is zero. This
+qualifies the empty-schema component. The supported native encryption step
+also passed using the existing identity in one copy beneath the original custody
+owner. Native recipient equality, actual kernel limits, closed journals, integrity
+and Testnet/version metadata were verified, with seed and account tables empty.
+The original identity, backups and both interrupted databases remain preserved. No seed, payer or complete
+public Testnet/Signet journey is qualified; public release remains false.
+
+The original identity also has a protected off-host ciphertext whose actual
+reopen and decrypt reproduced the original bytes. That component does not
+qualify mnemonic, native wallet or Windows disaster recovery. A read-only backup
+catalog query lists two original Windows workspace snapshots, with no Windows
+profile root listed; recovery of the original Signet key remains unproven.
