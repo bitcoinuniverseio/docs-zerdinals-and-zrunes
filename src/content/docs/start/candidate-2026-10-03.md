@@ -466,3 +466,37 @@ The combined storage helper remains unqualified: its latest attempt timed
 out while reading and hashing the first pinned compiler assembly. Failed attempts remain
 retained. No encrypted cache copy or backup query has been admitted.
 Complete native journeys remain zero; public release remains false.
+
+
+The following component and request reconciliation completed on 2026-10-04.
+The corrected signed archive comparison, run 37203833365 at
+12b040df1eee33b9ac08152f99e637b4d541cb32, succeeded. Artifact 11304095690
+has ZIP digest 08a705c2d375600654b87696820b3aa60b8b21affafce982cc63a789a3224420
+and JSON digest 531f6865fe82c4b31c0dac6878316a3f5015b06063481cd7130a9ab27b3b4e60.
+It verifies the exact signed archive and both selected current tool files,
+using the immutable qualified decoder and physical acknowledged limits.
+All fifteen previous owners remain unchanged. The separate real-file test
+reproduced premature descriptor closure and verifies its correction; the
+earlier failed attempts retain their unknown historical causes. This pass
+qualifies selected bytes, with tool execution and native fixture work held.
+
+The Windows single-journal persistence test passed all 120 rows. Its derived
+assembly diagnostic then verified both pinned compiler assemblies and 119
+durable rows. The combined helper passed actual bounded qualification at
+96a08c72-19b9-44fa-9be5-843829eb3b16, preserving all four native class bodies.
+Its 6656-byte DLL digest is 0acf51f2e3c1837b4f892824cc5640bf7208b2ad434d4ad88019fb1fdb8954ad
+and its receipt digest is 0059d1f2c369d90a124ed037922f912aa09e0e328b945c56c9c728ae65bf2395.
+The actual run completed in 4405 milliseconds under unchanged memory, CPU,
+process, I/O and time limits. Its 46-row journal was verified through held
+and reopened file identities. Isolated storage, encrypted cache copying and
+backup queries still require their separately reviewed precompiled tooling.
+
+The original wallet service exited with code 1 before authenticated RPC was
+observed. The diagnosed request passed all eight preflight checks, then its
+create request timed out before returning an ID. Exact-name reconciliation
+found that same container created and never started, with the controller
+inactive and the original database, lock tuple and stopped predecessor
+preserved. Its first-start continuation is pending; no second create,
+replacement seed, account allocation or faucet request has been sent.
+These component passes do not qualify native product acceptance. Complete
+native journeys remain zero and public release remains false.
