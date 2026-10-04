@@ -255,3 +255,23 @@ reopen and decrypt reproduced the original bytes. That component does not
 qualify mnemonic, native wallet or Windows disaster recovery. A read-only backup
 catalog query lists two original Windows workspace snapshots, with no Windows
 profile root listed; recovery of the original Signet key remains unproven.
+
+Later owned user-service probe37164859628 verified both requested memory caps
+(4 and 5 GiB), zero swap, 128 processes and two CPUs from the actual kernels.
+The prior failed service remains preserved. The existing fleet Docker daemon
+still lacks enforced limits; isolated daemon, UID mapping and finite persistent
+storage qualification remain required before the original Regtest campaign.
+
+The first supported native Testnet seed generation subsequently passed once.
+Protected receipt `f283415ee1b738a51c4b2a21fc1b0e51e0a2852818f56563df71b29077306653`
+records one encrypted, unconfirmed mnemonic, zero accounts, actual kernel limits,
+integrity and closed journals. The new owned database changed while the original
+failed database metadata, identity and backups remained unchanged. Account
+creation and funding remain held until durable backup and native wallet restore
+qualify. Complete native public-network journeys remain zero; release remains false.
+
+Application CI run37166448626 at `8e4f990783b2fddef334c48f4028dec79abe6c36`
+passed five fresh jobs and reused five dependency suites whose Git trees were
+independently verified against the fully fresh714 revision. Independent review
+SHA256 is `3a24de95e59d617e32b13266c35c844a26a188ea30bfd9ca56218d92d6b036b1`.
+This is component evidence and does not qualify public-network acceptance.
