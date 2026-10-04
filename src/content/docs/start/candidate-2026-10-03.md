@@ -392,3 +392,35 @@ copying or querying the encrypted backup cache. That unknown attempt remains
 preserved while the receipt writer is diagnosed. No custody recovery or search
 absence is inferred. Complete native journeys remain zero; public release
 remains false.
+
+
+The archive decoder diagnostic on 2026-10-04 identified a read-only,
+non-executable, root-owned locale archive in the new Python process. The
+decoder refused that unmatched mapping before decoding. Run 37195526274 at
+c30a11fae494bc4fde15c229706caf7d4c039603 retained its failed owner and verified
+all eleven predecessors unchanged. Artifact 11301026112 has ZIP digest
+b8dd2aa81e64a2d881c2b82f4a1bd07f5fdf939503724fd3f38176370f9e5b38
+and JSON digest a13d857ad384ab974cc21c1af0a567445814e81dab214a742f0091d0f52094ce.
+This establishes the new process's refusal cause; the earlier process's
+unavailable mapping history remains unknown. Decoder qualification, signed
+tool execution and the finite native fixture remain pending.
+
+Core CI run 37192537473 at 648ef5f7 passed five fresh jobs and verified reuse
+of five unchanged areas. Independent review digest
+577c7567427cbcf964afdc0ac3da729fa9f6901fb670920221095481151fd24c
+binds the exact source, jobs and receipt. Reused areas are not fresh passes.
+The subsequent diagnostic has eleven passing focused source tests.
+
+The original confirmed wallet's service controller exited before creating a
+container. Exact read-only checks found no service candidate and an empty
+result, with the original confirmed database unchanged. Its protected
+dispatch journal records the controller request; it does not establish the
+actor's termination cause. Account creation and funding remain held.
+
+The Signet recovery receipt diagnostic reached public helper compilation and
+timed out. Read-only metadata found a zero-byte emitted DLL and no qualified
+component receipt. No encrypted cache was copied or queried. A changed,
+reference-pinned compiler also timed out before emission within the existing
+resource limits. It produced no component receipt or storage admission.
+Unknown attempts and original custody artifacts remain preserved. Complete
+native journeys remain zero; public release remains false.
