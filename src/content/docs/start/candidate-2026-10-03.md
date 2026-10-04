@@ -424,3 +424,45 @@ reference-pinned compiler also timed out before emission within the existing
 resource limits. It produced no component receipt or storage admission.
 Unknown attempts and original custody artifacts remain preserved. Complete
 native journeys remain zero; public release remains false.
+
+
+The subsequent bounded decoder qualification succeeded on 2026-10-04.
+Run 37197529795 at b07a0ed3e8b5c4863e774bcd5d04270bf588754a passed a
+positive vector, six refusal cases and a final positive vector. Exact builtin
+C locale selection removes the new locale mapping while every unmatched
+mapping remains refused. Artifact 11301099597 has ZIP digest
+a29cfd29fddcd5dd6a92d32b380ede9cd14a5f62cf5a0bf66459525fdcf879ef
+and JSON digest a7ac60750ef4d13c0740e08c1d4ea9c5b55f189263cca2b2252fe11e4eb27648.
+Read-only run 37199636031 at 42518c39769b99d3c5d9cf9c82a51c0d9e07e17d
+verified the exact completed decoder and all thirteen retained owners.
+Its artifact 11302681386 has JSON digest
+c45ecf5e4484a648f6561325b6109a4161295603022d5a7e4da3fb801e08946a.
+This qualifies the OS decoder component only. The later signed archive
+comparison, run 37200544819 at bf71c81d44272e99521f866499e19a9b512f685b,
+verified the exact archive size and signed digest, then retained an unknown
+failure before tool comparison. Artifact 11302422930 has JSON digest
+8dd36d7dd21fd12e23f35f0522c996b4c5c96335ea955c8762eb512c5f3503a6.
+All thirteen earlier owners remain unchanged; no fixture tool is admitted.
+
+Fresh wallet metadata identified three retained files: the original confirmed
+database, the native lock file and an empty historical initializer target.
+The pinned native source establishes the lock name; an empty lock is not
+proof of quiescence. The corrected service preserves all three exact tuples,
+uses a separate artifact configuration and requires physical resource,
+closed-command and native lock checks. Its first request passed all eight
+preflight checks and created and started one exact native container. The
+native resource and core-limit headers were observed. That process exited
+with status 1 before authenticated RPC was verified; the held receipt is
+2516977a286209787bdcfeb4bd3d1a0d4c34ee54a7f0c312bbd4782198adc9e7.
+Fresh read-only observation confirms that it is stopped, without an OOM,
+and preserves the unchanged database metadata. No account or faucet request
+has been submitted.
+
+The public recovery helper and both public receipt-writing methods passed
+actual bounded qualification. Separate reference-stream and source-copy
+diagnostics also passed. The source-copy test confirmed the non-public
+MemoryStream GetBuffer exception and verified the bounded replacement.
+The combined storage helper remains unqualified: its latest attempt timed
+out while reading and hashing the first pinned compiler assembly. Failed attempts remain
+retained. No encrypted cache copy or backup query has been admitted.
+Complete native journeys remain zero; public release remains false.
