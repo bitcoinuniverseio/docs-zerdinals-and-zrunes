@@ -533,3 +533,37 @@ milliseconds. The result does not establish query completion, backup absence or
 recovered original Signet custody. Owned objects and all earlier histories remain
 preserved while read-only diagnosis continues. Complete native product journeys
 remain zero and public release remains false.
+
+
+The following capture and decoder-seed checkpoint was observed on 2026-10-04.
+The corrected source reader passed forty-nine checks. Its actual decoder run
+37207134777/job 111450565496 at 665abd5c5879b6948c2ce0d156cafa6afe58af28
+created one acknowledged service and then refused XZ_PUBLIC_EXPANSION_SEED.
+Artifact 11305635868 has ZIP digest e70a0d85530107082a4cb02e6baac41e6a1bd18b8dc8ac8d9dcab9a4a8078f21
+and JSON digest 024ba9e1400e2022bbc7df231706d154ac21f6db86c700b391d4bf04c953b634.
+The exact failed invocation a7f6de3825794fcab9e5fb67bd3f4513 is preserved,
+with all sixteen predecessors unchanged. Source inspection establishes the public
+seed has thirty bytes while the reader required twenty-nine. The corrected
+predicate derives its size from the exact literal; a cross-language regression
+checks the actual Node and Python seed definitions. Fifty-two checks pass without
+skips. The new read-only seventeenth-owner observer is pending actual execution.
+No new qualification owner, tool execution or native fixture authority is granted.
+
+A separate public native version fixture passed actual concurrent capture
+qualification without mounting the original wallet or identity. It observed the
+physical kernel header, both stream ends and native exit zero with core dumps
+disabled and controller swap excluded. The exact read-only observer independently
+verified stopped container and inactive controller, six read-only public mounts
+and the durable receipt digest 6243db32dc63dbf48583043e7cbde9c40bf02734be2511443293c67bbc124d61.
+Thirteen preparation and capture checks and six observer checks pass. This
+qualifies the capture path before another reviewed original-wallet diagnostic;
+it does not establish the historical startup cause or authenticated wallet RPC.
+
+The bounded CurrentUser checkpoint primitive passed actual public qualification
+with both 4096-byte and 2097152-byte fixtures. Each protected exclusive file was
+flushed, reopened, hash checked and decrypted in memory to the original bytes.
+Its receipt digest is ac480298e8f04c59e5ef558b24355aaa1d3428f43b0b7e73bddb57c3b193aafb.
+Fifteen primitive checks pass; current profile metadata is present, while disaster
+recovery remains unqualified. Private backup-tree checkpointing and the first
+bounded tree query remain pending. Complete native product journeys remain zero
+and public release remains false.
