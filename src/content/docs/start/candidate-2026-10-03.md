@@ -500,3 +500,36 @@ preserved. Its first-start continuation is pending; no second create,
 replacement seed, account allocation or faucet request has been sent.
 These component passes do not qualify native product acceptance. Complete
 native journeys remain zero and public release remains false.
+
+
+The following first-start and isolated storage checkpoint was observed on 2026-10-04.
+Read-only fleet run 37204923993 at 0d839932040b8f7e05a7e1ebc681ca57c9096a7e
+passed, preserving the successful archive owner and all fifteen predecessors.
+Artifact 11304691290 has ZIP digest ebaf1038dbe10976c4b3be95c682866006fb3e3773d74f4235f96e94a564feea
+and JSON digest 2241b3bd438e471142ba271391703cce6b419bc8f0530162099300bcca199d1f.
+Selected signed bytes remain qualified; execution and native fixture work remain held.
+
+The original wallet first-start continuation passed all eight preflight checks
+and sent one start request to the reconciled container. Fresh read-only inspection
+found it exited with code 1, without an OOM, and with the controller inactive.
+The held first-start receipt digest is a41b916a02a13cc06b6225a80b0f5a0c7dd4e613e5f6ce288716d655878cb8b8.
+The original create-refusal and confirmation receipts remain unchanged. Database
+metadata remains unchanged; the native lock timestamp changed during the request.
+No diagnostic bytes or authenticated RPC were observed. Docker client and server
+are both 29.7.2, with stdout and stderr attachment enabled and no daemon error.
+The startup cause remains unresolved; no start replay or account request was sent.
+
+Isolated storage job d9e6b28f-9c6e-4fd7-b87e-9412b1e43ab2 passed all eight
+ordered stages: preflight, fixed-disk creation, attachment, initialization,
+partitioning, formatting, mounting and verification. Each actual result has a
+complete protected journal tied to the qualified precompiled helper. The disk
+is fixed at 2 GiB, NTFS, without a drive letter, and verified outside boot and
+system roles. Memory, CPU, process, I/O and time limits remain unchanged.
+The corrected query helper passes its real PowerShell AST cleanup check.
+The subsequent bounded run reached the filename query after encrypted copying,
+readback, finite-volume verification and both exact snapshot metadata checks.
+Its filename query returned an unknown failure with child exit 95 after 46375
+milliseconds. The result does not establish query completion, backup absence or
+recovered original Signet custody. Owned objects and all earlier histories remain
+preserved while read-only diagnosis continues. Complete native product journeys
+remain zero and public release remains false.
