@@ -339,3 +339,33 @@ repository config matched its exact cache ID. An isolated encrypted cache copy
 and the resulting search are still pending. Neither selected-catalog zero
 counts nor this cache inventory establishes absence of original custody.
 Complete native journeys remain zero and public release remains false.
+
+
+The corrective native recovery on 2026-10-04 completed four real commands with
+exit zero. Receipt fc5a748f0d5687b1fe784b2472e43acbe9d05ecf1e478bd5c5d5e09a413d3942
+records the full wallet backup decrypted to its exact original database and a
+native reopened-wallet export. Original and restored mnemonic backups matched
+privately in locked memory. Physical no-swap limits covered the attach clients;
+native and host core dumps were disabled. The original failed request never
+launched an executable: its read-only nested config mount failed during OCI
+setup. Its container, public files and history remain preserved. The corrective
+phase used a separate config mount and explicitly verified public file modes.
+The existing mnemonic remains unconfirmed, accounts remain zero, and a started
+wallet sync through the real services is still pending. This is an offline
+backup recovery result, not a completed native product journey.
+
+Fresh CI run 37185944343 tested ab755b993b1d6caf936240951df40ebf7906805a.
+All ten jobs passed on the approved fleet, including the SQL, signer, frontend
+and browser gates. Independent review SHA256
+9c79018c9068dc3afcfc11903d5bcbc632fb17960bee6ce29bd3852617a49a78 binds
+artifact 11297162204 and the exact tested source. No job result was reused.
+
+Publisher archive run 37185396703 verified the exact 10,171,028-byte rootless
+extras archive against authenticated signed metadata. Its XZ decoder remained
+unqualified, so tool comparison and runtime admission stayed held. Read-only
+run 37185914012 verified this failed owner and all nine earlier owners unchanged.
+The new decoder remains under review. The encrypted backup-cache copy and query
+remain pending: the original provisioning attempt and a fresh staged preflight
+both timed out without admitting ciphertext copying. Unknown search outcomes
+remain unknown. Complete native journeys remain zero; public release remains
+false.
