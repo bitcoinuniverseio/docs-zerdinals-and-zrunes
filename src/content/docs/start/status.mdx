@@ -39,9 +39,13 @@ page is generated from:
 curl -s https://zrunes.io/api/ready
 ```
 
-`"ok": true` means the record is readable right now. Anything else means it is
-not, and the product will tell you the same thing in plain words when you open
-it. The indexer's own view is at the second endpoint:
+`"ok": true` means the service is up and answering right now. Anything else
+means it is not, and the product will tell you the same thing in plain words
+when you open it. A healthy answer here does not mean every read is
+qualified: an answer that needs the complete replayed history can still say
+it is unavailable
+([read is not the same as qualified](/docs-zerdinals-and-zrunes/verify/coverage/#read-is-not-the-same-as-qualified)).
+The indexer's own view is at the second endpoint:
 
 ```text
 https://zrunes.io/idx/zcash-metaprotocols/status
