@@ -22,6 +22,18 @@ and each ZRC-20 ruleset separately, including 0, 6 and 18 decimal quantities.
 They do not open partial fills, bids or auctions. Execution also requires an
 explicit confirmation policy; publishing an order does not satisfy it.
 
+## Reads that need the full replayed history
+
+Observed on 9 October 2026: the serving indexer had reached the newest block
+and reported itself up, but its replay had started late, so it was not
+qualified. Answers that need the complete history, such as strict ZkMap
+block availability, said they were unavailable (`replay_incomplete`) rather
+than showing an empty or free result. Qualification is not a condition for
+creating; each create page states its own availability. A replay from block 0 is running on separate, non-serving
+infrastructure; until a qualified release is serving, treat those answers as
+unavailable, not empty.
+[Read is not the same as qualified](/docs-zerdinals-and-zrunes/verify/coverage/#read-is-not-the-same-as-qualified).
+
 ## ZRunes need complete indexed evidence
 
 The protocol activates at block 3,470,000. Below that height no ZRune can

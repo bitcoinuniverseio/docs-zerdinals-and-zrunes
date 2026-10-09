@@ -8,6 +8,36 @@ conventions shared by all of them, and examples you can run as they stand.
 
 ## The surface
 
+The [October 3 candidate](/docs-zerdinals-and-zrunes/start/candidate-2026-10-03/)
+adds the application contracts below. This is source documentation, not evidence
+that a current public deployment serves those additions.
+
+### Candidate application accounting API
+
+The application gateway uses `/api/portfolio/:address/accounting/export` for
+complete v1 JSON or CSV, with `network` and `format` query parameters. V1 retains
+its 200-transaction complete-export limit. Larger history uses additive
+`GET /api/portfolio/:address/accounting/pages?network=...&cursor=...`.
+
+Every `transparent-accounting-page-v2` response is `complete:false`. It binds
+owner, network, genesis, the active snapshot checkpoint, height-window range,
+offset/count, transaction digest and raw rowset digest. Ordering is
+`height-window-node-order`; `windowComplete` describes only that window.
+`snapshotExhausted` and a null next cursor terminate the snapshot, but a consumer
+must also verify all prior windows and offsets from height zero before export.
+
+Opaque cursor version 3 retains the adaptive range end; fixed-window version 2
+continuations remain compatible. A cursor checksum checks encoding integrity,
+not authentication. New tip growth can continue a still-active anchor. A removed
+anchor or changed window returns a typed `PORTFOLIO_LEDGER_REORG` hold requiring
+restart. Unknown previous outputs or service timeouts are refused, not zeroed.
+The JavaScript `pagePortfolioAccounting` and Python `page_portfolio_accounting`
+SDK methods fetch one page and do not loop automatically.
+
+Application readiness adds `serving-chain-identity-v1`, tying selected network to
+observed node genesis and release. This observation is not protocol activation,
+registry authority or a global prerequisite based on scan completion.
+
 The product's indexer publishes a read-only HTTP API through the product
 domain:
 
@@ -35,9 +65,14 @@ https://zrunes.io/idx/zcash-metaprotocols
    integers, never as floating point.
 2. **Coverage rides along.** List and status responses carry `checkpoint`
    (the indexed block height and hash) and `coverage` (`scannedHeight`,
-   `networkHeight`, `blocksBehindNetwork`, `chainComplete`), so a consumer can
+   `networkHeight`, `blocksBehindNetwork`, `scanComplete`,
+   `protocolQualified`, `freshness`, `chainComplete`), so a consumer can
    always tell whether an empty result means "does not exist" or "not yet
-   read". `blocksBehindNetwork` is never negative: a scan briefly ahead of a
+   read". `scanComplete` alone is not enough: an empty result is a fact only
+   when `chainComplete` is `true`, which also requires `protocolQualified`
+   (the serving release replayed all seven readings from the required start
+   to this checkpoint) and a current checkpoint. `freshness` names the reason
+   when it is not, for example `replay_incomplete`. `blocksBehindNetwork` is never negative: a scan briefly ahead of a
    cached node reading reports zero blocks behind.
    [Why that matters](/docs-zerdinals-and-zrunes/verify/coverage/).
 3. **Pagination is route-specific.** Inscription lists return `next_cursor`
@@ -121,6 +156,9 @@ Expected shape (values will have moved with the chain):
     "scannedHeight": "3463723",
     "networkHeight": "3463723",
     "blocksBehindNetwork": "0",
+    "scanComplete": true,
+    "protocolQualified": true,
+    "freshness": "ok",
     "chainComplete": true
   },
   "state": "ok",
@@ -177,6 +215,11 @@ Two behaviors worth coding against rather than discovering:
 
 Always read `coverage` before treating a 404 or an empty list as proof of
 absence.
+
+Qualified catalog and rendering reads have their own contracts and prerequisites.
+A working generic list or a current scan height does not establish qualified
+claim history or artwork. Read the unavailable reason: historical replay needs
+verified history; repeatedly retrying it does not complete that history.
 
 ## Rate limits and caching
 
