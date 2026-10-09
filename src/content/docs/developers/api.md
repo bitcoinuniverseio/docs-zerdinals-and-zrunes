@@ -40,16 +40,33 @@ https://zrunes.io/idx/zcash-metaprotocols
    read". `blocksBehindNetwork` is never negative: a scan briefly ahead of a
    cached node reading reports zero blocks behind.
    [Why that matters](/docs-zerdinals-and-zrunes/verify/coverage/).
-3. **Cursor pagination.** List responses include `next_cursor` (opaque
-   string, or absent at the end). Pass it back as `?cursor=` with the same
-   `limit` to continue. Cursors are stable across the reorg-safe depth.
-   `limit` is capped at 200: a larger value is clamped rather than
-   rejected, so always read the length of `items` instead of assuming you
-   received what you asked for.
-4. **Errors carry the same envelope.** A failing response is the standard
-   object with an added `error` string, so `schemaVersion`, `checkpoint`,
-   and `coverage` are available even when the request failed. There is no
-   separate error format to parse.
+3. **Pagination is route-specific.** Inscription lists return `next_cursor`
+   for continuation with `?cursor=` and the same `limit`. ZRC-20 token and
+   ZRC-721 collection lists use `limit` and `offset`. Respect each route's
+   returned cursor or total, and the actual length of `items`; do not
+   treat a cursor as an offset.
+4. **Check errors by status and schema.** Generic read errors include an
+   `error` field; specialized services may return a different versioned
+   error envelope. Coverage is not guaranteed on every rejected request.
+   Do not interpret HTTP 200 with HTML or an incompatible JSON shape as a
+   successful API response.
+
+## Status identity and readiness
+
+Read the serving chain identity from `consensus.genesisHash` in `/status`.
+The detailed status repeats it in
+`status.networks["zcash:<network>"].consensus.genesisHash`. Older consumers
+may also encounter a root `genesisHash` field. Validate every supplied hash
+as 64 hexadecimal characters and require all supplied identities to agree.
+An absent identity is unknown; the selected network label is not a
+substitute for an observed genesis hash.
+
+A reachable reader can return useful records while historical protocol
+replay is incomplete. Check `coverage.protocolQualified`,
+`coverage.freshness`, and `coverage.chainComplete` before interpreting an
+empty result as absence. A transport repair does not change these facts.
+Some specialized reads return a structured 503 with
+`reason: "replay_incomplete"` until their required projection is ready.
 
 ## Routes
 
@@ -68,6 +85,15 @@ https://zrunes.io/idx/zcash-metaprotocols
 | `GET /zrunes/{idOrName}` | One ZRune by name (spacers ignored) or id |
 | `GET /zrunes/{idOrName}/holders` | Holder balances |
 | `GET /zrunes/{idOrName}/activity` | Etch, mint, and transfer events |
+| `GET /tokens` | ZRC-20 tokens, with ruleset, search, sort, limit and offset parameters |
+| `GET /tokens/{tickOrKey}` | One ZRC-20 token; use `keyType=hex` for an exact known key |
+| `GET /tokens/{tickOrKey}/holders` | Holder balances under the requested ruleset |
+| `GET /tokens/{tickOrKey}/activity` | Token events under the requested ruleset |
+| `GET /addresses/{address}/tokens` | ZRC-20 balances under the requested ruleset |
+| `GET /nft-collections` | ZRC-721 collections, with limit and offset parameters |
+| `GET /nft-collections/{key}` | One ZRC-721 collection |
+| `GET /nft-collections/{key}/items` | Accepted items in a ZRC-721 collection |
+| `GET /nft-collections/{key}/activity` | ZRC-721 collection events |
 | `GET /collections` | Collections with their verification levels |
 | `GET /collections/{parentId}/items` | A collection's members with their proofs |
 | `GET /activity` | Recent protocol events across the chain |
@@ -87,6 +113,9 @@ Expected shape (values will have moved with the chain):
 {
   "schemaVersion": "zcash-metaprotocols-api-v1",
   "network": "mainnet",
+  "consensus": {
+    "genesisHash": "00040fe8ec8471911baa1db1266ea15dd06b4a8a5c453883c000b031973dce08"
+  },
   "checkpoint": { "height": "3463723", "hash": "00000000001ff2d8..." },
   "coverage": {
     "scannedHeight": "3463723",
