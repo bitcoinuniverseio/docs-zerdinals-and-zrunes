@@ -75,6 +75,7 @@ export default defineConfig({
             { label: 'What this is', slug: 'start/what-this-is' },
             { label: 'Finding your way around', slug: 'start/finding-your-way-around' },
             { label: 'Safety in sixty seconds', slug: 'start/safety' },
+            { label: 'October 3 candidate', slug: 'start/candidate-2026-10-03' },
             { label: 'Current status', slug: 'start/status' },
           ],
         },

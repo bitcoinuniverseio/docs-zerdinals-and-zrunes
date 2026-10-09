@@ -77,6 +77,8 @@ src/content/docs/.
 
 ## Developers
 
+- [October 3 implementation candidate](https://zrunes.io/docs-zerdinals-and-zrunes/start/candidate-2026-10-03/)
+
 - [Architecture](https://zrunes.io/docs-zerdinals-and-zrunes/developers/architecture/)
 - [Public HTTP API](https://zrunes.io/docs-zerdinals-and-zrunes/developers/api/)
 - [Order notifications](https://zrunes.io/docs-zerdinals-and-zrunes/developers/order-notifications/)
