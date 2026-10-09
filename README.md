@@ -44,6 +44,11 @@ the most important page in this documentation.
 
 ## What works today
 
+The [October 3 implementation candidate](src/content/docs/start/candidate-2026-10-03.md)
+documents newer source contracts and remaining authority, native journey and release
+holds. It does not report a production deployment. Historical observations below
+retain their original dates and revisions.
+
 The September 5 repair candidate remains **NO-GO** pending complete authority and user-journey validation. See [Repair candidate status](src/content/docs/start/repair-candidate.md). Dated observations on [Current status](src/content/docs/start/status.mdx) describe their recorded snapshot; they do not establish present deployment behavior or qualify this candidate.
 
 ## Documentation map
@@ -68,6 +73,11 @@ GitHub, and the same files build the searchable documentation site with
 npm ci
 npm run dev
 ```
+
+Use Node 24.19.0 and npm 11.17.0. The same versions apply to local builds
+and the self-hosted checks. The full CI workflow supports an explicit
+dispatch for a reviewed branch when the persistent fleet declines PR events;
+required checks and validation stay the same.
 
 `npm test` runs the copy guard, the public-safety scan, the status-data
 check, and Markdown lint; `npm run build` also validates every internal
