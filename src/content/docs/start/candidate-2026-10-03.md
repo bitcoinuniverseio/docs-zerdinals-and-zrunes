@@ -75,14 +75,14 @@ project exclusions. These fixture checks are not real-service performance or
 native functional acceptance. Complete native journeys remain zero and release
 approval remains held; newer source needs its own qualification.
 
-Source: [application checkpoint](https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/tree/2c7dd1f5f4a31010448f853b9406b3a811c29fbf).
+Source: application checkpoint `2c7dd1f5f4a31010448f853b9406b3a811c29fbf` (private repository).
 
 ## Later revision evidence and pending checks
 
 The earlier completed CI and browser results above remain historical evidence
 for their original revision. Application revision
 `06db5f497683d422ab209c6d6f86cb3d1a64862f` has separate results from
-[main CI run 37120717526](https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/actions/runs/37120717526):
+main CI run 37120717526:
 backend passed 4270 tests with 58 existing skips, across 380 passing and 10
 skipped suites. The mandatory seven-suite SQL gate passed 50 tests with zero
 skips. Frontend passed 3641 of 3642 tests across 328 suites, with one failure;
@@ -96,7 +96,7 @@ preserving the zero-value composition and admission assertions. Fresh CI for
 that correction remains pending in this evidence record; a component result
 cannot replace the failed full-run result.
 
-[Offline PCZT run 37120680194](https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/actions/runs/37120680194)
+Offline PCZT run 37120680194
 for the exact application revision above passed 11 Rust tests and seven actual
 CLI cases with zero skips. This qualifies the tested offline codec and CLI
 contracts only. Wallet acceptance and native acceptance remain false, with zero
@@ -119,7 +119,7 @@ real-service wallet journeys and pending approved browser gates remain open.
 ## Completed exact-candidate checks at 12:43:48 UTC
 
 Application candidate `499be6a46515f4391eca140af52430d3a61c3746` passed all ten
-jobs in [main CI run 37122747236](https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/actions/runs/37122747236),
+jobs in main CI run 37122747236,
 completed on October 3 at 12:43:48 UTC. These results supersede the failed
 frontend gate above only for this exact later candidate; the earlier run remains
 part of the evidence history.
@@ -139,7 +139,7 @@ project exclusions. No baselines, tolerances or project guards were changed.
 This establishes controlled offline browser artifact recovery, not wallet,
 protocol or real-service native acceptance.
 
-[Offline PCZT run 37122728760](https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/actions/runs/37122728760)
+Offline PCZT run 37122728760
 for exact candidate `499be6a46515f4391eca140af52430d3a61c3746` independently
 passed 11 Rust tests, seven actual CLI cases, two archive checks and four adapter
 tests against the actual earlier `06db5f49` artifact, all with zero skips. The
@@ -163,11 +163,11 @@ from these successful component and fixture gates.
 
 ## Later exact-source qualification at16:10:21UTC
 
-Application source `938dc36ec6ac0639d5979232d2e1a6c7f5314ab9` passed all ten jobs in [CI run37134657217](https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/actions/runs/37134657217) on October3. Frontend passed3656 tests across331 suites; unchanged gzip budgets passed at153.8/926.7/76.1/214.8KiB. Backend passed4320 tests with58 existing skips, across382 passing and10 skipped suites. Mandatory SQL passed50 tests in seven suites with zero skips. Approved browser product gates passed627 with three existing exclusions; screenshots passed196 with four existing mobile exclusions. No baselines, tolerances or size limits were relaxed. This supersedes the earlier SDK and bundle failures for this exact later source.
+Application source `938dc36ec6ac0639d5979232d2e1a6c7f5314ab9` passed all ten jobs in CI run37134657217 on October3. Frontend passed3656 tests across331 suites; unchanged gzip budgets passed at153.8/926.7/76.1/214.8KiB. Backend passed4320 tests with58 existing skips, across382 passing and10 skipped suites. Mandatory SQL passed50 tests in seven suites with zero skips. Approved browser product gates passed627 with three existing exclusions; screenshots passed196 with four existing mobile exclusions. No baselines, tolerances or size limits were relaxed. This supersedes the earlier SDK and bundle failures for this exact later source.
 
-Indexer source `116835af376efc82e41df8af974c558806c83f29` separately passed all five jobs in [CI run37125857030](https://github.com/bitcoinuniverseio/index-zcash-metaprotocols/actions/runs/37125857030), including931 full tests and39 mandatory SQL tests with zero skips. Corrected non-value-output rules remain staged; the frozen default parser and historical protocol state remain unchanged.
+Indexer source `116835af376efc82e41df8af974c558806c83f29` separately passed all five jobs in CI run37125857030, including931 full tests and39 mandatory SQL tests with zero skips. Corrected non-value-output rules remain staged; the frozen default parser and historical protocol state remain unchanged.
 
-The offline local-viewing component at `d2ef878fc92d2f60023cf6a8915ae860530cd211` passed13 native Rust tests with zero ignored and four mandatory actual WebAssembly tests in [run37133998668](https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/actions/runs/37133998668). Independently verified artifact11278400447 binds source, official cohort, resolved lock, compiler receipts and the698866-byte binary SHA256 `488cdb75311b72568f91174f8fbd3dc286d202cbb4bafe33cd36721cbe9f4151`. It qualifies bounded observation and public block-commitment checks. Product distribution notices, browser privacy and checkpoint/reorg lifecycle, spend knowledge and native received-note journeys remain separate requirements.
+The offline local-viewing component at `d2ef878fc92d2f60023cf6a8915ae860530cd211` passed13 native Rust tests with zero ignored and four mandatory actual WebAssembly tests in run37133998668. Independently verified artifact11278400447 binds source, official cohort, resolved lock, compiler receipts and the698866-byte binary SHA256 `488cdb75311b72568f91174f8fbd3dc286d202cbb4bafe33cd36721cbe9f4151`. It qualifies bounded observation and public block-commitment checks. Product distribution notices, browser privacy and checkpoint/reorg lifecycle, spend knowledge and native received-note journeys remain separate requirements.
 
 The dedicated experimental ZSA run37133211693 verifies its own Regtest genesis and activation, then passes three native issuance/transfer/burn/persistence scenarios and persisted-head agreement. Its three-party scenario fails with a node crash. It does not qualify public Zcash Testnet or Mainnet. The original Shielded Bitcoin Signet profile and live node genesis/activation match; that alone does not establish wallet ownership, hosted proving resources or transfer/replay acceptance.
 
@@ -176,7 +176,7 @@ Later candidate `012ee73984cb7d790ebdc513bc092b5c61586744` retains the qualified
 ## Later verified component evidence and remaining holds
 
 Application source `2cb4b13de1d913761166e99bbb90df376e28e4f8` completed
-[CI run 37148647216](https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/actions/runs/37148647216).
+CI run 37148647216.
 Frontend passed 3,691 tests across 335 files. Approved browser product gates passed
 627 cases with three historical exclusions; screenshot comparisons passed 196
 with four historical mobile exclusions. Gzip results remained 153.8/926.7/76.1/214.8
@@ -188,7 +188,7 @@ or acquire new native acceptance.
 The separate isolated viewing campaign at
 `c8491a1aa11524aec87161957bc61f8763463808` passed all five actual browser
 component cases in
-[run 37150072001](https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/actions/runs/37150072001),
+run 37150072001,
 with zero skips, retries or flaky results. Result artifact 11284220051 binds the
 exact source and report. It checks the official-generated public-fixture
 ciphertext codec, worker privacy/forget and isolated provider cleanup. Fixture
@@ -219,7 +219,7 @@ historical failures above; they do not authorize a deployment or enable a held
 product consumer.
 
 The later application candidate `714217c0c588d41f4569d244d4c3e67736432734`
-passed all ten fresh jobs in [CI run 37159569483](https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/actions/runs/37159569483).
+passed all ten fresh jobs in CI run 37159569483.
 No dependency job was reused or skipped. Backend results include 4,320 passing
 tests with 58 existing skips and all 50 mandatory SQL checks without skips;
 frontend results include 3,691 passing tests. Product browser checks passed 627
