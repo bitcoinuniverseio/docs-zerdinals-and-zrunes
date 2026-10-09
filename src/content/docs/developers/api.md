@@ -65,9 +65,14 @@ https://zrunes.io/idx/zcash-metaprotocols
    integers, never as floating point.
 2. **Coverage rides along.** List and status responses carry `checkpoint`
    (the indexed block height and hash) and `coverage` (`scannedHeight`,
-   `networkHeight`, `blocksBehindNetwork`, `chainComplete`), so a consumer can
+   `networkHeight`, `blocksBehindNetwork`, `scanComplete`,
+   `protocolQualified`, `freshness`, `chainComplete`), so a consumer can
    always tell whether an empty result means "does not exist" or "not yet
-   read". `blocksBehindNetwork` is never negative: a scan briefly ahead of a
+   read". `scanComplete` alone is not enough: an empty result is a fact only
+   when `chainComplete` is `true`, which also requires `protocolQualified`
+   (the serving release replayed all seven readings from the required start
+   to this checkpoint) and a current checkpoint. `freshness` names the reason
+   when it is not, for example `replay_incomplete`. `blocksBehindNetwork` is never negative: a scan briefly ahead of a
    cached node reading reports zero blocks behind.
    [Why that matters](/docs-zerdinals-and-zrunes/verify/coverage/).
 3. **Cursor pagination.** List responses include `next_cursor` (opaque
@@ -122,6 +127,9 @@ Expected shape (values will have moved with the chain):
     "scannedHeight": "3463723",
     "networkHeight": "3463723",
     "blocksBehindNetwork": "0",
+    "scanComplete": true,
+    "protocolQualified": true,
+    "freshness": "ok",
     "chainComplete": true
   },
   "state": "ok",
