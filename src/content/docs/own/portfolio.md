@@ -34,6 +34,20 @@ claim verdict, never from the inscription's text, so a losing claim for the
 same block appears as an ordinary Zordinal. See the
 [ZkMap v1 specification](/docs-zerdinals-and-zrunes/protocols/zkmap/).
 
+## Candidate accounting and output plans
+
+The [October 3 candidate](/docs-zerdinals-and-zrunes/start/candidate-2026-10-03/)
+adds confirmed transparent accounting for a connected or watched address. Read
+in bounded batches, pause and continue at the accepted cursor, and restart after
+a chain change. Partial or unverified rows cannot export. A completed CSV carries
+the exact displayed event values and snapshot identity; basis, profit, tax and fee
+valuation remain unavailable. Reload starts a new read rather than resuming a
+saved paging checkpoint.
+
+Output composition and native spend eligibility are independent. A clean output
+classification does not grant spending authority. Split plans remain unsigned
+and unbroadcast; a missing qualified PCZT export stays unavailable.
+
 ## Watchlists
 
 You can watch a ZRune, a collection, a transparent address, or a single
