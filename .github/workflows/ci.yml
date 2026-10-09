@@ -2,6 +2,7 @@ name: ci
 
 on:
   pull_request:
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -80,7 +81,7 @@ jobs:
           run-id: ${{ steps.evidence.outputs.run-id }}
           github-token: ${{ github.token }}
           path: dist
-      - uses: bitcoinuniverseio/universe-ci-actions/universe-node-env@main
+      - uses: bitcoinuniverseio/universe-ci-actions/universe-node-env@8e24bc760556caa5ec8c7c497baaad2e9adcc912
         if: steps.evidence.outputs.reused != 'true'
       - name: Copy guard (long dash, banned word, marketing phrases)
         if: steps.evidence.outputs.reused != 'true'

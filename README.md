@@ -74,6 +74,11 @@ npm ci
 npm run dev
 ```
 
+Use Node 24.19.0 and npm 11.17.0. The same versions apply to local builds
+and the self-hosted checks. The full CI workflow supports an explicit
+dispatch for a reviewed branch when the persistent fleet declines PR events;
+required checks and validation stay the same.
+
 `npm test` runs the copy guard, the public-safety scan, the status-data
 check, and Markdown lint; `npm run build` also validates every internal
 link. [CONTRIBUTING.md](CONTRIBUTING.md) has the full workflow and writing
