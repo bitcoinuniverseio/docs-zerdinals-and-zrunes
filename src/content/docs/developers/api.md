@@ -8,6 +8,36 @@ conventions shared by all of them, and examples you can run as they stand.
 
 ## The surface
 
+The [October 3 candidate](/docs-zerdinals-and-zrunes/start/candidate-2026-10-03/)
+adds the application contracts below. This is source documentation, not evidence
+that a current public deployment serves those additions.
+
+### Candidate application accounting API
+
+The application gateway uses `/api/portfolio/:address/accounting/export` for
+complete v1 JSON or CSV, with `network` and `format` query parameters. V1 retains
+its 200-transaction complete-export limit. Larger history uses additive
+`GET /api/portfolio/:address/accounting/pages?network=...&cursor=...`.
+
+Every `transparent-accounting-page-v2` response is `complete:false`. It binds
+owner, network, genesis, the active snapshot checkpoint, height-window range,
+offset/count, transaction digest and raw rowset digest. Ordering is
+`height-window-node-order`; `windowComplete` describes only that window.
+`snapshotExhausted` and a null next cursor terminate the snapshot, but a consumer
+must also verify all prior windows and offsets from height zero before export.
+
+Opaque cursor version 3 retains the adaptive range end; fixed-window version 2
+continuations remain compatible. A cursor checksum checks encoding integrity,
+not authentication. New tip growth can continue a still-active anchor. A removed
+anchor or changed window returns a typed `PORTFOLIO_LEDGER_REORG` hold requiring
+restart. Unknown previous outputs or service timeouts are refused, not zeroed.
+The JavaScript `pagePortfolioAccounting` and Python `page_portfolio_accounting`
+SDK methods fetch one page and do not loop automatically.
+
+Application readiness adds `serving-chain-identity-v1`, tying selected network to
+observed node genesis and release. This observation is not protocol activation,
+registry authority or a global prerequisite based on scan completion.
+
 The product's indexer publishes a read-only HTTP API through the product
 domain:
 
@@ -35,21 +65,43 @@ https://zrunes.io/idx/zcash-metaprotocols
    integers, never as floating point.
 2. **Coverage rides along.** List and status responses carry `checkpoint`
    (the indexed block height and hash) and `coverage` (`scannedHeight`,
-   `networkHeight`, `blocksBehindNetwork`, `chainComplete`), so a consumer can
+   `networkHeight`, `blocksBehindNetwork`, `scanComplete`,
+   `protocolQualified`, `freshness`, `chainComplete`), so a consumer can
    always tell whether an empty result means "does not exist" or "not yet
-   read". `blocksBehindNetwork` is never negative: a scan briefly ahead of a
+   read". `scanComplete` alone is not enough: an empty result is a fact only
+   when `chainComplete` is `true`, which also requires `protocolQualified`
+   (the serving release replayed all seven readings from the required start
+   to this checkpoint) and a current checkpoint. `freshness` names the reason
+   when it is not, for example `replay_incomplete`. `blocksBehindNetwork` is never negative: a scan briefly ahead of a
    cached node reading reports zero blocks behind.
    [Why that matters](/docs-zerdinals-and-zrunes/verify/coverage/).
-3. **Cursor pagination.** List responses include `next_cursor` (opaque
-   string, or absent at the end). Pass it back as `?cursor=` with the same
-   `limit` to continue. Cursors are stable across the reorg-safe depth.
-   `limit` is capped at 200: a larger value is clamped rather than
-   rejected, so always read the length of `items` instead of assuming you
-   received what you asked for.
-4. **Errors carry the same envelope.** A failing response is the standard
-   object with an added `error` string, so `schemaVersion`, `checkpoint`,
-   and `coverage` are available even when the request failed. There is no
-   separate error format to parse.
+3. **Pagination is route-specific.** Inscription lists return `next_cursor`
+   for continuation with `?cursor=` and the same `limit`. ZRC-20 token and
+   ZRC-721 collection lists use `limit` and `offset`. Respect each route's
+   returned cursor or total, and the actual length of `items`; do not
+   treat a cursor as an offset.
+4. **Check errors by status and schema.** Generic read errors include an
+   `error` field; specialized services may return a different versioned
+   error envelope. Coverage is not guaranteed on every rejected request.
+   Do not interpret HTTP 200 with HTML or an incompatible JSON shape as a
+   successful API response.
+
+## Status identity and readiness
+
+Read the serving chain identity from `consensus.genesisHash` in `/status`.
+The detailed status repeats it in
+`status.networks["zcash:<network>"].consensus.genesisHash`. Older consumers
+may also encounter a root `genesisHash` field. Validate every supplied hash
+as 64 hexadecimal characters and require all supplied identities to agree.
+An absent identity is unknown; the selected network label is not a
+substitute for an observed genesis hash.
+
+A reachable reader can return useful records while historical protocol
+replay is incomplete. Check `coverage.protocolQualified`,
+`coverage.freshness`, and `coverage.chainComplete` before interpreting an
+empty result as absence. A transport repair does not change these facts.
+Some specialized reads return a structured 503 with
+`reason: "replay_incomplete"` until their required projection is ready.
 
 ## Routes
 
@@ -68,6 +120,15 @@ https://zrunes.io/idx/zcash-metaprotocols
 | `GET /zrunes/{idOrName}` | One ZRune by name (spacers ignored) or id |
 | `GET /zrunes/{idOrName}/holders` | Holder balances |
 | `GET /zrunes/{idOrName}/activity` | Etch, mint, and transfer events |
+| `GET /tokens` | ZRC-20 tokens, with ruleset, search, sort, limit and offset parameters |
+| `GET /tokens/{tickOrKey}` | One ZRC-20 token; use `keyType=hex` for an exact known key |
+| `GET /tokens/{tickOrKey}/holders` | Holder balances under the requested ruleset |
+| `GET /tokens/{tickOrKey}/activity` | Token events under the requested ruleset |
+| `GET /addresses/{address}/tokens` | ZRC-20 balances under the requested ruleset |
+| `GET /nft-collections` | ZRC-721 collections, with limit and offset parameters |
+| `GET /nft-collections/{key}` | One ZRC-721 collection |
+| `GET /nft-collections/{key}/items` | Accepted items in a ZRC-721 collection |
+| `GET /nft-collections/{key}/activity` | ZRC-721 collection events |
 | `GET /collections` | Collections with their verification levels |
 | `GET /collections/{parentId}/items` | A collection's members with their proofs |
 | `GET /activity` | Recent protocol events across the chain |
@@ -87,11 +148,17 @@ Expected shape (values will have moved with the chain):
 {
   "schemaVersion": "zcash-metaprotocols-api-v1",
   "network": "mainnet",
+  "consensus": {
+    "genesisHash": "00040fe8ec8471911baa1db1266ea15dd06b4a8a5c453883c000b031973dce08"
+  },
   "checkpoint": { "height": "3463723", "hash": "00000000001ff2d8..." },
   "coverage": {
     "scannedHeight": "3463723",
     "networkHeight": "3463723",
     "blocksBehindNetwork": "0",
+    "scanComplete": true,
+    "protocolQualified": true,
+    "freshness": "ok",
     "chainComplete": true
   },
   "state": "ok",
@@ -148,6 +215,11 @@ Two behaviors worth coding against rather than discovering:
 
 Always read `coverage` before treating a 404 or an empty list as proof of
 absence.
+
+Qualified catalog and rendering reads have their own contracts and prerequisites.
+A working generic list or a current scan height does not establish qualified
+claim history or artwork. Read the unavailable reason: historical replay needs
+verified history; repeatedly retrying it does not complete that history.
 
 ## Rate limits and caching
 
