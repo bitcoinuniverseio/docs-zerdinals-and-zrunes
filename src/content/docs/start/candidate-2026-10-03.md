@@ -1,0 +1,569 @@
+---
+title: October 3 implementation candidate
+description: Implemented contracts, safe recovery and the remaining release requirements.
+---
+
+This describes application source revision `2c7dd1f5f4a31010448f853b9406b3a811c29fbf`
+and indexer revision `824b4340a29fdae558c1881fbb026e1ba34b1945`. It is an
+implementation candidate, **not a deployed release or Mainnet GO**. The application
+revision is pinned below in the source reference; recorded September journeys do
+not qualify these changed artifacts. Accounting source checkpoint
+`9eb38be49271c024b6790163fd890ef252821463` is retained in this revision.
+
+## Read, prepare, then review
+
+Draft editing, mint and inscription routes, and existing-order recovery remain
+discoverable when a read service fails. Each submission still needs its own
+network, recipient, ownership, protocol, input-safety, fee and signature checks.
+An unavailable reader cannot prove a name is free or an output is safe to spend.
+
+The serving identity binds the selected network to independently observed node
+genesis and the backend release. A missing, stale or conflicting identity holds
+new submissions. Indexed asset composition and native spend eligibility are
+separate checks: a clean classification alone is not permission to spend.
+
+## Confirmed transparent accounting
+
+The accounting page reads a watched transparent address or the connected account.
+Received, spent and net flows retain exact integer values. It accepts at most
+three pages per batch, offers Pause and Continue, and discards late responses after
+an account or network switch.
+
+Rows remain visibly partial until every height window and transaction offset
+belongs to the same active snapshot. Export is disabled while partial, unresolved
+or invalidated by a reorg. Restart obtains a new snapshot; reload also restarts,
+because paging checkpoints are held only in the mounted view.
+
+A complete paged CSV includes schema version, address, network, genesis,
+checkpoint, read time and assembly digest before the exact displayed event rows.
+This includes empty snapshots. Cost basis, realized profit, tax interpretation and
+fee valuation remain unavailable. The record is not a tax calculation.
+
+## Recovery preserves the original request
+
+Payment and supported market requests retain their original identity and terms.
+Status-only recovery can reconcile an uncertain acknowledgement without creating
+a changed request. Submission is not proof of protocol acceptance. Keep the saved
+request and signed transaction bytes until terminal evidence resolves the outcome.
+
+Output split plans remain unsigned, unbroadcast plans. A missing PCZT export or
+signer capability is reported as unavailable; raw transaction bytes are not a
+replacement PCZT. Shielded Bitcoin and ZSA routes retain their profile, provider
+and consensus holds. A feature flag does not qualify issuance or signing.
+
+## Names and domain authority
+
+`zcashnames` and `zcashme` require separate qualified readers and protocol versions.
+An ordinary registry reader cannot establish ZNS authority. Unsupported registry
+contracts return a typed unavailable result rather than an empty registry.
+Pass check-in and credential issuance are actual mutations and retain proof and
+approval requirements. Mainnet custody and rights-worker qualification remain held.
+
+## What remains before release
+
+Component tests and isolated database checks establish bounded contracts, not
+native execution. Complete native Testnet and Bitcoin Signet journeys, restart,
+reorg and ambiguity recovery, approved browser checks, unchanged bundle budgets,
+serving artifact identity and the coordinated release gates remain required.
+No deployment, production trust change or release acceptance is reported here.
+
+CI run 37113834588 for this source passed all ten jobs, including backend,
+required database regressions, frontend and approved-runner visual fixtures.
+The bundle passes unchanged size limits. Visual product gates passed 625 cases
+with three exclusions; screenshot comparisons passed 196 with four mobile
+project exclusions. These fixture checks are not real-service performance or
+native functional acceptance. Complete native journeys remain zero and release
+approval remains held; newer source needs its own qualification.
+
+Source: [application checkpoint](https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/tree/2c7dd1f5f4a31010448f853b9406b3a811c29fbf).
+
+## Later revision evidence and pending checks
+
+The earlier completed CI and browser results above remain historical evidence
+for their original revision. Application revision
+`06db5f497683d422ab209c6d6f86cb3d1a64862f` has separate results from
+[main CI run 37120717526](https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/actions/runs/37120717526):
+backend passed 4270 tests with 58 existing skips, across 380 passing and 10
+skipped suites. The mandatory seven-suite SQL gate passed 50 tests with zero
+skips. Frontend passed 3641 of 3642 tests across 328 suites, with one failure;
+visual checks were skipped. The other seven jobs passed. This run did not pass
+all application gates.
+
+The frontend failure asserted original invoice submission before its asynchronous
+request fingerprint completed. Test-only correction
+`694b6b7f8e1a4719d5fd19ce9f441f22725bfceb` waits for the original dispatch while
+preserving the zero-value composition and admission assertions. Fresh CI for
+that correction remains pending in this evidence record; a component result
+cannot replace the failed full-run result.
+
+[Offline PCZT run 37120680194](https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/actions/runs/37120680194)
+for the exact application revision above passed 11 Rust tests and seven actual
+CLI cases with zero skips. This qualifies the tested offline codec and CLI
+contracts only. Wallet acceptance and native acceptance remain false, with zero
+complete native journeys. Later optional adapter work and browser draft recovery
+source checkpoint `b75bcae8` require their own fresh fleet evidence. No browser
+execution or success for those later changes is claimed here.
+
+Indexer documentation checkpoint
+`6c2ba3947e61a215b853a0cf62d5669250b386aa` changes documentation only over runtime
+`824b4340a29fdae558c1881fbb026e1ba34b1945`. The runtime's previously accepted
+five-job run, 911 full tests and 39 mandatory SQL tests with zero skips, remains
+historical evidence for that runtime. Documentation changes do not resolve the
+held independent name-reader contract or the governing non-value-output rule.
+No historical protocol state or qualification is substituted by this update.
+
+Release remains held. These results authorize no merge, deployment, production
+migration or public release. Native Testnet and Bitcoin Signet qualification,
+real-service wallet journeys and pending approved browser gates remain open.
+
+## Completed exact-candidate checks at 12:43:48 UTC
+
+Application candidate `499be6a46515f4391eca140af52430d3a61c3746` passed all ten
+jobs in [main CI run 37122747236](https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/actions/runs/37122747236),
+completed on October 3 at 12:43:48 UTC. These results supersede the failed
+frontend gate above only for this exact later candidate; the earlier run remains
+part of the evidence history.
+
+Frontend passed 3645 tests in 329 suites with zero failures. Its unchanged
+bundle limits passed: 153.8 KiB initial JavaScript, 926.4 KiB total JavaScript,
+76.1 KiB CSS and 214.8 KiB engine worker against 156/927/78/230 KiB ceilings.
+Backend passed 4291 tests with 58 existing skips, across 380 passing and 10
+skipped suites. The separate mandatory seven-suite SQL gate passed 50 tests
+with zero skips.
+
+Approved-runner visual product gates passed 627 cases with three existing
+exclusions. Both `gates` and `gates-dark` executed the new shielded draft
+recovery checks using real browser WebCrypto and actual downloaded/imported
+file bytes. Screenshot comparisons passed 196 cases with four existing mobile
+project exclusions. No baselines, tolerances or project guards were changed.
+This establishes controlled offline browser artifact recovery, not wallet,
+protocol or real-service native acceptance.
+
+[Offline PCZT run 37122728760](https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/actions/runs/37122728760)
+for exact candidate `499be6a46515f4391eca140af52430d3a61c3746` independently
+passed 11 Rust tests, seven actual CLI cases, two archive checks and four adapter
+tests against the actual earlier `06db5f49` artifact, all with zero skips. The
+original qualified artifact tuple and durable fixture remain unchanged.
+New artifact `11273902401` has ZIP size 509667 bytes and SHA256
+`5dfe10e37fb91c4cf490ecd3f641eac375142047a25f10436dbc1f5518c3254d`;
+its binary SHA256 is
+`ae40b6374d3767dc12b24ca59e098e0253f511462204c3ba1783118033d200f2`.
+Codec, CLI, archive and prior-artifact adapter checks do not establish native
+wallet execution.
+
+All 53 work packages and 88 source annotations remain subject to their full
+requirements; eight work packages retain unresolved external authority or
+qualification prerequisites. Complete native journeys remain zero, native
+acceptance is false and release approval is false. Indexer documentation
+`6c2ba3947e61a215b853a0cf62d5669250b386aa` and runtime
+`824b4340a29fdae558c1881fbb026e1ba34b1945` remain unchanged. Later documentation
+heads record this evidence without becoming the exact fully tested application
+candidate. No merge, deployment, production change or public release follows
+from these successful component and fixture gates.
+
+## Later exact-source qualification at16:10:21UTC
+
+Application source `938dc36ec6ac0639d5979232d2e1a6c7f5314ab9` passed all ten jobs in [CI run37134657217](https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/actions/runs/37134657217) on October3. Frontend passed3656 tests across331 suites; unchanged gzip budgets passed at153.8/926.7/76.1/214.8KiB. Backend passed4320 tests with58 existing skips, across382 passing and10 skipped suites. Mandatory SQL passed50 tests in seven suites with zero skips. Approved browser product gates passed627 with three existing exclusions; screenshots passed196 with four existing mobile exclusions. No baselines, tolerances or size limits were relaxed. This supersedes the earlier SDK and bundle failures for this exact later source.
+
+Indexer source `116835af376efc82e41df8af974c558806c83f29` separately passed all five jobs in [CI run37125857030](https://github.com/bitcoinuniverseio/index-zcash-metaprotocols/actions/runs/37125857030), including931 full tests and39 mandatory SQL tests with zero skips. Corrected non-value-output rules remain staged; the frozen default parser and historical protocol state remain unchanged.
+
+The offline local-viewing component at `d2ef878fc92d2f60023cf6a8915ae860530cd211` passed13 native Rust tests with zero ignored and four mandatory actual WebAssembly tests in [run37133998668](https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/actions/runs/37133998668). Independently verified artifact11278400447 binds source, official cohort, resolved lock, compiler receipts and the698866-byte binary SHA256 `488cdb75311b72568f91174f8fbd3dc286d202cbb4bafe33cd36721cbe9f4151`. It qualifies bounded observation and public block-commitment checks. Product distribution notices, browser privacy and checkpoint/reorg lifecycle, spend knowledge and native received-note journeys remain separate requirements.
+
+The dedicated experimental ZSA run37133211693 verifies its own Regtest genesis and activation, then passes three native issuance/transfer/burn/persistence scenarios and persisted-head agreement. Its three-party scenario fails with a node crash. It does not qualify public Zcash Testnet or Mainnet. The original Shielded Bitcoin Signet profile and live node genesis/activation match; that alone does not establish wallet ownership, hosted proving resources or transfer/replay acceptance.
+
+Later candidate `012ee73984cb7d790ebdc513bc092b5c61586744` retains the qualified component evidence and adds bounded crash diagnostics. It is distinct from the exact all-ten-job application source above. All53 work packages and88 annotations retain their operation-specific acceptance requirements. Complete native public-network journeys remain zero and public release remains false. Component, isolated database and browser fixture results do not establish GO.
+
+## Later verified component evidence and remaining holds
+
+Application source `2cb4b13de1d913761166e99bbb90df376e28e4f8` completed
+[CI run 37148647216](https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/actions/runs/37148647216).
+Frontend passed 3,691 tests across 335 files. Approved browser product gates passed
+627 cases with three historical exclusions; screenshot comparisons passed 196
+with four historical mobile exclusions. Gzip results remained 153.8/926.7/76.1/214.8
+KiB against unchanged 156/927/78/230 ceilings. Backend, signer, Shielded Bitcoin,
+SDK and protocol jobs were skipped through verified unchanged-source reuse from
+`938dc36ec6ac0639d5979232d2e1a6c7f5314ab9`, run 37134657217. They did not rerun
+or acquire new native acceptance.
+
+The separate isolated viewing campaign at
+`c8491a1aa11524aec87161957bc61f8763463808` passed all five actual browser
+component cases in
+[run 37150072001](https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/actions/runs/37150072001),
+with zero skips, retries or flaky results. Result artifact 11284220051 binds the
+exact source and report. It checks the official-generated public-fixture
+ciphertext codec, worker privacy/forget and isolated provider cleanup. Fixture
+session reorg controls and the separately parsed public block do not prove that
+the encrypted transactions were included in a real block, or that a native
+received-note lifecycle completed. Earlier attempts remain failed: run
+37149729760 lacked transaction package declarations; run 37150019017 failed its
+declaration artifact restore-path check. Neither executed the browser cases.
+
+The independently verified `5fa4ea928044eed7064c098853e4db76a06fb232` viewing
+component has a local private review package of 458 files, including all 440
+unchanged original notice files totaling 15,342,809 bytes. Source, lock,
+compiler, inventory and original-source review bindings accompany the exact
+698,866-byte WASM. The project owner's private-wrapper distribution decision
+is recorded separately from generated integrity checks; no new upstream license
+grant or reproducible-build claim is made. The viewing consumer profile remains
+held, its production allowlist empty and its pages unmounted.
+
+The owner recovery record reports one actual Zallet identity creation, followed
+by interrupted initialization. No mnemonic or payer was created. Recovery is
+continuing under the same owner with the original database preserved; this is
+not wallet or lifecycle acceptance. Regtest qualification source `465b3ade`
+is prepared but has not executed.
+
+Complete native public-network journeys remain zero, native wallet acceptance
+and public release remain false. These later component results preserve the
+historical failures above; they do not authorize a deployment or enable a held
+product consumer.
+
+The later application candidate `714217c0c588d41f4569d244d4c3e67736432734`
+passed all ten fresh jobs in [CI run 37159569483](https://github.com/bitcoinuniverseio/zerdinals-and-zrunes/actions/runs/37159569483).
+No dependency job was reused or skipped. Backend results include 4,320 passing
+tests with 58 existing skips and all 50 mandatory SQL checks without skips;
+frontend results include 3,691 passing tests. Product browser checks passed 627
+cases with three historical exclusions, and visual checks passed 196 with four
+mobile exclusions. This is component and integration evidence; complete native
+public-network journeys remain zero and public release remains false.
+
+Actual resource probes found that the existing approved-fleet Docker daemon
+does not enforce the requested container limits. Read-only inspection found
+delegated user-service controllers; a separate tiny service probe exposed a
+reader-lifetime race before kernel evidence could be admitted. Its failed owner
+is preserved while a bounded handshake and explicit reconciliation are prepared.
+On the separate Testnet host, seedless Zallet preflight refused before creating
+a container or invoking the native command. The original interrupted databases
+and wallet identity remain preserved. Neither result qualifies a payer or
+changes the public-release decision.
+
+The later seedless native Zallet migration completed on the exact reconciled
+Testnet container without retry or altered fsync. Actual kernel limits, normal
+exit, closed journals, native Testnet/version metadata, integrity and all required
+tables were verified. The 667,648-byte empty template has SHA256
+`bb3b83eee8b5bb90834b32e0f46b5c55ca0f2f098f393ae653913a3a2e9766d4`;
+every required private key, account, address and note count is zero. This
+qualifies the empty-schema component. The supported native encryption step
+also passed using the existing identity in one copy beneath the original custody
+owner. Native recipient equality, actual kernel limits, closed journals, integrity
+and Testnet/version metadata were verified, with seed and account tables empty.
+The original identity, backups and both interrupted databases remain preserved. No seed, payer or complete
+public Testnet/Signet journey is qualified; public release remains false.
+
+The original identity also has a protected off-host ciphertext whose actual
+reopen and decrypt reproduced the original bytes. That component does not
+qualify mnemonic, native wallet or Windows disaster recovery. A read-only backup
+catalog query lists two original Windows workspace snapshots, with no Windows
+profile root listed; recovery of the original Signet key remains unproven.
+
+Later owned user-service probe37164859628 verified both requested memory caps
+(4 and 5 GiB), zero swap, 128 processes and two CPUs from the actual kernels.
+The prior failed service remains preserved. The existing fleet Docker daemon
+still lacks enforced limits; isolated daemon, UID mapping and finite persistent
+storage qualification remain required before the original Regtest campaign.
+
+The first supported native Testnet seed generation subsequently passed once.
+Protected receipt `f283415ee1b738a51c4b2a21fc1b0e51e0a2852818f56563df71b29077306653`
+records one encrypted, unconfirmed mnemonic, zero accounts, actual kernel limits,
+integrity and closed journals. The new owned database changed while the original
+failed database metadata, identity and backups remained unchanged. Account
+creation and funding remain held until durable backup and native wallet restore
+qualify. Complete native public-network journeys remain zero; release remains false.
+
+Application CI run37166448626 at `8e4f990783b2fddef334c48f4028dec79abe6c36`
+passed five fresh jobs and reused five dependency suites whose Git trees were
+independently verified against the fully fresh714 revision. Independent review
+SHA256 is `3a24de95e59d617e32b13266c35c844a26a188ea30bfd9ca56218d92d6b036b1`.
+This is component evidence and does not qualify public-network acceptance.
+
+The separate supported export of the same existing native Testnet seed succeeded
+once. Protected receipt `7b3166a672e6e54fbdb5a4a882e90521ae8ce1fc18e4c647d0107e6c92589bf5`
+records actual kernel enforcement and encrypted ciphertext. The wallet database
+payload hash before and after is identical; only the permitted ctime metadata
+change occurred. The original failed database metadata, identity, backups and
+prior export histories remain preserved. No plaintext mnemonic was read.
+Offhost ciphertext recovery, full wallet backup and native restore must still
+qualify before backup confirmation, account creation or funding.
+
+Application CI run37171213462 at `f3126469d598d828a6ba6493568d4ced7b2c9096`
+passed five fresh jobs and reused five exact714 source trees. Independent review
+SHA256 is `a87729c2c616d93d06d64268cbf4680dc5afdbd7a3cc2c9ea1c0a1bef656037d`.
+This does not claim fresh full CI for later qualification-source revisions.
+Read-only publisher diagnosis37174112239 verified the retained service failed
+with exit1 and empty cgroup, preserving four earlier services. Private diagnostic
+files were locally absent; the diagnostic does not qualify signed publisher
+metadata, native fixture tools or a new daemon. Complete native public-network
+journeys remain zero and public release remains false.
+
+
+The subsequent whole-wallet encryption and offhost encrypted-backup roundtrip
+succeeded. Native receipt `6e7ce1a5bb9bb9dc768535e1c38e4690f3110634f7542cb6aae5df7d9720b0ff`
+binds the read-only wallet encryption; protected stored-file readback receipt
+`37e360b997ca61287b4f4c4695e040a448b7e4571085ddd37489de235a6bc36d`
+reproduces the exact complete ciphertext. The prior mnemonic backup and all
+original failed histories remain preserved. Native restore, wallet confirmation,
+account creation, funding and complete public-network acceptance remain pending.
+
+Publisher run37178288723 at `a0a9553cb01f7eae08a05ed4b823cb2233ee1fe7`
+progressed through signature verification but refused the verified release
+identity check. Both prior failed owners and four earlier services remained
+unchanged; the new failed owner is retained. No fixture tool, finite filesystem
+or isolated daemon is qualified. The earlier1558-record backup catalog covers
+only two selected workspace metadata subtrees, so its zero counts cannot show
+complete original-profile backup absence. Complete native public-network
+journeys remain zero and public release remains false.
+
+
+The later publisher metadata run37183178914 at49bf7aee passed on the approved
+fleet. Artifact11295778052, result SHA256
+b81b428f5faf0c4c8c9bcddbf7711ac73aa8c230bf6e72ddbc87b6626102159f,
+authenticates the three exact Docker package coordinates under observed kernel
+controls. The four failed publisher owners and four original units were
+freshly double observed unchanged. Archives were not downloaded; tool bytes,
+an isolated daemon and a finite fixture remain unqualified. Focused publisher
+tests39 passed without skips; full CI for this later source remains pending.
+
+Original durable recovery inputs were independently observed under
+receipt745df26c047efeb45c663df340d5346ba0eba6b35ca87d1aa277289cfe6734c6.
+The first recovery request70ba timed out before native create or start, with
+native commands zero and an empty output database. Separate read-only checks
+confirmed no recovery container, active custody UID or owned slice. The image
+metadata format failed, while the original JSON image inspection verified its
+exact image, owner and absence of volumes. These observations admit source
+review of a first native continuation; they do not prove a restored wallet.
+The original failure and zero-output state remain preserved.
+
+Read-only native metadata inventory qualified access to the existing backup
+cache:98 files across86 directories, totaling1,390,832,029 bytes. Authenticated
+repository config matched its exact cache ID. An isolated encrypted cache copy
+and the resulting search are still pending. Neither selected-catalog zero
+counts nor this cache inventory establishes absence of original custody.
+Complete native journeys remain zero and public release remains false.
+
+
+The corrective native recovery on 2026-10-04 completed four real commands with
+exit zero. Receipt fc5a748f0d5687b1fe784b2472e43acbe9d05ecf1e478bd5c5d5e09a413d3942
+records the full wallet backup decrypted to its exact original database and a
+native reopened-wallet export. Original and restored mnemonic backups matched
+privately in locked memory. Physical no-swap limits covered the attach clients;
+native and host core dumps were disabled. The original failed request never
+launched an executable: its read-only nested config mount failed during OCI
+setup. Its container, public files and history remain preserved. The corrective
+phase used a separate config mount and explicitly verified public file modes.
+The existing mnemonic remains unconfirmed, accounts remain zero, and a started
+wallet sync through the real services is still pending. This is an offline
+backup recovery result, not a completed native product journey.
+
+Fresh CI run 37185944343 tested ab755b993b1d6caf936240951df40ebf7906805a.
+All ten jobs passed on the approved fleet, including the SQL, signer, frontend
+and browser gates. Independent review SHA256
+9c79018c9068dc3afcfc11903d5bcbc632fb17960bee6ce29bd3852617a49a78 binds
+artifact 11297162204 and the exact tested source. No job result was reused.
+
+Publisher archive run 37185396703 verified the exact 10,171,028-byte rootless
+extras archive against authenticated signed metadata. Its XZ decoder remained
+unqualified, so tool comparison and runtime admission stayed held. Read-only
+run 37185914012 verified this failed owner and all nine earlier owners unchanged.
+The new decoder remains under review. The encrypted backup-cache copy and query
+remain pending: the original provisioning attempt and a fresh staged preflight
+both timed out without admitting ciphertext copying. Unknown search outcomes
+remain unknown. Complete native journeys remain zero; public release remains
+false.
+
+
+The original wallet backup was confirmed by the supported native command on
+2026-10-04. Receipt 12ad31000c726b4bc29684b6236a6707d596bceb7244632507a8af743f6b53ee
+records two actual native commands with exit zero: decryption of the original
+mnemonic backup and confirmation of the original wallet. The existing encrypted
+seed stayed unchanged. The three quiz answers came from locked memory; no
+plaintext mnemonic file or new seed was created. Physical no-swap limits covered
+the controller, attach clients and native processes. The shared owner remained
+limited to 2 GiB, one CPU and 128 tasks, with core dumps disabled.
+The confirmed wallet still has zero accounts. Authenticated wallet service,
+account creation, refreshed backups, funding and native product journeys remain
+pending. Historical failed requests and the successful offline recovery remain
+preserved.
+
+A read-only Windows worker test completed all thirteen markers with exit zero
+and verified Low I/O priority, a 2 GiB job, two CPUs and sixteen processes.
+Very Low I/O priority had stalled the earlier diagnostic. A fresh storage
+preflight using Low priority created an empty first receipt and failed before
+copying or querying the encrypted backup cache. That unknown attempt remains
+preserved while the receipt writer is diagnosed. No custody recovery or search
+absence is inferred. Complete native journeys remain zero; public release
+remains false.
+
+
+The archive decoder diagnostic on 2026-10-04 identified a read-only,
+non-executable, root-owned locale archive in the new Python process. The
+decoder refused that unmatched mapping before decoding. Run 37195526274 at
+c30a11fae494bc4fde15c229706caf7d4c039603 retained its failed owner and verified
+all eleven predecessors unchanged. Artifact 11301026112 has ZIP digest
+b8dd2aa81e64a2d881c2b82f4a1bd07f5fdf939503724fd3f38176370f9e5b38
+and JSON digest a13d857ad384ab974cc21c1af0a567445814e81dab214a742f0091d0f52094ce.
+This establishes the new process's refusal cause; the earlier process's
+unavailable mapping history remains unknown. Decoder qualification, signed
+tool execution and the finite native fixture remain pending.
+
+Core CI run 37192537473 at 648ef5f7 passed five fresh jobs and verified reuse
+of five unchanged areas. Independent review digest
+577c7567427cbcf964afdc0ac3da729fa9f6901fb670920221095481151fd24c
+binds the exact source, jobs and receipt. Reused areas are not fresh passes.
+The subsequent diagnostic has eleven passing focused source tests.
+
+The original confirmed wallet's service controller exited before creating a
+container. Exact read-only checks found no service candidate and an empty
+result, with the original confirmed database unchanged. Its protected
+dispatch journal records the controller request; it does not establish the
+actor's termination cause. Account creation and funding remain held.
+
+The Signet recovery receipt diagnostic reached public helper compilation and
+timed out. Read-only metadata found a zero-byte emitted DLL and no qualified
+component receipt. No encrypted cache was copied or queried. A changed,
+reference-pinned compiler also timed out before emission within the existing
+resource limits. It produced no component receipt or storage admission.
+Unknown attempts and original custody artifacts remain preserved. Complete
+native journeys remain zero; public release remains false.
+
+
+The subsequent bounded decoder qualification succeeded on 2026-10-04.
+Run 37197529795 at b07a0ed3e8b5c4863e774bcd5d04270bf588754a passed a
+positive vector, six refusal cases and a final positive vector. Exact builtin
+C locale selection removes the new locale mapping while every unmatched
+mapping remains refused. Artifact 11301099597 has ZIP digest
+a29cfd29fddcd5dd6a92d32b380ede9cd14a5f62cf5a0bf66459525fdcf879ef
+and JSON digest a7ac60750ef4d13c0740e08c1d4ea9c5b55f189263cca2b2252fe11e4eb27648.
+Read-only run 37199636031 at 42518c39769b99d3c5d9cf9c82a51c0d9e07e17d
+verified the exact completed decoder and all thirteen retained owners.
+Its artifact 11302681386 has JSON digest
+c45ecf5e4484a648f6561325b6109a4161295603022d5a7e4da3fb801e08946a.
+This qualifies the OS decoder component only. The later signed archive
+comparison, run 37200544819 at bf71c81d44272e99521f866499e19a9b512f685b,
+verified the exact archive size and signed digest, then retained an unknown
+failure before tool comparison. Artifact 11302422930 has JSON digest
+8dd36d7dd21fd12e23f35f0522c996b4c5c96335ea955c8762eb512c5f3503a6.
+All thirteen earlier owners remain unchanged; no fixture tool is admitted.
+
+Fresh wallet metadata identified three retained files: the original confirmed
+database, the native lock file and an empty historical initializer target.
+The pinned native source establishes the lock name; an empty lock is not
+proof of quiescence. The corrected service preserves all three exact tuples,
+uses a separate artifact configuration and requires physical resource,
+closed-command and native lock checks. Its first request passed all eight
+preflight checks and created and started one exact native container. The
+native resource and core-limit headers were observed. That process exited
+with status 1 before authenticated RPC was verified; the held receipt is
+2516977a286209787bdcfeb4bd3d1a0d4c34ee54a7f0c312bbd4782198adc9e7.
+Fresh read-only observation confirms that it is stopped, without an OOM,
+and preserves the unchanged database metadata. No account or faucet request
+has been submitted.
+
+The public recovery helper and both public receipt-writing methods passed
+actual bounded qualification. Separate reference-stream and source-copy
+diagnostics also passed. The source-copy test confirmed the non-public
+MemoryStream GetBuffer exception and verified the bounded replacement.
+The combined storage helper remains unqualified: its latest attempt timed
+out while reading and hashing the first pinned compiler assembly. Failed attempts remain
+retained. No encrypted cache copy or backup query has been admitted.
+Complete native journeys remain zero; public release remains false.
+
+
+The following component and request reconciliation completed on 2026-10-04.
+The corrected signed archive comparison, run 37203833365 at
+12b040df1eee33b9ac08152f99e637b4d541cb32, succeeded. Artifact 11304095690
+has ZIP digest 08a705c2d375600654b87696820b3aa60b8b21affafce982cc63a789a3224420
+and JSON digest 531f6865fe82c4b31c0dac6878316a3f5015b06063481cd7130a9ab27b3b4e60.
+It verifies the exact signed archive and both selected current tool files,
+using the immutable qualified decoder and physical acknowledged limits.
+All fifteen previous owners remain unchanged. The separate real-file test
+reproduced premature descriptor closure and verifies its correction; the
+earlier failed attempts retain their unknown historical causes. This pass
+qualifies selected bytes, with tool execution and native fixture work held.
+
+The Windows single-journal persistence test passed all 120 rows. Its derived
+assembly diagnostic then verified both pinned compiler assemblies and 119
+durable rows. The combined helper passed actual bounded qualification at
+96a08c72-19b9-44fa-9be5-843829eb3b16, preserving all four native class bodies.
+Its 6656-byte DLL digest is 0acf51f2e3c1837b4f892824cc5640bf7208b2ad434d4ad88019fb1fdb8954ad
+and its receipt digest is 0059d1f2c369d90a124ed037922f912aa09e0e328b945c56c9c728ae65bf2395.
+The actual run completed in 4405 milliseconds under unchanged memory, CPU,
+process, I/O and time limits. Its 46-row journal was verified through held
+and reopened file identities. Isolated storage, encrypted cache copying and
+backup queries still require their separately reviewed precompiled tooling.
+
+The original wallet service exited with code 1 before authenticated RPC was
+observed. The diagnosed request passed all eight preflight checks, then its
+create request timed out before returning an ID. Exact-name reconciliation
+found that same container created and never started, with the controller
+inactive and the original database, lock tuple and stopped predecessor
+preserved. Its first-start continuation is pending; no second create,
+replacement seed, account allocation or faucet request has been sent.
+These component passes do not qualify native product acceptance. Complete
+native journeys remain zero and public release remains false.
+
+
+The following first-start and isolated storage checkpoint was observed on 2026-10-04.
+Read-only fleet run 37204923993 at 0d839932040b8f7e05a7e1ebc681ca57c9096a7e
+passed, preserving the successful archive owner and all fifteen predecessors.
+Artifact 11304691290 has ZIP digest ebaf1038dbe10976c4b3be95c682866006fb3e3773d74f4235f96e94a564feea
+and JSON digest 2241b3bd438e471142ba271391703cce6b419bc8f0530162099300bcca199d1f.
+Selected signed bytes remain qualified; execution and native fixture work remain held.
+
+The original wallet first-start continuation passed all eight preflight checks
+and sent one start request to the reconciled container. Fresh read-only inspection
+found it exited with code 1, without an OOM, and with the controller inactive.
+The held first-start receipt digest is a41b916a02a13cc06b6225a80b0f5a0c7dd4e613e5f6ce288716d655878cb8b8.
+The original create-refusal and confirmation receipts remain unchanged. Database
+metadata remains unchanged; the native lock timestamp changed during the request.
+No diagnostic bytes or authenticated RPC were observed. Docker client and server
+are both 29.7.2, with stdout and stderr attachment enabled and no daemon error.
+The startup cause remains unresolved; no start replay or account request was sent.
+
+Isolated storage job d9e6b28f-9c6e-4fd7-b87e-9412b1e43ab2 passed all eight
+ordered stages: preflight, fixed-disk creation, attachment, initialization,
+partitioning, formatting, mounting and verification. Each actual result has a
+complete protected journal tied to the qualified precompiled helper. The disk
+is fixed at 2 GiB, NTFS, without a drive letter, and verified outside boot and
+system roles. Memory, CPU, process, I/O and time limits remain unchanged.
+The corrected query helper passes its real PowerShell AST cleanup check.
+The subsequent bounded run reached the filename query after encrypted copying,
+readback, finite-volume verification and both exact snapshot metadata checks.
+Its filename query returned an unknown failure with child exit 95 after 46375
+milliseconds. The result does not establish query completion, backup absence or
+recovered original Signet custody. Owned objects and all earlier histories remain
+preserved while read-only diagnosis continues. Complete native product journeys
+remain zero and public release remains false.
+
+
+The following capture and decoder-seed checkpoint was observed on 2026-10-04.
+The corrected source reader passed forty-nine checks. Its actual decoder run
+37207134777/job 111450565496 at 665abd5c5879b6948c2ce0d156cafa6afe58af28
+created one acknowledged service and then refused XZ_PUBLIC_EXPANSION_SEED.
+Artifact 11305635868 has ZIP digest e70a0d85530107082a4cb02e6baac41e6a1bd18b8dc8ac8d9dcab9a4a8078f21
+and JSON digest 024ba9e1400e2022bbc7df231706d154ac21f6db86c700b391d4bf04c953b634.
+The exact failed invocation a7f6de3825794fcab9e5fb67bd3f4513 is preserved,
+with all sixteen predecessors unchanged. Source inspection establishes the public
+seed has thirty bytes while the reader required twenty-nine. The corrected
+predicate derives its size from the exact literal; a cross-language regression
+checks the actual Node and Python seed definitions. Fifty-two checks pass without
+skips. The new read-only seventeenth-owner observer is pending actual execution.
+No new qualification owner, tool execution or native fixture authority is granted.
+
+A separate public native version fixture passed actual concurrent capture
+qualification without mounting the original wallet or identity. It observed the
+physical kernel header, both stream ends and native exit zero with core dumps
+disabled and controller swap excluded. The exact read-only observer independently
+verified stopped container and inactive controller, six read-only public mounts
+and the durable receipt digest 6243db32dc63dbf48583043e7cbde9c40bf02734be2511443293c67bbc124d61.
+Thirteen preparation and capture checks and six observer checks pass. This
+qualifies the capture path before another reviewed original-wallet diagnostic;
+it does not establish the historical startup cause or authenticated wallet RPC.
+
+The bounded CurrentUser checkpoint primitive passed actual public qualification
+with both 4096-byte and 2097152-byte fixtures. Each protected exclusive file was
+flushed, reopened, hash checked and decrypted in memory to the original bytes.
+Its receipt digest is ac480298e8f04c59e5ef558b24355aaa1d3428f43b0b7e73bddb57c3b193aafb.
+Fifteen primitive checks pass; current profile metadata is present, while disaster
+recovery remains unqualified. Private backup-tree checkpointing and the first
+bounded tree query remain pending. Complete native product journeys remain zero
+and public release remains false.
