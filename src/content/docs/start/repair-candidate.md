@@ -7,6 +7,10 @@ The repair candidate assessed on September 5, 2026 remains **NO-GO: not ready fo
 
 ## What changed in the candidate
 
+For the newer artifact-bound accounting, recovery, worker and authority contracts,
+read the [October 3 candidate](/docs-zerdinals-and-zrunes/start/candidate-2026-10-03/).
+The results on this page remain historical evidence for their recorded revisions.
+
 Database registration now shares one schema definition across runtime and migration replay. The earlier checkpoint registered 68 entities, retaining all 65 pre-existing entities and adding persisted identity challenges and two analytics projections. Later authority repairs extend this registry through forward migrations. Original migration identities remain unchanged. Local replay, rollback and application restart checks cover the recorded revisions. Readiness preserves false or unknown historical coverage; current tips cannot establish complete scanning. Network-specific connection defaults do not qualify signing or activate a protocol.
 
 Payment attempts bind repeat requests to the authorized order and terms, with transactional state and recovery records. Creator reservations now use locked supply accounting, sealed revision binding and persistent order references. Caller-derived transaction hashes and premature mint success were removed. Actual paid delivery remains unqualified.
