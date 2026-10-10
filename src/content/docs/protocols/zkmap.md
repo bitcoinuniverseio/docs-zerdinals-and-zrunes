@@ -195,7 +195,7 @@ Range, detail and availability responses carry an additive
 `occupancy` envelope with schema `zkmap-occupancy-v1` when the indexer
 supports the current observation contract. It is sourced only from the owned
 Zebra mempool (`source: owned-zebra-mempool`, decoder
-`zkmap-mempool-v1`). A local order, invoice, accepted signature or broadcast
+`zkmap-mempool-v2`; earlier indexers report `zkmap-mempool-v1`). A local order, invoice, accepted signature or broadcast
 acknowledgement is not membership proof.
 
 The envelope binds `network`, `genesisHash`, `snapshotId`,
