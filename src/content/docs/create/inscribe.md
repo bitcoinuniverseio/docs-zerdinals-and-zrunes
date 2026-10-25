@@ -281,3 +281,21 @@ checkable against a Zcash node.
 - [Fees and confirmation](/docs-zerdinals-and-zrunes/create/fees/)
 - [Signing availability](/docs-zerdinals-and-zrunes/create/signing-availability/)
 - [Zordinals v1 specification](/docs-zerdinals-and-zrunes/protocols/zerdinals-v1/)
+
+## Prepared drafts: candidate update
+
+This update awaits release qualification.
+
+Search for `inscribe text "your text"` to prepare exact text bytes, then choose
+an address and review. `resume draft` reopens the saved inscription editor.
+New file and text drafts retain their recipient on this device when browser
+storage is available. A save failure says to keep the tab open.
+
+Upload, camera files and pasted files use the same content checks. Original
+bytes stay unchanged. Camera support depends on the browser and device.
+Voice and automatic photo/document extraction are not available in this update.
+A draft is never a sent or accepted inscription.
+
+For minting, `mint zrune NAME` opens the existing asset lookup.
+`mint zrc-20 TICK` shows real matches for you to choose. Review the token,
+reading, amount, recipient and fees before creating an order.
