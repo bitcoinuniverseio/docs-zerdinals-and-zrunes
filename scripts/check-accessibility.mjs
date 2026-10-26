@@ -47,6 +47,7 @@ const ALL_ROUTES = [
   '/start/status/',
   '/start/repair-candidate/',
   '/start/candidate-2026-10-03/',
+  '/start/grow-candidate-2026-10-24/',
   '/understand/zerdinals/',
   '/understand/zrunes/',
   '/understand/zrc-20/',
