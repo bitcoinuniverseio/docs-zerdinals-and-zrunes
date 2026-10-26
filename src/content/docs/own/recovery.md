@@ -26,9 +26,9 @@ when the service comes back:
   does not add load to a struggling service, and fills itself back in when
   the indexer answers. You do not have to reload. The notice carries a
   **Retry now** button if you would rather not wait.
-- Creation, draft editing and recovery stay accessible during read failures.
-  Submission depends on the checks required by that operation. Unknown
-  availability or funding safety is never treated as permission to spend.
+- While the site cannot confirm current chain data, creating, etching,
+  minting, and transferring stay unavailable rather than proceeding on
+  stale information.
 
 ## When data is stale
 
@@ -79,9 +79,12 @@ where it stopped and what the next approval is.
 ## Recovery list: candidate update
 
 This update awaits release qualification. Saved orders and creation-page
-resume lists show readable states and the next action. Open the original
-order to review, sign, pay or inspect a payment difference. Opening a list
-never pays or retries an order.
+resume lists show readable states and the next action. In the candidate,
+creation, draft editing and recovery stay accessible during read failures.
+Submission depends on the checks required by that operation. Unknown
+availability or funding safety is never treated as permission to spend.
+Open the original order to review, sign, pay or inspect a payment
+difference. Opening a list never pays or retries an order.
 
 A delayed update keeps the last verified state with a brief stale marker.
 The original recovery link remains the route back to that order. Do not
