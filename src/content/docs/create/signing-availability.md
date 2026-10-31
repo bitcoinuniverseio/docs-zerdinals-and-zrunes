@@ -30,8 +30,13 @@ record, because they move assets the record has to see first.
 
 Each create page shows, beside its submit button, whether the order can be
 sent now and the one thing holding it if not. Open **Service details** for
-the individual dependency states and technical reasons. Changing wallets does
+the individual service states and the latest check time. Use **Retry** to check again. Changing wallets does
 not repair a service outage.
+
+A Send warning applies to sending only. Etching, minting, draft editing and
+existing-order recovery keep their own availability. A slow answer is different
+from asset data that could not be verified; neither proves an output safe to
+spend. A healthy general status does not override the Send check.
 
 A **Wrong network** indicator is the one you can clear yourself: the network
 selected in this browser is not the one this deployment serves, so prices,

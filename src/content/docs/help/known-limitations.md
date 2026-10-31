@@ -106,3 +106,19 @@ Open an issue in the
 [documentation repository](https://github.com/bitcoinuniverseio/docs-zerdinals-and-zrunes/issues)
 or follow the product's support path. Security reports have
 [their own channel](https://github.com/bitcoinuniverseio/docs-zerdinals-and-zrunes/security/policy).
+
+## Collection artwork and repeated claims
+
+Collection artwork can be absent, being prepared, or temporarily unavailable.
+A placeholder is not the collection's original artwork. Pending artwork retries
+for a limited time while visible; unavailable artwork offers **Retry**. Leaving
+the page cancels recovery. An artwork failure does not change ownership or supply.
+
+Collections remain discoverable even when their names look like tests. A name
+alone does not establish operator ownership or test status. Any future curated
+exclusion must use an explicit reviewed deployment identity and reversible policy.
+Direct collection links and the full explorer remain available.
+
+Several artifacts may claim the same ZkMap name. Each inscription keeps its own
+link and authoritative verdict. A late claim is an ordinary inscription, not
+another winning ZkMap.
