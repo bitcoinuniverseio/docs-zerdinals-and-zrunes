@@ -3,20 +3,6 @@ title: "ZkMap v1 specification"
 description: "The specification of ZkMap block numbers: one Zordinal-carried block number per Zcash block, the exact claim bytes, who wins, how a district moves, and the deterministic district picture."
 ---
 
-<!-- IMPLEMENTATION-HANDOFF [ZKIDX-09]
-Coverage: N01, N02, N03, N04. Functional status: FAIL.
-Sources: S01, S02, S03, S04, S08, S09 in handoff/RESEARCH-REGISTER.md.
-Prerequisites: ZKIDX-01, ZKIDX-04.
-Verified baseline: D05: the developer runbook says Testnet and Mainnet share a parameters digest, but parametersDigest hashes network. It also describes a two-block indexer lag allowance while current safe coverage requires reaching verified node tip. Source and documentation references include older release pins.
-1. In docs-dev-zcash-metaprotocols/docs/zkmap-release.md correct the future execution text so Testnet and Mainnet have separately computed parameters digests and genesis identities; equivalent tested code is not equal network-dependent configuration.
-2. Distinguish zero indexer lag from the separate six-block node estimated-height tolerance in current coverageFreshness. Update replay instructions to require actual final source identity without declaring every API-only edit a mandatory replay.
-3. Update public indexer docs, product protocol docs and private developer docs together with actual new repository/service ownership, legacy/new route compatibility, configuration, occupancy semantics, tests and release receipts. Preserve the protocol grammar, first-winner and terminal ownership rules.
-4. Resolve version/activation statements using live supported-node network metadata and pinned governing ZIPs. Product text mentioning V6 is not evidence that a draft transaction format is active on public Mainnet. Record any remaining normative/reference disagreement explicitly rather than inventing semantics.
-5. Replace old source/release claims only after the implementation and relevant test evidence exist. Keep implemented-in-source, Testnet acceptance and public Mainnet release as separate statuses. Never publish wallet secrets, private host credentials or unverified URLs.
-Tests: Run each affected documentation repository documented check/build commands after implementation; during preparation verify HTML comments preserve all non-comment bytes. ; Assert mainnet and testnet parametersDigest differ for otherwise equivalent configuration; compare documentation freshness wording against src/chain/protocol-qualification.mjs.
-Acceptance: All consumer/operator documentation matches the accepted artifact and observed release, with correct network-specific evidence, source pins, limitations and rollback.
-Rollback: Revert incorrect published prose to last verified content, not fabricated launch claims. Source preparation HTML comments remain non-executable until implemented.
--->
 :::note[Where the rules live]
 ZkMap is a ruleset (`zkmap-v1`) read by the indexer over ordinary Universe
 Zordinals v1 inscriptions. It adds no envelope field and no new transaction
@@ -385,32 +371,6 @@ request that pins a hash which no longer names the block at that height
 answers 409. Which block a height names now is decided by reading the block or
 the claim receipt again, never by looking at an image.
 
-<!--
-IMPLEMENTATION-HANDOFF [CMO-15] CMO-A040 | 2026-09-20 | PREPARATION ONLY
-Coverage: DOC-02,ZKM-01. Findings: F16, N03.
-Verified current behavior: The ZkMap specification already separates claim rules, artwork and ownership;
-the market presentation overhaul must not change those protocol promises.
-Sources: S-APP-MARKET, S-ZKMAP, S-NAMES-MARKET, S-NAMES-REGISTRAR in
-docs/implementation/core-market-overhaul-20260920/RESEARCH.md.
-Prerequisites: CMO-14.
-1. Add the accepted market discovery/filter/metric contract and Bitmap-style presentation explanation
-without changing zkmap-v1 claim bytes, winner ordering, occupancy or art version semantics.
-2. Explain that the market lists the verified winning Zordinal through existing settlement, not a new
-token or name registry; image hashes are not ownership proof.
-3. Update public route/action screenshots and release status only after actual browser/Testnet evidence
-and deployment exist; label observation scope and unknown metrics.
-Verify: Existing scripts/verify-deployed-assets.mjs against the actual published origin/artifact, after
-accepted release only ; Read-only public /.release and /api/ready checks; verify backend/indexer serving
-revision separately ; Functional GO requires every required row PASS; final GO additionally requires
-RELEASED: PUBLIC MAINNET evidence.
-Assert: The overhaul is implemented, tested and publicly released through all actual services after
-acceptance; a ZIP, build, merged PR, private preview or disabled feature is not public release.
-Rollback/security: Keep prior immutable artifacts/config backups and compatible schema. Roll back unsafe
-admission/UI in dependency order while preserving real funds, accepted operations, authoritative indexer
-history and recovery.
-Full cross-repository contract: docs/implementation/core-market-overhaul-20260920/WORK-PACKAGES.md.
-ANNOTATED is not functional PASS. Preserve executable behavior during preparation.
--->
 ## 8. The district page
 
 `https://zrunes.io/zkmap/<height>` is one district, and it opens with the
