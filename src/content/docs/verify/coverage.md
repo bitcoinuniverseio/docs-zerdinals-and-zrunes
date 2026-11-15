@@ -17,40 +17,6 @@ This one never does.
 
 ## The four situations
 
-<!-- IMPLEMENTATION-HANDOFF [REC-DOCS-01] @REC-DOCS-01-A01
-Coverage: REC-READ-TRUTH, REC-EMPTY-RESULT, REC-CREATION-AVAILABILITY.
-Finding: R-DOCS-01. Preparation only; rendered copy is unchanged. Functional status: NOT TESTED.
-Verified source: this page explains chain reading but does not explicitly separate contiguous
-scan coverage from current parser/projection replay qualification. The indexer's
-protocolQualificationComplete and coverageFreshness do separate those facts.
-Governing reference: index-zcash-metaprotocols at 009679b0e25a586ca64fedd9a44302244d2e2946,
-src/chain/protocol-qualification.mjs and src/api/zkmap.mjs; product ZERDINALS-V1 section 14.1.
-Prerequisites: REC-HEALTH-01, REC-API-01, REC-UI-01, REC-VERIFY-01.
-1. In implementation, explain that an up-to-date checkpoint and a successful readiness
-   response do not by themselves qualify historical protocol reads. Empty results require
-   the route's complete, qualified and fresh chain context; unknown stays unknown.
-2. Keep draft ZkMap observations, strict availability, and accepted claim receipts distinct.
-   A missing claim during incomplete replay must never become available or a valid receipt.
-   A qualified older output range may prove only that range under its recorded floor/hash.
-3. Keep the existing creating, network-selector, wallet and recovery guidance. Do not add
-   global replay admission gates or public header/account coverage banners. Explain delayed
-   receipt verification separately from signed/submitted/confirmed order progress.
-4. Reconcile the coverage field names below with the verified REC-HEALTH-01 response schema,
-   and update status documentation only from time-bound evidence for the serving revision.
-   Never copy an archival success or height into a current claim.
-5. Verify in this documentation repository: npm test; npm run build.
-   REC-VERIFY-01 must also execute the indexer tests coverage-freshness.test.mjs,
-   protocol-qualification.test.mjs and zkmap-routes.test.mjs, then the real native Zcash
-   Testnet product journeys. Include empty, stale, unqualified, unavailable and accepted
-   outcomes, with persistence after refresh/reconnect. These tests are not executed here.
-Rollback: no schema or protocol migration is authorized by this comment. Retain historical
-observations and funded-order recovery; reverse any later inaccurate prose without falsifying
-the recorded qualification state.Status 2026-10-09 (REC-DOCS-01 implementation): items 1 to 3 are now covered by the
-rendered sections below, and the field names come from the indexer API source on branch
-impl/replay-recovery-20261009. Kept open because REC-HEALTH-01 acceptance, a time-bound status
-refresh for the serving revision (item 4) and the REC-VERIFY-01 indexer and native Testnet
-runs (item 5) have not happened yet.
--->
 
 1. **The chain is still being read.** The result says so where it appears,
    instead of reporting a count. Absence here means nothing at all, and no
