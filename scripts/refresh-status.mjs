@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Refreshes src/data/status.json from the live product's public endpoints.
 //
-// Automatic fields come from https://zrunes.io/api/ready and
+// Automatic fields come from https://zordinals.run/api/ready and
 // /idx/zcash-metaprotocols/status. The deployed product commit cannot be read
 // from a public endpoint, so it is kept as a manually verified field: pass
 // --commit <sha> only after confirming the live bundle fingerprint matches a
@@ -31,9 +31,9 @@ async function getText(url) {
   return response.text();
 }
 
-const ready = await getJson('https://zrunes.io/api/ready');
-const idx = await getJson('https://zrunes.io/idx/zcash-metaprotocols/status');
-const home = await getText('https://zrunes.io/');
+const ready = await getJson('https://zordinals.run/api/ready');
+const idx = await getJson('https://zordinals.run/idx/zcash-metaprotocols/status');
+const home = await getText('https://zordinals.run/');
 
 const bundle = home.match(/assets\/(index-[A-Za-z0-9_-]+\.js)/)?.[1];
 if (!bundle) throw new Error('could not find the bundle fingerprint on the live page');
@@ -51,7 +51,7 @@ if (!network) throw new Error('/api/ready did not report zcash:mainnet');
 const next = {
   verifiedAt: new Date().toISOString().replace(/\.\d{3}Z$/, 'Z'),
   product: {
-    url: 'https://zrunes.io',
+    url: 'https://zordinals.run',
     deployedCommit: commitArg ?? previous.product.deployedCommit,
     bundleFingerprint: bundle,
   },

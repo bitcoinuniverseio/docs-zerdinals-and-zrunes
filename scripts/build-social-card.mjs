@@ -51,7 +51,7 @@ p{margin-top:26px;font-size:25px;line-height:1.4;color:#A7B0BE;max-width:30ch}
 </div>
 <div><h1>Read the<br><span>documentation</span></h1>
 <p>Understand, create, own, and verify Zcash digital artifacts. Every claim checkable against the chain.</p></div>
-<div class="foot"><span><b>zrunes.io</b></span><span>Public documentation</span></div>
+<div class="foot"><span><b>zordinals.run</b></span><span>Public documentation</span></div>
 </div></body></html>`;
 
 const browser = await chromium.launch();
