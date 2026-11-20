@@ -5,7 +5,7 @@ can be detected and regenerated identically.
 
 | File | Product commit | URL | Viewport | Theme | Captured | Command |
 | --- | --- | --- | --- | --- | --- | --- |
-| discover-1440-dark.png | 39176f5f722f51ec13cb5d85a125af89be1e72e3 | https://zrunes.io/ | 1440x900 | dark | 2026-09-23 | Playwright chromium: goto, networkidle, 3s settle, viewport screenshot |
+| discover-1440-dark.png | f4146730103775b5043a8aa011fa338cce05c56a | https://zordinals.run/ | 1440x900 | dark | 2026-11-20 | Playwright chromium: goto, visible heading, release marker, viewport screenshot |
 
 Regeneration: run a Playwright chromium page at the listed viewport with
 `colorScheme` set to the listed theme against the listed URL, wait for

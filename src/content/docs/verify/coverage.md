@@ -103,7 +103,7 @@ changed also starts unqualified, and has to replay from block 0 again.
 Each of these can be true while the record is still unqualified:
 
 - the checkpoint has reached the newest block on the network;
-- `https://zrunes.io/api/ready` answers that the service is up;
+- `https://zordinals.run/api/ready` answers that the service is up;
 - the scanner reports the block range as complete;
 - a code comment, a release note or an older test report says the release
   passed.
@@ -183,7 +183,7 @@ Either way, the quickest fix is to send the ZEC from a shielded balance.
 How far the record has read is public:
 
 ```text
-https://zrunes.io/idx/zcash-metaprotocols/status
+https://zordinals.run/idx/zcash-metaprotocols/status
 ```
 
 | Field | What it tells you |

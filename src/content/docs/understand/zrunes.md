@@ -31,7 +31,7 @@ You can check the height, and whether it has been reached, against the
 product's own indexer, which publishes both:
 
 ```text
-https://zrunes.io/idx/zcash-metaprotocols/status
+https://zordinals.run/idx/zcash-metaprotocols/status
 ```
 
 The `zrunes` block in the response carries `activationHeight` and `active`.
@@ -70,8 +70,8 @@ A block explorer can show you 1 and 2 for anything. This product answers 3,
 ### Checking any transaction
 
 Paste any Zcash transaction id into the lookup on the
-[ZRunes tab of Explore](https://zrunes.io/explore/zrunes), or open it
-directly at `https://zrunes.io/scan/tx/<txid>`. If it carries a payload in a
+[ZRunes tab of Explore](https://zordinals.run/explore/zrunes), or open it
+directly at `https://zordinals.run/scan/tx/<txid>`. If it carries a payload in a
 format this product does not read, the page shows the output, the raw bytes
 and the one verdict we can honestly give: not ZRunes v1. Nothing there is a
 balance, and no id from it is offered to a mint or trade form.

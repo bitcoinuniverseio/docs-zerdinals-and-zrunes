@@ -28,7 +28,7 @@ export default defineConfig({
   markdown: {
     rehypePlugins: [rehypeTableScroll],
   },
-  site: 'https://zrunes.io',
+  site: 'https://zordinals.run',
   base: '/docs-zerdinals-and-zrunes',
   trailingSlash: 'ignore',
   integrations: [
@@ -61,7 +61,7 @@ export default defineConfig({
       head: [
         {
           tag: 'meta',
-          attrs: { property: 'og:image', content: 'https://zrunes.io/docs-zerdinals-and-zrunes/social-card.png' },
+          attrs: { property: 'og:image', content: 'https://zordinals.run/docs-zerdinals-and-zrunes/social-card.png' },
         },
         {
           tag: 'meta',

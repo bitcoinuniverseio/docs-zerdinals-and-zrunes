@@ -6,11 +6,11 @@
 operators run.** Zordinals inscriptions, ZRunes, ZRC-20 tokens, and
 collections, each shown with the chain evidence behind it.
 
-**[Open the product](https://zrunes.io)** ·
-**[Read the documentation site](https://zrunes.io/docs-zerdinals-and-zrunes/)** ·
+**[Open the product](https://zordinals.run)** ·
+**[Read the documentation site](https://zordinals.run/docs-zerdinals-and-zrunes/)** ·
 **[Current status](src/content/docs/start/status.mdx)**
 
-[![The Discover page: the archive headline, live chain figures, and the newest artwork inscribed into Zcash](public/screenshots/discover-1440-dark.png)](https://zrunes.io)
+[![The Discover page: the archive headline, live chain figures, and the newest artwork inscribed into Zcash](public/screenshots/discover-1440-dark.png)](https://zordinals.run)
 
 *The live product on 2026-08-28: chain read in full, every figure from
 first-party infrastructure.*
@@ -27,7 +27,7 @@ first-party infrastructure.*
 
 People write things into the Zcash blockchain: images, text, and token
 instructions. Once written, those bytes survive as long as Zcash does.
-[zrunes.io](https://zrunes.io) is the complete record of that activity, read
+[zordinals.run](https://zordinals.run) is the complete record of that activity, read
 block by block from Universe-operated Zcash infrastructure, with no
 third-party chain service anywhere. Where the chain has not been read in
 full, the product says so; where two token rule sets disagree, it shows both

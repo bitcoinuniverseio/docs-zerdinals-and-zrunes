@@ -12,7 +12,7 @@ stage guarantees, and where the public boundaries are.
 Your browser
    |
    v
-Product frontend (zrunes.io)          static, no account, no tracking
+Product frontend (zordinals.run)          static, no account, no tracking
    |
    v
 Product backend                       orders, fees, health, read proxying
@@ -48,7 +48,7 @@ product can put "read from a node we run" behind every figure.
   first-party indexer can be reached again.
 - **The product backend** plans orders (inscriptions, etches, mints) as
   effects-only intents, computes ZIP 317 fees from real transaction shapes,
-  and reports health honestly at `https://zrunes.io/api/ready`.
+  and reports health honestly at `https://zordinals.run/api/ready`.
 - **The product frontend** renders all of it with the honesty rules the
   documentation describes: labeled staleness, four distinct empty states,
   and no control that pretends an unavailable action can finish.

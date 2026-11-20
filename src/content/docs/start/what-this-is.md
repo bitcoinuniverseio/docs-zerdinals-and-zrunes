@@ -10,7 +10,7 @@ go next. It is written for someone who has never used an inscription product.
 
 People write things into the Zcash blockchain: images, text, and small token
 instructions. Once written, those bytes are part of the chain and survive as
-long as Zcash does. [zrunes.io](https://zrunes.io) is the record of everything
+long as Zcash does. [zordinals.run](https://zordinals.run) is the record of everything
 written this way, read directly from a Zcash node its operators run, plus the
 two things a person does with a record: check it, and add to it.
 

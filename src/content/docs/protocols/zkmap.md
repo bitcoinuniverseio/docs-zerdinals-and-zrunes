@@ -413,7 +413,7 @@ ANNOTATED is not functional PASS. Preserve executable behavior during preparatio
 -->
 ## 8. The district page
 
-`https://zrunes.io/zkmap/<height>` is one district, and it opens with the
+`https://zordinals.run/zkmap/<height>` is one district, and it opens with the
 district: the picture, and beside it the shortest true answer about it.
 
 **The summary.** The claim status in its own words, the current owner as a

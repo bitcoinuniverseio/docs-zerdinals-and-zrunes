@@ -1,7 +1,7 @@
 # Zordinals and ZRunes
 
 > Public documentation for the Zcash digital-artifact product at
-> https://zrunes.io: Zordinals inscriptions, ZRunes, ZRC-20 tokens,
+> https://zordinals.run: Zordinals inscriptions, ZRunes, ZRC-20 tokens,
 > collections, and the ZordiScan explorer. Every availability claim defers
 > to the status page; every figure in the product is read from
 > first-party Zcash infrastructure.
@@ -12,79 +12,79 @@ src/content/docs/.
 
 ## Start here
 
-- [What this is](https://zrunes.io/docs-zerdinals-and-zrunes/start/what-this-is/)
-- [Finding your way around](https://zrunes.io/docs-zerdinals-and-zrunes/start/finding-your-way-around/)
-- [Safety in sixty seconds](https://zrunes.io/docs-zerdinals-and-zrunes/start/safety/)
-- [Current status](https://zrunes.io/docs-zerdinals-and-zrunes/start/status/)
+- [What this is](https://zordinals.run/docs-zerdinals-and-zrunes/start/what-this-is/)
+- [Finding your way around](https://zordinals.run/docs-zerdinals-and-zrunes/start/finding-your-way-around/)
+- [Safety in sixty seconds](https://zordinals.run/docs-zerdinals-and-zrunes/start/safety/)
+- [Current status](https://zordinals.run/docs-zerdinals-and-zrunes/start/status/)
 
 ## Understand
 
-- [Zordinals](https://zrunes.io/docs-zerdinals-and-zrunes/understand/zerdinals/)
-- [ZRunes](https://zrunes.io/docs-zerdinals-and-zrunes/understand/zrunes/)
-- [ZRC-20, and its two readings](https://zrunes.io/docs-zerdinals-and-zrunes/understand/zrc-20/)
-- [Ownership lives on outputs](https://zrunes.io/docs-zerdinals-and-zrunes/understand/ownership-and-outputs/)
-- [Transparent and shielded](https://zrunes.io/docs-zerdinals-and-zrunes/understand/transparent-and-shielded/)
-- [Collections](https://zrunes.io/docs-zerdinals-and-zrunes/understand/collections/)
+- [Zordinals](https://zordinals.run/docs-zerdinals-and-zrunes/understand/zerdinals/)
+- [ZRunes](https://zordinals.run/docs-zerdinals-and-zrunes/understand/zrunes/)
+- [ZRC-20, and its two readings](https://zordinals.run/docs-zerdinals-and-zrunes/understand/zrc-20/)
+- [Ownership lives on outputs](https://zordinals.run/docs-zerdinals-and-zrunes/understand/ownership-and-outputs/)
+- [Transparent and shielded](https://zordinals.run/docs-zerdinals-and-zrunes/understand/transparent-and-shielded/)
+- [Collections](https://zordinals.run/docs-zerdinals-and-zrunes/understand/collections/)
 
 ## Create
 
-- [Pay with any wallet](https://zrunes.io/docs-zerdinals-and-zrunes/create/pay-with-any-wallet/)
-- [Inscribe a Zordinal](https://zrunes.io/docs-zerdinals-and-zrunes/create/inscribe/)
-- [Create tokens and collections](https://zrunes.io/docs-zerdinals-and-zrunes/create/tokens-and-collections/)
-- [Etch, mint, transfer ZRunes](https://zrunes.io/docs-zerdinals-and-zrunes/create/etch-mint-transfer/)
-- [Fees and confirmation](https://zrunes.io/docs-zerdinals-and-zrunes/create/fees/)
-- [Signing availability](https://zrunes.io/docs-zerdinals-and-zrunes/create/signing-availability/)
+- [Pay with any wallet](https://zordinals.run/docs-zerdinals-and-zrunes/create/pay-with-any-wallet/)
+- [Inscribe a Zordinal](https://zordinals.run/docs-zerdinals-and-zrunes/create/inscribe/)
+- [Create tokens and collections](https://zordinals.run/docs-zerdinals-and-zrunes/create/tokens-and-collections/)
+- [Etch, mint, transfer ZRunes](https://zordinals.run/docs-zerdinals-and-zrunes/create/etch-mint-transfer/)
+- [Fees and confirmation](https://zordinals.run/docs-zerdinals-and-zrunes/create/fees/)
+- [Signing availability](https://zordinals.run/docs-zerdinals-and-zrunes/create/signing-availability/)
 
 ## Market
 
-- [Buying and selling](https://zrunes.io/docs-zerdinals-and-zrunes/market/buying-and-selling/)
+- [Buying and selling](https://zordinals.run/docs-zerdinals-and-zrunes/market/buying-and-selling/)
 
 ## Own and protect
 
-- [Portfolio and watchlists](https://zrunes.io/docs-zerdinals-and-zrunes/own/portfolio/)
-- [The Web Wallet](https://zrunes.io/docs-zerdinals-and-zrunes/own/web-wallet/)
-- [The Shielded Bitcoin wallet](https://zrunes.io/docs-zerdinals-and-zrunes/own/shielded-bitcoin/)
-- [Send a Zordinal](https://zrunes.io/docs-zerdinals-and-zrunes/own/send-a-zerdinal/)
-- [Protect asset-bearing outputs](https://zrunes.io/docs-zerdinals-and-zrunes/own/protect/)
-- [Interruptions and recovery](https://zrunes.io/docs-zerdinals-and-zrunes/own/recovery/)
+- [Portfolio and watchlists](https://zordinals.run/docs-zerdinals-and-zrunes/own/portfolio/)
+- [The Web Wallet](https://zordinals.run/docs-zerdinals-and-zrunes/own/web-wallet/)
+- [The Shielded Bitcoin wallet](https://zordinals.run/docs-zerdinals-and-zrunes/own/shielded-bitcoin/)
+- [Send a Zordinal](https://zordinals.run/docs-zerdinals-and-zrunes/own/send-a-zerdinal/)
+- [Protect asset-bearing outputs](https://zordinals.run/docs-zerdinals-and-zrunes/own/protect/)
+- [Interruptions and recovery](https://zordinals.run/docs-zerdinals-and-zrunes/own/recovery/)
 
 ## Verify
 
-- [Search](https://zrunes.io/docs-zerdinals-and-zrunes/verify/search/)
-- [ZordiScan](https://zrunes.io/docs-zerdinals-and-zrunes/verify/zordiscan/)
-- [What an empty result means](https://zrunes.io/docs-zerdinals-and-zrunes/verify/coverage/)
-- [Proof bundles](https://zrunes.io/docs-zerdinals-and-zrunes/verify/proof-bundles/)
+- [Search](https://zordinals.run/docs-zerdinals-and-zrunes/verify/search/)
+- [ZordiScan](https://zordinals.run/docs-zerdinals-and-zrunes/verify/zordiscan/)
+- [What an empty result means](https://zordinals.run/docs-zerdinals-and-zrunes/verify/coverage/)
+- [Proof bundles](https://zordinals.run/docs-zerdinals-and-zrunes/verify/proof-bundles/)
 
 ## Protocols
 
-- [Zordinals v1 specification](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/zerdinals-v1/)
-- [ZRunes v1 specification](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/zrunes-v1/)
-- [Collections v1 specification](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/collections-v1/)
-- [ZkMap v1 specification](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/zkmap/)
-- [The ordinality decision](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/ordinality/)
-- [ZMarket Orders v1 specification](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/zmarket-orders-v1/)
-- [ZMarket Orders v2 specification](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/zmarket-orders-v2/)
-- [Creator Launches and Public Launchpad](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/creator-launches/)
-- [Shielded Metaprotocols](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/shielded-metaprotocols/)
-- [Shielded Bitcoin (universe-sb-v1)](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/shielded-bitcoin/)
-- [Names and Dual-Registry Architecture](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/names-and-registries/)
+- [Zordinals v1 specification](https://zordinals.run/docs-zerdinals-and-zrunes/protocols/zerdinals-v1/)
+- [ZRunes v1 specification](https://zordinals.run/docs-zerdinals-and-zrunes/protocols/zrunes-v1/)
+- [Collections v1 specification](https://zordinals.run/docs-zerdinals-and-zrunes/protocols/collections-v1/)
+- [ZkMap v1 specification](https://zordinals.run/docs-zerdinals-and-zrunes/protocols/zkmap/)
+- [The ordinality decision](https://zordinals.run/docs-zerdinals-and-zrunes/protocols/ordinality/)
+- [ZMarket Orders v1 specification](https://zordinals.run/docs-zerdinals-and-zrunes/protocols/zmarket-orders-v1/)
+- [ZMarket Orders v2 specification](https://zordinals.run/docs-zerdinals-and-zrunes/protocols/zmarket-orders-v2/)
+- [Creator Launches and Public Launchpad](https://zordinals.run/docs-zerdinals-and-zrunes/protocols/creator-launches/)
+- [Shielded Metaprotocols](https://zordinals.run/docs-zerdinals-and-zrunes/protocols/shielded-metaprotocols/)
+- [Shielded Bitcoin (universe-sb-v1)](https://zordinals.run/docs-zerdinals-and-zrunes/protocols/shielded-bitcoin/)
+- [Names and Dual-Registry Architecture](https://zordinals.run/docs-zerdinals-and-zrunes/protocols/names-and-registries/)
 
-- [Provenance Studio (C2PA 2.4)](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/provenance-studio/)
-- [Rights and Remix Studio](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/rights-and-remix/)
-- [Passes and Events](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/passes-and-events/)
-- [Private Releases](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/private-releases/)
-- [Creator Collectives](https://zrunes.io/docs-zerdinals-and-zrunes/protocols/creator-collectives/)
+- [Provenance Studio (C2PA 2.4)](https://zordinals.run/docs-zerdinals-and-zrunes/protocols/provenance-studio/)
+- [Rights and Remix Studio](https://zordinals.run/docs-zerdinals-and-zrunes/protocols/rights-and-remix/)
+- [Passes and Events](https://zordinals.run/docs-zerdinals-and-zrunes/protocols/passes-and-events/)
+- [Private Releases](https://zordinals.run/docs-zerdinals-and-zrunes/protocols/private-releases/)
+- [Creator Collectives](https://zordinals.run/docs-zerdinals-and-zrunes/protocols/creator-collectives/)
 
 ## Developers
 
-- [October 3 implementation candidate](https://zrunes.io/docs-zerdinals-and-zrunes/start/candidate-2026-10-03/)
+- [October 3 implementation candidate](https://zordinals.run/docs-zerdinals-and-zrunes/start/candidate-2026-10-03/)
 
-- [Architecture](https://zrunes.io/docs-zerdinals-and-zrunes/developers/architecture/)
-- [Public HTTP API](https://zrunes.io/docs-zerdinals-and-zrunes/developers/api/)
-- [Order notifications](https://zrunes.io/docs-zerdinals-and-zrunes/developers/order-notifications/)
+- [Architecture](https://zordinals.run/docs-zerdinals-and-zrunes/developers/architecture/)
+- [Public HTTP API](https://zordinals.run/docs-zerdinals-and-zrunes/developers/api/)
+- [Order notifications](https://zordinals.run/docs-zerdinals-and-zrunes/developers/order-notifications/)
 
 ## Help
 
-- [Frequently asked questions](https://zrunes.io/docs-zerdinals-and-zrunes/help/faq/)
-- [Known limitations](https://zrunes.io/docs-zerdinals-and-zrunes/help/known-limitations/)
-- [The admin area](https://zrunes.io/docs-zerdinals-and-zrunes/help/admin/)
+- [Frequently asked questions](https://zordinals.run/docs-zerdinals-and-zrunes/help/faq/)
+- [Known limitations](https://zordinals.run/docs-zerdinals-and-zrunes/help/known-limitations/)
+- [The admin area](https://zordinals.run/docs-zerdinals-and-zrunes/help/admin/)

@@ -18,7 +18,7 @@ function require_(condition, message) {
 require_(typeof status.verifiedAt === 'string' && !Number.isNaN(Date.parse(status.verifiedAt)), 'verifiedAt must be a valid timestamp');
 require_(/^[0-9a-f]{40}$/.test(status.product?.deployedCommit ?? ''), 'product.deployedCommit must be a full commit sha');
 require_(/^index-[A-Za-z0-9_-]+\.js$/.test(status.product?.bundleFingerprint ?? ''), 'product.bundleFingerprint must be a bundle file name');
-require_(status.product?.url === 'https://zrunes.io', 'product.url must be the live product');
+require_(status.product?.url === 'https://zordinals.run', 'product.url must be the live product');
 require_(typeof status.reads?.available === 'boolean', 'reads.available must be boolean');
 require_(typeof status.writes?.enabled === 'boolean', 'writes.enabled must be boolean');
 require_(typeof status.walletSigning?.available === 'boolean', 'walletSigning.available must be boolean');

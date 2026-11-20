@@ -42,7 +42,7 @@ The product's indexer publishes a read-only HTTP API through the product
 domain:
 
 ```text
-https://zrunes.io/idx/zcash-metaprotocols
+https://zordinals.run/idx/zcash-metaprotocols
 ```
 
 - **Network:** Zcash mainnet.
@@ -139,7 +139,7 @@ Some specialized reads return a structured 503 with
 Indexer status, including ZRunes activation:
 
 ```bash
-curl -s https://zrunes.io/idx/zcash-metaprotocols/status
+curl -s https://zordinals.run/idx/zcash-metaprotocols/status
 ```
 
 Expected shape (values will have moved with the chain):
@@ -169,18 +169,18 @@ Expected shape (values will have moved with the chain):
 The two newest inscriptions, then the next page:
 
 ```bash
-curl -s "https://zrunes.io/idx/zcash-metaprotocols/inscriptions?order=newest&limit=2"
+curl -s "https://zordinals.run/idx/zcash-metaprotocols/inscriptions?order=newest&limit=2"
 ```
 
 ```bash
-curl -s "https://zrunes.io/idx/zcash-metaprotocols/inscriptions?order=newest&limit=2&cursor=CURSOR_FROM_PREVIOUS_RESPONSE"
+curl -s "https://zordinals.run/idx/zcash-metaprotocols/inscriptions?order=newest&limit=2&cursor=CURSOR_FROM_PREVIOUS_RESPONSE"
 ```
 
 The same call in TypeScript, keeping exact integers exact:
 
 ```ts
 const response = await fetch(
-  'https://zrunes.io/idx/zcash-metaprotocols/inscriptions?order=newest&limit=2'
+  'https://zordinals.run/idx/zcash-metaprotocols/inscriptions?order=newest&limit=2'
 );
 if (!response.ok) throw new Error(`indexer answered ${response.status}`);
 const page = await response.json();

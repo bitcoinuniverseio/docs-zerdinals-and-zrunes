@@ -129,7 +129,7 @@ documentation snapshot does not override these live checks.
 You can read the same answer the pages read:
 
 ```bash
-curl -s https://zrunes.io/api/readiness
+curl -s https://zordinals.run/api/readiness
 ```
 
 It names one state per operation and per path, the reasons in the order they
