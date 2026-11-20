@@ -61,7 +61,7 @@ labelled **Lowest ask**; a **Floor** is always one collection's.
 
 ## Where this market is
 
-This market is part of the application at [zrunes.io](https://zrunes.io) and
+This market is part of the application at [zordinals.run](https://zordinals.run) and
 nowhere else. Zordinals and ZRUNES are Zcash protocols, and the wider Bitcoin
 Universe surfaces treat them as read and explore only: they display and
 search the chain record, and no marketplace outside this application trades

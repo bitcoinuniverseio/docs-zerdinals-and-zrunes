@@ -76,7 +76,7 @@ order capability as its status route:
 
 ```bash
 curl -N -H "x-order-capability: YOUR_ORDER_CAPABILITY" \
-  "https://zrunes.io/api/payment-orders/YOUR_ORDER_ID/events"
+  "https://zordinals.run/api/payment-orders/YOUR_ORDER_ID/events"
 ```
 
 Inscription orders use `/api/inscriptions/YOUR_ORDER_ID/events`. The

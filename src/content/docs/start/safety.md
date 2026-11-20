@@ -28,7 +28,7 @@ Nothing warns you, and nothing undoes it.
 
 The Scan page for an address lists every inscription, ZRune balance, and
 ZRC-20 balance it holds, against the specific output that carries each one.
-Search the address at [zrunes.io](https://zrunes.io) before moving anything.
+Search the address at [zordinals.run](https://zordinals.run) before moving anything.
 
 Two things that surprise people:
 

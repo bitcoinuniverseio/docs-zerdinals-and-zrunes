@@ -5,7 +5,7 @@ description: "What is live, what is gated, and when each fact was last verified 
 
 **Every creation operation was open on mainnet when checked on 23 September 2026.** Inscribing single files and batches, sending Zordinals and ZRunes, etching and minting ZRunes, claiming zkMap blocks, and listing and buying on the market were all accepting new orders from a connected wallet. Inscribing, etching, minting and zkMap claims could also be paid from any wallet; sending, listing and buying need your own wallet to sign. Each of them was run end to end on the public Zcash testnet before that release went live.
 
-Availability changes with the chain and the service, so treat the observations below as dated facts, not a promise. The product and `https://zrunes.io/api/readiness` always say what is open right now.
+Availability changes with the chain and the service, so treat the observations below as dated facts, not a promise. The product and `https://zordinals.run/api/readiness` always say what is open right now.
 
 import status from '../../../data/status.json';
 
@@ -36,7 +36,7 @@ Checking it yourself takes one request, against the same public endpoint this
 page is generated from:
 
 ```bash
-curl -s https://zrunes.io/api/ready
+curl -s https://zordinals.run/api/ready
 ```
 
 `"ok": true` means the service is up and answering right now. Anything else
@@ -48,7 +48,7 @@ it is unavailable
 The indexer's own view is at the second endpoint:
 
 ```text
-https://zrunes.io/idx/zcash-metaprotocols/status
+https://zordinals.run/idx/zcash-metaprotocols/status
 ```
 
 ## What each row means
@@ -68,7 +68,7 @@ action can finish when it cannot, and nothing is created, signed or broadcast
 while a flow is closed.
 
 The product publishes the same answer the pages read, one state per
-operation, at `https://zrunes.io/api/readiness`. The create routes enforce
+operation, at `https://zordinals.run/api/readiness`. The create routes enforce
 that exact state, so the page and the route cannot disagree.
 [Details](/docs-zerdinals-and-zrunes/create/signing-availability/).
 
