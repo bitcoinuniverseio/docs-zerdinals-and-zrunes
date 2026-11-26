@@ -1,3 +1,11 @@
-# Creation availability policy
+# AGENTS.md — canonical source
 
-Read `D:\universe\AGENTS.md` first. Global scan/replay completeness must not become a mint or inscription admission requirement. Preserve unknown read truth, actual protocol rules, network isolation, asset-safe inputs and signing/ownership permissions. Do not expose coverage badges in public product chrome.
+Read and follow the current canonical instructions before working: https://github.com/bitcoinuniverseio/prompts/blob/main/AGENTS.md
+
+For authenticated CLI access, use:
+
+```sh
+gh api -H "Accept: application/vnd.github.raw+json" "repos/bitcoinuniverseio/prompts/contents/AGENTS.md?ref=main"
+```
+
+This file is a reference only, not a separate set of instructions.
